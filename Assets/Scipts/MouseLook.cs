@@ -6,6 +6,9 @@ using UnityEngine.InputSystem;
 public class MouseLook : MonoBehaviour
 {
     private InputMaster controls;
+    private InputActionAsset inputAsset;
+    private InputActionMap player;
+    private InputAction moveA;
 
     public float mouseSensitivity = 150f;
 
@@ -17,7 +20,14 @@ public class MouseLook : MonoBehaviour
     private void Awake()
     {
         controls = new InputMaster();
+        inputAsset = this.GetComponentInParent<PlayerInput>().actions;
+        player = inputAsset.FindActionMap("Player");
         Cursor.lockState = CursorLockMode.Locked;
+    }
+
+    private void Start()
+    {
+        
     }
 
     private void Update()
@@ -27,8 +37,7 @@ public class MouseLook : MonoBehaviour
 
     private void Look()
     {
-        mouseLook = controls.Player.Look.ReadValue<Vector2>();
-
+        mouseLook = player.FindAction("Look").ReadValue<Vector2>();
         float mouseX = mouseLook.x * mouseSensitivity * Time.deltaTime;
         float mouseY = mouseLook.y * mouseSensitivity * Time.deltaTime;
 
