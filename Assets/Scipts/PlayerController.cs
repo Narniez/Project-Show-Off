@@ -98,23 +98,4 @@ public class PlayerController : MonoBehaviour
         controller.Move(velocity * Time.deltaTime);
     }
 
-    private void Movement()
-    {
-       //move =  moveA.ReadValue<Vector2>();
-       // //move = controls.Player.Movement.ReadValue<Vector2>();
-
-       // Vector3 movement = (move.y * transform.forward) + (move.x * transform.right);
-       // controller.Move(movement * moveSpeed * Time.deltaTime);
-    }
-
-    private void Jump()
-    {
-        //if (controls.Player.Jump.triggered)
-        //{
-        //    velocity.y = Mathf.Sqrt(jumpHeigh * -fallSpeed * gravity);
-        //}
- 
-        
-    }
-
 }
