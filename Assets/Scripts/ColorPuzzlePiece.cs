@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class ColorPuzzlePiece : Interactable
 {
-
     Vector3 orientation;
     float rotY = 90;
     Vector3 rotation = Vector3.zero;
@@ -20,9 +19,12 @@ public class ColorPuzzlePiece : Interactable
 
     public override void OnInteract()
     {
-        Debug.Log("Interacting");
-        rotation.y += rotY;
-        transform.Rotate(rotation);
+        if (Input.GetMouseButtonDown(0))
+        {
+            Debug.Log("Interacting");
+            rotation.y += rotY;
+            transform.Rotate(rotation);
+        }
     }
 
     public override void OnLoseFocus()

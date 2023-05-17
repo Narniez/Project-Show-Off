@@ -1,8 +1,6 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.InputSystem.HID;
 
 public class InteractionHandler : MonoBehaviour
 {
@@ -10,6 +8,7 @@ public class InteractionHandler : MonoBehaviour
     public Interactable currentInteractable;
     public Vector3 interactionRaypoint = default;
     public float interactionDistance = default;
+
     private InputActionAsset inputAsset;
     private InputActionMap player;
     private PlayerInput playerInput;
@@ -48,6 +47,7 @@ public class InteractionHandler : MonoBehaviour
     {
         player.FindAction("Interaction").started -= Interact;
     }
+
     // Update is called once per frame
     void Update()
     {
@@ -62,7 +62,7 @@ public class InteractionHandler : MonoBehaviour
         if (canInteract)
         {
             HandleInteractionCheck();
-            //HandleInteractionInput();
+            HandleInteractionInput();
         }
     }
 
