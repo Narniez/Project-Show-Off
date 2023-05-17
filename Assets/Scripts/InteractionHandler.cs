@@ -1,8 +1,6 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.InputSystem.HID;
 
 public class InteractionHandler : MonoBehaviour
 {
@@ -10,6 +8,7 @@ public class InteractionHandler : MonoBehaviour
     public Interactable currentInteractable;
     public Vector3 interactionRaypoint = default;
     public float interactionDistance = default;
+
     private InputActionAsset inputAsset;
     private InputActionMap player;
     private PlayerInput playerInput;
@@ -18,11 +17,10 @@ public class InteractionHandler : MonoBehaviour
 
     private void Awake()
     {
-       
         inputAsset = this.GetComponentInParent<PlayerInput>().actions;
         player = inputAsset.FindActionMap("Player");
         playerInput = this.GetComponentInParent<PlayerInput>();
-       mainCamera = playerInput.camera;
+        mainCamera = playerInput.camera;
     }
 
     private void OnEnable()
@@ -35,27 +33,35 @@ public class InteractionHandler : MonoBehaviour
     {
         player.FindAction("Interaction").started -= Interact;
     }
+
     // Update is called once per frame
     void Update()
     {
         if (canInteract)
         {
             HandleInteractionCheck();
-            //HandleInteractionInput();
+            HandleInteractionInput();
         }
     }
 
     void HandleInteractionCheck()
     {
-            var ray = mainCamera.ViewportPointToRay(interactionRaypoint);
-        if (Physics.Raycast(ray, out RaycastHit hit, /*1.5f*/interactionDistance))
+        var ray = mainCamera.ViewportPointToRay(interactionRaypoint);
+        RaycastHit hit;
+        if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, interactionDistance))
         {
-           Debug.DrawLine(ray.origin, mainCamera.transform.forward * 5000, Color.red);
+            Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * hit.distance, Color.yellow);
             if (hit.collider.CompareTag("PPiece"))
             {
-                //Debug.Log("Looking at puzzle");
+                Debug.Log("Looking at puzzle");
+            }
+            if (hit.collider.CompareTag("RotaryDisk"))
+            {
+                
             }
 
+
+            // ?!?!?!?!????
             if (/*hit.collider.gameObject.layer == 9 && */(currentInteractable == null || hit.collider.gameObject.GetInstanceID() != currentInteractable.GetInstanceID()))
             {
                 hit.collider.TryGetComponent(out currentInteractable);
@@ -72,15 +78,16 @@ public class InteractionHandler : MonoBehaviour
             }
         }
     }
+
     private void Interact(InputAction.CallbackContext obj)
     {
         HandleInteractionInput();
     }
+
     void HandleInteractionInput()
     {
         if (currentInteractable != null /*&& Physics.Raycast(mainCamera.ScreenPointToRay(Input.mousePosition), out RaycastHit hit, interactionLayer)*/)
         {
-           // Debug.Log("Should interact");
             currentInteractable.OnInteract();
         }
     }

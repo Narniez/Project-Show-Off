@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -9,7 +7,6 @@ public class MouseLook : MonoBehaviour
     private InputActionAsset inputAsset;
     private InputActionMap player;
     private InputAction moveA;
-
 
     public float mouseSensitivity = 150f;
 

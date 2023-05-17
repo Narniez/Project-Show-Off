@@ -72,8 +72,6 @@ public class CameraController : MonoBehaviour
 
                 Vector2 verticalInput = player.FindAction("Movement").ReadValue<Vector2>();
 
-
-
                 float desiredY = transform.position.y + verticalInput.y * snapAmount;
                 //desiredY = Mathf.Clamp(desiredY, minY, maxY);
                 transform.position = new Vector3(transform.position.x, desiredY, transform.position.z);
