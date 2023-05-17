@@ -10,12 +10,15 @@ public class MouseLook : MonoBehaviour
     private InputActionMap player;
     private InputAction moveA;
 
+
     public float mouseSensitivity = 150f;
 
     private Vector2 mouseLook;
     private float xRotation = 0f;
 
     public Transform playerBody;
+
+    public static bool canLook = true;
 
     private void Awake()
     {
@@ -27,12 +30,15 @@ public class MouseLook : MonoBehaviour
 
     private void Start()
     {
-        
+
     }
 
     private void Update()
     {
-        Look();
+        if (canLook)
+        {
+            Look();
+        }
     }
 
     private void Look()

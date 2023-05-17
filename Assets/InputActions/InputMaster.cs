@@ -318,6 +318,17 @@ public partial class @InputMaster: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
+                    ""id"": ""7b26176b-492e-49fd-9cb3-b3ed1f750f22"",
+                    ""path"": ""<Gamepad>/leftShoulder"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Join"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
                     ""id"": ""af831c2a-9a4e-43ac-985a-44b450737250"",
                     ""path"": ""<Keyboard>/f"",
                     ""interactions"": """",

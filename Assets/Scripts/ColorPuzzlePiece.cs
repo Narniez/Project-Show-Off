@@ -9,10 +9,12 @@ public class ColorPuzzlePiece : Interactable
     float rotY = 90;
     Vector3 rotation = Vector3.zero;
     public Vector3 correctOrientation;
+    public Vector3 currentOrientation;
+    public Quaternion targetAngle;
 
     public override void OnFocus()
     {
-        Debug.Log("Looking at puzzlePiece");
+        //Debug.Log("Looking at puzzlePiece");
     }
 
     public override void OnInteract()
@@ -35,6 +37,6 @@ public class ColorPuzzlePiece : Interactable
     // Update is called once per frame
     void Update()
     {
-       
+       //currentOrientation = transform.rotation.eulerAngles;
     }
 }

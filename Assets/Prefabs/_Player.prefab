@@ -250,13 +250,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mainCamera: {fileID: 193989120476225194}
   currentInteractable: {fileID: 0}
-  interactionRaypoint: {x: 0, y: 0, z: 0}
-  interactionDistance: 6
-  interactionLayer:
-    serializedVersion: 2
-    m_Bits: 0
-  interactKey: 102
-  interactButton: 352
+  interactionRaypoint: {x: 0.5, y: 0.5, z: 0}
+  interactionDistance: 10
 --- !u!1001 &6225255522923761045
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -312,28 +307,19 @@ PrefabInstance:
       propertyPath: playerBody
       value: 
       objectReference: {fileID: 193989121163172730}
-    - target: {fileID: 6112999849134543673, guid: 47d6222ee6722b3408d231279e383fcc, type: 3}
-      propertyPath: mouseSensitivity
-      value: 100
-      objectReference: {fileID: 0}
     - target: {fileID: 6112999849134543677, guid: 47d6222ee6722b3408d231279e383fcc, type: 3}
       propertyPath: m_Name
       value: Camera
-      objectReference: {fileID: 0}
-    - target: {fileID: 6112999849134543679, guid: 47d6222ee6722b3408d231279e383fcc, type: 3}
-      propertyPath: m_CullingMask.m_Bits
-      value: 191
       objectReference: {fileID: 0}
     - target: {fileID: 6112999849134543679, guid: 47d6222ee6722b3408d231279e383fcc, type: 3}
       propertyPath: m_NormalizedViewPortRect.x
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6112999849134543679, guid: 47d6222ee6722b3408d231279e383fcc, type: 3}
-      propertyPath: m_NormalizedViewPortRect.width
-      value: 1
+      propertyPath: m_NormalizedViewPortRect.height
+      value: 0.5
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 6112999849134543678, guid: 47d6222ee6722b3408d231279e383fcc, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 47d6222ee6722b3408d231279e383fcc, type: 3}
 --- !u!20 &193989120476225194 stripped
 Camera:

@@ -7,7 +7,6 @@ using UnityEngine.InputSystem;
 public class PlayerController : MonoBehaviour
 {
     public Camera cam;
-    //private InputMaster controls;
     private PlayerInput playerInput;
 
     private InputActionAsset inputAsset;
@@ -34,6 +33,9 @@ public class PlayerController : MonoBehaviour
 
     public float fallSpeed = 2f;
 
+    public static bool canMove = true;
+
+
     private void Awake()
     {
 
@@ -41,8 +43,8 @@ public class PlayerController : MonoBehaviour
         inputAsset = this.GetComponent<PlayerInput>().actions;
         player = inputAsset.FindActionMap("Player");
         controller = GetComponent<CharacterController>();
-        
-     
+
+
     }
 
     private void Start()
@@ -59,10 +61,14 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        move = moveA.ReadValue<Vector2>();
+        if (canMove)
+        {
 
-        Vector3 movement = (move.y * transform.forward) + (move.x * transform.right);
-        controller.Move(movement * moveSpeed * Time.deltaTime);
+            move = moveA.ReadValue<Vector2>();
+
+            Vector3 movement = (move.y * transform.forward) + (move.x * transform.right);
+            controller.Move(movement * moveSpeed * Time.deltaTime);
+        }
     }
 
     private void OnEnable()
@@ -75,7 +81,8 @@ public class PlayerController : MonoBehaviour
 
     private void DoJump(InputAction.CallbackContext obj)
     {
-        velocity.y = Mathf.Sqrt(jumpHeigh * -fallSpeed * gravity);
+        if (isGrounded)
+            velocity.y = Mathf.Sqrt(jumpHeigh * -fallSpeed * gravity);
     }
 
     private void OnDisable()
@@ -89,7 +96,7 @@ public class PlayerController : MonoBehaviour
     {
         isGrounded = Physics.CheckSphere(ground.position, distanceToGround, groundLayer);
 
-        if(isGrounded && velocity.y < 0)
+        if (isGrounded && velocity.y < 0)
         {
             velocity.y = -fallSpeed;
         }
