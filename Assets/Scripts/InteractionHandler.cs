@@ -57,7 +57,7 @@ public class InteractionHandler : MonoBehaviour
             }
             if (hit.collider.CompareTag("RotaryDisk"))
             {
-                
+                Debug.Log("Looking at disk");
             }
 
 
