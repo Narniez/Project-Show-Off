@@ -18,7 +18,7 @@ public class CameraController : MonoBehaviour
     public float maxY = 0.01f;
     public float snapAmount = 0.03f;
 
-    private bool isSnapping = false;
+    //private bool isSnapping = false;
     private bool isTransitioning = false;  // Flag to check if camera is transitioning
     private Vector3 targetPosition;  // Target position for the camera
     private Quaternion targetRotation;  // Target rotation for the camera

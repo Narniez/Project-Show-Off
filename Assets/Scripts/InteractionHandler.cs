@@ -16,6 +16,11 @@ public class InteractionHandler : MonoBehaviour
 
     public static bool canInteract = true;
 
+    public CameraControls cameraController;
+    public float maxDistance = 5f;
+
+    private bool isCameraLocked = false;
+
     private void Awake()
     {
        
@@ -51,9 +56,24 @@ public class InteractionHandler : MonoBehaviour
         if (Physics.Raycast(ray, out RaycastHit hit, /*1.5f*/interactionDistance))
         {
            Debug.DrawLine(ray.origin, mainCamera.transform.forward * 5000, Color.red);
-            if (hit.collider.CompareTag("PPiece"))
+            if (Input.GetKeyDown(KeyCode.P))
             {
-                //Debug.Log("Looking at puzzle");
+                if (isCameraLocked)
+                {
+                    isCameraLocked = false;
+                    cameraController.UnlockCamera();
+                }
+                else
+                {
+                    if (Physics.Raycast(transform.position, transform.forward, out hit, maxDistance))
+                    {
+                        if (hit.collider.CompareTag("PPiece"))
+                        {
+                            isCameraLocked = true;
+                            cameraController.LockCamera(hit.collider.transform); // Lock camera and set the target
+                        }
+                    }
+                }
             }
 
             if (/*hit.collider.gameObject.layer == 9 && */(currentInteractable == null || hit.collider.gameObject.GetInstanceID() != currentInteractable.GetInstanceID()))
@@ -84,6 +104,4 @@ public class InteractionHandler : MonoBehaviour
             currentInteractable.OnInteract();
         }
     }
-
-
 }

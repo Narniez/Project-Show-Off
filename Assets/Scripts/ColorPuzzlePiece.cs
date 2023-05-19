@@ -11,6 +11,7 @@ public class ColorPuzzlePiece : Interactable
     public Vector3 correctOrientation;
     public Vector3 currentOrientation;
     public Quaternion targetAngle;
+    public bool isCorrect = false;
 
     public override void OnFocus()
     {
