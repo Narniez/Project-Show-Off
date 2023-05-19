@@ -7,7 +7,7 @@ public class RotaryDisk : MonoBehaviour
     [HideInInspector] public RotaryDisk corespondingDisk;
     [SerializeField] private int[] correctDegreesObject;
 
-    private List<Transform> disks = new List<Transform>();
+    public List<Transform> disks = new List<Transform>();
 
     /// <summary>
     /// finds the coresponding disk (it needs 2 disks) and add the children to a list
