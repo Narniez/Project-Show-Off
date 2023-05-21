@@ -1,6 +1,3 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -60,7 +57,6 @@ public class PlayerController : MonoBehaviour
     {
         if (canMove)
         {
-
             move = moveA.ReadValue<Vector2>();
 
             Vector3 movement = (move.y * transform.forward) + (move.x * transform.right);
@@ -102,5 +98,4 @@ public class PlayerController : MonoBehaviour
         velocity.y += gravity * Time.deltaTime;
         controller.Move(velocity * Time.deltaTime);
     }
-
 }
