@@ -19,27 +19,27 @@ public class ColorPuzzlePiece : Interactable
 
     public override void OnInteract()
     {
-        if (Input.GetMouseButtonDown(0))
-        {
-            Debug.Log("Interacting");
-            rotation.y += rotY;
-            transform.Rotate(rotation);
-        }
+
+
+        Debug.Log("Interacting");
+        rotation.y += rotY;
+        transform.Rotate(rotation);
+
     }
 
     public override void OnLoseFocus()
     {
-        
+
     }
 
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
-       //currentOrientation = transform.rotation.eulerAngles;
+        //currentOrientation = transform.rotation.eulerAngles;
     }
 }

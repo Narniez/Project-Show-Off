@@ -74,10 +74,10 @@ public class CameraController : MonoBehaviour
 
                 }
             }
-        }
-        else if(!isLocked && !isTransitioning)
-        {
-            //target = null;
+            else
+            {
+                target = null;
+            }
         }
     }
 
@@ -112,29 +112,6 @@ public class CameraController : MonoBehaviour
         }
         else
         {
-
-            //if (!PlayerControls.canLook)
-            //{
-
-            //    // Handle user input for vertical camera movement
-
-            //    Vector2 verticalInput = player.FindAction("Movement").ReadValue<Vector2>();
-
-
-            //    float desiredY = transform.position.y + verticalInput.y * snapAmount;
-            //    //desiredY = Mathf.Clamp(desiredY, minY, maxY);
-            //    transform.position = new Vector3(transform.position.x, desiredY, transform.position.z);
-
-            //    // Limit the camera's y-axis position
-            //    Vector3 clampedPosition = transform.position;
-            //    clampedPosition.y = Mathf.Clamp(clampedPosition.y, minY, maxY);
-            //    transform.position = clampedPosition;
-
-            //    // Lock camera position and rotation
-            //    transform.position = new Vector3(target.position.x, transform.position.y, target.position.z);
-
-            //}
-
             if (isLocked && Input.GetKeyDown(KeyCode.P))
             {
                 isTransitioningBack = true;
