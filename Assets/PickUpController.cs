@@ -56,12 +56,7 @@ public class PickUpController : MonoBehaviour
             Vector3 moveDir = targetPosition - holdObj.transform.position;
             pickUpObjRB.AddForce(moveDir * 100f);   // Apply force to move the cube towards the target position
         }
-        else
-        {
-            // If the cube is close to the target position, apply a strong force towards the center to snap it into place
-            Vector3 centerForce = targetPosition - holdObj.transform.position;
-            pickUpObjRB.AddForce(centerForce * 500f);
-        }
+        
     }
 
     void PickUpItem(GameObject pickUpObj)
@@ -70,19 +65,20 @@ public class PickUpController : MonoBehaviour
 
         pickUpObjRB = pickUpObj.GetComponent<Rigidbody>();
         pickUpObjRB.useGravity = false;
-        pickUpObjRB.drag = 10f;
-        pickUpObjRB.constraints = RigidbodyConstraints.FreezeRotation;  // Freeze rotation of the cube when held
+        pickUpObjRB.drag = 5f;
 
         pickUpObjRB.transform.parent = holdAreaObj;  // Set the hold area as the parent of the cube to move it along with the area
 
         holdObj = pickUpObj;  // Set the held cube
+        //pickUpObjRB.constraints = RigidbodyConstraints.FreezeRotation;  // Freeze rotation of the cube when held
+        holdObj.transform.localRotation = Quaternion.Euler(0,0,0);
     }
 
     void DropItem()
     {
         pickUpObjRB.useGravity = true;
         pickUpObjRB.drag = 1;
-        pickUpObjRB.constraints = RigidbodyConstraints.None;  // Release constraints on the cube
+        //pickUpObjRB.constraints = RigidbodyConstraints.None;  // Release constraints on the cube
 
         pickUpObjRB.transform.parent = null;  // Remove the hold area as the parent of the cube
 
