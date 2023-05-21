@@ -9,6 +9,7 @@ public class PlayerController : MonoBehaviour
     public Camera cam;
     private PlayerInput playerInput;
 
+    Rigidbody rb;
     private InputActionAsset inputAsset;
     private InputActionMap player;
     private InputAction moveA;
@@ -32,19 +33,15 @@ public class PlayerController : MonoBehaviour
     private bool isGrounded;
 
     public float fallSpeed = 2f;
-
     public static bool canMove = true;
-
 
     private void Awake()
     {
-
+        rb = this.GetComponent<Rigidbody>();
         //controls = new InputMaster();
         inputAsset = this.GetComponent<PlayerInput>().actions;
         player = inputAsset.FindActionMap("Player");
         controller = GetComponent<CharacterController>();
-
-
     }
 
     private void Start()
@@ -55,7 +52,7 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
-        Gravity();
+        //Gravity();
         //Movement();
     }
 
@@ -68,6 +65,7 @@ public class PlayerController : MonoBehaviour
 
             Vector3 movement = (move.y * transform.forward) + (move.x * transform.right);
             controller.Move(movement * moveSpeed * Time.deltaTime);
+            
         }
     }
 
@@ -81,7 +79,7 @@ public class PlayerController : MonoBehaviour
 
     private void DoJump(InputAction.CallbackContext obj)
     {
-        if (isGrounded)
+        //if (isGrounded)
             velocity.y = Mathf.Sqrt(jumpHeigh * -fallSpeed * gravity);
     }
 
