@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+
 public class RotaryDiskHolder : Interactable
 {
     public List<RotaryDisk> puzzlePieces = new List<RotaryDisk>();

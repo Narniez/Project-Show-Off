@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -10,8 +9,6 @@ public class RotationPuzzle : MonoBehaviour
     private List<RotPuzzlePiece> puzzlePieces = new List<RotPuzzlePiece>();
     public InputActionAsset inputAsset;
     private InputActionMap playerInput;
-    [SerializeField]
-    private bool puzzleDone = false;
     [SerializeField]
     private int pieceNum = 0;
     public bool canInteract = false;
