@@ -84,13 +84,6 @@ public class InteractionHandler : MonoBehaviour
         {
             interactionRaypoint = new Vector3(-0.2f, 0.5f, 0f);
         }
-        if (CameraController.IsLockedOnDisk)
-        {
-            Vector3 offset = new Vector3(0, 0.3f, 0);
-            //interactionRaypoint = new Vector3(0.5f, 0.8f, 0f);
-            if (Input.GetKeyDown(KeyCode.S)) interactionRaypoint -= offset;
-            if (Input.GetKeyDown(KeyCode.W)) interactionRaypoint += offset;
-        }
         else
         {
             interactionRaypoint = new Vector3(0.5f, 0.5f, 0f);
