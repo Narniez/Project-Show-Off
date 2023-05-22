@@ -14,12 +14,8 @@ public class InteractionHandler : MonoBehaviour
 
     public static bool canInteract = true;
 
-
-
-
     private void Awake()
     {
-
         inputAsset = this.GetComponentInParent<PlayerInput>().actions;
         player = inputAsset.FindActionMap("Player");
         playerInput = this.GetComponentInParent<PlayerInput>();
@@ -55,7 +51,6 @@ public class InteractionHandler : MonoBehaviour
         var ray = mainCamera.ViewportPointToRay(interactionRaypoint);
         if (Physics.Raycast(ray, out RaycastHit hit, /*1.5f*/interactionDistance))
         {
-             
              Debug.DrawLine(ray.origin, mainCamera.transform.forward * 5000, Color.red);
             if (/*hit.collider.gameObject.layer == 9 && */(currentInteractable == null || hit.collider.gameObject.GetInstanceID() != currentInteractable.GetInstanceID()))
             {
