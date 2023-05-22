@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PoolButton : Interactable, IButton
@@ -13,7 +11,6 @@ public class PoolButton : Interactable, IButton
 
     public override void OnInteract()
     {
-
         GameObject go = PoolingObjects.Instance.GetObjectFromPool();
         if (go != null)
         {

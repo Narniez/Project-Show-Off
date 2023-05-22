@@ -13,6 +13,7 @@ public class InteractionHandler : MonoBehaviour
     private PlayerInput playerInput;
 
     public static bool canInteract = true;
+    public Animator anim;
 
     private void Awake()
     {
@@ -27,7 +28,6 @@ public class InteractionHandler : MonoBehaviour
     {
         player.FindAction("Interaction").started += Interact;
     }
-
 
     private void OnDisable()
     {
@@ -55,7 +55,7 @@ public class InteractionHandler : MonoBehaviour
             if (/*hit.collider.gameObject.layer == 9 && */(currentInteractable == null || hit.collider.gameObject.GetInstanceID() != currentInteractable.GetInstanceID()))
             {
                 hit.collider.TryGetComponent(out currentInteractable);
-
+                hit.collider.TryGetComponent(out anim);
                 if (currentInteractable)
                 {
                     currentInteractable.OnFocus();

@@ -21,8 +21,6 @@ public class RotaryDiskHolder : MonoBehaviour
                 }
             }
         }
-
-
     }
 
     private void Update()
