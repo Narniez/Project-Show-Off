@@ -13,6 +13,8 @@ public class RotaryDiskHolder : Interactable
     [SerializeField]
     private CameraController cameraController;
 
+    [SerializeField]
+    int pieceNum = 0;
 
     public void SetCameraController(CameraController camController, IPlayer player)
     {
@@ -22,8 +24,6 @@ public class RotaryDiskHolder : Interactable
         Debug.Log(cameraController);
     }
 
-    [SerializeField]
-    int pieceNum = 0;
 
     public override void Awake()
     {
