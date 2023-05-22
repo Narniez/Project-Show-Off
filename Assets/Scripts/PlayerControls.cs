@@ -6,7 +6,7 @@ using UnityEngine.InputSystem;
 public class PlayerControls : MonoBehaviour
 {
     public Rigidbody rb;
-    public GameObject cameraHolder;
+    public Camera cameraHolder;
     public float speed;
     public float sensitivity;
     public float maxForce;
@@ -14,9 +14,19 @@ public class PlayerControls : MonoBehaviour
     private Vector2 look;
     private float lookRotation;
 
-    public static bool canLook = true;
-    public static bool canMove = true;
+    private InputActionMap player;
+    private PlayerInput playerInput;
+
+    public  bool canLook = true;
+    public  bool canMove = true;
     // Start is called before the first frame update
+
+    private void Awake()
+    {
+        playerInput = this.GetComponent<PlayerInput>();
+        //cameraHolder = playerInput.camera;
+
+    }
     void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
@@ -75,6 +85,6 @@ public class PlayerControls : MonoBehaviour
         //Look up and down
         lookRotation += (-look.y * sensitivity);
         lookRotation = Mathf.Clamp(lookRotation, -90, 90);
-        cameraHolder.transform.eulerAngles = new Vector3(lookRotation, cameraHolder.transform.eulerAngles.y, cameraHolder.transform.eulerAngles.z);
+        playerInput.camera.transform.eulerAngles = new Vector3(lookRotation, playerInput.camera.transform.eulerAngles.y, playerInput.camera.transform.eulerAngles.z);
     }
 }

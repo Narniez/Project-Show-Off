@@ -10,7 +10,7 @@ public interface IRotaryDiskPuzzle {
 /// 
 /// Stanislav Velikov
 /// </summary>
-public class RotaryDisk : Interactable, IRotaryDiskPuzzle 
+public class RotaryDisk : MonoBehaviour, IRotaryDiskPuzzle 
 {
     public float targetCorrectRotation;
 
@@ -29,21 +29,12 @@ public class RotaryDisk : Interactable, IRotaryDiskPuzzle
         return isCorrectPosition;
     }
 
-    public override void OnFocus()
-    {
-        return;
-    }
+    //public override void OnInteract()
+    //{
+    //    Quaternion currentRotation = this.gameObject.transform.rotation;
+    //    Quaternion rotationIncrement = Quaternion.Euler(0, 0, 45);
+    //    Quaternion newRotation = currentRotation * rotationIncrement;
+    //    this.gameObject.transform.rotation = newRotation;
+    //}
 
-    public override void OnInteract()
-    {
-        Quaternion currentRotation = this.gameObject.transform.rotation;
-        Quaternion rotationIncrement = Quaternion.Euler(0, 0, 45);
-        Quaternion newRotation = currentRotation * rotationIncrement;
-        this.gameObject.transform.rotation = newRotation;
-    }
-
-    public override void OnLoseFocus()
-    {
-        return;
-    }
 }

@@ -71,6 +71,33 @@ public partial class @InputMaster: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Back"",
+                    ""type"": ""Button"",
+                    ""id"": ""ee7306c6-8c69-48df-811b-58bf6c8c9cf3"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""CameraUp"",
+                    ""type"": ""Button"",
+                    ""id"": ""81f0a425-1d2e-4f07-bd2c-66f0f22b33ad"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""CameraDown"",
+                    ""type"": ""Button"",
+                    ""id"": ""8d2aca70-9a2d-4fac-b720-c9fb40a81f54"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -262,6 +289,61 @@ public partial class @InputMaster: IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": false
                 },
                 {
+                    ""name"": ""2D Vector"",
+                    ""id"": ""0f5851c0-a44b-475c-9582-aadb49a71d0e"",
+                    ""path"": ""2DVector"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Look"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""up"",
+                    ""id"": ""f208da8c-9b34-489d-9b4b-c82704e65115"",
+                    ""path"": ""<Keyboard>/upArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Look"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""down"",
+                    ""id"": ""78d8b53d-4c28-43be-aa90-99ba559926ad"",
+                    ""path"": ""<Keyboard>/downArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Look"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""left"",
+                    ""id"": ""10c5e288-c2c9-4c11-9f98-7233e0950e90"",
+                    ""path"": ""<Keyboard>/leftArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Look"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""right"",
+                    ""id"": ""788c423c-88cf-48a9-aed9-64cb09fc9a37"",
+                    ""path"": ""<Keyboard>/rightArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Look"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
                     ""name"": """",
                     ""id"": ""7dd064ad-3234-42ac-bfb7-8a9a174b4785"",
                     ""path"": ""<Keyboard>/space"",
@@ -348,6 +430,72 @@ public partial class @InputMaster: IInputActionCollection2, IDisposable
                     ""action"": ""Interaction"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""424573d8-2946-41dd-9874-37e320593d1b"",
+                    ""path"": ""<Gamepad>/buttonEast"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Back"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""49ec2e2c-c538-4166-8c2c-9f61355eeccb"",
+                    ""path"": ""<Keyboard>/b"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Back"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""d373ba4b-1a9a-42c0-8eda-bd278003b219"",
+                    ""path"": ""<Gamepad>/dpad/up"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""CameraUp"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""31e68dfb-1764-413b-b508-43f770ac57d2"",
+                    ""path"": ""<Keyboard>/w"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""CameraUp"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""130e48c9-9322-4663-be78-c84877328847"",
+                    ""path"": ""<Gamepad>/dpad/down"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""CameraDown"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""255f0772-f6af-4a35-89cc-ad3e079201b9"",
+                    ""path"": ""<Keyboard>/s"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""CameraDown"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -361,6 +509,9 @@ public partial class @InputMaster: IInputActionCollection2, IDisposable
         m_Player_Jump = m_Player.FindAction("Jump", throwIfNotFound: true);
         m_Player_Join = m_Player.FindAction("Join", throwIfNotFound: true);
         m_Player_Interaction = m_Player.FindAction("Interaction", throwIfNotFound: true);
+        m_Player_Back = m_Player.FindAction("Back", throwIfNotFound: true);
+        m_Player_CameraUp = m_Player.FindAction("CameraUp", throwIfNotFound: true);
+        m_Player_CameraDown = m_Player.FindAction("CameraDown", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -427,6 +578,9 @@ public partial class @InputMaster: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Jump;
     private readonly InputAction m_Player_Join;
     private readonly InputAction m_Player_Interaction;
+    private readonly InputAction m_Player_Back;
+    private readonly InputAction m_Player_CameraUp;
+    private readonly InputAction m_Player_CameraDown;
     public struct PlayerActions
     {
         private @InputMaster m_Wrapper;
@@ -436,6 +590,9 @@ public partial class @InputMaster: IInputActionCollection2, IDisposable
         public InputAction @Jump => m_Wrapper.m_Player_Jump;
         public InputAction @Join => m_Wrapper.m_Player_Join;
         public InputAction @Interaction => m_Wrapper.m_Player_Interaction;
+        public InputAction @Back => m_Wrapper.m_Player_Back;
+        public InputAction @CameraUp => m_Wrapper.m_Player_CameraUp;
+        public InputAction @CameraDown => m_Wrapper.m_Player_CameraDown;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -460,6 +617,15 @@ public partial class @InputMaster: IInputActionCollection2, IDisposable
             @Interaction.started += instance.OnInteraction;
             @Interaction.performed += instance.OnInteraction;
             @Interaction.canceled += instance.OnInteraction;
+            @Back.started += instance.OnBack;
+            @Back.performed += instance.OnBack;
+            @Back.canceled += instance.OnBack;
+            @CameraUp.started += instance.OnCameraUp;
+            @CameraUp.performed += instance.OnCameraUp;
+            @CameraUp.canceled += instance.OnCameraUp;
+            @CameraDown.started += instance.OnCameraDown;
+            @CameraDown.performed += instance.OnCameraDown;
+            @CameraDown.canceled += instance.OnCameraDown;
         }
 
         private void UnregisterCallbacks(IPlayerActions instance)
@@ -479,6 +645,15 @@ public partial class @InputMaster: IInputActionCollection2, IDisposable
             @Interaction.started -= instance.OnInteraction;
             @Interaction.performed -= instance.OnInteraction;
             @Interaction.canceled -= instance.OnInteraction;
+            @Back.started -= instance.OnBack;
+            @Back.performed -= instance.OnBack;
+            @Back.canceled -= instance.OnBack;
+            @CameraUp.started -= instance.OnCameraUp;
+            @CameraUp.performed -= instance.OnCameraUp;
+            @CameraUp.canceled -= instance.OnCameraUp;
+            @CameraDown.started -= instance.OnCameraDown;
+            @CameraDown.performed -= instance.OnCameraDown;
+            @CameraDown.canceled -= instance.OnCameraDown;
         }
 
         public void RemoveCallbacks(IPlayerActions instance)
@@ -503,5 +678,8 @@ public partial class @InputMaster: IInputActionCollection2, IDisposable
         void OnJump(InputAction.CallbackContext context);
         void OnJoin(InputAction.CallbackContext context);
         void OnInteraction(InputAction.CallbackContext context);
+        void OnBack(InputAction.CallbackContext context);
+        void OnCameraUp(InputAction.CallbackContext context);
+        void OnCameraDown(InputAction.CallbackContext context);
     }
 }

@@ -9,9 +9,7 @@ public class ColorPuzzlePiece : Interactable
 
     float rotY = 90;
     Vector3 rotation = Vector3.zero;
-    public Vector3 currentOrientation;
     public Quaternion targetAngle;
-    public bool isCorrect = false;
 
     public override void OnFocus()
     {
@@ -31,6 +29,7 @@ public class ColorPuzzlePiece : Interactable
 
     public void RotatePiece()
     {
+        if (!CameraController.isLockedOnTower) return;
         rotation.y += rotY;
         transform.Rotate(rotation);
         PieceRotated?.Invoke(this);

@@ -26,7 +26,7 @@ public class CameraController : MonoBehaviour
     public bool isTransitioning = false;  // Flag to check if camera is transitioning
 
     [SerializeField]
-    public static bool IsLockedOnDisk = false;
+    public bool IsLockedOnDisk = false;
     [SerializeField]
     public static bool isLockedOnTower = false;
 
@@ -39,6 +39,7 @@ public class CameraController : MonoBehaviour
     private Vector3 originalPosition;
     private Quaternion originalRotation;
 
+    private PlayerControls playerControls;
 
     private void Start()
     {
@@ -46,11 +47,17 @@ public class CameraController : MonoBehaviour
         player = inputAsset.FindActionMap("Player");
         playerInput = this.GetComponentInParent<PlayerInput>();
         mainCamera = playerInput.camera;
+        playerControls = this.GetComponentInParent<PlayerControls>();
     }
 
     private void Update()
     {
         CameraMovement();
+
+        if (IsLockedOnDisk)
+        {
+            Debug.Log("Camera is Locked on Disk");
+        }
 
         var ray = mainCamera.ViewportPointToRay(interactionRaypoint);
         if (Physics.Raycast(ray, out RaycastHit hit, /*1.5f*/interactionDistance))
@@ -81,11 +88,12 @@ public class CameraController : MonoBehaviour
         if (isTransitioning)
         {
             // Smoothly move the camera to the target position and rotation
-            transform.position = Vector3.Lerp(transform.position, targetPosition, transitionSpeed * Time.deltaTime);
-            transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, transitionSpeed * Time.deltaTime);
+            mainCamera.transform.position = Vector3.Lerp(mainCamera.transform.position, targetPosition, transitionSpeed * Time.deltaTime);
+            mainCamera.transform.rotation = Quaternion.Lerp(mainCamera.transform.rotation, targetRotation, transitionSpeed * Time.deltaTime);
+            
 
             // If camera is close enough to the target position and rotation, stop transitioning
-            if (Vector3.Distance(transform.position, targetPosition) < 0.05f && Quaternion.Angle(transform.rotation, targetRotation) < 0.5f)
+            if (Vector3.Distance(mainCamera.transform.position, targetPosition) < 0.05f && Quaternion.Angle(mainCamera.transform.rotation, targetRotation) < 0.5f)
             {
                 isTransitioning = false;
                 //isLocked = true;
@@ -93,20 +101,20 @@ public class CameraController : MonoBehaviour
         }
         if (isTransitioningBack)
         {
-            transform.position = Vector3.Lerp(transform.position, originalPosition, transitionSpeed * Time.deltaTime);
-            transform.rotation = Quaternion.Lerp(transform.rotation, originalRotation, transitionSpeed * Time.deltaTime);
-            if (Vector3.Distance(transform.position, originalPosition) < 0.05f && Quaternion.Angle(transform.rotation, originalRotation) < 0.5f)
+            mainCamera.transform.position = Vector3.Lerp(mainCamera.transform.position, originalPosition, transitionSpeed * Time.deltaTime);
+            mainCamera.transform.rotation = Quaternion.Lerp(mainCamera.transform.rotation, originalRotation, transitionSpeed * Time.deltaTime);
+            if (Vector3.Distance(mainCamera.transform.position, originalPosition) < 0.05f && Quaternion.Angle(mainCamera.transform.rotation, originalRotation) < 0.5f)
             {
                 Debug.Log("Stop transition");
                 isTransitioningBack = false;
-                PlayerControls.canLook = true;
-                PlayerControls.canMove = true;
+                playerControls.canLook = true;
+                playerControls.canMove = true;
             }
 
         }
         else
         {
-            if (isLocked && Input.GetKeyDown(KeyCode.P))
+            if (isLocked && player.FindAction("Back").IsPressed())
             {
                 isTransitioningBack = true;
                 isLocked = false;
@@ -117,11 +125,11 @@ public class CameraController : MonoBehaviour
             // Check if the user presses a button to initiate camera transition
             if (isLockedOnTower)
             {
-                if (Input.GetKeyDown(KeyCode.W))
+                if (player.FindAction("CameraUp").triggered)
                 {
                     CameraControls(Vector3.up * verticalMoveAmount);
                 }
-                if (Input.GetKeyDown(KeyCode.S))
+                if (player.FindAction("CameraDown").triggered)
                 {
                     CameraControls(Vector3.down * verticalMoveAmount);
                 }
@@ -138,12 +146,12 @@ public class CameraController : MonoBehaviour
             if (p.GetChild(i).CompareTag("Target"))
             {
                 target = p.GetChild(i);
-                if (Input.GetKeyDown(KeyCode.P) && !isTransitioningBack)
+                if (player.FindAction("Interaction").IsPressed() && !isTransitioningBack)
                 {
-                    originalPosition = transform.position;
-                    originalRotation = transform.rotation;
-                    PlayerControls.canLook = false;
-                    PlayerControls.canMove = false;
+                    originalPosition = mainCamera.transform.position;
+                    originalRotation = mainCamera.transform.rotation;
+                    playerControls.canLook = false;
+                    playerControls.canMove = false;
                     targetPosition = target.position;
                     targetRotation = target.rotation;
                     isTransitioning = true;
@@ -157,10 +165,10 @@ public class CameraController : MonoBehaviour
 
     void CameraControls(Vector3 offset)
     {
-        Vector3 newPos = transform.position += offset;
+        Vector3 newPos = mainCamera.transform.position += offset;
         Debug.Log(newPos.y);
         newPos.y = Mathf.Clamp(newPos.y, minY, maxY);
-        transform.position = newPos;
+        mainCamera.transform.position = newPos;
 
     }
 }

@@ -28,6 +28,6 @@ public class DelayButton : Interactable, IButton
     }
 
     void Update() {
-        Debug.Log(IsPressed);
+       // Debug.Log(IsPressed);
     }
 }
