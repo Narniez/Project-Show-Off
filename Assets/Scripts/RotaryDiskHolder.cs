@@ -7,7 +7,6 @@ public class RotaryDiskHolder : MonoBehaviour
 
     private void Start()
     {
-        Debug.Log(transform.GetChild(0).childCount);
         for (int i = 0; i < transform.childCount; i++)
         {
             Transform childTransform = transform.GetChild(i);
