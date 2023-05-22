@@ -28,12 +28,12 @@ public class CameraController : MonoBehaviour
     [SerializeField]
     public bool IsLockedOnDisk = false;
     [SerializeField]
-    public static bool isLockedOnTower = false;
+    public  bool isLockedOnTower = false;
 
     private Vector3 targetPosition;  // Target position for the camera
     private Quaternion targetRotation;  // Target rotation for the camera
 
-    public static bool isLocked = false;
+    public bool isLocked = false;
 
     public bool isTransitioningBack = false;
     private Vector3 originalPosition;
@@ -52,6 +52,7 @@ public class CameraController : MonoBehaviour
 
     private void Update()
     {
+        
         CameraMovement();
 
         if (IsLockedOnDisk)
@@ -65,7 +66,7 @@ public class CameraController : MonoBehaviour
             if (hit.collider.CompareTag("PPiece"))
             {
                 AssignTarget(hit);
-                if (isLocked) isLockedOnTower = true;
+                if (isLocked) playerControls.isLockedOnTower = true;
             }
             else if (hit.collider.CompareTag("RotaryDisk"))
             {
@@ -75,10 +76,16 @@ public class CameraController : MonoBehaviour
             }
             else
             {
-                isLockedOnTower = false;
+                playerControls.isLockedOnTower = false;
                 IsLockedOnDisk = false;
                 target = null;
             }
+        }
+
+        if (!isLocked)
+        {
+            playerControls.canLook = true;
+            playerControls.canMove = true;
         }
     }
 
@@ -107,23 +114,19 @@ public class CameraController : MonoBehaviour
             {
                 Debug.Log("Stop transition");
                 isTransitioningBack = false;
-                playerControls.canLook = true;
-                playerControls.canMove = true;
+                isLocked = false;
+                playerControls.isLockedOnTower = false;
             }
-
         }
         else
         {
-            if (isLocked && player.FindAction("Back").IsPressed())
+            if (isLocked && player.FindAction("Back").IsPressed() && !isTransitioning)
             {
-                isTransitioningBack = true;
-                isLocked = false;
-                isLockedOnTower = false;
-
+                isTransitioningBack = true;         
             }
 
             // Check if the user presses a button to initiate camera transition
-            if (isLockedOnTower)
+            if (playerControls.isLockedOnTower)
             {
                 if (player.FindAction("CameraUp").triggered)
                 {
@@ -146,12 +149,12 @@ public class CameraController : MonoBehaviour
             if (p.GetChild(i).CompareTag("Target"))
             {
                 target = p.GetChild(i);
-                if (player.FindAction("Interaction").IsPressed() && !isTransitioningBack)
+                if (player.FindAction("Interaction").IsPressed() && !isLocked)
                 {
-                    originalPosition = mainCamera.transform.position;
-                    originalRotation = mainCamera.transform.rotation;
                     playerControls.canLook = false;
                     playerControls.canMove = false;
+                    originalPosition = mainCamera.transform.position;
+                    originalRotation = mainCamera.transform.rotation;
                     targetPosition = target.position;
                     targetRotation = target.rotation;
                     isTransitioning = true;

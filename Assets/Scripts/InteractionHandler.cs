@@ -7,14 +7,11 @@ public class InteractionHandler : MonoBehaviour
     public Interactable currentInteractable;
     public Vector3 interactionRaypoint = default;
     public float interactionDistance = default;
-
-    public GameObject playerA;
-
     private InputActionAsset inputAsset;
     private InputActionMap player;
     private PlayerInput playerInput;
 
-
+    private PlayerControls playerControls;
 
     public static bool canInteract = true;
 
@@ -25,6 +22,10 @@ public class InteractionHandler : MonoBehaviour
         playerInput = this.GetComponentInParent<PlayerInput>();
         mainCamera = playerInput.camera;
 
+    }
+    private void Start()
+    {
+        playerControls = this.GetComponentInParent<PlayerControls>();
     }
 
     private void OnEnable()
@@ -68,7 +69,6 @@ public class InteractionHandler : MonoBehaviour
                 if (currentInteractable != null && currentInteractable.CompareTag("RotaryDisk"))
                 {
                     Debug.Log("Diskaaa");
-                    currentInteractable.GetComponent<RotaryDiskHolder>().SetCameraController(playerA.GetComponentInChildren<CameraController>());
                 }
             }
             else if (currentInteractable)
@@ -85,7 +85,7 @@ public class InteractionHandler : MonoBehaviour
 
     void HandleRaycastPosition()
     {
-        if (CameraController.isLockedOnTower)
+        if (playerControls.isLockedOnTower)
         {
             interactionRaypoint = new Vector3(-0.2f, 0.5f, 0f);
         }

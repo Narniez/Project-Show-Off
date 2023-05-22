@@ -29,7 +29,7 @@ public class ColorPuzzlePiece : Interactable
 
     public void RotatePiece()
     {
-        if (!CameraController.isLockedOnTower) return;
+        //if (!CameraController.isLockedOnTower) return;
         rotation.y += rotY;
         transform.Rotate(rotation);
         PieceRotated?.Invoke(this);

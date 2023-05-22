@@ -17,6 +17,7 @@ public class PlayerControls : MonoBehaviour
     private InputActionMap player;
     private PlayerInput playerInput;
 
+    public bool isLockedOnTower = false;
     public  bool canLook = true;
     public  bool canMove = true;
     // Start is called before the first frame update
