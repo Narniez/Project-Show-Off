@@ -4271,6 +4271,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
+  m_RootOrder: 6
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &786661330
@@ -9621,6 +9622,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 117c151fe90e88746ac562162ddaae1d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  corespondingDisk: {fileID: 0}
+  correctDegreesObject: 2d0000002d0000002d000000
+  disks: []
   targetCorrectRotation: 0
 --- !u!1 &2130678352
 GameObject:
