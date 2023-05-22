@@ -3215,8 +3215,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.5915203, y: 1, z: 1.6591405}
-  m_Center: {x: 0.06361103, y: 0, z: 0.0026429296}
+  m_Size: {x: 1.4171429, y: 1, z: 1.6591405}
+  m_Center: {x: -0.02357769, y: 0, z: 0.0026429296}
 --- !u!23 &760610128
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -4406,7 +4406,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1086671905}
   m_LocalRotation: {x: -0, y: -1, z: -0.0002617804, w: 0}
-  m_LocalPosition: {x: -0.46, y: 1.065, z: 1}
+  m_LocalPosition: {x: -0.46, y: 1.01, z: 1.02}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -6145,8 +6145,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.5041027, y: 1, z: 1.5387175}
-  m_Center: {x: 0.06317425, y: 0, z: -0.0022860765}
+  m_Size: {x: 1.3844795, y: 1, z: 1.5387175}
+  m_Center: {x: 0.0033626556, y: 0, z: -0.0022860765}
 --- !u!23 &1667080830
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -6536,20 +6536,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 530f9c9bcd233ee4a99bfc579ee54480, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mainCamera: {fileID: 0}
   target: {fileID: 1092884771}
   interactionRaypoint: {x: 0, y: 0, z: 0}
   interactionDistance: 0
-  transitionSpeed: 5
-  verticalMoveAmount: 2
-  maxY: 2.55
-  minY: 0.5
-  snapAmount: 0.1
-  isTransitioning: 0
   IsLockedOnDisk: 0
   isLockedOnTower: 0
-  isLocked: 0
-  isTransitioningBack: 0
 --- !u!65 &1745135157
 BoxCollider:
   m_ObjectHideFlags: 0

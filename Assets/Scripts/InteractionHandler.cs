@@ -7,6 +7,7 @@ public class InteractionHandler : MonoBehaviour
     public float interactionDistance = default;
 
     private Camera mainCamera;
+    [SerializeField]
     private Interactable currentInteractable;
     private InputActionAsset inputAsset;
     private InputActionMap player;
@@ -53,28 +54,35 @@ public class InteractionHandler : MonoBehaviour
     void HandleInteractionCheck()
     {
         var ray = mainCamera.ViewportPointToRay(interactionRaypoint);
-        if (Physics.Raycast(ray, out RaycastHit hit, /*1.5f*/interactionDistance))
+        if (Physics.Raycast(ray, out RaycastHit hit, interactionDistance))
         {
-             Debug.DrawLine(ray.origin, mainCamera.transform.forward * 5000, Color.red);
-            if (/*hit.collider.gameObject.layer == 9 && */(currentInteractable == null || hit.collider.gameObject.GetInstanceID() != currentInteractable.GetInstanceID()))
-            {
-                hit.collider.TryGetComponent(out currentInteractable);
+            Debug.DrawLine(ray.origin, hit.point, Color.red);
 
-                if (currentInteractable)
+            if (currentInteractable == null || hit.collider.gameObject != currentInteractable.gameObject)
+            {
+
+                if (hit.collider.TryGetComponent(out currentInteractable))
                 {
                     currentInteractable.OnFocus();
-                }
 
-                if (currentInteractable != null && currentInteractable.CompareTag("RotaryDisk"))
-                {
-                    Debug.Log("Diskaaa");
+                    if (currentInteractable != null && currentInteractable.CompareTag("RotaryDisk"))
+                    {
+                        RotaryDiskHolder tempHolder;
+                        if (currentInteractable.TryGetComponent(out tempHolder))
+                        {
+                            CameraController tempController = transform.GetChild(0).GetComponent<CameraController>();
+                            tempHolder.SetCameraController(tempController, playerControls);
+                            Debug.Log("Diskaaa");
+                        }
+                        Debug.Log("Diskaaa");
+                    }
                 }
             }
-            else if (currentInteractable)
-            {
-                currentInteractable.OnLoseFocus();
-                currentInteractable = null;
-            }
+        }
+        else if (currentInteractable != null)
+        {
+            currentInteractable.OnLoseFocus();
+            currentInteractable = null;
         }
     }
     private void Interact(InputAction.CallbackContext obj)
@@ -84,14 +92,14 @@ public class InteractionHandler : MonoBehaviour
 
     void HandleRaycastPosition()
     {
-        if (playerControls.IsLockedOnTower)
-        {
-            interactionRaypoint = new Vector3(-0.2f, 0.5f, 0f);
-        }
-        else
-        {
+        //if (playerControls.IsLockedOnTower)
+        //{
+        //    interactionRaypoint = new Vector3(-0.2f, 0.5f, 0f);
+        //}
+        //else
+        //{
+        //}
             interactionRaypoint = new Vector3(0.5f, 0.5f, 0f);
-        }
     }
     void HandleInteractionInput()
     {

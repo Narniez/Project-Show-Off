@@ -5,6 +5,8 @@ public interface IPlayer {
     bool CanLook { get; set; }
     bool CanMove { get; set; }
     bool IsLockedOnTower { get; set; }
+
+    InputActionMap PlayerAction { get; set;}
 }
 
 public class PlayerControls : MonoBehaviour, IPlayer
@@ -28,12 +30,14 @@ public class PlayerControls : MonoBehaviour, IPlayer
     public bool CanLook { get => canLook; set => canLook = value; }
     public bool CanMove { get => canMove; set => canMove = value; }
     public bool IsLockedOnTower { get => isLockedOnTower; set => isLockedOnTower = value; }
+    public InputActionMap PlayerAction { get => player; set => player = value; }
 
     // Start is called before the first frame update
 
     private void Awake()
     {
         playerInput = this.GetComponent<PlayerInput>();
+        player = playerInput.currentActionMap;
         //cameraHolder = playerInput.camera;
 
     }

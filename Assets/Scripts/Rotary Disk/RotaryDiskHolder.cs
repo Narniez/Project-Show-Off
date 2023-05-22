@@ -8,12 +8,16 @@ public class RotaryDiskHolder : Interactable
     public InputActionAsset inputAsset;
     private InputActionMap player;
 
+    IPlayer playerA;
+
     [SerializeField]
     private CameraController cameraController;
 
 
-    public void SetCameraController(CameraController camController)
+    public void SetCameraController(CameraController camController, IPlayer player)
     {
+        playerA = player;
+        if (camController == null) return;
         cameraController = camController;
         Debug.Log(cameraController);
     }
@@ -23,12 +27,11 @@ public class RotaryDiskHolder : Interactable
 
     public override void Awake()
     {
-        player = inputAsset.FindActionMap("Player");
         
     }
     private void Start()
     {
-        
+        //inputAsset = playerA.
         RotaryDisk[] puzzlePieceObjects = GetComponentsInChildren<RotaryDisk>(true);
         puzzlePieces.AddRange(puzzlePieceObjects);
     }
@@ -51,12 +54,12 @@ public class RotaryDiskHolder : Interactable
     {
         if (cameraController == null) return;
         if (!cameraController.IsLockedOnDisk) return;
-        if (player.FindAction("CameraDown").triggered)
+        if (playerA.PlayerAction.FindAction("CameraDown").triggered)
         {
             Debug.Log("Go to nesxt Piece");
             pieceNum++;
         }
-        if (player.FindAction("CameraUp").triggered)
+        if (playerA.PlayerAction.FindAction("CameraUp").triggered)
         {
             pieceNum--;
         }
@@ -98,6 +101,7 @@ public class RotaryDiskHolder : Interactable
 
     public override void OnLoseFocus()
     {
-        return;
+        cameraController = null;
+        Debug.Log("Lost focus");
     }
 }
