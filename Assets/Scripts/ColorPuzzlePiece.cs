@@ -1,13 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class ColorPuzzlePiece : Interactable
 {
-    Vector3 orientation;
+    public UnityAction<ColorPuzzlePiece> PieceRotated;
+
     float rotY = 90;
     Vector3 rotation = Vector3.zero;
-    public Vector3 correctOrientation;
     public Vector3 currentOrientation;
     public Quaternion targetAngle;
     public bool isCorrect = false;
@@ -19,12 +20,8 @@ public class ColorPuzzlePiece : Interactable
 
     public override void OnInteract()
     {
-
-
         Debug.Log("Interacting");
-        rotation.y += rotY;
-        transform.Rotate(rotation);
-
+        RotatePiece();
     }
 
     public override void OnLoseFocus()
@@ -32,14 +29,34 @@ public class ColorPuzzlePiece : Interactable
 
     }
 
+    public void RotatePiece()
+    {
+        rotation.y += rotY;
+        transform.Rotate(rotation);
+        PieceRotated?.Invoke(this);
+    }
+
     void Start()
     {
+        //targetAngle = Quaternion.Euler(correctOrientation);
 
     }
 
+    public bool IsCorrect()
+    {
+        //Improved with chatGPT
+        // Calculate the dot product between the current rotation and the target angle
+        float dotProduct = Quaternion.Dot(transform.rotation, targetAngle);
+        // Determine if the dot product exceeds the precision threshold
+        bool isCorrect = Mathf.Abs(dotProduct) > 0.9999f;
+        return isCorrect;
+    }
     // Update is called once per frame
     void Update()
     {
-        //currentOrientation = transform.rotation.eulerAngles;
+        //if (IsCorrect())
+        //{
+        //    Debug.Log(this.name + " Piece is in the correct position");
+        //}
     }
 }

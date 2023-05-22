@@ -24,6 +24,12 @@ public class CameraController : MonoBehaviour
 
     //private bool isSnapping = false;
     public bool isTransitioning = false;  // Flag to check if camera is transitioning
+
+    [SerializeField]
+    public static bool IsLockedOnDisk = false;
+    [SerializeField]
+    public static bool isLockedOnTower = false;
+
     private Vector3 targetPosition;  // Target position for the camera
     private Quaternion targetRotation;  // Target rotation for the camera
 
@@ -51,31 +57,19 @@ public class CameraController : MonoBehaviour
         {
             if (hit.collider.CompareTag("PPiece"))
             {
-                Transform p = hit.collider.transform.parent;
-                int childCount = p.childCount;
-                for (int i = 0; i < childCount; i++)
-                {
-                    if (p.GetChild(i).CompareTag("Target"))
-                    {
-                        target = p.GetChild(i);
-                        if (Input.GetKeyDown(KeyCode.P) && !isTransitioningBack)
-                        {
-                            originalPosition = transform.position;
-                            originalRotation = transform.rotation;
-                            PlayerControls.canLook = false;
-                            PlayerControls.canMove = false;
-                            targetPosition = target.position;
-                            targetRotation = target.rotation;
-                            isTransitioning = true;
-                            isLocked = true;
-                            break;
-                        }
-                    }
-
-                }
+                AssignTarget(hit);
+                if (isLocked) isLockedOnTower = true;
+            }
+            else if (hit.collider.CompareTag("RotaryDisk"))
+            {
+                
+                AssignTarget(hit);
+                if (isLocked) IsLockedOnDisk = true;
             }
             else
             {
+                isLockedOnTower = false;
+                IsLockedOnDisk = false;
                 target = null;
             }
         }
@@ -116,11 +110,12 @@ public class CameraController : MonoBehaviour
             {
                 isTransitioningBack = true;
                 isLocked = false;
+                isLockedOnTower = false;
 
             }
 
             // Check if the user presses a button to initiate camera transition
-            if (isLocked)
+            if (isLockedOnTower)
             {
                 if (Input.GetKeyDown(KeyCode.W))
                 {
@@ -131,6 +126,32 @@ public class CameraController : MonoBehaviour
                     CameraControls(Vector3.down * verticalMoveAmount);
                 }
             }
+        }
+    }
+
+    void AssignTarget(RaycastHit hit)
+    {
+        Transform p = hit.collider.transform.parent;
+        int childCount = p.childCount;
+        for (int i = 0; i < childCount; i++)
+        {
+            if (p.GetChild(i).CompareTag("Target"))
+            {
+                target = p.GetChild(i);
+                if (Input.GetKeyDown(KeyCode.P) && !isTransitioningBack)
+                {
+                    originalPosition = transform.position;
+                    originalRotation = transform.rotation;
+                    PlayerControls.canLook = false;
+                    PlayerControls.canMove = false;
+                    targetPosition = target.position;
+                    targetRotation = target.rotation;
+                    isTransitioning = true;
+                    isLocked = true;
+                    break;
+                }
+            }
+
         }
     }
 
