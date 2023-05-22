@@ -1,4 +1,3 @@
-
 using UnityEngine;
 
 public interface IButton
@@ -22,6 +21,7 @@ public class ButtonScript : Interactable, IButton
 
     public override void OnInteract()
     {
+
     }
 
     public override void OnLoseFocus()
