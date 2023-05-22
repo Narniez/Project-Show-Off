@@ -13,6 +13,7 @@ public class InteractionHandler : MonoBehaviour
     private InputActionMap player;
     private PlayerInput playerInput;
 
+    public Animator anim;
     private IPlayer playerControls;
 
     private bool canInteract = true;
@@ -33,7 +34,6 @@ public class InteractionHandler : MonoBehaviour
     {
         player.FindAction("Interaction").started += Interact;
     }
-
 
     private void OnDisable()
     {
@@ -60,6 +60,8 @@ public class InteractionHandler : MonoBehaviour
 
             if (currentInteractable == null || hit.collider.gameObject != currentInteractable.gameObject)
             {
+                hit.collider.TryGetComponent(out currentInteractable);
+                hit.collider.TryGetComponent(out anim);
 
                 if (hit.collider.TryGetComponent(out currentInteractable))
                 {
