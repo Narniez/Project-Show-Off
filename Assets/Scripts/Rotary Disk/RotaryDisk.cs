@@ -1,65 +1,49 @@
 using System;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class RotaryDisk : MonoBehaviour
+public interface IRotaryDiskPuzzle {
+    bool CorrectPuzzlePosition();
+}
+/// <summary>
+/// USED AI TO HELP ME TO REMOVE COUPLING (CAUSED SOME PROBLEMS)
+/// Gave me the idea of using interface so if I change the script it will not affect the scripts that inherits from it.
+/// 
+/// Stanislav Velikov
+/// </summary>
+public class RotaryDisk : Interactable, IRotaryDiskPuzzle 
 {
-    [HideInInspector] public RotaryDisk corespondingDisk;
-    [SerializeField] private int[] correctDegreesObject;
-
-    public List<Transform> disks = new List<Transform>();
-
-    /// <summary>
-    /// finds the coresponding disk (it needs 2 disks) and add the children to a list
-    /// </summary>
-    private void Start()
-    {
-        // Get the corresponding disk
-        for (int i = 0; i < transform.parent.childCount; i++)
-        {
-            GameObject childTransform = transform.parent.GetChild(i).gameObject;
-
-            if (childTransform == this.gameObject)
-                continue;
-
-            corespondingDisk = childTransform.GetComponent<RotaryDisk>();
-
-            if (corespondingDisk != null)
-                break;
-        }
-
-        // Get the disk pieces
-        for (int i = 0; i < transform.childCount; i++)
-        {
-            disks.Add(transform.GetChild(i));
-        }
-    }
+    public float targetCorrectRotation;
 
     /// <summary>
     /// Checks if the disks are in the correct rotation
     /// </summary>
     /// <returns></returns>
     /// <exception cref="NullReferenceException"></exception>
+
     public bool CorrectPuzzlePosition()
     {
-        if (corespondingDisk == null)
-        {
-            throw new NullReferenceException("Coresponding Disk is null! Add the other disk.");
-        }
+        float currentRotation = transform.rotation.eulerAngles.z;
+        //Mathf.Approximately it returns bool if the 2 floats are approximately equal 
+        //(Research it after I saw it from AI. I used a few if checks with casting to (int))
+        bool isCorrectPosition = Mathf.Approximately(currentRotation, targetCorrectRotation);
+        return isCorrectPosition;
+    }
 
-        for (int i = 0; i < disks.Count; i++)
-        {
-            if ((int)disks[i].rotation.eulerAngles.z != correctDegreesObject[i])
-            {
-                return false;
-            }
+    public override void OnFocus()
+    {
+        return;
+    }
 
-            if ((int)corespondingDisk.disks[i].rotation.eulerAngles.z != corespondingDisk.correctDegreesObject[i])
-            {
-                return false;
-            }
-        }
+    public override void OnInteract()
+    {
+        Quaternion currentRotation = this.gameObject.transform.rotation;
+        Quaternion rotationIncrement = Quaternion.Euler(0, 0, 45);
+        Quaternion newRotation = currentRotation * rotationIncrement;
+        this.gameObject.transform.rotation = newRotation;
+    }
 
-        return true;
+    public override void OnLoseFocus()
+    {
+        return;
     }
 }
