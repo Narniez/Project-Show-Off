@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -36,15 +34,14 @@ public class PlayerControls : MonoBehaviour
     // Update is called once per frame
     void LateUpdate()
     {
-        if(canLook)
-        Look();
-    
+        if (canLook)
+            Look();
     }
 
     private void FixedUpdate()
     {
         if (canMove)
-        Move();
+            Move();
     }
 
     public void OnMove(InputAction.CallbackContext context)

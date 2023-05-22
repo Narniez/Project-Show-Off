@@ -35,12 +35,6 @@ public class ColorPuzzlePiece : Interactable
         PieceRotated?.Invoke(this);
     }
 
-    void Start()
-    {
-        //targetAngle = Quaternion.Euler(correctOrientation);
-
-    }
-
     public bool IsCorrect()
     {
         //Improved with chatGPT
@@ -49,13 +43,5 @@ public class ColorPuzzlePiece : Interactable
         // Determine if the dot product exceeds the precision threshold
         bool isCorrect = Mathf.Abs(dotProduct) > 0.9999f;
         return isCorrect;
-    }
-    // Update is called once per frame
-    void Update()
-    {
-        //if (IsCorrect())
-        //{
-        //    Debug.Log(this.name + " Piece is in the correct position");
-        //}
     }
 }
