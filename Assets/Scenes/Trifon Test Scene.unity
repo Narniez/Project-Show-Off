@@ -1898,9 +1898,6 @@ MonoBehaviour:
   mainCamera: {fileID: 91842744}
   currentInteractable: {fileID: 0}
   interactionRaypoint: {x: -0.2, y: 0.5, z: 0}
-<<<<<<< Lennard-Particles
-  interactionDistance: 2
-=======
   interactionDistance: 5
 --- !u!1 &468862424
 GameObject:
@@ -2012,7 +2009,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bce4afc001ada6541a769fd67228c052, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
->>>>>>> Decoupling, Added buttons, Optimization
 --- !u!1 &494690766
 GameObject:
   m_ObjectHideFlags: 0
@@ -4055,9 +4051,7 @@ Transform:
   m_Father: {fileID: 0}
 <<<<<<< Lennard-Particles
   m_RootOrder: 6
-=======
   m_RootOrder: 5
->>>>>>> Decoupling, Added buttons, Optimization
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &786661330
 GameObject:
@@ -9364,7 +9358,6 @@ MonoBehaviour:
   corespondingDisk: {fileID: 0}
   correctDegreesObject: 2d0000002d0000002d000000
   disks: []
-=======
   targetCorrectRotation: 0
 --- !u!1 &2130678352
 GameObject:
@@ -9463,7 +9456,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
->>>>>>> Decoupling, Added buttons, Optimization
 --- !u!114 &1843326126971983384
 MonoBehaviour:
   m_ObjectHideFlags: 0
