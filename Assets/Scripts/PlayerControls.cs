@@ -1,13 +1,19 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class PlayerControls : MonoBehaviour
+public interface IPlayer {
+    bool CanLook { get; set; }
+    bool CanMove { get; set; }
+    bool IsLockedOnTower { get; set; }
+}
+
+public class PlayerControls : MonoBehaviour, IPlayer
 {
     public Rigidbody rb;
-    public Camera cameraHolder;
     public float speed;
     public float sensitivity;
     public float maxForce;
+
     private Vector2 move;
     private Vector2 look;
     private float lookRotation;
@@ -15,9 +21,14 @@ public class PlayerControls : MonoBehaviour
     private InputActionMap player;
     private PlayerInput playerInput;
 
-    public bool isLockedOnTower = false;
-    public  bool canLook = true;
-    public  bool canMove = true;
+    private bool isLockedOnTower = false;
+    private bool canLook = true;
+    private bool canMove = true;
+
+    public bool CanLook { get => canLook; set => canLook = value; }
+    public bool CanMove { get => canMove; set => canMove = value; }
+    public bool IsLockedOnTower { get => isLockedOnTower; set => isLockedOnTower = value; }
+
     // Start is called before the first frame update
 
     private void Awake()

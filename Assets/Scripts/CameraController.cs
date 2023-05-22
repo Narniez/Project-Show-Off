@@ -1,45 +1,38 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class CameraController : MonoBehaviour
 {
-
-    private InputActionAsset inputAsset;
-    private InputActionMap player;
-    private PlayerInput playerInput;
-    public Camera mainCamera;
-
     public Transform target;  // The object you want to reach and focus on
 
     public Vector3 interactionRaypoint = default;
     public float interactionDistance = default;
 
-    public float transitionSpeed = 5f;  // Speed of the camera transition
-    public float verticalMoveAmount = 0.5f;  // Speed of vertical camera movement
-    public float maxY = 10f;  // Minimum y-axis position of the camera
-    public float minY = 1f;
-    public float snapAmount = 0.03f;
-
-    //private bool isSnapping = false;
-    public bool isTransitioning = false;  // Flag to check if camera is transitioning
-
-    [SerializeField]
     public bool IsLockedOnDisk = false;
-    [SerializeField]
-    public  bool isLockedOnTower = false;
+    public bool isLockedOnTower = false;
+    
+    private InputActionAsset inputAsset;
+    private InputActionMap player;
+    private PlayerInput playerInput;
+    private Camera mainCamera;
+
+    private float transitionSpeed = 5f;  // Speed of the camera transition
+    private float verticalMoveAmount = 1f;  // Speed of vertical camera movement
+    private float maxY = 2.5f;  // Minimum y-axis position of the camera
+    private float minY = 0.5f;
+
+    private bool isTransitioning = false;  // Flag to check if camera is transitioning
 
     private Vector3 targetPosition;  // Target position for the camera
     private Quaternion targetRotation;  // Target rotation for the camera
 
-    public bool isLocked = false;
+    private bool isLocked = false;
 
-    public bool isTransitioningBack = false;
+    private bool isTransitioningBack = false;
     private Vector3 originalPosition;
     private Quaternion originalRotation;
 
-    private PlayerControls playerControls;
+    private IPlayer playerControls;
 
     private void Start()
     {
@@ -47,7 +40,7 @@ public class CameraController : MonoBehaviour
         player = inputAsset.FindActionMap("Player");
         playerInput = this.GetComponentInParent<PlayerInput>();
         mainCamera = playerInput.camera;
-        playerControls = this.GetComponentInParent<PlayerControls>();
+        playerControls = this.GetComponentInParent<IPlayer>();
     }
 
     private void Update()
@@ -66,7 +59,7 @@ public class CameraController : MonoBehaviour
             if (hit.collider.CompareTag("PPiece"))
             {
                 AssignTarget(hit);
-                if (isLocked) playerControls.isLockedOnTower = true;
+                if (isLocked) playerControls.IsLockedOnTower = true;
             }
             else if (hit.collider.CompareTag("RotaryDisk"))
             {
@@ -76,7 +69,7 @@ public class CameraController : MonoBehaviour
             }
             else
             {
-                playerControls.isLockedOnTower = false;
+                playerControls.IsLockedOnTower = false;
                 IsLockedOnDisk = false;
                 target = null;
             }
@@ -84,8 +77,8 @@ public class CameraController : MonoBehaviour
 
         if (!isLocked)
         {
-            playerControls.canLook = true;
-            playerControls.canMove = true;
+            playerControls.CanLook = true;
+            playerControls.CanMove = true;
         }
     }
 
@@ -115,7 +108,7 @@ public class CameraController : MonoBehaviour
                 Debug.Log("Stop transition");
                 isTransitioningBack = false;
                 isLocked = false;
-                playerControls.isLockedOnTower = false;
+                playerControls.IsLockedOnTower = false;
             }
         }
         else
@@ -126,7 +119,7 @@ public class CameraController : MonoBehaviour
             }
 
             // Check if the user presses a button to initiate camera transition
-            if (playerControls.isLockedOnTower)
+            if (playerControls.IsLockedOnTower)
             {
                 if (player.FindAction("CameraUp").triggered)
                 {
@@ -151,8 +144,8 @@ public class CameraController : MonoBehaviour
                 target = p.GetChild(i);
                 if (player.FindAction("Interaction").IsPressed() && !isLocked)
                 {
-                    playerControls.canLook = false;
-                    playerControls.canMove = false;
+                    playerControls.CanLook = false;
+                    playerControls.CanMove = false;
                     originalPosition = mainCamera.transform.position;
                     originalRotation = mainCamera.transform.rotation;
                     targetPosition = target.position;

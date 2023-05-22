@@ -3,17 +3,18 @@ using UnityEngine.InputSystem;
 
 public class InteractionHandler : MonoBehaviour
 {
-    public Camera mainCamera;
-    public Interactable currentInteractable;
     public Vector3 interactionRaypoint = default;
     public float interactionDistance = default;
+
+    private Camera mainCamera;
+    private Interactable currentInteractable;
     private InputActionAsset inputAsset;
     private InputActionMap player;
     private PlayerInput playerInput;
 
-    private PlayerControls playerControls;
+    private IPlayer playerControls;
 
-    public static bool canInteract = true;
+    private bool canInteract = true;
 
     private void Awake()
     {
@@ -21,11 +22,10 @@ public class InteractionHandler : MonoBehaviour
         player = inputAsset.FindActionMap("Player");
         playerInput = this.GetComponentInParent<PlayerInput>();
         mainCamera = playerInput.camera;
-
     }
     private void Start()
     {
-        playerControls = this.GetComponentInParent<PlayerControls>();
+        playerControls = this.GetComponentInParent<IPlayer>();
     }
 
     private void OnEnable()
@@ -42,7 +42,6 @@ public class InteractionHandler : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-       
         if (canInteract)
         {
             HandleInteractionCheck();
@@ -85,7 +84,7 @@ public class InteractionHandler : MonoBehaviour
 
     void HandleRaycastPosition()
     {
-        if (playerControls.isLockedOnTower)
+        if (playerControls.IsLockedOnTower)
         {
             interactionRaypoint = new Vector3(-0.2f, 0.5f, 0f);
         }
