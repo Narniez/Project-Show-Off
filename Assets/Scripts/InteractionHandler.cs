@@ -13,10 +13,15 @@ public class InteractionHandler : MonoBehaviour
     private InputActionMap player;
     private PlayerInput playerInput;
 
+<<<<<<< HEAD
     public Animator anim;
     private IPlayer playerControls;
 
     private bool canInteract = true;
+=======
+    public static bool canInteract = true;
+    public Animator anim;
+>>>>>>> BugFixed
 
     private void Awake()
     {
@@ -62,8 +67,12 @@ public class InteractionHandler : MonoBehaviour
             {
                 hit.collider.TryGetComponent(out currentInteractable);
                 hit.collider.TryGetComponent(out anim);
+<<<<<<< HEAD
 
                 if (hit.collider.TryGetComponent(out currentInteractable))
+=======
+                if (currentInteractable)
+>>>>>>> BugFixed
                 {
                     currentInteractable.OnFocus();
 

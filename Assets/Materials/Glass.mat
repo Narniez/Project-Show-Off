@@ -18,7 +18,13 @@ Material:
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: -1
   stringTagMap: {}
+<<<<<<< HEAD
   disabledShaderPasses: []
+=======
+  disabledShaderPasses:
+  - DepthOnly
+  - SHADOWCASTER
+>>>>>>> BugFixed
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
@@ -98,7 +104,11 @@ Material:
     - _Mode: 3
     - _OcclusionStrength: 1
     - _Parallax: 0.02
+<<<<<<< HEAD
     - _QueueControl: 0
+=======
+    - _QueueControl: -1
+>>>>>>> BugFixed
     - _QueueOffset: 0
     - _ReceiveShadows: 1
     - _Smoothness: 1
