@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -9,6 +10,14 @@ public class RotaryDiskHolder : Interactable
     private InputActionMap player;
 
     IPlayer playerA;
+
+    float transitionSpeed = 5f;
+    private Quaternion targetRotation;
+    private float rotationProgress = 0f;
+
+
+    [SerializeField]
+    float rotationSpeed = 100f;
 
     [SerializeField]
     private CameraController cameraController;
@@ -27,7 +36,7 @@ public class RotaryDiskHolder : Interactable
 
     public override void Awake()
     {
-        
+
     }
     private void Start()
     {
@@ -72,6 +81,11 @@ public class RotaryDiskHolder : Interactable
         {
             pieceNum = puzzlePieces.Count - 1;
         }
+
+        if (playerA.PlayerAction.FindAction("Interaction").triggered)
+        {
+            RotatePiece();
+        }
     }
 
     void CorrectPuzzle()
@@ -86,12 +100,11 @@ public class RotaryDiskHolder : Interactable
         Quaternion currentRotation = puzzlePieces[pieceNum].transform.rotation;
         Quaternion rotationIncrement = Quaternion.Euler(0, 0, 45);
         Quaternion newRotation = currentRotation * rotationIncrement;
-        puzzlePieces[pieceNum].transform.rotation= newRotation;
+        puzzlePieces[pieceNum].transform.rotation = newRotation;
     }
-
     public override void OnInteract()
     {
-        RotatePiece();
+        //RotatePiece();
     }
 
     public override void OnFocus()

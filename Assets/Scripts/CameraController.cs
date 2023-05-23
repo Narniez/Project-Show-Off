@@ -69,8 +69,7 @@ public class CameraController : MonoBehaviour
             }
             else
             {
-                playerControls.IsLockedOnTower = false;
-                IsLockedOnDisk = false;
+                
                 //target = null;
             }
         }
@@ -79,6 +78,7 @@ public class CameraController : MonoBehaviour
         {
             playerControls.CanLook = true;
             playerControls.CanMove = true;
+            IsLockedOnDisk = false;
         }
     }
 
@@ -100,6 +100,8 @@ public class CameraController : MonoBehaviour
         }
         if (isTransitioningBack)
         {
+            originalPosition = mainCamera.transform.parent.transform.position;
+            originalRotation = mainCamera.transform.parent.transform.rotation;
             mainCamera.transform.position = Vector3.Lerp(mainCamera.transform.position, originalPosition, transitionSpeed * Time.deltaTime);
             mainCamera.transform.rotation = Quaternion.Lerp(mainCamera.transform.rotation, originalRotation, transitionSpeed * Time.deltaTime);
             if (Vector3.Distance(mainCamera.transform.position, originalPosition) < 0.05f && Quaternion.Angle(mainCamera.transform.rotation, originalRotation) < 0.5f)
@@ -115,7 +117,9 @@ public class CameraController : MonoBehaviour
         {
             if (isLocked && player.FindAction("Back").IsPressed() && !isTransitioning)
             {
-                isTransitioningBack = true;         
+                isTransitioningBack = true;
+                playerControls.IsLockedOnTower = false;
+                IsLockedOnDisk = false;
             }
 
             // Check if the user presses a button to initiate camera transition
@@ -146,8 +150,8 @@ public class CameraController : MonoBehaviour
                 {
                     playerControls.CanLook = false;
                     playerControls.CanMove = false;
-                    originalPosition = mainCamera.transform.position;
-                    originalRotation = mainCamera.transform.rotation;
+                    //originalPosition = mainCamera.transform.position;
+                    //originalRotation = mainCamera.transform.rotation;
                     targetPosition = target.position;
                     targetRotation = target.rotation;
                     isTransitioning = true;

@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Events;
+using System.Collections;
 
 public class RotationPuzzle : MonoBehaviour
 {
@@ -11,6 +12,9 @@ public class RotationPuzzle : MonoBehaviour
     private InputActionMap playerInput;
     [SerializeField]
     private int pieceNum = 0;
+
+    [SerializeField]
+    private float rotationSpeed = 5f;
     public bool canInteract = false;
     public UnityAction PuzzleComplete;
 
@@ -69,7 +73,7 @@ public class RotationPuzzle : MonoBehaviour
         if (!GetComponentInParent<CameraController>().IsLockedOnDisk) return;
             if (Input.GetKeyDown(KeyCode.F1))
             {
-                Debug.Log("Go to nesxt Piece");
+                Debug.Log("Go to next Piece");
                 pieceNum++;
             }
             if (Input.GetKeyDown(KeyCode.F2))
@@ -92,23 +96,32 @@ public class RotationPuzzle : MonoBehaviour
         Debug.Log("Puzzle complete");
         return true;
     }
-
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.CompareTag("Player")) canInteract = true;
-    }
-
-    private void OnTriggerExit(Collider other)
-    {
-        if (other.CompareTag("Player")) canInteract = false;
-    }
     void RotatePiece(InputAction.CallbackContext obj)
     {
         if (GetComponentInParent<CameraController>() == null) return;
         if (GetComponentInParent<CameraController>().IsLockedOnDisk || !canInteract) return;
+        //Quaternion currentRotation = puzzlePieces[pieceNum].transform.rotation;
+        //Quaternion rotationIncrement = Quaternion.Euler(0, 0, 45);
+        //Quaternion newRotation = currentRotation * rotationIncrement;
+        //puzzlePieces[pieceNum].transform.rotation = newRotation;
+        RotatePieceCoroutine();
+    }
+
+    IEnumerator RotatePieceCoroutine()
+    {
         Quaternion currentRotation = puzzlePieces[pieceNum].transform.rotation;
-        Quaternion rotationIncrement = Quaternion.Euler(0, 0, 45);
-        Quaternion newRotation = currentRotation * rotationIncrement;
-        puzzlePieces[pieceNum].transform.rotation = newRotation;
+        Quaternion targetRotation = currentRotation * Quaternion.Euler(0, 0, 45);
+
+        float t = 0f;
+        while (t < 1f)
+        {
+            t += Time.deltaTime * rotationSpeed;
+
+            // Interpolate the rotation gradually
+            Quaternion newRotation = Quaternion.Lerp(currentRotation, targetRotation, t);
+            puzzlePieces[pieceNum].transform.rotation = newRotation;
+
+            yield return null;
+        }
     }
 }
