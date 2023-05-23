@@ -5,24 +5,26 @@ using UnityEngine.Events;
 
 public class ColorPuzzle : Interactable
 {
-    public UnityAction PuzzleComplete; 
+    public UnityAction PuzzleComplete;
+    [SerializeField]
+    private GameObject doorObject;
 
-   // public ColorPuzzlePiece[] puzzlePieces;
+    // public ColorPuzzlePiece[] puzzlePieces;
     private List<ColorPuzzlePiece> puzzlePieces = new List<ColorPuzzlePiece>();
 
     public override void OnFocus()
     {
-       
+
     }
 
     public override void OnInteract()
     {
-         
+
     }
 
     public override void OnLoseFocus()
     {
-       
+
     }
 
     void Start()
@@ -71,6 +73,7 @@ public class ColorPuzzle : Interactable
 
     void OnPuzzleCompleted()
     {
-            Debug.Log("All puzzle pieces are correct!");
+        doorObject.SetActive(false);
+        Debug.Log("All puzzle pieces are correct!");
     }
 }

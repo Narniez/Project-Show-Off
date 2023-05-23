@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class CompanionCube : MonoBehaviour
 {
@@ -6,6 +7,9 @@ public class CompanionCube : MonoBehaviour
 
     private Transform pickUpObj;
     private Rigidbody pickUpObjRB;
+
+    private InputActionMap player;
+    private PlayerInput playerInput;
 
     private float distInteraction = 2f;
 

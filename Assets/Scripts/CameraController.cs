@@ -71,7 +71,7 @@ public class CameraController : MonoBehaviour
             {
                 playerControls.IsLockedOnTower = false;
                 IsLockedOnDisk = false;
-                target = null;
+                //target = null;
             }
         }
 
@@ -108,6 +108,7 @@ public class CameraController : MonoBehaviour
                 isTransitioningBack = false;
                 isLocked = false;
                 playerControls.IsLockedOnTower = false;
+                target = null;
             }
         }
         else
