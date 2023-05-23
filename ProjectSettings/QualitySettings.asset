@@ -40,11 +40,7 @@ QualitySettings:
     asyncUploadBufferSize: 16
     asyncUploadPersistentBuffer: 1
     resolutionScalingFixedDPIFactor: 1
-<<<<<<< HEAD
     customRenderPipeline: {fileID: 11400000, guid: eb969f27ef46a42a7a690022d11757ae, type: 2}
-=======
-    customRenderPipeline: {fileID: 11400000, guid: e7b3cc4289983664aa0a73a4ab24ef97, type: 2}
->>>>>>> BugFixed
     excludedTargetPlatforms: []
   - serializedVersion: 2
     name: Low
@@ -80,11 +76,7 @@ QualitySettings:
     asyncUploadBufferSize: 16
     asyncUploadPersistentBuffer: 1
     resolutionScalingFixedDPIFactor: 1
-<<<<<<< HEAD
     customRenderPipeline: {fileID: 11400000, guid: 0be3229d5878e44f58d124ca3af43394, type: 2}
-=======
-    customRenderPipeline: {fileID: 11400000, guid: 98d302adbdcbad0418644f77749517c2, type: 2}
->>>>>>> BugFixed
     excludedTargetPlatforms: []
   - serializedVersion: 2
     name: Medium
@@ -120,11 +112,7 @@ QualitySettings:
     asyncUploadBufferSize: 16
     asyncUploadPersistentBuffer: 1
     resolutionScalingFixedDPIFactor: 1
-<<<<<<< HEAD
     customRenderPipeline: {fileID: 11400000, guid: 731f34a6a5a3347a09c108665f737d8a, type: 2}
-=======
-    customRenderPipeline: {fileID: 11400000, guid: 51a46af8ce73a00489f179a5351ff259, type: 2}
->>>>>>> BugFixed
     excludedTargetPlatforms: []
   - serializedVersion: 2
     name: High
@@ -160,11 +148,7 @@ QualitySettings:
     asyncUploadBufferSize: 16
     asyncUploadPersistentBuffer: 1
     resolutionScalingFixedDPIFactor: 1
-<<<<<<< HEAD
     customRenderPipeline: {fileID: 11400000, guid: b0470c00c51374633864ca85ce0c8d8e, type: 2}
-=======
-    customRenderPipeline: {fileID: 11400000, guid: be1387cfc2f8f994a8b511612961e7aa, type: 2}
->>>>>>> BugFixed
     excludedTargetPlatforms: []
   - serializedVersion: 2
     name: Very High
@@ -200,11 +184,7 @@ QualitySettings:
     asyncUploadBufferSize: 16
     asyncUploadPersistentBuffer: 1
     resolutionScalingFixedDPIFactor: 1
-<<<<<<< HEAD
     customRenderPipeline: {fileID: 11400000, guid: 67d04ced4ba98408bab1af2940e99384, type: 2}
-=======
-    customRenderPipeline: {fileID: 11400000, guid: b1dd2f7418332864db4459fcf81c5a16, type: 2}
->>>>>>> BugFixed
     excludedTargetPlatforms: []
   - serializedVersion: 2
     name: Ultra
@@ -218,10 +198,10 @@ QualitySettings:
     shadowCascade2Split: 0.33333334
     shadowCascade4Split: {x: 0.06666667, y: 0.2, z: 0.46666667}
     shadowmaskMode: 1
-    skinWeights: 4
+    skinWeights: 255
     textureQuality: 0
     anisotropicTextures: 2
-    antiAliasing: 0
+    antiAliasing: 2
     softParticles: 1
     softVegetation: 1
     realtimeReflectionProbes: 1
@@ -240,22 +220,19 @@ QualitySettings:
     asyncUploadBufferSize: 16
     asyncUploadPersistentBuffer: 1
     resolutionScalingFixedDPIFactor: 1
-<<<<<<< HEAD
     customRenderPipeline: {fileID: 11400000, guid: 0013c0a24a08f4b03a4c1790b3d02546, type: 2}
-=======
-    customRenderPipeline: {fileID: 11400000, guid: 5ea133f15d931014c89fefa8aa1dc946, type: 2}
->>>>>>> BugFixed
     excludedTargetPlatforms: []
   m_PerPlatformDefaultQuality:
     Android: 2
+    EmbeddedLinux: 5
     GameCoreScarlett: 5
     GameCoreXboxOne: 5
+    LinuxHeadlessSimulation: 5
     Lumin: 5
-    Nintendo 3DS: 5
     Nintendo Switch: 5
     PS4: 5
     PS5: 5
-    Server: 0
+    Server: 5
     Stadia: 5
     Standalone: 5
     WebGL: 3
