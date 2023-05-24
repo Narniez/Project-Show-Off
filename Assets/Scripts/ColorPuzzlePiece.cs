@@ -34,6 +34,7 @@ public class ColorPuzzlePiece : PuzzleAbstract
         {
             Debug.Log(this.name + " Puzzle piece is in the correct orientation.");
         }
+
     }
 
     public void RotatePiece()
@@ -66,22 +67,5 @@ public class ColorPuzzlePiece : PuzzleAbstract
         e.y = Mathf.Round(e.y);
         transform.rotation = Quaternion.Euler(e);
         isRotating = false;
-
-       
     }
-
-    // Start the rotation coroutine
-
-    //public bool IsCorrect(Quaternion correctAngle, Quaternion targetAngle)
-    //{
-    //    //Improved with chatGPT
-    //    // Calculate the dot product between the current rotation and the target angle
-    //    //float dotProduct = Quaternion.Dot(targetAngle, correctAngle);
-    //    //// Determine if the dot product exceeds the precision threshold
-    //    //bool isCorrect = Mathf.Abs(dotProduct) > 0.9999f;
-    //    //return isCorrect;
-
-    //    bool isCorrect = correctAngle.eulerAngles.y == targetAngle.eulerAngles.y;
-    //    return isCorrect;
-    //}
 }

@@ -130,6 +130,38 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2035778353943512909, guid: c8778c383cb1b72468c41e32b2915940, type: 3}
+      propertyPath: targetAngle.w
+      value: 0.9238795
+      objectReference: {fileID: 0}
+    - target: {fileID: 2035778353943512909, guid: c8778c383cb1b72468c41e32b2915940, type: 3}
+      propertyPath: targetAngle.z
+      value: 0.38268346
+      objectReference: {fileID: 0}
+    - target: {fileID: 2035778353943512909, guid: c8778c383cb1b72468c41e32b2915940, type: 3}
+      propertyPath: correctAngle.w
+      value: 0.9238795
+      objectReference: {fileID: 0}
+    - target: {fileID: 2035778353943512909, guid: c8778c383cb1b72468c41e32b2915940, type: 3}
+      propertyPath: correctAngle.z
+      value: 0.38268346
+      objectReference: {fileID: 0}
+    - target: {fileID: 2952707687860937286, guid: c8778c383cb1b72468c41e32b2915940, type: 3}
+      propertyPath: targetAngle.w
+      value: 0.9238795
+      objectReference: {fileID: 0}
+    - target: {fileID: 2952707687860937286, guid: c8778c383cb1b72468c41e32b2915940, type: 3}
+      propertyPath: targetAngle.z
+      value: 0.38268346
+      objectReference: {fileID: 0}
+    - target: {fileID: 2952707687860937286, guid: c8778c383cb1b72468c41e32b2915940, type: 3}
+      propertyPath: correctAngle.w
+      value: 0.9238795
+      objectReference: {fileID: 0}
+    - target: {fileID: 2952707687860937286, guid: c8778c383cb1b72468c41e32b2915940, type: 3}
+      propertyPath: correctAngle.z
+      value: 0.38268346
+      objectReference: {fileID: 0}
     - target: {fileID: 4048517949359881634, guid: c8778c383cb1b72468c41e32b2915940, type: 3}
       propertyPath: m_IsActive
       value: 1
@@ -188,6 +220,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7580886733009302312, guid: c8778c383cb1b72468c41e32b2915940, type: 3}
       propertyPath: targetAngle.z
+      value: 0.70710677
+      objectReference: {fileID: 0}
+    - target: {fileID: 7580886733009302312, guid: c8778c383cb1b72468c41e32b2915940, type: 3}
+      propertyPath: correctAngle.w
+      value: 0.70710677
+      objectReference: {fileID: 0}
+    - target: {fileID: 7580886733009302312, guid: c8778c383cb1b72468c41e32b2915940, type: 3}
+      propertyPath: correctAngle.z
       value: 0.70710677
       objectReference: {fileID: 0}
     - target: {fileID: 7580886733009302312, guid: c8778c383cb1b72468c41e32b2915940, type: 3}

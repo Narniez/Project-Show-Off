@@ -1,28 +1,43 @@
 using System;
 using UnityEngine;
 
-public interface IRotaryDiskPuzzle {
-    bool CorrectPuzzlePosition();
-}
-/// <summary>
-/// USED AI TO HELP ME TO REMOVE COUPLING (CAUSED SOME PROBLEMS)
-/// Gave me the idea of using interface so if I change the script it will not affect the scripts that inherits from it.
-/// 
-/// Stanislav Velikov
-/// </summary>
-public class RotaryDisk : MonoBehaviour, IRotaryDiskPuzzle 
+public class RotaryDisk : PuzzleAbstract 
 {
-    public Quaternion targetAngle;
+    public Quaternion correctAngle; 
+
+    public override void OnFocus() { }
+
+    public override void OnInteract() { }
+
+    public override void OnLoseFocus() { }
+
+
+    private void FixedUpdate()
+    {
+        if (IsCorrect(transform.rotation, correctAngle, Axis.Z))
+        {
+            Debug.Log(this.name + " is in correct position with Z angle =  " + this.transform.rotation.eulerAngles.z);
+        }
+    }
 
     /// <summary>
     /// Checks if the disks are in the correct rotation
     /// </summary>
     /// <returns></returns>
     /// <exception cref="NullReferenceException"></exception>
-
-    public bool CorrectPuzzlePosition()
+    /// 
+    public void RotatePiece(int rotAmount)
     {
-        bool isCorrect = targetAngle.eulerAngles.z == transform.rotation.eulerAngles.z;
-        return isCorrect;
+        Quaternion currentRotation = transform.rotation;
+        Quaternion rotationIncrement = Quaternion.Euler(0, 0, (int)rotAmount);
+        Quaternion newRotation = currentRotation * rotationIncrement;
+
+        // Round the rotation to the nearest integer value
+        Vector3 eulerAngles = newRotation.eulerAngles;
+        eulerAngles.z = Mathf.Round(eulerAngles.z);
+        transform.rotation = Quaternion.Euler(eulerAngles);
+        //Debug.Log(" Current Z rotation is " + transform.rotation.eulerAngles.z);
+       //Debug.Log(" Target Z rotation is: " + targetAngle.eulerAngles.z);
     }
+
 }

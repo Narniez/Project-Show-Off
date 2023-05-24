@@ -1,16 +1,14 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class RotaryDiskHolder : Interactable
+public class RotaryDiskHolder : PuzzleAbstract
 {
     public List<RotaryDisk> puzzlePieces = new List<RotaryDisk>();
    // public InputActionAsset inputAsset;
-    private InputActionMap player;
-
     IPlayer playerA;
 
+    Quaternion newRotation;
     [SerializeField]
     private int rotAmount = 45;
     [SerializeField]
@@ -44,7 +42,7 @@ public class RotaryDiskHolder : Interactable
         ChangeActivePiece();
         for (int i = 0; i < puzzlePieces.Count; i++)
         {
-            if (!puzzlePieces[i].CorrectPuzzlePosition())
+            if (!puzzlePieces[i].IsCorrect(puzzlePieces[i].transform.rotation,puzzlePieces[i].correctAngle,Axis.Z))
             {
                 return;
             }
@@ -78,35 +76,19 @@ public class RotaryDiskHolder : Interactable
         if (playerA.PlayerAction.FindAction("RotateLeft").triggered)
         {
             rotAmount = -45;
-            RotatePiece();
+            puzzlePieces[pieceNum].RotatePiece(rotAmount);
         }
         if (playerA.PlayerAction.FindAction("RotateRight").triggered)
         {
             rotAmount = 45;
-            RotatePiece();
+            //RotatePiece(puzzlePieces[pieceNum]);
+            puzzlePieces[pieceNum].RotatePiece(rotAmount);
         }
     }
 
     void CorrectPuzzle()
     {
-        Debug.Log(puzzlePieces[pieceNum].name + " is in correct position");
-    }
-
-    void RotatePiece()
-    {
-        if (cameraController == null) return;
-        if (!cameraController.IsLockedOnDisk) return;
-        
-        Quaternion currentRotation = puzzlePieces[pieceNum].transform.rotation;
-        Quaternion rotationIncrement = Quaternion.Euler(0, 0, (int)rotAmount);
-        Quaternion newRotation = currentRotation * rotationIncrement;
-
-        // Round the rotation to the nearest integer value
-        Vector3 eulerAngles = newRotation.eulerAngles;
-        eulerAngles.z = Mathf.Round(eulerAngles.z);
-        puzzlePieces[pieceNum].transform.rotation = Quaternion.Euler(eulerAngles);
-        Debug.Log(" Current Z rotation is " + puzzlePieces[pieceNum].transform.rotation.eulerAngles.z);
-        Debug.Log(" Target Z rotation is: " + puzzlePieces[pieceNum].targetAngle.eulerAngles.z);
+        Debug.Log(" All pieces are in correct position");
     }
     public override void OnInteract()
     {
