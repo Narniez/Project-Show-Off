@@ -461,7 +461,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5628119871910529075}
-  - component: {fileID: 5628119871910529084}
+  - component: {fileID: 2728081011384400067}
   m_Layer: 0
   m_Name: DelayButtonHolder 1
   m_TagString: Untagged
@@ -486,7 +486,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &5628119871910529084
+--- !u!114 &2728081011384400067
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -495,6 +495,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 5628119871910529085}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 52752540106003b4ba7e5671100b87d2, type: 3}
+  m_Script: {fileID: 11500000, guid: 10c83d5cc3b90dc4faca23e6e86ef142, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

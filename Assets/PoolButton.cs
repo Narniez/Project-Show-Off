@@ -2,6 +2,8 @@ using UnityEngine;
 
 public class PoolButton : Interactable, IButton
 {
+    public Transform spawnPosition;
+
     public bool IsPressed { get => throw new System.NotImplementedException(); set => throw new System.NotImplementedException(); }
 
     public override void OnFocus()
@@ -14,6 +16,7 @@ public class PoolButton : Interactable, IButton
         GameObject go = PoolingObjects.Instance.GetObjectFromPool();
         if (go != null)
         {
+            go.transform.position = spawnPosition.position;
             go.SetActive(true);
         }
         PoolingObjects.Instance.DeactivateOldest();

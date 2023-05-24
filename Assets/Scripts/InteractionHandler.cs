@@ -74,9 +74,7 @@ public class InteractionHandler : MonoBehaviour
                         {
                             CameraController tempController = transform.GetChild(0).GetComponent<CameraController>();
                             tempHolder.SetCameraController(tempController, playerControls);
-                            Debug.Log("Diskaaa");
                         }
-                        Debug.Log("Diskaaa");
                     }
                 }
             }
