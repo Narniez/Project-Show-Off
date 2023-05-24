@@ -1,6 +1,7 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.InputSystem;
 
 public class ColorPuzzlePiece : PuzzleAbstract
 {
@@ -37,6 +38,7 @@ public class ColorPuzzlePiece : PuzzleAbstract
 
     public void RotatePiece()
     {
+        //if(playerInput.PlayerAction.FindAction(""))
         //if (!CameraController.isLockedOnTower) return;
         if (!isRotating)
         {
