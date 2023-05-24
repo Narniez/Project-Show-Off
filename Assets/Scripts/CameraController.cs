@@ -50,7 +50,7 @@ public class CameraController : MonoBehaviour
 
         if (IsLockedOnDisk)
         {
-            Debug.Log("Camera is Locked on Disk");
+            //Debug.Log("Camera is Locked on Disk");
         }
 
         var ray = mainCamera.ViewportPointToRay(interactionRaypoint);
