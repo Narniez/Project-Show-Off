@@ -30,7 +30,6 @@ public class RotaryDiskHolder : Interactable
         playerA = player;
         if (camController == null) return;
         cameraController = camController;
-        Debug.Log(cameraController);
     }
 
 
