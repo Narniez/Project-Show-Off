@@ -1,10 +1,15 @@
 using System;
+using System.Collections;
 using UnityEngine;
 
 public class RotaryDisk : PuzzleAbstract 
 {
-    public Quaternion correctAngle; 
+    public Quaternion correctAngle;
 
+    private bool isRotating;
+    [SerializeField] private float rotationDuration = 1;
+
+    [HideInInspector] public Quaternion targetAngle;
     public override void OnFocus() { }
 
     public override void OnInteract() { }
@@ -28,16 +33,31 @@ public class RotaryDisk : PuzzleAbstract
     /// 
     public void RotatePiece(int rotAmount)
     {
-        Quaternion currentRotation = transform.rotation;
-        Quaternion rotationIncrement = Quaternion.Euler(0, 0, (int)rotAmount);
-        Quaternion newRotation = currentRotation * rotationIncrement;
-
-        // Round the rotation to the nearest integer value
-        Vector3 eulerAngles = newRotation.eulerAngles;
-        eulerAngles.z = Mathf.Round(eulerAngles.z);
-        transform.rotation = Quaternion.Euler(eulerAngles);
+        if (!isRotating)
+        {
+            targetAngle = transform.rotation * Quaternion.Euler(0, 0, rotAmount);
+            StartCoroutine(RotateTowardsTarget());
+        }
         //Debug.Log(" Current Z rotation is " + transform.rotation.eulerAngles.z);
-       //Debug.Log(" Target Z rotation is: " + targetAngle.eulerAngles.z);
+        //Debug.Log(" Target Z rotation is: " + targetAngle.eulerAngles.z);
+    }
+
+    IEnumerator RotateTowardsTarget()
+    {
+        isRotating = true;
+        Quaternion startingRotation = transform.rotation;
+        float elapsedTime = 0f;
+
+        while (elapsedTime < rotationDuration)
+        {
+            elapsedTime += Time.deltaTime;
+            transform.rotation = Quaternion.Lerp(startingRotation, targetAngle, elapsedTime / rotationDuration);
+            yield return null;
+        }
+        Vector3 e = transform.rotation.eulerAngles;
+        e.y = Mathf.Round(e.y);
+        transform.rotation = Quaternion.Euler(e);
+        isRotating = false;
     }
 
 }

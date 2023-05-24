@@ -73,12 +73,12 @@ public class RotaryDiskHolder : PuzzleAbstract
             pieceNum = puzzlePieces.Count - 1;
         }
 
-        if (playerA.PlayerAction.FindAction("RotateLeft").triggered)
+        if (playerA.PlayerAction.FindAction("RotateRight").triggered)
         {
             rotAmount = -45;
             puzzlePieces[pieceNum].RotatePiece(rotAmount);
         }
-        if (playerA.PlayerAction.FindAction("RotateRight").triggered)
+        if (playerA.PlayerAction.FindAction("RotateLeft").triggered)
         {
             rotAmount = 45;
             //RotatePiece(puzzlePieces[pieceNum]);

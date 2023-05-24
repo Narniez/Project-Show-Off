@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 2134935737206626680}
   - component: {fileID: 7927270939156391634}
   - component: {fileID: 4246795558290587666}
+  - component: {fileID: 905085012}
   m_Layer: 0
   m_Name: OuterRing
   m_TagString: Untagged
@@ -83,6 +84,21 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &905085012
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 398263776612982329}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 117c151fe90e88746ac562162ddaae1d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  correctAngle: {x: 0, y: 0, z: 0.70710677, w: 0.70710677}
+  rotationDuration: 1
+  targetAngle: {x: 0, y: 0, z: 0, w: 0}
 --- !u!1 &1568317136229838971
 GameObject:
   m_ObjectHideFlags: 0
@@ -92,9 +108,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2200035411077851841}
+  - component: {fileID: 1808256451}
+  - component: {fileID: 905085006}
   m_Layer: 0
   m_Name: RotaryDisc3
-  m_TagString: Untagged
+  m_TagString: RotaryDisk
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -106,7 +124,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1568317136229838971}
-  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -8.2, y: 0.77000093, z: 1.17}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -117,6 +135,35 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &1808256451
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1568317136229838971}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.9613647, y: 2.0014684, z: 0.20505929}
+  m_Center: {x: -0.0036706924, y: -0.0059074163, z: -0.0022976398}
+--- !u!114 &905085006
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1568317136229838971}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6481ffe275db35a4b9d1c02dd25a3040, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  puzzlePieces: []
+  rotAmount: 45
+  cameraController: {fileID: 0}
+  pieceNum: 0
 --- !u!1 &3115478254040977980
 GameObject:
   m_ObjectHideFlags: 0
@@ -128,6 +175,7 @@ GameObject:
   - component: {fileID: 7740905430373657587}
   - component: {fileID: 7147107265574002690}
   - component: {fileID: 4071201790776883397}
+  - component: {fileID: 905085011}
   m_Layer: 0
   m_Name: MiddleRing
   m_TagString: Untagged
@@ -200,6 +248,21 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &905085011
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3115478254040977980}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 117c151fe90e88746ac562162ddaae1d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  correctAngle: {x: 0, y: 0, z: 0, w: 0}
+  rotationDuration: 1
+  targetAngle: {x: 0, y: 0, z: 0, w: 0}
 --- !u!1 &8253223419439731690
 GameObject:
   m_ObjectHideFlags: 0
@@ -211,6 +274,7 @@ GameObject:
   - component: {fileID: 4343770106355039364}
   - component: {fileID: 1692027813173015584}
   - component: {fileID: 1623216948242573847}
+  - component: {fileID: 905085010}
   m_Layer: 0
   m_Name: InnerRing
   m_TagString: Untagged
@@ -283,3 +347,18 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &905085010
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8253223419439731690}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 117c151fe90e88746ac562162ddaae1d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  correctAngle: {x: 0, y: 0, z: 0, w: 0}
+  rotationDuration: 1
+  targetAngle: {x: 0, y: 0, z: 0, w: 0}
