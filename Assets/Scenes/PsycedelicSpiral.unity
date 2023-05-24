@@ -520,6 +520,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: LockPlane
       objectReference: {fileID: 0}
+    - target: {fileID: 3278572698956365713, guid: 016734c1100efea48acd03b6e20f1605, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: dfb97a9307a577a41bcacba34b9a7e32, type: 3}
     - target: {fileID: 3278572698956365718, guid: 016734c1100efea48acd03b6e20f1605, type: 3}
       propertyPath: lengthInSec
       value: 1

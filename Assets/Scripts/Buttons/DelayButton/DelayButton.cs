@@ -1,7 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
-public class DelayButton : Interactable//, IButton
+public class DelayButton : Interactable, IButton
 {
     public bool IsPressed { get; set; }
 

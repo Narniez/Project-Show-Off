@@ -17,6 +17,7 @@ public class PickUpController : MonoBehaviour
 
     private void Update()
     {
+
         if (Input.GetMouseButtonDown(0))
         {
             if (holdObj == null)
@@ -52,7 +53,7 @@ public class PickUpController : MonoBehaviour
             Vector3 moveDir = targetPosition - holdObj.transform.position;
             pickUpObjRB.AddForce(moveDir * 100f);   // Apply force to move the cube towards the target position
         }
-        
+
     }
 
     void PickUpItem(GameObject pickUpObj)
@@ -67,7 +68,7 @@ public class PickUpController : MonoBehaviour
 
         holdObj = pickUpObj;
         //pickUpObjRB.constraints = RigidbodyConstraints.FreezeRotation;
-        holdObj.transform.localRotation = Quaternion.Euler(0,0,0);
+        holdObj.transform.localRotation = Quaternion.Euler(0, 0, 0);
     }
 
     void DropItem()

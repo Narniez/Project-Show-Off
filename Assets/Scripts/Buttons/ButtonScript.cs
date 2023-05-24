@@ -11,17 +11,13 @@ public class ButtonScript : Interactable, IButton
 
     public override void OnFocus()
     {
-        if (Input.GetMouseButton(0))
-        {
-            Debug.Log("You pressed a button");
-            IsPressed = true;
-        }
-        else { IsPressed = false; }
+        //Debug.Log("Lookking at button");
     }
 
     public override void OnInteract()
     {
-
+        IsPressed = true;
+        Debug.Log("You pressed a button");
     }
 
     public override void OnLoseFocus()
