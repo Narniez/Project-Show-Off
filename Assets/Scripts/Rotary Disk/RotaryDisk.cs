@@ -12,7 +12,7 @@ public interface IRotaryDiskPuzzle {
 /// </summary>
 public class RotaryDisk : MonoBehaviour, IRotaryDiskPuzzle 
 {
-    public float targetCorrectRotation;
+    public Quaternion targetAngle;
 
     /// <summary>
     /// Checks if the disks are in the correct rotation
@@ -22,19 +22,7 @@ public class RotaryDisk : MonoBehaviour, IRotaryDiskPuzzle
 
     public bool CorrectPuzzlePosition()
     {
-        float currentRotation = transform.rotation.eulerAngles.z;
-        //Mathf.Approximately it returns bool if the 2 floats are approximately equal 
-        //(Research it after I saw it from AI. I used a few if checks with casting to (int))
-        bool isCorrectPosition = Mathf.Approximately(currentRotation, targetCorrectRotation);
-        return isCorrectPosition;
+        bool isCorrect = targetAngle.eulerAngles.z == transform.rotation.eulerAngles.z;
+        return isCorrect;
     }
-
-    //public override void OnInteract()
-    //{
-    //    Quaternion currentRotation = this.gameObject.transform.rotation;
-    //    Quaternion rotationIncrement = Quaternion.Euler(0, 0, 45);
-    //    Quaternion newRotation = currentRotation * rotationIncrement;
-    //    this.gameObject.transform.rotation = newRotation;
-    //}
-
 }
