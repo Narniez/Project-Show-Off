@@ -1,35 +1,20 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Animations;
 using UnityEngine.Events;
 
-public class ColorPuzzle : Interactable
+public class ColorPuzzle : PuzzleAbstract
 {
     public UnityAction PuzzleComplete;
-    [SerializeField]
-    private GameObject doorObject;
+    [SerializeField] private GameObject doorObject;
 
-    // public ColorPuzzlePiece[] puzzlePieces;
     private List<ColorPuzzlePiece> puzzlePieces = new List<ColorPuzzlePiece>();
-
-    public override void OnFocus()
-    {
-
-    }
-
-    public override void OnInteract()
-    {
-
-    }
-
-    public override void OnLoseFocus()
-    {
-
-    }
 
     void Start()
     {
         PuzzleComplete += OnPuzzleCompleted;
+
         // Find and add puzzle pieces to the list
         ColorPuzzlePiece[] puzzlePieceObjects = GetComponentsInChildren<ColorPuzzlePiece>(true);
         puzzlePieces.AddRange(puzzlePieceObjects);
@@ -44,6 +29,7 @@ public class ColorPuzzle : Interactable
     private void OnDestroy()
     {
         PuzzleComplete -= OnPuzzleCompleted;
+
         // Unsubscribe from the puzzle piece events
         foreach (ColorPuzzlePiece puzzlePiece in puzzlePieces)
         {
@@ -55,10 +41,10 @@ public class ColorPuzzle : Interactable
     {
         bool allPiecesCorrect = true;
 
-        //If a piece is not in a correct position update bool to false
+        // Check if all puzzle pieces are in the correct position
         foreach (ColorPuzzlePiece piece in puzzlePieces)
         {
-            if (!piece.IsCorrect())
+            if (!piece.IsCorrect(piece.correctAngle, piece.targetAngle, Axis.Y))
             {
                 allPiecesCorrect = false;
                 break;
@@ -73,7 +59,17 @@ public class ColorPuzzle : Interactable
 
     void OnPuzzleCompleted()
     {
-        doorObject.SetActive(false);
-        Debug.Log("All puzzle pieces are correct!");
+
+        if (doorObject != null)
+        {
+            doorObject.SetActive(false);
+        }
+
     }
+
+    public override void OnInteract() { }
+
+    public override void OnFocus() { }
+
+    public override void OnLoseFocus() { }
 }

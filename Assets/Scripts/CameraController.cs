@@ -106,7 +106,6 @@ public class CameraController : MonoBehaviour
             mainCamera.transform.rotation = Quaternion.Lerp(mainCamera.transform.rotation, originalRotation, transitionSpeed * Time.deltaTime);
             if (Vector3.Distance(mainCamera.transform.position, originalPosition) < 0.05f && Quaternion.Angle(mainCamera.transform.rotation, originalRotation) < 0.5f)
             {
-                Debug.Log("Stop transition");
                 isTransitioningBack = false;
                 isLocked = false;
                 playerControls.IsLockedOnTower = false;
@@ -166,7 +165,6 @@ public class CameraController : MonoBehaviour
     void CameraControls(Vector3 offset)
     {
         Vector3 newPos = mainCamera.transform.position += offset;
-        Debug.Log(newPos.y);
         newPos.y = Mathf.Clamp(newPos.y, minY, maxY);
         mainCamera.transform.position = newPos;
 
