@@ -7,6 +7,9 @@ public class ColorPuzzlePiece : PuzzleAbstract
 {
     public UnityAction<ColorPuzzlePiece> PieceRotated;
 
+    [SerializeField]
+    private int rotAmount = 90;
+
     [SerializeField] private float rotationDuration = 1;
     public Quaternion correctAngle;
 
@@ -34,7 +37,6 @@ public class ColorPuzzlePiece : PuzzleAbstract
         {
             Debug.Log(this.name + " Puzzle piece is in the correct orientation.");
         }
-
     }
 
     public void RotatePiece()
@@ -43,29 +45,11 @@ public class ColorPuzzlePiece : PuzzleAbstract
         //if (!CameraController.isLockedOnTower) return;
         if (!isRotating)
         {
-            targetAngle = transform.rotation * Quaternion.Euler(0, 90, 0);
-            StartCoroutine(RotateTowardsTarget());
+            targetAngle = transform.rotation * Quaternion.Euler(0, rotAmount, 0);
+            StartCoroutine(RotateTowardsTarget(isRotating,targetAngle,rotationDuration));
         }
 
         PieceRotated?.Invoke(this);
     }
-
-    //AI!
-    IEnumerator RotateTowardsTarget()
-    {
-        isRotating = true;
-        Quaternion startingRotation = transform.rotation;
-        float elapsedTime = 0f;
-
-        while (elapsedTime < rotationDuration)
-        {
-            elapsedTime += Time.deltaTime;
-            transform.rotation = Quaternion.Lerp(startingRotation, targetAngle, elapsedTime / rotationDuration);
-            yield return null;
-        }
-        Vector3 e = transform.rotation.eulerAngles;
-        e.y = Mathf.Round(e.y);
-        transform.rotation = Quaternion.Euler(e);
-        isRotating = false;
-    }
+   
 }

@@ -36,28 +36,9 @@ public class RotaryDisk : PuzzleAbstract
         if (!isRotating)
         {
             targetAngle = transform.rotation * Quaternion.Euler(0, 0, rotAmount);
-            StartCoroutine(RotateTowardsTarget());
+            StartCoroutine(RotateTowardsTarget(isRotating,targetAngle,rotationDuration));
         }
         //Debug.Log(" Current Z rotation is " + transform.rotation.eulerAngles.z);
         //Debug.Log(" Target Z rotation is: " + targetAngle.eulerAngles.z);
     }
-
-    IEnumerator RotateTowardsTarget()
-    {
-        isRotating = true;
-        Quaternion startingRotation = transform.rotation;
-        float elapsedTime = 0f;
-
-        while (elapsedTime < rotationDuration)
-        {
-            elapsedTime += Time.deltaTime;
-            transform.rotation = Quaternion.Lerp(startingRotation, targetAngle, elapsedTime / rotationDuration);
-            yield return null;
-        }
-        Vector3 e = transform.rotation.eulerAngles;
-        e.y = Mathf.Round(e.y);
-        transform.rotation = Quaternion.Euler(e);
-        isRotating = false;
-    }
-
 }
