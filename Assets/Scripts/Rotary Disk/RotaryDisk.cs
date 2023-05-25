@@ -5,8 +5,6 @@ using UnityEngine;
 public class RotaryDisk : PuzzleAbstract 
 {
     public Quaternion correctAngle;
-
-    private bool isRotating;
     [SerializeField] private float rotationDuration = 1;
 
     [HideInInspector] public Quaternion targetAngle;
@@ -19,10 +17,10 @@ public class RotaryDisk : PuzzleAbstract
 
     private void FixedUpdate()
     {
-        if (IsCorrect(transform.rotation, correctAngle, Axis.Z))
-        {
-            Debug.Log(this.name + " is in correct position with Z angle =  " + this.transform.rotation.eulerAngles.z);
-        }
+        //if (IsCorrect(transform.rotation, correctAngle, Axis.Z))
+        //{
+        //    Debug.Log(this.name + " is in correct position with Z angle =  " + this.transform.rotation.eulerAngles.z);
+        //}
     }
 
     /// <summary>
@@ -33,10 +31,10 @@ public class RotaryDisk : PuzzleAbstract
     /// 
     public void RotatePiece(int rotAmount)
     {
-        if (!isRotating)
+        if (!IsRotating())
         {
             targetAngle = transform.rotation * Quaternion.Euler(0, 0, rotAmount);
-            StartCoroutine(RotateTowardsTarget(isRotating,targetAngle,rotationDuration));
+            StartCoroutine(RotateTowardsTarget(targetAngle,rotationDuration));
         }
         //Debug.Log(" Current Z rotation is " + transform.rotation.eulerAngles.z);
         //Debug.Log(" Target Z rotation is: " + targetAngle.eulerAngles.z);

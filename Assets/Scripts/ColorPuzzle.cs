@@ -9,7 +9,13 @@ public class ColorPuzzle : PuzzleAbstract
     public UnityAction PuzzleComplete;
     [SerializeField] private GameObject doorObject;
 
+    [SerializeField]
     private List<ColorPuzzlePiece> puzzlePieces = new List<ColorPuzzlePiece>();
+
+    [SerializeField] private GameObject objectToInstantiate;
+    [SerializeField] private Transform instantiationPosition;
+
+    private bool isCompleted = false;
 
     void Start()
     {
@@ -59,12 +65,22 @@ public class ColorPuzzle : PuzzleAbstract
 
     void OnPuzzleCompleted()
     {
+        if (isCompleted) return; // If already completed, return early
+
+        isCompleted = true; // Set the completion flag to true
 
         if (doorObject != null)
         {
             doorObject.SetActive(false);
         }
 
+        // Instantiate the object at the specified position
+        if (objectToInstantiate != null && instantiationPosition != null)
+        {
+            Instantiate(objectToInstantiate, instantiationPosition.position, instantiationPosition.rotation);
+        }
+
+        Debug.Log("Puzzle Done");
     }
 
     public override void OnInteract() { }

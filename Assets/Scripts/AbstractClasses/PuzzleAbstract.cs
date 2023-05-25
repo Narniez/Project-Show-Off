@@ -3,7 +3,8 @@ using UnityEngine;
 
 public abstract class PuzzleAbstract : Interactable
 {
-    public virtual bool IsCorrect(Quaternion correctAngle, Quaternion targetAngle, Axis axisToCompare)
+    protected bool isRotating;
+    public virtual bool IsCorrect(Quaternion currentAngle, Quaternion targetAngle, Axis axisToCompare)
     {
         bool isCorrect = false;
 
@@ -11,13 +12,13 @@ public abstract class PuzzleAbstract : Interactable
         switch (axisToCompare)
         {
             case Axis.X:
-                isCorrect = correctAngle.eulerAngles.x == targetAngle.eulerAngles.x;
+                isCorrect = currentAngle.eulerAngles.x == targetAngle.eulerAngles.x;
                 break;
             case Axis.Y:
-                isCorrect = correctAngle.eulerAngles.y == targetAngle.eulerAngles.y;
+                isCorrect = Mathf.Abs(Mathf.Abs(currentAngle.eulerAngles.y) - Mathf.Abs(targetAngle.eulerAngles.y)) <= 5f;
                 break;
             case Axis.Z:
-                isCorrect = correctAngle.eulerAngles.z == targetAngle.eulerAngles.z;
+                isCorrect = Mathf.Abs(Mathf.Abs(currentAngle.eulerAngles.z) - Mathf.Abs(targetAngle.eulerAngles.z)) <= 5f;
                 break;
             default:
                 break;
@@ -26,7 +27,12 @@ public abstract class PuzzleAbstract : Interactable
         return isCorrect;
     }
 
-    public IEnumerator RotateTowardsTarget(bool isRotating, Quaternion targetAngle, float rotationDuration)
+    public bool IsRotating()
+    {
+        return isRotating;
+    }
+
+    public IEnumerator RotateTowardsTarget(Quaternion targetAngle, float rotationDuration)
     {
         isRotating = true;
         Quaternion startingRotation = transform.rotation;
@@ -43,6 +49,8 @@ public abstract class PuzzleAbstract : Interactable
         transform.rotation = Quaternion.Euler(e);
         isRotating = false;
     }
+
+
 
     public enum Axis
     {

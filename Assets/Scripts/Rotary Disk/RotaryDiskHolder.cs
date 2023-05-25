@@ -47,7 +47,7 @@ public class RotaryDiskHolder : PuzzleAbstract
                 return;
             }
         }
-        CorrectPuzzle();
+        OnCorrectPuzzle();
     }
 
     void ChangeActivePiece()
@@ -86,20 +86,20 @@ public class RotaryDiskHolder : PuzzleAbstract
         }
     }
 
-    void CorrectPuzzle()
+    void OnCorrectPuzzle()
     {
-        Debug.Log(" All pieces are in correct position");
+     
+
+        Debug.Log("Puzzle Done");
     }
     public override void OnInteract()
     {
-        //RotatePiece();
+        
     }
-
     public override void OnFocus()
     {
         return;
     }
-
     public override void OnLoseFocus()
     {
         cameraController = null;

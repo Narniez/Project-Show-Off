@@ -14,7 +14,6 @@ public class ColorPuzzlePiece : PuzzleAbstract
     public Quaternion correctAngle;
 
     [HideInInspector]public Quaternion targetAngle;
-    private bool isRotating;
 
     public override void OnFocus()
     {
@@ -33,9 +32,9 @@ public class ColorPuzzlePiece : PuzzleAbstract
 
     private void FixedUpdate()
     {
-        if (IsCorrect(correctAngle, targetAngle, Axis.Y))
+        if (IsCorrect(transform.rotation, correctAngle, Axis.Y))
         {
-            Debug.Log(this.name + " Puzzle piece is in the correct orientation.");
+            //Debug.Log(this.name + " Puzzle piece is in the correct orientation.");
         }
     }
 
@@ -43,13 +42,14 @@ public class ColorPuzzlePiece : PuzzleAbstract
     {
         //if(playerInput.PlayerAction.FindAction(""))
         //if (!CameraController.isLockedOnTower) return;
-        if (!isRotating)
+        if (!IsRotating())
         {
             targetAngle = transform.rotation * Quaternion.Euler(0, rotAmount, 0);
-            StartCoroutine(RotateTowardsTarget(isRotating,targetAngle,rotationDuration));
+            StartCoroutine(RotateTowardsTarget(targetAngle,rotationDuration));
+            Debug.Log("CUrrent Y rotation: " + transform.rotation.eulerAngles.y);
+            Debug.Log("Target Y rotationL " + correctAngle.eulerAngles.y);
         }
 
         PieceRotated?.Invoke(this);
     }
-   
 }
