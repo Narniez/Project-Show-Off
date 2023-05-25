@@ -6,14 +6,14 @@ public class InteractionHandler : MonoBehaviour
     public Vector3 interactionRaypoint = default;
     public float interactionDistance = default;
 
+    [SerializeField] private Interactable currentInteractable;
+
+    private Animator anim;
     private Camera mainCamera;
-    [SerializeField]
-    private Interactable currentInteractable;
     private InputActionAsset inputAsset;
     private InputActionMap player;
     private PlayerInput playerInput;
 
-    public Animator anim;
     private IPlayer playerControls;
 
     private bool canInteract = true;
@@ -43,6 +43,7 @@ public class InteractionHandler : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        IsHeld();
         if (canInteract)
         {
             HandleInteractionCheck();
@@ -60,6 +61,13 @@ public class InteractionHandler : MonoBehaviour
 
             if (currentInteractable == null || hit.collider.gameObject != currentInteractable.gameObject)
             {
+                if (currentInteractable != null && currentInteractable is IButton button)
+                {
+                    //button.IsPressed = false;
+                    currentInteractable.OnLoseFocus();
+
+                }
+
                 hit.collider.TryGetComponent(out currentInteractable);
                 hit.collider.TryGetComponent(out anim);
 
@@ -81,7 +89,6 @@ public class InteractionHandler : MonoBehaviour
         }
         else if (currentInteractable != null)
         {
-            currentInteractable.OnLoseFocus();
             currentInteractable = null;
         }
     }
@@ -90,22 +97,26 @@ public class InteractionHandler : MonoBehaviour
         HandleInteractionInput();
     }
 
+    void IsHeld()
+    {
+        if (currentInteractable == null) return;
+        ButtonScript button;
+        if (currentInteractable.TryGetComponent(out button))
+        {
+            button.IsPressed = player.FindAction("Interaction").IsInProgress();
+            Debug.Log(button.IsPressed);
+        }
+    }
+
     void HandleRaycastPosition()
     {
-        //if (playerControls.IsLockedOnTower)
-        //{
-        //    interactionRaypoint = new Vector3(-0.2f, 0.5f, 0f);
-        //}
-        //else
-        //{
-        //}
-            interactionRaypoint = new Vector3(0.5f, 0.5f, 0f);
+        interactionRaypoint = new Vector3(0.5f, 0.5f, 0f);
     }
+
     void HandleInteractionInput()
     {
-        if (currentInteractable != null /*&& Physics.Raycast(mainCamera.ScreenPointToRay(Input.mousePosition), out RaycastHit hit, interactionLayer)*/)
+        if (currentInteractable != null)
         {
-            // Debug.Log("Should interact");
             currentInteractable.OnInteract();
         }
     }
