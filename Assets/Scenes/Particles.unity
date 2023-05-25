@@ -5047,7 +5047,7 @@ ParticleSystemRenderer:
   m_Mesh: {fileID: -2432090755550338912, guid: b5190e6d821555a42ab0c4fccd9bca73, type: 3}
   m_Mesh1: {fileID: -2432090755550338912, guid: 15531eaab28f84e4ca4c2b0b1fc4f7df, type: 3}
   m_Mesh2: {fileID: -2432090755550338912, guid: 583f1b8634a8dc140ad51dc1f97ca14f, type: 3}
-  m_Mesh3: {fileID: 0}
+  m_Mesh3: {fileID: -2432090755550338912, guid: 9ac0ef10efada0444bfd76ccb14d446e, type: 3}
   m_MeshWeighting: 1
   m_MeshWeighting1: 1
   m_MeshWeighting2: 1
@@ -15489,7 +15489,7 @@ ParticleSystemRenderer:
   m_Mesh: {fileID: -2432090755550338912, guid: d2a92876444847f4c9894cce6ea14acd, type: 3}
   m_Mesh1: {fileID: -2432090755550338912, guid: 1b44db6a384b20846a939efa3a984a90, type: 3}
   m_Mesh2: {fileID: -2432090755550338912, guid: df2564e330d7f1a4d855db2fd4a3c449, type: 3}
-  m_Mesh3: {fileID: 0}
+  m_Mesh3: {fileID: -2432090755550338912, guid: a039fc2ba17063f46ad6ddbc79bc740f, type: 3}
   m_MeshWeighting: 1
   m_MeshWeighting1: 1
   m_MeshWeighting2: 1
@@ -20523,7 +20523,7 @@ ParticleSystemRenderer:
   m_Mesh: {fileID: -2432090755550338912, guid: 8bbc721edb741f348b13d23dc7faf09b, type: 3}
   m_Mesh1: {fileID: -2432090755550338912, guid: 25a158ec31db5dc44b3ff9dc8e5e4605, type: 3}
   m_Mesh2: {fileID: -2432090755550338912, guid: fefffcc33da75954fbf213a4c70109d6, type: 3}
-  m_Mesh3: {fileID: 0}
+  m_Mesh3: {fileID: -2432090755550338912, guid: f842703374a00864580101007f14e6fd, type: 3}
   m_MeshWeighting: 1
   m_MeshWeighting1: 1
   m_MeshWeighting2: 1
@@ -20612,8 +20612,8 @@ ParticleSystem:
     startLifetime:
       serializedVersion: 2
       minMaxState: 3
-      scalar: 5
-      minScalar: 3
+      scalar: 6
+      minScalar: 4
       maxCurve:
         serializedVersion: 2
         m_Curve:
