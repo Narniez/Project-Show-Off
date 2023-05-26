@@ -4,7 +4,7 @@ public class PoolButton : Interactable, IButton
 {
     public Transform spawnPosition;
 
-    public bool IsPressed { get => throw new System.NotImplementedException(); set => throw new System.NotImplementedException(); }
+    public bool IsPressed { get; set ; }
 
     public override void OnFocus()
     {
