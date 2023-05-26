@@ -25,7 +25,7 @@ public class ButtonScript : Interactable, IButton
     public override void OnLoseFocus()
     {
         IsPressed = false;
-        TurnLights();
+        //TurnLights();
     }
 
     void TurnLights()
