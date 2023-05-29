@@ -7,8 +7,7 @@ public class ColorPuzzlePiece : PuzzleAbstract
 {
     public UnityAction<ColorPuzzlePiece> PieceRotated;
 
-    [SerializeField]
-    private int rotAmount = 90;
+    [SerializeField] private int rotAmount = 90;
 
     [SerializeField] private float rotationDuration = 1;
     public Quaternion correctAngle;

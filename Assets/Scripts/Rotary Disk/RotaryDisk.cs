@@ -14,15 +14,6 @@ public class RotaryDisk : PuzzleAbstract
 
     public override void OnLoseFocus() { }
 
-
-    private void FixedUpdate()
-    {
-        //if (IsCorrect(transform.rotation, correctAngle, Axis.Z))
-        //{
-        //    Debug.Log(this.name + " is in correct position with Z angle =  " + this.transform.rotation.eulerAngles.z);
-        //}
-    }
-
     /// <summary>
     /// Checks if the disks are in the correct rotation
     /// </summary>
@@ -36,7 +27,5 @@ public class RotaryDisk : PuzzleAbstract
             targetAngle = transform.rotation * Quaternion.Euler(0, 0, rotAmount);
             StartCoroutine(RotateTowardsTarget(targetAngle,rotationDuration));
         }
-        //Debug.Log(" Current Z rotation is " + transform.rotation.eulerAngles.z);
-        //Debug.Log(" Target Z rotation is: " + targetAngle.eulerAngles.z);
     }
 }

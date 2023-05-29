@@ -4,6 +4,10 @@ using UnityEngine.InputSystem;
 
 public class PlayerManager : MonoBehaviour
 {
+
+    /// <summary>
+    /// NOT IN USE YET
+    /// </summary>
     private List<PlayerInput> players = new List<PlayerInput>();
 
     [SerializeField]

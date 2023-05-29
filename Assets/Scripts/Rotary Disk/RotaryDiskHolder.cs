@@ -20,6 +20,7 @@ public class RotaryDiskHolder : PuzzleAbstract
     [SerializeField]
     int pieceNum = 0;
 
+    bool isdone;
 
     //Set the cameracontroller and player interface 
     public void SetCameraController(CameraController camController, IPlayer player)
@@ -30,11 +31,6 @@ public class RotaryDiskHolder : PuzzleAbstract
         //Debug.Log(cameraController);
     }
 
-
-    public override void Awake()
-    {
-
-    }
     private void Start()
     {
         //inputAsset = playerA.
@@ -43,7 +39,8 @@ public class RotaryDiskHolder : PuzzleAbstract
     }
 
     private void Update()
-    {
+    {   
+        isdone = false;
         ChangeActivePiece();
         for (int i = 0; i < puzzlePieces.Count; i++)
         {
@@ -52,13 +49,15 @@ public class RotaryDiskHolder : PuzzleAbstract
                 return;
             }
         }
+        isdone = true;
         OnCorrectPuzzle();
     }
 
     void ChangeActivePiece()
     {
-        if (cameraController == null) return;
-        if (!cameraController.IsLockedOnDisk) return;
+        if (cameraController == null || !cameraController.IsLockedOnDisk) return;   
+
+        //Select a disk that you want to interact with
         if (playerA.PlayerAction.FindAction("CameraDown").triggered)
         {
             Debug.Log("Go to nesxt Piece");
@@ -78,6 +77,7 @@ public class RotaryDiskHolder : PuzzleAbstract
             pieceNum = puzzlePieces.Count - 1;
         }
 
+        //Make the selected disk to rotate left or right
         if (playerA.PlayerAction.FindAction("RotateRight").triggered)
         {
             rotAmount = -45;
@@ -86,16 +86,14 @@ public class RotaryDiskHolder : PuzzleAbstract
         if (playerA.PlayerAction.FindAction("RotateLeft").triggered)
         {
             rotAmount = 45;
-            //RotatePiece(puzzlePieces[pieceNum]);
             puzzlePieces[pieceNum].RotatePiece(rotAmount);
         }
     }
 
-    void OnCorrectPuzzle()
+    public bool OnCorrectPuzzle()
     {
-     
-
         Debug.Log("Puzzle Done");
+        return isdone;
     }
     public override void OnInteract()
     {

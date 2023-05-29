@@ -9,7 +9,6 @@ public abstract class PuzzleAbstract : Interactable
     //Check if the current angle on the chosen axis is close to the target angle we set
     public virtual bool IsCorrect(Quaternion currentAngle, Quaternion targetAngle, Axis axisToCompare)
     {
-
         bool isCorrect = false;
         switch (axisToCompare)
         {

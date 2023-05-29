@@ -1,7 +1,5 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Animations;
 using UnityEngine.Events;
 
 public class ColorPuzzle : PuzzleAbstract
@@ -50,16 +48,18 @@ public class ColorPuzzle : PuzzleAbstract
         // Check if all puzzle pieces are in the correct position
         foreach (ColorPuzzlePiece piece in puzzlePieces)
         {
-            if (!piece.IsCorrect(piece.correctAngle, piece.targetAngle, Axis.Y))
+            if (!piece.IsCorrect(piece.transform.rotation, piece.targetAngle, Axis.Y))
             {
                 allPiecesCorrect = false;
                 break;
+            }
+            else { 
+                PuzzleComplete?.Invoke();
             }
         }
 
         if (allPiecesCorrect)
         {
-            PuzzleComplete?.Invoke();
         }
     }
 
