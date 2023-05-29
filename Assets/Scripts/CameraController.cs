@@ -5,11 +5,10 @@ public class CameraController : MonoBehaviour
 {
     public Transform target;  // The object you want to reach and focus on
 
-    public Vector3 interactionRaypoint = default;
-    public float interactionDistance = default;
+    public Vector3 interactionRaypoint;
+    public float interactionDistance;
 
     public bool IsLockedOnDisk = false;
-    public bool isLockedOnTower = false;
     
     private InputActionAsset inputAsset;
     private InputActionMap player;
@@ -46,14 +45,8 @@ public class CameraController : MonoBehaviour
     }
 
     private void Update()
-    {
-        
+    {        
         CameraMovement();
-
-        if (IsLockedOnDisk)
-        {
-            //Debug.Log("Camera is Locked on Disk");
-        }
 
         var ray = mainCamera.ViewportPointToRay(interactionRaypoint);
         if (Physics.Raycast(ray, out RaycastHit hit, /*1.5f*/interactionDistance))
@@ -65,14 +58,8 @@ public class CameraController : MonoBehaviour
             }
             else if (hit.collider.CompareTag("RotaryDisk"))
             {
-                
                 AssignTarget(hit);
                 if (isLocked) IsLockedOnDisk = true;
-            }
-            else
-            {
-                
-                //target = null;
             }
         }
 
@@ -97,15 +84,18 @@ public class CameraController : MonoBehaviour
             if (Vector3.Distance(mainCamera.transform.position, targetPosition) < 0.01f && Quaternion.Angle(mainCamera.transform.rotation, targetRotation) < 0.5f)
             {
                 isTransitioning = false;
-                //isLocked = true;
             }
         }
+
+        //Same as previous if statement but backwards
         if (isTransitioningBack)
         {
             originalPosition = mainCamera.transform.parent.transform.position;
             originalRotation = mainCamera.transform.parent.transform.rotation;
+
             mainCamera.transform.position = Vector3.Lerp(mainCamera.transform.position, originalPosition, transitionSpeed * Time.deltaTime);
             mainCamera.transform.rotation = Quaternion.Lerp(mainCamera.transform.rotation, originalRotation, transitionSpeed * Time.deltaTime);
+            
             if (Vector3.Distance(mainCamera.transform.position, originalPosition) < 0.05f && Quaternion.Angle(mainCamera.transform.rotation, originalRotation) < 0.5f)
             {
                 isTransitioningBack = false;
@@ -116,6 +106,7 @@ public class CameraController : MonoBehaviour
         }
         else
         {
+            //If the player is not in transition and press Back button, transition back
             if (isLocked && player.FindAction("Back").IsPressed() && !isTransitioning)
             {
                 isTransitioningBack = true;
@@ -138,10 +129,15 @@ public class CameraController : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Find and assign target where the camera will go and check if the button is pressed and is not locked
+    /// </summary>
+    /// <param name="hit"></param>
     void AssignTarget(RaycastHit hit)
     {
         Transform p = hit.collider.transform.parent;
         int childCount = p.childCount;
+
         for (int i = 0; i < childCount; i++)
         {
             if (p.GetChild(i).CompareTag("Target"))
@@ -151,12 +147,13 @@ public class CameraController : MonoBehaviour
                 {
                     playerControls.CanLook = false;
                     playerControls.CanMove = false;
-                    //originalPosition = mainCamera.transform.position;
-                    //originalRotation = mainCamera.transform.rotation;
+
                     targetPosition = target.position;
                     targetRotation = target.rotation;
+
                     isTransitioning = true;
                     isLocked = true;
+
                     break;
                 }
             }
@@ -164,11 +161,14 @@ public class CameraController : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Switch puzzles pieces
+    /// </summary>
+    /// <param name="offset"></param>
     void CameraControls(Vector3 offset)
     {
         Vector3 newPos = mainCamera.transform.position += offset;
         newPos.y = Mathf.Clamp(newPos.y, minY, maxY);
         mainCamera.transform.position = newPos;
-
     }
 }
