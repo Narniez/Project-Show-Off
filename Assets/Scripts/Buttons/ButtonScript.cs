@@ -25,9 +25,11 @@ public class ButtonScript : Interactable, IButton
     public override void OnLoseFocus()
     {
         IsPressed = false;
-        //TurnLights();
     }
 
+    /// <summary>
+    /// Loop through all the lights and if this button is pressed lights are on or off
+    /// </summary>
     void TurnLights()
     {
         foreach (Light light in lights)

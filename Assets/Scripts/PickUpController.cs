@@ -22,9 +22,11 @@ public class PickUpController : MonoBehaviour
 
     private void Update()
     {
-
         if (player.FindAction("Interaction").triggered)
         {
+            //If the Interaction action is triggered check if the holdObj is null
+            //if it is then cast a raycast and pickup the cube if the hit object has the tag
+            //if already have an object, drop the object on triggered action
             if (holdObj == null)
             {
                 RaycastHit hit;

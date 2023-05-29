@@ -41,11 +41,13 @@ public class MouseLook : MonoBehaviour
     private void Look()
     {
         mouseLook = player.FindAction("Look").ReadValue<Vector2>();
-        float mouseX = mouseLook.x * mouseSensitivity * Time.deltaTime;
-        float mouseY = mouseLook.y * mouseSensitivity * Time.deltaTime;
 
-        xRotation -= mouseY;
-        xRotation = Mathf.Clamp(xRotation, -90f, 90f);
+        float mouseX = mouseLook.x * mouseSensitivity * Time.deltaTime; //Set mouse movement on X
+        float mouseY = mouseLook.y * mouseSensitivity * Time.deltaTime; //Set mouse movement on Y
+
+
+        xRotation -= mouseY; //rotate around X axis and 
+        xRotation = Mathf.Clamp(xRotation, -90f, 90f); //clamp it between -90 and 90 degrees
 
         transform.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
         playerBody.Rotate(Vector3.up * mouseX);
