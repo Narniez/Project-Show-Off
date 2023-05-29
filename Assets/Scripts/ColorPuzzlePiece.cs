@@ -5,7 +5,7 @@ using UnityEngine.InputSystem;
 
 public class ColorPuzzlePiece : PuzzleAbstract
 {
-    public UnityAction<ColorPuzzlePiece> PieceRotated;
+    public UnityAction PieceRotated;
 
     [SerializeField]
     private int rotAmount = 90;
@@ -15,11 +15,15 @@ public class ColorPuzzlePiece : PuzzleAbstract
 
     [HideInInspector]public Quaternion targetAngle;
 
+    [SerializeField]
+    public bool isCorrect;
+
     public override void OnFocus()
     {
         //Debug.Log("Looking at puzzlePiece");
     }
 
+    //Override the OnInteract method to call RotatePiece
     public override void OnInteract()
     {
         RotatePiece();
@@ -32,12 +36,14 @@ public class ColorPuzzlePiece : PuzzleAbstract
 
     private void FixedUpdate()
     {
+        isCorrect = IsCorrect(transform.rotation, correctAngle, Axis.Y);
         if (IsCorrect(transform.rotation, correctAngle, Axis.Y))
         {
-            //Debug.Log(this.name + " Puzzle piece is in the correct orientation.");
+           //Debug.Log(this.name + " Puzzle piece is in the correct orientation.");
         }
     }
 
+    //If we are not rotating, set the target angle and rotation duration, start rotation and Invoke PieceRotated event 
     public void RotatePiece()
     {
         if (!IsRotating())
@@ -45,6 +51,6 @@ public class ColorPuzzlePiece : PuzzleAbstract
             targetAngle = transform.rotation * Quaternion.Euler(0, rotAmount, 0);
             StartCoroutine(RotateTowardsTarget(targetAngle,rotationDuration));
         }
-        PieceRotated?.Invoke(this);
+        PieceRotated?.Invoke();
     }
 }

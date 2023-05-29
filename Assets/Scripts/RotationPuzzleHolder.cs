@@ -24,7 +24,7 @@ public class RotationPuzzleHolder : MonoBehaviour
                 return;
             }
         }
-        //LevelCompete();
+        LevelCompete();
     }
 
     void LevelCompete()

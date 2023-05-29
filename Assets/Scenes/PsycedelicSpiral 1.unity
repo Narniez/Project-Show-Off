@@ -373,7 +373,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isHeld: 0
-  puzzlePieces: []
   rotAmount: 45
   cameraController: {fileID: 0}
   pieceNum: 0
@@ -1274,7 +1273,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isHeld: 0
-  puzzlePieces: []
   rotAmount: 45
   cameraController: {fileID: 0}
   pieceNum: 0
@@ -1812,7 +1810,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3033481808425060816, guid: a46433fffdaa60445a7986ad098feeea, type: 3}
       propertyPath: correctAngle.y
-      value: -1
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3033481808425060817, guid: a46433fffdaa60445a7986ad098feeea, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1831,6 +1829,7 @@ PrefabInstance:
     - {fileID: 3033481807033339530, guid: a46433fffdaa60445a7986ad098feeea, type: 3}
     - {fileID: 3033481806496992410, guid: a46433fffdaa60445a7986ad098feeea, type: 3}
     - {fileID: 3033481807769122899, guid: a46433fffdaa60445a7986ad098feeea, type: 3}
+    - {fileID: 3033481807104674394, guid: a46433fffdaa60445a7986ad098feeea, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: a46433fffdaa60445a7986ad098feeea, type: 3}
 --- !u!1 &2092997359 stripped
 GameObject:

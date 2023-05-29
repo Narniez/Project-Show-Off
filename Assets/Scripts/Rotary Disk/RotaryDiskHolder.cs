@@ -4,9 +4,8 @@ using UnityEngine;
 public class RotaryDiskHolder : PuzzleAbstract
 {
     //Put all disks in the holder into a list
-    public List<RotaryDisk> puzzlePieces = new List<RotaryDisk>();
+    private List<RotaryDisk> puzzlePieces = new List<RotaryDisk>();
 
-    //Get a reference to the player interface
     IPlayer playerA;
 
     //Amount by which the piece to be rotated 

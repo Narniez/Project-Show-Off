@@ -6,26 +6,31 @@ using UnityEngine.Events;
 
 public class ColorPuzzle : PuzzleAbstract
 {
+    //Action called upon puzzle completion
     public UnityAction PuzzleComplete;
+
     [SerializeField] private GameObject doorObject;
 
-    [SerializeField]
-    private List<ColorPuzzlePiece> puzzlePieces = new List<ColorPuzzlePiece>();
+    //List holding all the pieces of the puzzle
+    [SerializeField] private List<ColorPuzzlePiece> puzzlePieces = new List<ColorPuzzlePiece>();
 
+    //Object to instantiate on a set position
     [SerializeField] private GameObject objectToInstantiate;
     [SerializeField] private Transform instantiationPosition;
 
+   
     private bool isCompleted = false;
 
     void Start()
     {
+        //Subscirbe the OnPuzzleComleted to the puzzle complete event action
         PuzzleComplete += OnPuzzleCompleted;
 
         // Find and add puzzle pieces to the list
         ColorPuzzlePiece[] puzzlePieceObjects = GetComponentsInChildren<ColorPuzzlePiece>(true);
         puzzlePieces.AddRange(puzzlePieceObjects);
 
-        // Subscribe to the puzzle piece events
+        // Subscribe each piece to the PieceRitated event action
         foreach (ColorPuzzlePiece puzzlePiece in puzzlePieces)
         {
             puzzlePiece.PieceRotated += OnPieceRotated;
@@ -34,6 +39,7 @@ public class ColorPuzzle : PuzzleAbstract
 
     private void OnDestroy()
     {
+        //Unsubscribe
         PuzzleComplete -= OnPuzzleCompleted;
 
         // Unsubscribe from the puzzle piece events
@@ -43,31 +49,42 @@ public class ColorPuzzle : PuzzleAbstract
         }
     }
 
-    private void OnPieceRotated(ColorPuzzlePiece puzzlePiece)
+    //Check if all puzzle pieces are in the correct orientation after a delay
+    private IEnumerator DelayedRotationCheck(float time)
     {
-        bool allPiecesCorrect = true;
+        yield return new WaitForSeconds(time);
 
-        // Check if all puzzle pieces are in the correct position
+        bool allPiecesCorrect = true;
         foreach (ColorPuzzlePiece piece in puzzlePieces)
         {
-            if (!piece.IsCorrect(piece.correctAngle, piece.targetAngle, Axis.Y))
+            if (!piece.IsCorrect(piece.transform.rotation, piece.correctAngle, Axis.Y))
             {
                 allPiecesCorrect = false;
                 break;
             }
         }
 
+        //If all pieces are correct invoke the puzzle complete event 
         if (allPiecesCorrect)
         {
             PuzzleComplete?.Invoke();
         }
+
     }
+
+    private void OnPieceRotated()
+    {
+        StartCoroutine(DelayedRotationCheck(1));
+    }
+
+
 
     void OnPuzzleCompleted()
     {
-        if (isCompleted) return; // If already completed, return early
+        // If already completed, return early
+        if (isCompleted) return;
 
-        isCompleted = true; // Set the completion flag to true
+        isCompleted = true;
 
         if (doorObject != null)
         {

@@ -80,7 +80,7 @@ public class PlayerControls : MonoBehaviour, IPlayer
         //Align directions
         targetVelocity = transform.TransformDirection(targetVelocity);
 
-        //Calculate foces
+        //Calculate force
         Vector3 velocityChange = (targetVelocity - currentVelocity);
         velocityChange = new Vector3(velocityChange.x, 0, velocityChange.z);
 

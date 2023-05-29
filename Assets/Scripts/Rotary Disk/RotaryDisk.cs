@@ -7,7 +7,7 @@ public class RotaryDisk : PuzzleAbstract
     public Quaternion correctAngle;
     [SerializeField] private float rotationDuration = 1;
 
-    [HideInInspector] public Quaternion targetAngle;
+    [HideInInspector] private Quaternion targetAngle;
     public override void OnFocus() { }
 
     public override void OnInteract() { }
