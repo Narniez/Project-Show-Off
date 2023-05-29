@@ -18,9 +18,10 @@ public class CameraController : MonoBehaviour
 
     private float transitionSpeed = 5f;  // Speed of the camera transition
     private float verticalMoveAmount = 1f;  // Speed of vertical camera movement
-    [SerializeField]private float maxY = 2.5f;  // Minimum y-axis position of the camera
-    [SerializeField]private float minY = 0.5f;
+    private float maxY = 2.3f;  // Minimum y-axis position of the camera
+    private float minY = 0.2f;
 
+    [SerializeField]
     private bool isTransitioning = false;  // Flag to check if camera is transitioning
 
     private Vector3 targetPosition;  // Target position for the camera
@@ -28,6 +29,7 @@ public class CameraController : MonoBehaviour
 
     private bool isLocked = false;
 
+    [SerializeField]
     private bool isTransitioningBack = false;
     private Vector3 originalPosition;
     private Quaternion originalRotation;
@@ -92,7 +94,7 @@ public class CameraController : MonoBehaviour
             mainCamera.transform.rotation = Quaternion.Lerp(mainCamera.transform.rotation, targetRotation, transitionSpeed * Time.deltaTime);
             
             // If camera is close enough to the target position and rotation, stop transitioning
-            if (Vector3.Distance(mainCamera.transform.position, targetPosition) < 0.05f && Quaternion.Angle(mainCamera.transform.rotation, targetRotation) < 0.5f)
+            if (Vector3.Distance(mainCamera.transform.position, targetPosition) < 0.01f && Quaternion.Angle(mainCamera.transform.rotation, targetRotation) < 0.5f)
             {
                 isTransitioning = false;
                 //isLocked = true;
