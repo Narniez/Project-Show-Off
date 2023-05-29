@@ -6,7 +6,7 @@ public class MultipleButtonsBehaviour : MonoBehaviour
 
     private void Start()
     {
-        buttons = GetComponentsInChildren<IButton>();
+        buttons = GetComponentsInChildren<IButton>();   //Add all the children that have IButton interface 
     }
 
     // Update is called once per frame
@@ -15,6 +15,10 @@ public class MultipleButtonsBehaviour : MonoBehaviour
         CheckButtonState();
     }
 
+    /// <summary>
+    /// This method checks if all the children objects that are buttons are pressed.
+    /// if not, break the loop
+    /// </summary>
     void CheckButtonState()
     {
         bool allButtonsPressed = true;

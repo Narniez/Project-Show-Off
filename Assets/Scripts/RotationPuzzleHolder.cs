@@ -4,12 +4,11 @@ using UnityEngine;
 
 public class RotationPuzzleHolder : MonoBehaviour
 {
-    [SerializeField]
-    private List<RotationPuzzle> puzzles = new List<RotationPuzzle>();
+    [SerializeField] private List<RotaryDiskHolder> puzzles = new List<RotaryDiskHolder>();
 
     void Start()
     {
-        RotationPuzzle[] puzzlePieceObjects = GetComponentsInChildren<RotationPuzzle>(true);
+        RotaryDiskHolder[] puzzlePieceObjects = GetComponentsInChildren<RotaryDiskHolder>(true);
         puzzles.AddRange(puzzlePieceObjects);
     }
 
@@ -18,8 +17,7 @@ public class RotationPuzzleHolder : MonoBehaviour
     {
         for (int i = 0; i < puzzles.Count; i++)
         {
-            //if (puzzlePieces[i].IsCorrect()) Debug.Log(puzzlePieces[i].name + " is in correct position");
-            if (!puzzles[i].OnPuzzleCompleted())
+            if (!puzzles[i].OnCorrectPuzzle())  // if one of the puzzles is wrong, return
             {
                 return;
             }

@@ -47,12 +47,6 @@ public class PlayerController : MonoBehaviour
         playerInput.camera = cam;
     }
 
-    private void Update()
-    {
-        //Gravity();
-        //Movement();
-    }
-
     private void FixedUpdate()
     {
         if (canMove)
@@ -67,7 +61,6 @@ public class PlayerController : MonoBehaviour
 
     private void OnEnable()
     {
-        //controls.Enable();
         player.FindAction("Jump").started += DoJump;
         moveA = player.FindAction("Movement");
         player.Enable();
@@ -83,7 +76,6 @@ public class PlayerController : MonoBehaviour
     {
         player.FindAction("Jump").started -= DoJump;
         player.Disable();
-        //controls.Disable();
     }
 
     private void Gravity()

@@ -1,7 +1,5 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Animations;
 using UnityEngine.Events;
 
 public class ColorPuzzle : PuzzleAbstract
@@ -62,12 +60,14 @@ public class ColorPuzzle : PuzzleAbstract
                 allPiecesCorrect = false;
                 break;
             }
+            else { 
+                PuzzleComplete?.Invoke();
+            }
         }
 
         //If all pieces are correct invoke the puzzle complete event 
         if (allPiecesCorrect)
         {
-            PuzzleComplete?.Invoke();
         }
 
     }

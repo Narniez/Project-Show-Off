@@ -13,6 +13,7 @@ public class PoolingObjects : MonoBehaviour
 
     private void Awake()
     {
+        //Singleton
         if (Instance == null)
             Instance = this;
         else
@@ -21,6 +22,7 @@ public class PoolingObjects : MonoBehaviour
 
     void Start()
     {
+        //Fill the list with objects
         GameObject temp;
         for (int i = 0; i < poolCapacity; i++)
         {
@@ -32,8 +34,9 @@ public class PoolingObjects : MonoBehaviour
 
     public void DeactivateOldest()
     {
-        if (active.Count <= 1) return;
+        if (active.Count <= 1) return;  // if the list is empty, return
 
+        // get the first object in the list and if is active, deactivate it and remove it from the list
         GameObject go = active[0];
         if (go.activeInHierarchy)
         {
@@ -45,6 +48,8 @@ public class PoolingObjects : MonoBehaviour
 
     public GameObject GetObjectFromPool()
     {
+        //Loop through the list and check if the element is disabled,
+        //add it to the list and return it
         for (int i = 0; i < poolCapacity; i++)
         {
             if (!poolingObjects[i].activeInHierarchy)

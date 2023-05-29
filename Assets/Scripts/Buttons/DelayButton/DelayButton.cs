@@ -21,13 +21,13 @@ public class DelayButton : Interactable, IButton
         return;
     }
 
+    /// <summary>
+    /// After 2 seconds, the button is no longer pressed
+    /// </summary>
+    /// <returns></returns>
     IEnumerator TimeButton()
     {
         yield return new WaitForSeconds(2);
         IsPressed = false;
-    }
-
-    void Update() {
-       // Debug.Log(IsPressed);
     }
 }
