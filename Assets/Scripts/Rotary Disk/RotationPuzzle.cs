@@ -100,10 +100,6 @@ public class RotationPuzzle : MonoBehaviour
     {
         if (GetComponentInParent<CameraController>() == null) return;
         if (GetComponentInParent<CameraController>().IsLockedOnDisk || !canInteract) return;
-        //Quaternion currentRotation = puzzlePieces[pieceNum].transform.rotation;
-        //Quaternion rotationIncrement = Quaternion.Euler(0, 0, 45);
-        //Quaternion newRotation = currentRotation * rotationIncrement;
-        //puzzlePieces[pieceNum].transform.rotation = newRotation;
         RotatePieceCoroutine();
     }
 

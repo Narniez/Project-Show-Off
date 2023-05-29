@@ -1,22 +1,27 @@
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.InputSystem;
 
 public class RotaryDiskHolder : PuzzleAbstract
 {
+    //Put all disks in the holder into a list
     public List<RotaryDisk> puzzlePieces = new List<RotaryDisk>();
-   // public InputActionAsset inputAsset;
+
+    //Get a reference to the player interface
     IPlayer playerA;
 
-    Quaternion newRotation;
+    //Amount by which the piece to be rotated 
     [SerializeField]
     private int rotAmount = 45;
+
+    //Camera controller variable to store the camera controller of the player interacting  
     [SerializeField]
     private CameraController cameraController;
 
     [SerializeField]
     int pieceNum = 0;
 
+
+    //Set the cameracontroller and player interface 
     public void SetCameraController(CameraController camController, IPlayer player)
     {
         playerA = player;

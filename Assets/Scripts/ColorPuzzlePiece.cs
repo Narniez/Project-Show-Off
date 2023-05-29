@@ -40,16 +40,11 @@ public class ColorPuzzlePiece : PuzzleAbstract
 
     public void RotatePiece()
     {
-        //if(playerInput.PlayerAction.FindAction(""))
-        //if (!CameraController.isLockedOnTower) return;
         if (!IsRotating())
         {
             targetAngle = transform.rotation * Quaternion.Euler(0, rotAmount, 0);
             StartCoroutine(RotateTowardsTarget(targetAngle,rotationDuration));
-            Debug.Log("CUrrent Y rotation: " + transform.rotation.eulerAngles.y);
-            Debug.Log("Target Y rotationL " + correctAngle.eulerAngles.y);
         }
-
         PieceRotated?.Invoke(this);
     }
 }

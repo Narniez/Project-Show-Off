@@ -1,9 +1,12 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class PickUpController : MonoBehaviour
 {
     public Transform holdAreaObj;
     public GameObject holdObj;
+    private InputActionAsset inputAsset;
+    private InputActionMap player;
 
     private Rigidbody pickUpObjRB;
     private Camera cam;
@@ -11,6 +14,8 @@ public class PickUpController : MonoBehaviour
 
     private void Start()
     {
+        inputAsset = this.GetComponentInParent<PlayerInput>().actions;
+        player = inputAsset.FindActionMap("Player");
         cam = GetComponent<Camera>();
         dist = Vector3.Distance(cam.transform.position, holdAreaObj.position);
     }
@@ -18,7 +23,7 @@ public class PickUpController : MonoBehaviour
     private void Update()
     {
 
-        if (Input.GetMouseButtonDown(0))
+        if (player.FindAction("Interaction").triggered)
         {
             if (holdObj == null)
             {
