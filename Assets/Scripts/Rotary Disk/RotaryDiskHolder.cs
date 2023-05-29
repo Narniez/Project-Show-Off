@@ -19,7 +19,7 @@ public class RotaryDiskHolder : PuzzleAbstract
     [SerializeField]
     int pieceNum = 0;
 
-    bool isdone;
+    public bool isdone;
 
     //Set the cameracontroller and player interface 
     public void SetCameraController(CameraController camController, IPlayer player)
@@ -38,23 +38,22 @@ public class RotaryDiskHolder : PuzzleAbstract
     }
 
     private void Update()
-    {   
+    {
         isdone = false;
         ChangeActivePiece();
         for (int i = 0; i < puzzlePieces.Count; i++)
         {
-            if (!puzzlePieces[i].IsCorrect(puzzlePieces[i].transform.rotation,puzzlePieces[i].correctAngle,Axis.Z))
+            if (!puzzlePieces[i].IsCorrect(puzzlePieces[i].transform.rotation, puzzlePieces[i].correctAngle, Axis.Z))
             {
                 return;
             }
         }
         isdone = true;
-        OnCorrectPuzzle();
     }
 
     void ChangeActivePiece()
     {
-        if (cameraController == null || !cameraController.IsLockedOnDisk) return;   
+        if (cameraController == null || !cameraController.IsLockedOnDisk) return;
 
         //Select a disk that you want to interact with
         if (playerA.PlayerAction.FindAction("CameraDown").triggered)
@@ -91,12 +90,12 @@ public class RotaryDiskHolder : PuzzleAbstract
 
     public bool OnCorrectPuzzle()
     {
-        Debug.Log("Puzzle Done");
+        //Debug.Log("Puzzle Done");
         return isdone;
     }
     public override void OnInteract()
     {
-        
+
     }
     public override void OnFocus()
     {

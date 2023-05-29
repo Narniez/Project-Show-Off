@@ -2,9 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RotationPuzzleHolder : MonoBehaviour
+public class RotationPuzzleHolder : PuzzleAbstract
 {
     [SerializeField] private List<RotaryDiskHolder> puzzles = new List<RotaryDiskHolder>();
+
+    //Object to instantiate on a set position
+    [SerializeField] private GameObject objectToInstantiate;
+    [SerializeField] private Transform instantiationPosition;
+    private bool isCompleted;
 
     void Start()
     {
@@ -27,6 +32,26 @@ public class RotationPuzzleHolder : MonoBehaviour
 
     void LevelCompete()
     {
+        // If already completed, return early
+        if (isCompleted) return;
+
+        isCompleted = true;
+        InstantiateReward(objectToInstantiate, instantiationPosition);
         Debug.Log("All puzzles done");
+    }
+
+    public override void OnInteract()
+    {
+        
+    }
+
+    public override void OnFocus()
+    {
+        
+    }
+
+    public override void OnLoseFocus()
+    {
+        
     }
 }

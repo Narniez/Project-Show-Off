@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
@@ -60,14 +61,12 @@ public class ColorPuzzle : PuzzleAbstract
                 allPiecesCorrect = false;
                 break;
             }
-            else { 
-                PuzzleComplete?.Invoke();
-            }
         }
 
         //If all pieces are correct invoke the puzzle complete event 
         if (allPiecesCorrect)
         {
+            PuzzleComplete?.Invoke();
         }
 
     }
@@ -91,11 +90,7 @@ public class ColorPuzzle : PuzzleAbstract
             doorObject.SetActive(false);
         }
 
-        // Instantiate the object at the specified position
-        if (objectToInstantiate != null && instantiationPosition != null)
-        {
-            Instantiate(objectToInstantiate, instantiationPosition.position, instantiationPosition.rotation);
-        }
+        InstantiateReward(objectToInstantiate, instantiationPosition);
 
         Debug.Log("Puzzle Done");
     }

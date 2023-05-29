@@ -3,6 +3,7 @@ using UnityEngine;
 
 public abstract class PuzzleAbstract : Interactable
 {
+
     //Bool to store if the current interactable isRotating 
     protected bool isRotating;
 
@@ -58,6 +59,15 @@ public abstract class PuzzleAbstract : Interactable
         e.z = Mathf.Round(e.z);
         transform.rotation = Quaternion.Euler(e);
         isRotating = false;
+    }
+
+    public void InstantiateReward(GameObject go, Transform pos)
+    {
+        // Instantiate the object at the specified position
+        if (go != null && pos != null)
+        {
+            Instantiate(go, pos.position, Quaternion.identity);
+        }
     }
 
     public enum Axis
