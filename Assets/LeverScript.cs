@@ -6,9 +6,12 @@ public class LeverScript : Interactable
 
     public bool turnedOn;
 
+    Animator anim;
+
     private void Start()
     {
         light = GetComponentInParent<ILight>();
+        anim = GetComponent<Animator>();
     }
 
     public override void OnFocus()
@@ -16,6 +19,7 @@ public class LeverScript : Interactable
 
     public override void OnInteract()
     {
+        anim.SetTrigger("activated");
         if (light.thisIsCorrect)
         {
             Debug.Log("azis " + (light as MonoBehaviour).name);
