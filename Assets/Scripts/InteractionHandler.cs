@@ -85,7 +85,7 @@ public class InteractionHandler : MonoBehaviour
                     currentInteractable.OnFocus();
 
                     //Assign the camera controller to the rotary disk the raycast hits
-                    if (currentInteractable != null && currentInteractable.CompareTag("RotaryDisk"))
+                    if (currentInteractable != null && (currentInteractable.CompareTag("RotaryDisk") || currentInteractable.CompareTag("RotaryDiskLeft")))
                     {
                         RotaryDiskHolder tempHolder;
                         if (currentInteractable.TryGetComponent(out tempHolder))
@@ -130,6 +130,10 @@ public class InteractionHandler : MonoBehaviour
         if (camController.IsLockedOnDisk)
         {
             interactionRaypoint = new Vector3(-0.2f, 0.5f, 0f);
+        }
+        else if (camController.IsLockedOnDiskLeft)
+        {
+            interactionRaypoint = new Vector3(0.8f, 0.5f, 0f);
         }
         //Otherwise keep it in the middle 
         else

@@ -53,7 +53,7 @@ public class RotaryDiskHolder : PuzzleAbstract
 
     void ChangeActivePiece()
     {
-        if (cameraController == null || !cameraController.IsLockedOnDisk) return;
+        if (cameraController == null || !cameraController.IsLockedOnDisk && !cameraController.IsLockedOnDiskLeft) return;
 
         //Select a disk that you want to interact with
         if (playerA.PlayerAction.FindAction("CameraDown").triggered)
