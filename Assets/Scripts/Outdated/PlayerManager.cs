@@ -10,6 +10,8 @@ public class PlayerManager : MonoBehaviour
     /// </summary>
     private List<PlayerInput> players = new List<PlayerInput>();
 
+    private int playerCount = 0;
+
     [SerializeField]
     private List<Transform> startingPoints;
 
@@ -20,7 +22,7 @@ public class PlayerManager : MonoBehaviour
 
     private void Awake()
     {
-        playerInputManager = FindObjectOfType<PlayerInputManager>();
+        playerInputManager = GetComponentInParent<PlayerInputManager>();
     }
 
     private void OnEnable()
@@ -35,6 +37,11 @@ public class PlayerManager : MonoBehaviour
 
     public void AddPlayer(PlayerInput player)
     {
+        playerCount++;
+        Debug.Log("Player Joined");
         players.Add(player);
+        player.transform.position = startingPoints[players.Count - 1].position;
+        if(playerCount == 2)
+        player.GetComponentInChildren<Camera>().GetComponent<AudioListener>().enabled = false;
     }
 }

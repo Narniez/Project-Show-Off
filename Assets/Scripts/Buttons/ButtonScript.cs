@@ -8,7 +8,8 @@ public interface IButton
 public class ButtonScript : Interactable, IButton
 {
     public bool IsPressed { get; set; }
-    public Light[] lights;
+
+    public LightPuzzle puzzle;
 
     public override void OnFocus()
     {
@@ -32,9 +33,13 @@ public class ButtonScript : Interactable, IButton
     /// </summary>
     void TurnLights()
     {
-        foreach (Light light in lights)
+        foreach (ILight light in puzzle.lights)
         {
-            light.enabled = IsPressed;
+            if (light.thisIsCorrect)
+            {
+                Light lightComponent = (light as MonoBehaviour).GetComponent<Light>();
+                lightComponent.enabled = IsPressed;
+            }
         }
     }
 }
