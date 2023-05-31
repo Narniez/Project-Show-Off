@@ -9,6 +9,7 @@ public class CameraController : MonoBehaviour
     public float interactionDistance;
 
     public bool IsLockedOnDisk = false;
+    public bool IsLockedOnDiskLeft = false;
     
     private InputActionAsset inputAsset;
     private InputActionMap player;
@@ -61,6 +62,11 @@ public class CameraController : MonoBehaviour
                 AssignTarget(hit);
                 if (isLocked) IsLockedOnDisk = true;
             }
+            else if (hit.collider.CompareTag("RotaryDiskLeft"))
+            {
+                AssignTarget(hit);
+                if (isLocked) IsLockedOnDiskLeft = true;
+            }
         }
 
         if (!isLocked)
@@ -68,6 +74,7 @@ public class CameraController : MonoBehaviour
             playerControls.CanLook = true;
             playerControls.CanMove = true;
             IsLockedOnDisk = false;
+            IsLockedOnDiskLeft = false;
         }
     }
 
@@ -112,6 +119,7 @@ public class CameraController : MonoBehaviour
                 isTransitioningBack = true;
                 playerControls.IsLockedOnTower = false;
                 IsLockedOnDisk = false;
+                IsLockedOnDiskLeft = false;
             }
 
             // Check if the user presses a button to initiate camera transition
