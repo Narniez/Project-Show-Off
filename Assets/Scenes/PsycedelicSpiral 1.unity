@@ -664,7 +664,6 @@ Transform:
   m_Father: {fileID: 321045305}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-<<<<<<< HEAD
 --- !u!1 &456647710
 GameObject:
   m_ObjectHideFlags: 0
@@ -775,7 +774,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 456647710}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
-=======
 --- !u!1001 &410298732
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -833,7 +831,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 12ef3f8c6520d9346bf0d8bbc6fb1f6d, type: 3}
->>>>>>> main
 --- !u!1 &493933001 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3033481806496992411, guid: a46433fffdaa60445a7986ad098feeea, type: 3}
@@ -2508,7 +2505,6 @@ Transform:
   m_LocalPosition: {x: -0.01, y: 1.45, z: -4.48}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-<<<<<<< HEAD
   m_Children:
   - {fileID: 845058869}
   m_Father: {fileID: 1824877137}
@@ -2609,12 +2605,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isCorrect: 0
-=======
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
->>>>>>> main
 --- !u!1 &1966177564 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -3756473180518285571, guid: 216df56a945ee40fbb395982ef5907cc, type: 3}

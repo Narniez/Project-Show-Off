@@ -1,10 +1,11 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class LeverScript : Interactable
 {
-    ILight light;
+    new ILight light;
+
+    public bool turnedOn;
+
     private void Start()
     {
         light = GetComponentInParent<ILight>();
@@ -18,6 +19,7 @@ public class LeverScript : Interactable
         if (light.thisIsCorrect)
         {
             Debug.Log("azis " + (light as MonoBehaviour).name);
+            turnedOn = !turnedOn;
         }
     }
 
