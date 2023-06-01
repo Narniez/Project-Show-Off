@@ -53,7 +53,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &7526596276768819913
 Transform:
   m_ObjectHideFlags: 0
@@ -325,6 +325,8 @@ MonoBehaviour:
   interactionDistance: 5
   IsLockedOnDisk: 0
   IsLockedOnDiskLeft: 0
+  isTransitioning: 0
+  isTransitioningBack: 0
 --- !u!1 &7526596277134145987
 GameObject:
   m_ObjectHideFlags: 0
@@ -338,7 +340,8 @@ GameObject:
   - component: {fileID: 7526596277134145985}
   - component: {fileID: 7929317897432867004}
   - component: {fileID: 5730007695609206224}
-  - component: {fileID: 1278163927}
+  - component: {fileID: 1980808607}
+  - component: {fileID: 2021889752}
   m_Layer: 0
   m_Name: Camera
   m_TagString: Player
@@ -460,7 +463,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   holdAreaObj: {fileID: 7526596276326743673}
   holdObj: {fileID: 0}
---- !u!114 &4593154029921796158
+--- !u!114 &1980808607
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -473,7 +476,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_IsGlobal: 1
-  priority: 1
+  priority: 0
   blendDistance: 0
   weight: 1
-  sharedProfile: {fileID: 11400000, guid: 5c5950ae2e1131640982acff1f8fa2b3, type: 2}
+  sharedProfile: {fileID: 11400000, guid: 29f5010f9b8884db1b2881067b63ba27, type: 2}
+--- !u!114 &2021889752
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7526596277134145987}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5cef5b3d815654e4786a5f984350af5c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  volume: {fileID: 0}
+  timeScale: 1
+  colorAdjustments: {fileID: 0}

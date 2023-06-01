@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.24620447, g: 0.6262241, b: 0.54230493, a: 1}
+  m_IndirectSpecularColor: {r: 0.24585262, g: 0.62639236, b: 0.5422351, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -10610,28 +10610,17 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 8314571269056883277, guid: 216df56a945ee40fbb395982ef5907cc, type: 3}
---- !u!1 &1980808601 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7526596277134145987, guid: 641b3a3d50f2b474ab8f15563121edb7, type: 3}
+--- !u!114 &1980808607 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1980808607, guid: 641b3a3d50f2b474ab8f15563121edb7, type: 3}
   m_PrefabInstance: {fileID: 2021889750}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1980808607
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1980808601}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 172515602e62fb746b5d573b38a5fe58, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_IsGlobal: 1
-  priority: 0
-  blendDistance: 0
-  weight: 1
-  sharedProfile: {fileID: 11400000, guid: 29f5010f9b8884db1b2881067b63ba27, type: 2}
 --- !u!1 &1987151963
 GameObject:
   m_ObjectHideFlags: 0
@@ -10928,22 +10917,6 @@ PrefabInstance:
     - target: {fileID: 7526596276768819916, guid: 641b3a3d50f2b474ab8f15563121edb7, type: 3}
       propertyPath: m_Name
       value: NewPlayer
-      objectReference: {fileID: 0}
-    - target: {fileID: 7526596276768819916, guid: 641b3a3d50f2b474ab8f15563121edb7, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7526596276843983356, guid: 641b3a3d50f2b474ab8f15563121edb7, type: 3}
-      propertyPath: maxY
-      value: 2.3
-      objectReference: {fileID: 0}
-    - target: {fileID: 7526596276843983356, guid: 641b3a3d50f2b474ab8f15563121edb7, type: 3}
-      propertyPath: minY
-      value: 0.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 7929317897432867004, guid: 641b3a3d50f2b474ab8f15563121edb7, type: 3}
-      propertyPath: m_RenderPostProcessing
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 641b3a3d50f2b474ab8f15563121edb7, type: 3}
