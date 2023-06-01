@@ -324,7 +324,10 @@ MonoBehaviour:
   interactionRaypoint: {x: 0.5, y: 0.5, z: 0}
   interactionDistance: 5
   IsLockedOnDisk: 0
+<<<<<<< HEAD
   IsLockedOnDiskLeft: 0
+=======
+>>>>>>> Lvl_Arcade
   isTransitioning: 0
   isTransitioningBack: 0
 --- !u!1 &7526596277134145987
@@ -340,7 +343,11 @@ GameObject:
   - component: {fileID: 7526596277134145985}
   - component: {fileID: 7929317897432867004}
   - component: {fileID: 5730007695609206224}
+<<<<<<< HEAD
   - component: {fileID: 1278163927}
+=======
+  - component: {fileID: 4593154029921796158}
+>>>>>>> Lvl_Arcade
   m_Layer: 0
   m_Name: Camera
   m_TagString: Player
@@ -462,7 +469,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   holdAreaObj: {fileID: 7526596276326743673}
   holdObj: {fileID: 0}
+<<<<<<< HEAD
 --- !u!114 &1278163927
+=======
+--- !u!114 &4593154029921796158
+>>>>>>> Lvl_Arcade
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -475,7 +486,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_IsGlobal: 1
+<<<<<<< HEAD
   priority: 0
   blendDistance: 0
   weight: 1
   sharedProfile: {fileID: 11400000, guid: dddb35d0e05b73b408b0ea9afa5ade06, type: 2}
+=======
+  priority: 1
+  blendDistance: 0
+  weight: 1
+  sharedProfile: {fileID: 11400000, guid: 5c5950ae2e1131640982acff1f8fa2b3, type: 2}
+>>>>>>> Lvl_Arcade
