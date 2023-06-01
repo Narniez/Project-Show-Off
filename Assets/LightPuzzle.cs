@@ -1,23 +1,19 @@
 using System.Collections.Generic;
-using Unity.VisualScripting.Antlr3.Runtime;
 using UnityEngine;
 
 public class LightPuzzle : MonoBehaviour
 {
     public List<ILight> lights = new List<ILight>();
-    public List<LeverScript> levers = new List<LeverScript>();
-    public LeverScript lever;
 
-    private bool isCompleted;
+    private List<LeverScript> levers = new List<LeverScript>();
+    private HashSet<LeverScript> leversDone = new HashSet<LeverScript>();
 
-    public bool isSolved { get => isCompleted; private set => isCompleted = value; }
+    public bool isSolved => leversDone.Count >= 4;
 
     private void Start()
     {
-
         foreach (Transform child in transform)
         {
-            
             ILight light = child.GetComponent<ILight>();
             if (light != null)
             {
@@ -25,25 +21,30 @@ public class LightPuzzle : MonoBehaviour
             }
             foreach (Transform item in child.transform)
             {
-                item.TryGetComponent<LeverScript>(out lever);
-                levers.Add(lever);
+                if (item.TryGetComponent(out LeverScript lever))
+                {
+                    levers.Add(lever);
+                }
             }
         }
     }
 
     private void Update()
     {
-        foreach (ILight light in lights)
+        leversDone.Clear();
+
+        foreach (LeverScript lever in levers)
         {
-            foreach (LeverScript lever in levers)
+            if (lever.matchCorrect)
             {
-                if (light.thisIsCorrect && lever.turnedOn)
-                {
-                    isCompleted = true;
-                    Debug.Log("puzzle correct lights");
-                }
-                else isCompleted = false;
+                leversDone.Add(lever);
             }
         }
+
+        if (isSolved)
+        {
+            Debug.Log("Puzzle completed");
+        }
     }
+
 }
