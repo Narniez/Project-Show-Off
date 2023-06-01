@@ -325,8 +325,6 @@ MonoBehaviour:
   interactionDistance: 5
   IsLockedOnDisk: 0
   IsLockedOnDiskLeft: 0
-  isTransitioning: 0
-  isTransitioningBack: 0
 --- !u!1 &7526596277134145987
 GameObject:
   m_ObjectHideFlags: 0
@@ -343,7 +341,7 @@ GameObject:
   - component: {fileID: 1278163927}
   m_Layer: 0
   m_Name: Camera
-  m_TagString: MainCamera
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -462,7 +460,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   holdAreaObj: {fileID: 7526596276326743673}
   holdObj: {fileID: 0}
---- !u!114 &1278163927
+--- !u!114 &4593154029921796158
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -475,7 +473,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_IsGlobal: 1
-  priority: 0
+  priority: 1
   blendDistance: 0
   weight: 1
-  sharedProfile: {fileID: 11400000, guid: dddb35d0e05b73b408b0ea9afa5ade06, type: 2}
+  sharedProfile: {fileID: 11400000, guid: 5c5950ae2e1131640982acff1f8fa2b3, type: 2}
