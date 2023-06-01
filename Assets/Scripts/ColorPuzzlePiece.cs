@@ -38,7 +38,7 @@ public class ColorPuzzlePiece : PuzzleAbstract
         isCorrect = IsCorrect(transform.rotation, correctAngle, Axis.Y);
         if (IsCorrect(transform.rotation, correctAngle, Axis.Y))
         {
-           //Debug.Log(this.name + " Puzzle piece is in the correct orientation.");
+           Debug.Log(this.name + " Puzzle piece is in the correct orientation.");
         }
     }
 

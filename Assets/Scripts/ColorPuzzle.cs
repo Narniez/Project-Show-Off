@@ -5,13 +5,8 @@ using UnityEngine.Events;
 
 public class ColorPuzzle : PuzzleAbstract
 {
-
-    public PoolButton poolB;
-
     //Action called upon puzzle completion
     public UnityAction PuzzleComplete;
-
-    [SerializeField] private GameObject doorObject;
 
     //List holding all the pieces of the puzzle
     [SerializeField] private List<ColorPuzzlePiece> puzzlePieces = new List<ColorPuzzlePiece>();
@@ -90,12 +85,6 @@ public class ColorPuzzle : PuzzleAbstract
         if (isCompleted) return;
 
         isCompleted = true;
-
-        if (doorObject != null)
-        {
-            doorObject.SetActive(false);
-        }
-
         //InstantiateReward(objectToInstantiate, instantiationPosition);
         Debug.Log("Puzzle Done");
     }

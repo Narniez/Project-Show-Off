@@ -5,10 +5,6 @@ using UnityEngine;
 public class RotationPuzzleHolder : PuzzleAbstract
 {
     [SerializeField] private List<RotaryDiskHolder> puzzles = new List<RotaryDiskHolder>();
-
-    //Object to instantiate on a set position
-    [SerializeField] private GameObject objectToInstantiate;
-    [SerializeField] private Transform instantiationPosition;
     private bool isCompleted;
 
     public bool isSolved { get => isCompleted; private set => isCompleted = value;}
@@ -38,7 +34,6 @@ public class RotationPuzzleHolder : PuzzleAbstract
         if (isCompleted) return;
 
         isCompleted = true;
-        InstantiateReward(objectToInstantiate, instantiationPosition);
         Debug.Log("All puzzles done");
     }
 
