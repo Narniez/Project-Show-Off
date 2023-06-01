@@ -53,7 +53,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &7526596276768819913
 Transform:
   m_ObjectHideFlags: 0
@@ -165,7 +165,6 @@ MonoBehaviour:
   interactionRaypoint: {x: -0.2, y: 0.5, z: 0}
   interactionDistance: 5
   currentInteractable: {fileID: 0}
-  anim: {fileID: 0}
 --- !u!114 &7526596276768819894
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -325,7 +324,9 @@ MonoBehaviour:
   interactionRaypoint: {x: 0.5, y: 0.5, z: 0}
   interactionDistance: 5
   IsLockedOnDisk: 0
-  isLockedOnTower: 0
+  IsLockedOnDiskLeft: 0
+  isTransitioning: 0
+  isTransitioningBack: 0
 --- !u!1 &7526596277134145987
 GameObject:
   m_ObjectHideFlags: 0
@@ -339,6 +340,7 @@ GameObject:
   - component: {fileID: 7526596277134145985}
   - component: {fileID: 7929317897432867004}
   - component: {fileID: 5730007695609206224}
+  - component: {fileID: 1278163927}
   m_Layer: 0
   m_Name: Camera
   m_TagString: MainCamera
@@ -436,7 +438,7 @@ MonoBehaviour:
     m_Bits: 1
   m_VolumeTrigger: {fileID: 0}
   m_VolumeFrameworkUpdateModeOption: 2
-  m_RenderPostProcessing: 0
+  m_RenderPostProcessing: 1
   m_Antialiasing: 0
   m_AntialiasingQuality: 2
   m_StopNaN: 0
@@ -460,3 +462,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   holdAreaObj: {fileID: 7526596276326743673}
   holdObj: {fileID: 0}
+--- !u!114 &1278163927
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7526596277134145987}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 172515602e62fb746b5d573b38a5fe58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_IsGlobal: 1
+  priority: 0
+  blendDistance: 0
+  weight: 1
+  sharedProfile: {fileID: 11400000, guid: dddb35d0e05b73b408b0ea9afa5ade06, type: 2}
