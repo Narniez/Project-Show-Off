@@ -5,6 +5,9 @@ using UnityEngine.Events;
 
 public class ColorPuzzle : PuzzleAbstract
 {
+
+    public PoolButton poolB;
+
     //Action called upon puzzle completion
     public UnityAction PuzzleComplete;
 
@@ -76,7 +79,10 @@ public class ColorPuzzle : PuzzleAbstract
         StartCoroutine(DelayedRotationCheck(1));
     }
 
-
+    public bool IsSolved()
+    {
+        return isCompleted;
+    }
 
     void OnPuzzleCompleted()
     {
@@ -90,8 +96,7 @@ public class ColorPuzzle : PuzzleAbstract
             doorObject.SetActive(false);
         }
 
-        InstantiateReward(objectToInstantiate, instantiationPosition);
-
+        //InstantiateReward(objectToInstantiate, instantiationPosition);
         Debug.Log("Puzzle Done");
     }
 

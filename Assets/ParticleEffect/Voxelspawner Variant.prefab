@@ -93,7 +93,7 @@ MeshCollider:
   m_GameObject: {fileID: 740202492}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 4
   m_Convex: 0
   m_CookingOptions: 30
@@ -219,15 +219,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2960160626774952109, guid: 7ced88655230dd34ca81a8f0361720bd, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -7.1
+      value: -6.278449
       objectReference: {fileID: 0}
     - target: {fileID: 2960160626774952109, guid: 7ced88655230dd34ca81a8f0361720bd, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 5.63
+      value: 5.5
       objectReference: {fileID: 0}
     - target: {fileID: 2960160626774952109, guid: 7ced88655230dd34ca81a8f0361720bd, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.3
+      value: -1.8434544
       objectReference: {fileID: 0}
     - target: {fileID: 2960160626774952109, guid: 7ced88655230dd34ca81a8f0361720bd, type: 3}
       propertyPath: m_LocalRotation.w
@@ -263,7 +263,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2960160626774952110, guid: 7ced88655230dd34ca81a8f0361720bd, type: 3}
       propertyPath: m_Name
-      value: Voxelspawner
+      value: Voxelspawner Variant
       objectReference: {fileID: 0}
     - target: {fileID: 2960160627545149666, guid: 7ced88655230dd34ca81a8f0361720bd, type: 3}
       propertyPath: CollisionModule.type

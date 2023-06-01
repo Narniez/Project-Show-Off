@@ -2,9 +2,22 @@ using UnityEngine;
 
 public class PoolButton : Interactable, IButton
 {
+
     public Transform spawnPosition;
 
+
+
     public bool IsPressed { get; set ; }
+
+    private void Start()
+    {
+        
+    }
+
+    private void Update()
+    {
+
+    }
 
     public override void OnFocus()
     {
@@ -25,6 +38,7 @@ public class PoolButton : Interactable, IButton
         PoolingObjects.Instance.DeactivateOldest(); //deactivate the old object
     }
 
+    
     public override void OnLoseFocus()
     {
         return;

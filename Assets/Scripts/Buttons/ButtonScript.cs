@@ -33,6 +33,7 @@ public class ButtonScript : Interactable, IButton
     /// </summary>
     void TurnLights()
     {
+        if (puzzle == null) return;
         foreach (ILight light in puzzle.lights)
         {
             if (light.thisIsCorrect)
