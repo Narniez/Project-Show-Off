@@ -9,6 +9,9 @@ TagManager:
   - CompanionCube
   - RotaryDisk
   - RotaryDiskLeft
+  - Floor
+  - Start
+  - End
   layers:
   - Default
   - TransparentFX
@@ -19,7 +22,7 @@ TagManager:
   - Player
   - Interactable
   - Particles
-  - 
+  - Unwalkable
   - 
   - 
   - 
