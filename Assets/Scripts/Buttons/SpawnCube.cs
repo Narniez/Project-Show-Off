@@ -35,7 +35,7 @@ public class SpawnCube : PuzzleAbstract
         }
         else if(puzzle.TryGetComponent<LightPuzzle>(out LightPuzzle lightP))
         {
-            canSpawn = lightP.isSolved;
+            canSpawn = lightP.isCompleted;
         }
     }
     public override void OnFocus()

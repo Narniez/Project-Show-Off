@@ -17,7 +17,6 @@ public class SoundScapeRandom : MonoBehaviour
     void Start()
     {
         audiosource1.loop = false;
-
     }
 
     // Update is called once per frame
