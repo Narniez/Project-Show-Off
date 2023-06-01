@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.24594209, g: 0.6260625, b: 0.54217786, a: 1}
+  m_IndirectSpecularColor: {r: 0.2463561, g: 0.62706614, b: 0.54281145, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1517,9 +1517,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isHeld: 0
-  objectToInstantiate: {fileID: 6736299727174910425, guid: 082d5af5a6dbbea469ed008d1fd9877d, type: 3}
   instantiationPosition: {fileID: 65618706}
-  puzzle: {fileID: 2092997359}
+  puzzle: {fileID: 321045303}
   companionCube: {fileID: 111112980}
 --- !u!65 &753456783
 BoxCollider:
@@ -3580,11 +3579,6 @@ PrefabInstance:
     - {fileID: 304590223, guid: a46433fffdaa60445a7986ad098feeea, type: 3}
     - {fileID: 493933007, guid: a46433fffdaa60445a7986ad098feeea, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: a46433fffdaa60445a7986ad098feeea, type: 3}
---- !u!1 &2092997359 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3033481807878227542, guid: a46433fffdaa60445a7986ad098feeea, type: 3}
-  m_PrefabInstance: {fileID: 2092997358}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1330955356890653618
 Transform:
   m_ObjectHideFlags: 0

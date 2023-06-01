@@ -165,6 +165,9 @@ MonoBehaviour:
   interactionRaypoint: {x: -0.2, y: 0.5, z: 0}
   interactionDistance: 5
   currentInteractable: {fileID: 0}
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 1023
 --- !u!114 &7526596276768819894
 MonoBehaviour:
   m_ObjectHideFlags: 0

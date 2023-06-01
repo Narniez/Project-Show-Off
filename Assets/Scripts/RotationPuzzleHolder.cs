@@ -11,6 +11,8 @@ public class RotationPuzzleHolder : PuzzleAbstract
     [SerializeField] private Transform instantiationPosition;
     private bool isCompleted;
 
+    public bool isSolved { get => isCompleted; private set => isCompleted = value;}
+
     void Start()
     {
         RotaryDiskHolder[] puzzlePieceObjects = GetComponentsInChildren<RotaryDiskHolder>(true);

@@ -18,6 +18,8 @@ public class InteractionHandler : MonoBehaviour
 
     private IPlayer playerControls;
 
+    public LayerMask layerMask;
+
     //private bool canInteract = true;
 
     //Get reference's to the PlayerInput action map and camera
@@ -61,7 +63,7 @@ public class InteractionHandler : MonoBehaviour
     void HandleInteractionCheck()
     {
         var ray = mainCamera.ViewportPointToRay(interactionRaypoint);
-        if (Physics.Raycast(ray, out RaycastHit hit, interactionDistance))
+        if (Physics.Raycast(ray, out RaycastHit hit, interactionDistance,layerMask))
         {
             Debug.DrawLine(ray.origin, hit.point, Color.red);
 

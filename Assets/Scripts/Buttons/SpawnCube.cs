@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class SpawnCube : PuzzleAbstract
 {
-    [SerializeField] private GameObject objectToInstantiate;
+    
     [SerializeField] private Transform instantiationPosition;
 
     public GameObject puzzle;
@@ -29,7 +29,14 @@ public class SpawnCube : PuzzleAbstract
         {
             canSpawn = colorP.IsSolved();
         }
-
+        else if(puzzle.TryGetComponent<RotationPuzzleHolder>(out RotationPuzzleHolder rotP))
+        {
+            canSpawn = rotP.isSolved;
+        }
+        else if(puzzle.TryGetComponent<LightPuzzle>(out LightPuzzle lightP))
+        {
+            canSpawn = lightP.isSolved;
+        }
     }
     public override void OnFocus()
     {
