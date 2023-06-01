@@ -1,0 +1,96 @@
+# Blender MTL File: 'GamingPc.blend'
+# Material Count: 9
+
+newmtl Material
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.800000 0.800000 0.800000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+
+newmtl Material.002
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Kd 1.000000 0.000000 0.000000
+Ks 0.500000 0.500000 0.500000
+Ke 1.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+
+newmtl Material.003
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.000000 1.000000 0.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 1.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+
+newmtl Material.004
+Ns 359.999993
+Ka 1.000000 1.000000 1.000000
+Kd 0.800000 0.800000 0.800000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.000000
+d 1.000000
+illum 2
+
+newmtl Material.005
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.000000 0.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 1.000000
+Ni 1.450000
+d 1.000000
+illum 2
+
+newmtl Material.007
+Ns 759.089603
+Ka 1.000000 1.000000 1.000000
+Kd 0.000000 0.000000 0.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+
+newmtl Material.032
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.800000 0.800000 0.800000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+map_Bump /Users/lucasvanoostrum/Dropbox/BLender3D/Projects/Lucas/Projects/AllegorieVanDeBloem/Assets/Textures/Metal006_2K-JPG/Metal006_2K_Normal.jpg
+map_Ns /Users/lucasvanoostrum/Dropbox/BLender3D/Projects/Lucas/Projects/AllegorieVanDeBloem/Assets/Textures/Metal006_2K-JPG/Metal006_2K_Roughness.jpg
+
+newmtl Material.081
+Ns 250.000000
+Ka 0.443114 0.443114 0.443114
+Kd 0.800000 0.800000 0.800000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 3
+map_Bump /Users/lucasvanoostrum/Dropbox/BLender3D/Projects/Lucas/Projects/AllegorieVanDeBloem/Assets/Textures/Plastic005_2K-JPG/Plastic005_2K_Normal.jpg
+
+newmtl Material.089
+Ns 1000.000000
+Ka 1.000000 1.000000 1.000000
+Kd 1.000000 1.000000 1.000000
+Ks 0.595808 0.595808 0.595808
+Ke 0.000000 0.000000 0.000000
+Ni 1.600000
+d 1.000000
+illum 2
+map_Bump -bm 0.200000 /Users/lucasvanoostrum/Dropbox/BLender3D/Projects/Lucas/Projects/AllegorieVanDeBloem/Assets/Textures/Plastic005_2K-JPG/Plastic005_2K_Normal.jpg
