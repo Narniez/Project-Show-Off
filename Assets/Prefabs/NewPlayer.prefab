@@ -341,7 +341,7 @@ GameObject:
   - component: {fileID: 7929317897432867004}
   - component: {fileID: 5730007695609206224}
   - component: {fileID: 1980808607}
-  - component: {fileID: 2021889752}
+  - component: {fileID: 316400098}
   m_Layer: 0
   m_Name: Camera
   m_TagString: Player
@@ -480,7 +480,7 @@ MonoBehaviour:
   blendDistance: 0
   weight: 1
   sharedProfile: {fileID: 11400000, guid: 29f5010f9b8884db1b2881067b63ba27, type: 2}
---- !u!114 &2021889752
+--- !u!114 &316400098
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -492,6 +492,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5cef5b3d815654e4786a5f984350af5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  volume: {fileID: 0}
-  timeScale: 1
+  volume: {fileID: 1980808607}
+  timeScale: 5
   colorAdjustments: {fileID: 0}

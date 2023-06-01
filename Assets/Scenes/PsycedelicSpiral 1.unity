@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.2460393, g: 0.626703, b: 0.5423111, a: 1}
+  m_IndirectSpecularColor: {r: 0.24594209, g: 0.6260625, b: 0.54217786, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -853,37 +853,6 @@ MonoBehaviour:
   correctAngle: {x: 0, y: 1, z: 0, w: -0.00000004371139}
   targetAngle: {x: 0, y: 0, z: 0, w: 0}
   isCorrect: 0
---- !u!1 &316400091 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7526596277134145987, guid: 641b3a3d50f2b474ab8f15563121edb7, type: 3}
-  m_PrefabInstance: {fileID: 2021889750}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &316400093 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 4593154029921796158, guid: 641b3a3d50f2b474ab8f15563121edb7, type: 3}
-  m_PrefabInstance: {fileID: 2021889750}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 316400091}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 172515602e62fb746b5d573b38a5fe58, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &316400098
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 316400091}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5cef5b3d815654e4786a5f984350af5c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  volume: {fileID: 316400093}
-  timeScale: 5
-  colorAdjustments: {fileID: 0}
 --- !u!1 &321045303
 GameObject:
   m_ObjectHideFlags: 0
@@ -3156,7 +3125,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startingPoints:
-  - {fileID: 1714226203}
   - {fileID: 1882612453}
   playerLayers: []
 --- !u!1 &1903044031
@@ -3346,10 +3314,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 4593154029921796158, guid: 641b3a3d50f2b474ab8f15563121edb7, type: 3}
-      propertyPath: sharedProfile
-      value: 
-      objectReference: {fileID: 11400000, guid: 29f5010f9b8884db1b2881067b63ba27, type: 2}
     - target: {fileID: 7526596276768819913, guid: 641b3a3d50f2b474ab8f15563121edb7, type: 3}
       propertyPath: m_RootOrder
       value: 17
@@ -3397,10 +3361,6 @@ PrefabInstance:
     - target: {fileID: 7526596276768819916, guid: 641b3a3d50f2b474ab8f15563121edb7, type: 3}
       propertyPath: m_Name
       value: NewPlayer
-      objectReference: {fileID: 0}
-    - target: {fileID: 7526596276768819916, guid: 641b3a3d50f2b474ab8f15563121edb7, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 641b3a3d50f2b474ab8f15563121edb7, type: 3}
