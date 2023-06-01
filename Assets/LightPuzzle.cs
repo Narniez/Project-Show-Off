@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Diagnostics.Eventing.Reader;
 using UnityEngine;
 
 public class LightPuzzle : MonoBehaviour
@@ -8,7 +9,9 @@ public class LightPuzzle : MonoBehaviour
     private List<LeverScript> levers = new List<LeverScript>();
     private HashSet<LeverScript> leversDone = new HashSet<LeverScript>();
 
-    public bool isSolved => leversDone.Count >= 4;
+    public bool isCompleted => leversDone.Count >= 4;
+   //public bool isSolved { get => isCompleted; set => isCompleted = value; }
+
 
     private void Start()
     {
@@ -41,7 +44,7 @@ public class LightPuzzle : MonoBehaviour
             }
         }
 
-        if (isSolved)
+        if (isCompleted)
         {
             Debug.Log("Puzzle completed");
         }

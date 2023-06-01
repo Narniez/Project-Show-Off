@@ -12,11 +12,8 @@ public class ColorPuzzle : PuzzleAbstract
     [SerializeField] private List<ColorPuzzlePiece> puzzlePieces = new List<ColorPuzzlePiece>();
 
     //Object to instantiate on a set position
-    [SerializeField] private GameObject objectToInstantiate;
-    [SerializeField] private Transform instantiationPosition;
-
-   
     private bool isCompleted = false;
+    public bool isSolved { get => isCompleted; private set => isCompleted = value;}
 
     void Start()
     {
@@ -85,7 +82,6 @@ public class ColorPuzzle : PuzzleAbstract
         if (isCompleted) return;
 
         isCompleted = true;
-        //InstantiateReward(objectToInstantiate, instantiationPosition);
         Debug.Log("Puzzle Done");
     }
 
