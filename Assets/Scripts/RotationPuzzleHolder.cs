@@ -5,6 +5,7 @@ using UnityEngine;
 public class RotationPuzzleHolder : PuzzleAbstract
 {
     [SerializeField] private List<RotaryDiskHolder> puzzles = new List<RotaryDiskHolder>();
+
     private bool isCompleted;
 
     public bool isSolved { get => isCompleted; private set => isCompleted = value;}

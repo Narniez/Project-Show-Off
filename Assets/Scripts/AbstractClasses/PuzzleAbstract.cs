@@ -6,7 +6,6 @@ public abstract class PuzzleAbstract : Interactable
 
     //Bool to store if the current interactable isRotating 
     protected bool isRotating;
-
     //Check if the current angle on the chosen axis is close to the target angle we set
     public virtual bool IsCorrect(Quaternion currentAngle, Quaternion targetAngle, Axis axisToCompare)
     {

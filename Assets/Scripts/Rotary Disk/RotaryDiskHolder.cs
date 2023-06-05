@@ -43,7 +43,7 @@ public class RotaryDiskHolder : PuzzleAbstract
         ChangeActivePiece();
         for (int i = 0; i < puzzlePieces.Count; i++)
         {
-            if (!puzzlePieces[i].IsCorrect(puzzlePieces[i].transform.rotation, puzzlePieces[i].correctAngle, Axis.Z))
+            if (!puzzlePieces[i].IsCorrect(puzzlePieces[i].transform.localRotation, puzzlePieces[i].correctAngle, Axis.Z))
             {
                 return;
             }

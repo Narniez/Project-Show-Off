@@ -10,8 +10,7 @@ public class ColorPuzzle : PuzzleAbstract
 
     //List holding all the pieces of the puzzle
     [SerializeField] private List<ColorPuzzlePiece> puzzlePieces = new List<ColorPuzzlePiece>();
-
-    //Object to instantiate on a set position
+   
     private bool isCompleted = false;
     public bool isSolved { get => isCompleted; private set => isCompleted = value;}
 
@@ -51,7 +50,7 @@ public class ColorPuzzle : PuzzleAbstract
         bool allPiecesCorrect = true;
         foreach (ColorPuzzlePiece piece in puzzlePieces)
         {
-            if (!piece.IsCorrect(piece.transform.rotation, piece.correctAngle, Axis.Y))
+            if (!piece.IsCorrect(piece.transform.localRotation, piece.correctAngle, Axis.Y))
             {
                 allPiecesCorrect = false;
                 break;
