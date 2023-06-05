@@ -9,7 +9,7 @@ public class LightPuzzle : MonoBehaviour
     private List<LeverScript> levers = new List<LeverScript>();
     private HashSet<LeverScript> leversDone = new HashSet<LeverScript>();
 
-    public bool isCompleted => leversDone.Count >= 4;
+    public bool isCompleted => leversDone.Count >= 10;
    //public bool isSolved { get => isCompleted; set => isCompleted = value; }
 
 
@@ -34,6 +34,7 @@ public class LightPuzzle : MonoBehaviour
 
     private void Update()
     {
+        Debug.Log(leversDone.Count);
         leversDone.Clear();
 
         foreach (LeverScript lever in levers)
