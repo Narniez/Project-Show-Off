@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class SpawnCube : PuzzleAbstract
 {
-    
     [SerializeField] private Transform instantiationPosition;
 
     public GameObject puzzle;
