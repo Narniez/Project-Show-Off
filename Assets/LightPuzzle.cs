@@ -34,7 +34,7 @@ public class LightPuzzle : MonoBehaviour
 
     private void Update()
     {
-        Debug.Log(leversDone.Count);
+        //Debug.Log(leversDone.Count);
         leversDone.Clear();
 
         foreach (LeverScript lever in levers)
