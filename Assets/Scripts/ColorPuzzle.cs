@@ -5,9 +5,6 @@ using UnityEngine.Events;
 
 public class ColorPuzzle : PuzzleAbstract
 {
-
-    public PoolButton poolB;
-
     //Action called upon puzzle completion
     public UnityAction PuzzleComplete;
 
@@ -15,11 +12,6 @@ public class ColorPuzzle : PuzzleAbstract
 
     //List holding all the pieces of the puzzle
     [SerializeField] private List<ColorPuzzlePiece> puzzlePieces = new List<ColorPuzzlePiece>();
-
-    //Object to instantiate on a set position
-    [SerializeField] private GameObject objectToInstantiate;
-    [SerializeField] private Transform instantiationPosition;
-
    
     private bool isCompleted = false;
 
@@ -59,7 +51,7 @@ public class ColorPuzzle : PuzzleAbstract
         bool allPiecesCorrect = true;
         foreach (ColorPuzzlePiece piece in puzzlePieces)
         {
-            if (!piece.IsCorrect(piece.transform.rotation, piece.correctAngle, Axis.Y))
+            if (!piece.IsCorrect(piece.transform.localRotation, piece.correctAngle, Axis.Y))
             {
                 allPiecesCorrect = false;
                 break;
@@ -90,13 +82,6 @@ public class ColorPuzzle : PuzzleAbstract
         if (isCompleted) return;
 
         isCompleted = true;
-
-        if (doorObject != null)
-        {
-            doorObject.SetActive(false);
-        }
-
-        //InstantiateReward(objectToInstantiate, instantiationPosition);
         Debug.Log("Puzzle Done");
     }
 

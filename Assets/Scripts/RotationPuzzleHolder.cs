@@ -6,9 +6,6 @@ public class RotationPuzzleHolder : PuzzleAbstract
 {
     [SerializeField] private List<RotaryDiskHolder> puzzles = new List<RotaryDiskHolder>();
 
-    //Object to instantiate on a set position
-    [SerializeField] private GameObject objectToInstantiate;
-    [SerializeField] private Transform instantiationPosition;
     private bool isCompleted;
 
     void Start()
@@ -36,7 +33,6 @@ public class RotationPuzzleHolder : PuzzleAbstract
         if (isCompleted) return;
 
         isCompleted = true;
-        InstantiateReward(objectToInstantiate, instantiationPosition);
         Debug.Log("All puzzles done");
     }
 

@@ -25,7 +25,7 @@ public class RotaryDisk : PuzzleAbstract
     {
         if (!IsRotating())
         {
-            targetAngle = transform.rotation * Quaternion.Euler(0, 0, rotAmount);
+            targetAngle = transform.localRotation * Quaternion.Euler(0, 0, rotAmount);
             StartCoroutine(RotateTowardsTarget(targetAngle,rotationDuration));
         }
     }
