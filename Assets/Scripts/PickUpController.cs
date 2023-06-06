@@ -44,6 +44,11 @@ public class PickUpController : MonoBehaviour
             }
         }
 
+        if(holdObj != null && holdObj.tag != "CompanionCube")
+        {
+            DropItem();
+        }
+
         if (holdObj != null)
         {
             MovePickedObj();
@@ -65,7 +70,10 @@ public class PickUpController : MonoBehaviour
 
     void PickUpItem(GameObject pickUpObj)
     {
-        if (pickUpObj.GetComponent<Rigidbody>() == null) return;
+        if (pickUpObj.GetComponent<Rigidbody>() == null && pickUpObj.tag != "CompanionCube") 
+        {
+            return;
+        }
 
         pickUpObjRB = pickUpObj.GetComponent<Rigidbody>();
         pickUpObjRB.useGravity = false;
