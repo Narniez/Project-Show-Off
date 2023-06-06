@@ -16,10 +16,10 @@ public class CameraController : MonoBehaviour
     private PlayerInput playerInput;
     private Camera mainCamera;
 
-    private float transitionSpeed = 5f;  // Speed of the camera transition
-    private float verticalMoveAmount = 1f;  // Speed of vertical camera movement
-    private float maxY = 2.3f;  // Minimum y-axis position of the camera
-    private float minY = 0.2f;
+    [SerializeField] private float transitionSpeed = 5f;  // Speed of the camera transition
+    [SerializeField] private float verticalMoveAmount = 1f;  // Speed of vertical camera movement
+    [SerializeField] private float maxY = 2.3f;  // Minimum y-axis position of the camera
+    [SerializeField] private float minY = 0.2f;
 
     [SerializeField]
     private bool isTransitioning = false;  // Flag to check if camera is transitioning
