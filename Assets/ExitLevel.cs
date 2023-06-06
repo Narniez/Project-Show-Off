@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class ExitLevel : MonoBehaviour
 {
+    [SerializeField] int sceneNum;
     int playerNum = 0;
     // Start is called before the first frame update
     void Start()
@@ -18,7 +19,7 @@ public class ExitLevel : MonoBehaviour
     {
         if(playerNum == 2)
         {
-            SceneManager.LoadScene(1);
+            SceneManager.LoadScene(sceneNum);
         }
     }
 
