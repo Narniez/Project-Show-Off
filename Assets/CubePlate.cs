@@ -13,7 +13,7 @@ public class CubePlate : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-
+        if (hasCube) return;
         if (other.CompareTag("CompanionCube"))
         {
             hasCube = true;

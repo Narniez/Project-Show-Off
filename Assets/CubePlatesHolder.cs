@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class CubePlatesHolder : MonoBehaviour
 {
-    private List<CubePlate> cubePlates = new List<CubePlate>();
+   [SerializeField] private List<CubePlate> cubePlates = new List<CubePlate>();
 
-    GameObject[] doors;
+    [SerializeField] GameObject[] doors;
 
     bool openDoors;
 
@@ -30,6 +30,13 @@ public class CubePlatesHolder : MonoBehaviour
                 return;
             }
         }
-        openDoors = true; 
+        openDoors = true;
+        if (openDoors)
+        {
+            foreach(GameObject door in doors)
+            {
+                door.SetActive(false);
+            }
+        }
     }
 }
