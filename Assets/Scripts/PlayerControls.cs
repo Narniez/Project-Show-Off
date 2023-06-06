@@ -32,6 +32,9 @@ public class PlayerControls : MonoBehaviour, IPlayer
     public bool IsLockedOnTower { get => isLockedOnTower; set => isLockedOnTower = value; }
     public InputActionMap PlayerAction { get => player; set => player = value; }
 
+    [SerializeField] int jumpForce = 2;
+    [SerializeField] bool canJump = false;
+
     // Start is called before the first frame update
 
     private void Awake()
@@ -57,8 +60,12 @@ public class PlayerControls : MonoBehaviour, IPlayer
     {
         if (canMove)
             Move();
-    }
 
+        if (canJump && player.FindAction("Jump").triggered)
+        {
+            Jump();
+        }
+    }
     public void OnMove(InputAction.CallbackContext context)
     {
         move = context.ReadValue<Vector2>();
@@ -88,6 +95,11 @@ public class PlayerControls : MonoBehaviour, IPlayer
         Vector3.ClampMagnitude(velocityChange, maxForce);
 
         rb.AddForce(velocityChange, ForceMode.VelocityChange);
+    }
+
+    private void Jump()
+    {
+        rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
     }
 
     private void Look()
