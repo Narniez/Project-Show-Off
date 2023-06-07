@@ -1,12 +1,13 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public interface IPlayer {
+public interface IPlayer
+{
     bool CanLook { get; set; }
     bool CanMove { get; set; }
     bool IsLockedOnTower { get; set; }
 
-    InputActionMap PlayerAction { get; set;}
+    InputActionMap PlayerAction { get; set; }
 }
 
 public class PlayerControls : MonoBehaviour, IPlayer
@@ -35,7 +36,9 @@ public class PlayerControls : MonoBehaviour, IPlayer
     [SerializeField] int jumpForce = 2;
     [SerializeField] bool canJump = false;
 
+    [SerializeField] Animator anim;
     // Start is called before the first frame update
+    private bool isWalkingAnim;
 
     private void Awake()
     {
@@ -58,8 +61,13 @@ public class PlayerControls : MonoBehaviour, IPlayer
 
     private void FixedUpdate()
     {
-        if (canMove)
-            Move();
+        if(move.x != 0 || move.y != 0)
+            anim.SetBool("isWalking", true);
+        else
+            anim.SetBool("isWalking", false);
+
+
+        Move();
 
         if (canJump && player.FindAction("Jump").triggered)
         {
