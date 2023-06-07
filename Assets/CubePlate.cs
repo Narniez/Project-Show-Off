@@ -6,6 +6,8 @@ public class CubePlate : MonoBehaviour
 {
     bool canFreeze;
     bool hasCube;
+
+    [SerializeField] GameObject correctCube;
     public bool HasCube()
     {
         return hasCube;
@@ -14,7 +16,7 @@ public class CubePlate : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         if (hasCube) return;
-        if (other.CompareTag("CompanionCube"))
+        if (correctCube!= null && other.gameObject == correctCube)
         {
             hasCube = true;
             other.tag = "CubePlaced";

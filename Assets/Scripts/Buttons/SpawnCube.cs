@@ -47,7 +47,6 @@ public class SpawnCube : PuzzleAbstract
         if (canSpawn && !hasSpawned)
         {
             companionCube.SetActive(true);
-            //InstantiateReward(objectToInstantiate, instantiationPosition);
             hasSpawned = true;
         }
         if (hasSpawned)
