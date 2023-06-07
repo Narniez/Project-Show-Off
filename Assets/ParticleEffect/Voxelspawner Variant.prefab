@@ -106,6 +106,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 2960160626774952108, guid: 7ced88655230dd34ca81a8f0361720bd, type: 3}
+      propertyPath: simulationSpeed
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2960160626774952108, guid: 7ced88655230dd34ca81a8f0361720bd, type: 3}
       propertyPath: ShapeModule.arc.spread
       value: 0
       objectReference: {fileID: 0}
@@ -115,7 +119,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2960160626774952108, guid: 7ced88655230dd34ca81a8f0361720bd, type: 3}
       propertyPath: ShapeModule.radius.value
-      value: 16.03
+      value: 60
       objectReference: {fileID: 0}
     - target: {fileID: 2960160626774952108, guid: 7ced88655230dd34ca81a8f0361720bd, type: 3}
       propertyPath: VelocityModule.y.minScalar
@@ -139,7 +143,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2960160626774952108, guid: 7ced88655230dd34ca81a8f0361720bd, type: 3}
       propertyPath: InitialModule.startSize.scalar
-      value: 0.5
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 2960160626774952108, guid: 7ced88655230dd34ca81a8f0361720bd, type: 3}
       propertyPath: VelocityModule.orbitalX.scalar
@@ -159,7 +163,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2960160626774952108, guid: 7ced88655230dd34ca81a8f0361720bd, type: 3}
       propertyPath: InitialModule.startSize.minScalar
-      value: 0.3
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 2960160626774952108, guid: 7ced88655230dd34ca81a8f0361720bd, type: 3}
       propertyPath: VelocityModule.orbitalX.minScalar
@@ -176,6 +180,10 @@ PrefabInstance:
     - target: {fileID: 2960160626774952108, guid: 7ced88655230dd34ca81a8f0361720bd, type: 3}
       propertyPath: EmissionModule.rateOverTime.scalar
       value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2960160626774952108, guid: 7ced88655230dd34ca81a8f0361720bd, type: 3}
+      propertyPath: InitialModule.startLifetime.scalar
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 2960160626774952108, guid: 7ced88655230dd34ca81a8f0361720bd, type: 3}
       propertyPath: CollisionModule.m_Planes.Array.size
@@ -196,6 +204,10 @@ PrefabInstance:
     - target: {fileID: 2960160626774952108, guid: 7ced88655230dd34ca81a8f0361720bd, type: 3}
       propertyPath: InitialModule.gravityModifier.scalar
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2960160626774952108, guid: 7ced88655230dd34ca81a8f0361720bd, type: 3}
+      propertyPath: InitialModule.startLifetime.minScalar
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 2960160626774952108, guid: 7ced88655230dd34ca81a8f0361720bd, type: 3}
       propertyPath: CollisionModule.m_Planes.Array.data[0]
@@ -219,15 +231,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2960160626774952109, guid: 7ced88655230dd34ca81a8f0361720bd, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -6.278449
+      value: -6.2
       objectReference: {fileID: 0}
     - target: {fileID: 2960160626774952109, guid: 7ced88655230dd34ca81a8f0361720bd, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 5.5
+      value: 11.3144245
       objectReference: {fileID: 0}
     - target: {fileID: 2960160626774952109, guid: 7ced88655230dd34ca81a8f0361720bd, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -1.8434544
+      value: -3.31
       objectReference: {fileID: 0}
     - target: {fileID: 2960160626774952109, guid: 7ced88655230dd34ca81a8f0361720bd, type: 3}
       propertyPath: m_LocalRotation.w
@@ -265,6 +277,30 @@ PrefabInstance:
       propertyPath: m_Name
       value: Voxelspawner Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 2960160626774952111, guid: 7ced88655230dd34ca81a8f0361720bd, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 6002037966030874785, guid: bc1d9dcecc533ad43aeddfdc27a87195, type: 3}
+    - target: {fileID: 2960160626774952111, guid: 7ced88655230dd34ca81a8f0361720bd, type: 3}
+      propertyPath: m_Mesh1
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 2960160626774952111, guid: 7ced88655230dd34ca81a8f0361720bd, type: 3}
+      propertyPath: m_Mesh2
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 2960160626774952111, guid: 7ced88655230dd34ca81a8f0361720bd, type: 3}
+      propertyPath: m_Mesh3
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 2960160626774952111, guid: 7ced88655230dd34ca81a8f0361720bd, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: c975a70effc9c734cac718a1a78c6fcc, type: 2}
+    - target: {fileID: 2960160627545149666, guid: 7ced88655230dd34ca81a8f0361720bd, type: 3}
+      propertyPath: SubModule.enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2960160627545149666, guid: 7ced88655230dd34ca81a8f0361720bd, type: 3}
       propertyPath: CollisionModule.type
       value: 0
@@ -274,60 +310,68 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2960160627545149666, guid: 7ced88655230dd34ca81a8f0361720bd, type: 3}
+      propertyPath: ShapeModule.donutRadius
+      value: 0.0001
+      objectReference: {fileID: 0}
+    - target: {fileID: 2960160627545149666, guid: 7ced88655230dd34ca81a8f0361720bd, type: 3}
       propertyPath: VelocityModule.x.scalar
-      value: -3
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 2960160627545149666, guid: 7ced88655230dd34ca81a8f0361720bd, type: 3}
       propertyPath: VelocityModule.y.scalar
-      value: -3
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 2960160627545149666, guid: 7ced88655230dd34ca81a8f0361720bd, type: 3}
       propertyPath: VelocityModule.z.scalar
-      value: -2
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2960160627545149666, guid: 7ced88655230dd34ca81a8f0361720bd, type: 3}
+      propertyPath: ShapeModule.radius.value
+      value: 60
       objectReference: {fileID: 0}
     - target: {fileID: 2960160627545149666, guid: 7ced88655230dd34ca81a8f0361720bd, type: 3}
       propertyPath: VelocityModule.x.minScalar
-      value: 3
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2960160627545149666, guid: 7ced88655230dd34ca81a8f0361720bd, type: 3}
       propertyPath: VelocityModule.y.minScalar
-      value: 3
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2960160627545149666, guid: 7ced88655230dd34ca81a8f0361720bd, type: 3}
       propertyPath: VelocityModule.z.minScalar
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2960160627545149666, guid: 7ced88655230dd34ca81a8f0361720bd, type: 3}
       propertyPath: InitialModule.startSize.scalar
-      value: 0.3
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 2960160627545149666, guid: 7ced88655230dd34ca81a8f0361720bd, type: 3}
       propertyPath: VelocityModule.orbitalX.scalar
-      value: -3
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 2960160627545149666, guid: 7ced88655230dd34ca81a8f0361720bd, type: 3}
       propertyPath: VelocityModule.orbitalY.scalar
-      value: -3
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 2960160627545149666, guid: 7ced88655230dd34ca81a8f0361720bd, type: 3}
       propertyPath: VelocityModule.orbitalZ.scalar
-      value: -2
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 2960160627545149666, guid: 7ced88655230dd34ca81a8f0361720bd, type: 3}
       propertyPath: InitialModule.startSize.minScalar
-      value: 0.5
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 2960160627545149666, guid: 7ced88655230dd34ca81a8f0361720bd, type: 3}
       propertyPath: VelocityModule.orbitalX.minScalar
-      value: 3
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2960160627545149666, guid: 7ced88655230dd34ca81a8f0361720bd, type: 3}
       propertyPath: VelocityModule.orbitalY.minScalar
-      value: 3
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2960160627545149666, guid: 7ced88655230dd34ca81a8f0361720bd, type: 3}
       propertyPath: VelocityModule.orbitalZ.minScalar
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2960160627545149666, guid: 7ced88655230dd34ca81a8f0361720bd, type: 3}
       propertyPath: CollisionModule.m_Planes.Array.size
@@ -358,6 +402,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 740202496}
     - target: {fileID: 2960160627545149666, guid: 7ced88655230dd34ca81a8f0361720bd, type: 3}
+      propertyPath: SubModule.subEmitters.Array.data[0].emitter
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 2960160627545149666, guid: 7ced88655230dd34ca81a8f0361720bd, type: 3}
       propertyPath: VelocityModule.orbitalY.maxCurve.m_Curve.Array.data[1].time
       value: 1
       objectReference: {fileID: 0}
@@ -385,6 +433,26 @@ PrefabInstance:
       propertyPath: VelocityModule.orbitalY.minCurve.m_Curve.Array.data[1].value
       value: 0.05405426
       objectReference: {fileID: 0}
+    - target: {fileID: 2960160627545149667, guid: 7ced88655230dd34ca81a8f0361720bd, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 8502811468322495440, guid: 09ebbc35461476c45b8eb8127db92629, type: 3}
+    - target: {fileID: 2960160627545149667, guid: 7ced88655230dd34ca81a8f0361720bd, type: 3}
+      propertyPath: m_Mesh1
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 2960160627545149667, guid: 7ced88655230dd34ca81a8f0361720bd, type: 3}
+      propertyPath: m_Mesh2
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 2960160627545149667, guid: 7ced88655230dd34ca81a8f0361720bd, type: 3}
+      propertyPath: m_Mesh3
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 2960160627545149667, guid: 7ced88655230dd34ca81a8f0361720bd, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: b09edb399c186d74d96f4d615f8e69ee, type: 2}
     - target: {fileID: 2960160628394579141, guid: 7ced88655230dd34ca81a8f0361720bd, type: 3}
       propertyPath: CollisionModule.type
       value: 0
@@ -411,7 +479,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2960160628394579141, guid: 7ced88655230dd34ca81a8f0361720bd, type: 3}
       propertyPath: InitialModule.startSize.scalar
-      value: 0.5
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 2960160628394579141, guid: 7ced88655230dd34ca81a8f0361720bd, type: 3}
       propertyPath: VelocityModule.orbitalZ.scalar
@@ -419,7 +487,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2960160628394579141, guid: 7ced88655230dd34ca81a8f0361720bd, type: 3}
       propertyPath: InitialModule.startSize.minScalar
-      value: 0.3
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 2960160628394579141, guid: 7ced88655230dd34ca81a8f0361720bd, type: 3}
       propertyPath: VelocityModule.orbitalX.minScalar
@@ -477,6 +545,26 @@ PrefabInstance:
       propertyPath: VelocityModule.orbitalY.minCurve.m_Curve.Array.data[1].value
       value: -0.18918991
       objectReference: {fileID: 0}
+    - target: {fileID: 2960160628394579162, guid: 7ced88655230dd34ca81a8f0361720bd, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: -327218276259777663, guid: e3e01cb363af2ff47a965c7ca1b10b53, type: 3}
+    - target: {fileID: 2960160628394579162, guid: 7ced88655230dd34ca81a8f0361720bd, type: 3}
+      propertyPath: m_Mesh1
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 2960160628394579162, guid: 7ced88655230dd34ca81a8f0361720bd, type: 3}
+      propertyPath: m_Mesh2
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 2960160628394579162, guid: 7ced88655230dd34ca81a8f0361720bd, type: 3}
+      propertyPath: m_Mesh3
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 2960160628394579162, guid: 7ced88655230dd34ca81a8f0361720bd, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: d71a5c96a49ae7940bbeaf202ea3e65b, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7ced88655230dd34ca81a8f0361720bd, type: 3}
 --- !u!4 &8153313998593761065 stripped
