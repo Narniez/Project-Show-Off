@@ -61,13 +61,13 @@ public class PlayerControls : MonoBehaviour, IPlayer
 
     private void FixedUpdate()
     {
-        if(move.x != 0 || move.y != 0)
-            anim.SetBool("isWalking", true);
-        else
-            anim.SetBool("isWalking", false);
+        //if(move.x != 0 || move.y != 0)
+        //    anim.SetBool("isWalking", true);
+        //else
+        //    anim.SetBool("isWalking", false);
 
-
-        Move();
+        if (canMove)
+            Move();
 
         if (canJump && player.FindAction("Jump").triggered)
         {
