@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.24711841, g: 0.62834203, b: 0.54292965, a: 1}
+  m_IndirectSpecularColor: {r: 0.24611999, g: 0.6265693, b: 0.5418843, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -4464,6 +4464,19 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: -1688617927700330159, guid: 216df56a945ee40fbb395982ef5907cc, type: 3}
   m_PrefabInstance: {fileID: 1541438781}
   m_PrefabAsset: {fileID: 0}
+--- !u!65 &766337353
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 766337349}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.018137522, y: 0.0024091, z: 0.028723706}
+  m_Center: {x: 0.009068761, y: 0.18335095, z: 0.014361852}
 --- !u!1 &769600186
 GameObject:
   m_ObjectHideFlags: 0
@@ -8574,6 +8587,19 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 6335250783087129314, guid: 216df56a945ee40fbb395982ef5907cc, type: 3}
   m_PrefabInstance: {fileID: 1541438781}
   m_PrefabAsset: {fileID: 0}
+--- !u!65 &1462344134
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1462344130}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.018137522, y: 0.0024091, z: 0.028723706}
+  m_Center: {x: -0.009068761, y: 0.18335095, z: 0.014361852}
 --- !u!1 &1502288103
 GameObject:
   m_ObjectHideFlags: 0
@@ -12956,6 +12982,8 @@ GameObject:
   - component: {fileID: 5730007694141096710}
   - component: {fileID: 244525897}
   - component: {fileID: 1784182580}
+  - component: {fileID: 7929317897021797997}
+  - component: {fileID: 7929317897021797998}
   m_Layer: 0
   m_Name: Camera
   m_TagString: Player
@@ -13417,6 +13445,37 @@ MonoBehaviour:
   m_RequiresDepthTexture: 0
   m_RequiresColorTexture: 0
   m_Version: 2
+--- !u!114 &7929317897021797997
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7526596277276520213}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 172515602e62fb746b5d573b38a5fe58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_IsGlobal: 1
+  priority: 0
+  blendDistance: 0
+  weight: 1
+  sharedProfile: {fileID: 11400000, guid: 5c5950ae2e1131640982acff1f8fa2b3, type: 2}
+--- !u!114 &7929317897021797998
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7526596277276520213}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d9633792318a94447934ccf02eb26389, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  useSecondProfile: 0
+  volumes: []
 --- !u!23 &7955691719307335378
 MeshRenderer:
   m_ObjectHideFlags: 0
