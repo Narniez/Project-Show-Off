@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.24639265, g: 0.62699085, b: 0.54216075, a: 1}
+  m_IndirectSpecularColor: {r: 0.24711841, g: 0.62834203, b: 0.54292965, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -794,6 +794,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb1cd11ffa1fec843bb0665f54520426, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cubeHeightAbovePlatform: 1
   correctCube: {fileID: 0}
 --- !u!65 &60773789
 BoxCollider:
@@ -8749,6 +8750,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb1cd11ffa1fec843bb0665f54520426, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cubeHeightAbovePlatform: 1
   correctCube: {fileID: 0}
 --- !u!65 &1520658745
 BoxCollider:
@@ -11725,6 +11727,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb1cd11ffa1fec843bb0665f54520426, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cubeHeightAbovePlatform: 0.5
   correctCube: {fileID: 464848848}
 --- !u!1 &1962675450
 GameObject:
