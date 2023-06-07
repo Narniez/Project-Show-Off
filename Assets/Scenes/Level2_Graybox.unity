@@ -38,11 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-<<<<<<< Updated upstream
-  m_IndirectSpecularColor: {r: 0.07234817, g: 0.010054364, b: 0.026986998, a: 1}
-=======
-  m_IndirectSpecularColor: {r: 0.072332874, g: 0.0100526335, b: 0.026980866, a: 1}
->>>>>>> Stashed changes
+  m_IndirectSpecularColor: {r: 0.07245595, g: 0.010070818, b: 0.027035184, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -540,11 +536,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7526596276756852845}
-<<<<<<< Updated upstream
-  m_Enabled: 1
-=======
   m_Enabled: 0
->>>>>>> Stashed changes
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5cef5b3d815654e4786a5f984350af5c, type: 3}
   m_Name: 
@@ -8331,15 +8323,9 @@ MonoBehaviour:
   IsLockedOnDisk: 0
   IsLockedOnDiskLeft: 0
   transitionSpeed: 5
-<<<<<<< Updated upstream
-  verticalMoveAmount: 1
-  maxY: 2.48
-  minY: 0.5
-=======
   verticalMoveAmount: 0.9
   maxY: 1.9
   minY: 0.15
->>>>>>> Stashed changes
   isTransitioning: 0
   isTransitioningBack: 0
 --- !u!1 &7526596276970141791
@@ -8376,11 +8362,7 @@ MonoBehaviour:
   sensitivity: 1
   maxForce: 1
   jumpForce: 2
-<<<<<<< Updated upstream
-  canJump: 0
-=======
   canJump: 1
->>>>>>> Stashed changes
 --- !u!114 &7526596277179532057
 MonoBehaviour:
   m_ObjectHideFlags: 0
