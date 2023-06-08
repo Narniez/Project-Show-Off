@@ -1,4 +1,4 @@
-Shader "Custom/Invert" 
+Shader "Custom/Invert_URP" 
 {
     Properties 
     {
@@ -7,17 +7,30 @@ Shader "Custom/Invert"
     }
     SubShader 
     {
-        Tags { "RenderType"="Transparent" "Queue"="Transparent" }
+        Tags 
+        { 
+            "RenderPipeline" = "UniversalPipeline" 
+            "Queue"="Transparent" 
+        }
         LOD 200
-        Blend OneMinusDstColor Zero
 
-        PASS
+        Pass
         {
-            CGPROGRAM
+            Stencil
+            {
+                Ref 1
+                Comp always
+                Pass replace
+            }
 
-            #pragma vertex vert
-            #pragma fragment frag
-            #pragma target 3.0 Alpha:Blend
+            Cull Off
+            ZWrite Off
+            ZTest Always
+
+            Blend OneMinusDstColor Zero
+
+            HLSLINCLUDE
+            #include "Packages/com.unity.render-pipelines.core/ShaderLibrary/Common.hlsl"
 
             struct appdata
             {
@@ -28,6 +41,7 @@ Shader "Custom/Invert"
             struct v2f
             {
                 float2 uv : TEXCOORD0;
+                UNITY_FOG_COORDS(1)
                 float4 vertex : SV_POSITION;
             };
 
@@ -38,15 +52,16 @@ Shader "Custom/Invert"
                 v2f o;
                 o.vertex = UnityObjectToClipPos(v.vertex);
                 o.uv = float2(0,0);
+                UNITY_TRANSFER_FOG(o,o.vertex);
                 return o;
             }
-        
+
             fixed4 frag (v2f i) : SV_Target
             {
                 return _Color;
             }
+            ENDHLSL
 
-            ENDCG
         }
     }
     FallBack "Diffuse"
