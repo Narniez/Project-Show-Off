@@ -108,7 +108,6 @@ public class InteractionHandler : MonoBehaviour
         }
     }
 
-
     //Method that gets called when the interaction action has started 
     private void Interact(InputAction.CallbackContext obj)
     {

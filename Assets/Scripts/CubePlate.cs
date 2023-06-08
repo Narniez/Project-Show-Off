@@ -25,6 +25,7 @@ public class CubePlate : MonoBehaviour
             other.gameObject.transform.rotation = this.transform.rotation;
             other.gameObject.transform.position = this.transform.position + new Vector3(0, cubeHeightAbovePlatform, 0);
             other.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
+            other.GetComponent<CompanionCube>().isPlaced = true;
         }
     }
 }

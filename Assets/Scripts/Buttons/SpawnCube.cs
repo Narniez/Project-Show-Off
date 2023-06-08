@@ -50,7 +50,7 @@ public class SpawnCube : PuzzleAbstract
             //InstantiateReward(objectToInstantiate, instantiationPosition);
             hasSpawned = true;
         }
-        if (hasSpawned)
+        if (hasSpawned && !companionCube.GetComponent<CompanionCube>().isPlaced)
         {
             ResetPosition();
         }

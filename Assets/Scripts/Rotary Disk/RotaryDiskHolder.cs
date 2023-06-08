@@ -21,6 +21,7 @@ public class RotaryDiskHolder : PuzzleAbstract
 
     public bool isdone;
 
+
     //Set the cameracontroller and player interface 
     public void SetCameraController(CameraController camController, IPlayer player)
     {
