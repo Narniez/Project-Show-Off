@@ -25,13 +25,9 @@ public class ChangeHue : MonoBehaviour
     {
 
 
-        if (colorAdjustments != null)
-        {
+        hueShift.value += timeScale * Time.deltaTime;
 
-            hueShift.value += timeScale * Time.deltaTime;
-
-            colorAdjustments.hueShift.SetValue(hueShift);
-        }
+        colorAdjustments.hueShift.SetValue(hueShift);
     }
 
 }
