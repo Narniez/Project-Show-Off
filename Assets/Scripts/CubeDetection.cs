@@ -5,8 +5,6 @@ using UnityEngine;
 public class CubeDetection : MonoBehaviour
 {
     int cubeCount;
-
-
     [SerializeField] GameObject door;
     // Start is called before the first frame update
     void Start()
