@@ -6,6 +6,10 @@ public class CubePlate : MonoBehaviour
 {
     bool canFreeze;
     bool hasCube;
+
+    [SerializeField] float cubeHeightAbovePlatform;
+
+    [SerializeField] GameObject correctCube;
     public bool HasCube()
     {
         return hasCube;
@@ -14,12 +18,12 @@ public class CubePlate : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         if (hasCube) return;
-        if (other.CompareTag("CompanionCube"))
+        if (correctCube != null && other.gameObject == correctCube)
         {
             hasCube = true;
             other.tag = "CubePlaced";
             other.gameObject.transform.rotation = this.transform.rotation;
-            other.gameObject.transform.position = this.transform.position + new Vector3(0, 1, 0);
+            other.gameObject.transform.position = this.transform.position + new Vector3(0, cubeHeightAbovePlatform, 0);
             other.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
         }
     }
