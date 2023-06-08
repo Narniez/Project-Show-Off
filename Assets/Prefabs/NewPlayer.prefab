@@ -182,8 +182,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rb: {fileID: 7526596276768819917}
   speed: 4
-  sensitivity: 1
+  sensitivity: 3
   maxForce: 1
+  jumpForce: 2
+  canJump: 0
 --- !u!114 &7526596276768819895
 MonoBehaviour:
   m_ObjectHideFlags: 0

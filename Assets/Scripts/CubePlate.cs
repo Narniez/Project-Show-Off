@@ -18,7 +18,7 @@ public class CubePlate : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         if (hasCube) return;
-        if (correctCube!= null && other.gameObject == correctCube)
+        if (correctCube != null && other.gameObject == correctCube)
         {
             hasCube = true;
             other.tag = "CubePlaced";
