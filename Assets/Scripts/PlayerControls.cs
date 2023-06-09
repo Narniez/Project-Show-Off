@@ -38,7 +38,6 @@ public class PlayerControls : MonoBehaviour, IPlayer
 
     // Start is called before the first frame update
     private Animator anim;
-
     private void Awake()
     {
         playerInput = this.GetComponent<PlayerInput>();
@@ -66,7 +65,6 @@ public class PlayerControls : MonoBehaviour, IPlayer
             Move();
             anim.SetTrigger("isMoving");
         }
-
         if (canJump && player.FindAction("Jump").triggered)
         {
             Jump();
