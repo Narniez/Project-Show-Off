@@ -36,11 +36,12 @@ public class PlayerControls : MonoBehaviour, IPlayer
     [SerializeField] bool canJump = false;
 
     // Start is called before the first frame update
-
+    private Animator anim;
     private void Awake()
     {
         playerInput = this.GetComponent<PlayerInput>();
         player = playerInput.currentActionMap;
+        anim = GetComponent<Animator>();
         //cameraHolder = playerInput.camera;
 
     }
@@ -59,8 +60,10 @@ public class PlayerControls : MonoBehaviour, IPlayer
     private void FixedUpdate()
     {
         if (canMove)
+        {
             Move();
-
+            anim.SetTrigger("isMoving");
+        }
         if (canJump && player.FindAction("Jump").triggered)
         {
             Jump();
