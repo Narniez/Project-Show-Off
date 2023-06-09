@@ -60,10 +60,18 @@ public class PlayerControls : MonoBehaviour, IPlayer
 
     private void FixedUpdate()
     {
+        if (move.x != 0 || move.y != 0)
+        {
+            anim.SetTrigger("isMoving");
+        }
+        else
+        {
+            anim.SetTrigger("isIdling");
+        }
+
         if (canMove)
         {
             Move();
-            anim.SetTrigger("isMoving");
         }
         if (canJump && player.FindAction("Jump").triggered)
         {
