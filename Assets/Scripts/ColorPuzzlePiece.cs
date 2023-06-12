@@ -1,7 +1,6 @@
-using System.Collections;
+using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
-using UnityEngine.InputSystem;
 
 public class ColorPuzzlePiece : PuzzleAbstract
 {
@@ -12,14 +11,16 @@ public class ColorPuzzlePiece : PuzzleAbstract
     [SerializeField] private float rotationDuration = 1;
     public Quaternion correctAngle;
 
-    [HideInInspector]public Quaternion targetAngle;
+    [HideInInspector] public Quaternion targetAngle;
 
     [SerializeField]
     public bool isCorrect;
 
-    public override void OnFocus()
-    {
-        //Debug.Log("Looking at puzzlePiece");
+    public string uiText;
+    public TextMeshProUGUI textUIelement;
+
+    public override void OnFocus() {
+        UIManager.Instance.worldUItext.text = "lelq pena blyskala";
     }
 
     //Override the OnInteract method to call RotatePiece
@@ -30,7 +31,7 @@ public class ColorPuzzlePiece : PuzzleAbstract
 
     public override void OnLoseFocus()
     {
-
+        UIManager.Instance.worldUItext.text = " ";
     }
 
     private void FixedUpdate()
@@ -38,7 +39,7 @@ public class ColorPuzzlePiece : PuzzleAbstract
         isCorrect = IsCorrect(transform.localRotation, correctAngle, Axis.Y);
         if (IsCorrect(transform.localRotation, correctAngle, Axis.Y))
         {
-           Debug.Log(this.name + " Puzzle piece is in the correct orientation.");
+            Debug.Log(this.name + " Puzzle piece is in the correct orientation.");
         }
     }
 
@@ -48,7 +49,7 @@ public class ColorPuzzlePiece : PuzzleAbstract
         if (!IsRotating())
         {
             targetAngle = transform.rotation * Quaternion.Euler(0, rotAmount, 0);
-            StartCoroutine(RotateTowardsTarget(targetAngle,rotationDuration));
+            StartCoroutine(RotateTowardsTarget(targetAngle, rotationDuration));
         }
         PieceRotated?.Invoke();
     }

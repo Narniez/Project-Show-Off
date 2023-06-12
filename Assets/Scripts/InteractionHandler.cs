@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -21,7 +22,8 @@ public class InteractionHandler : MonoBehaviour
     public LayerMask layerMask;
 
     //private bool canInteract = true;
-
+    public TextMeshProUGUI textUI;
+    UIElement uiElement;
     //Get reference's to the PlayerInput action map and camera
     private void Awake()
     {
@@ -75,17 +77,17 @@ public class InteractionHandler : MonoBehaviour
                 {
                     //button.IsPressed = false;
                     currentInteractable.OnLoseFocus();
+                    textUI.text = " ";
                 }
 
                 hit.collider.TryGetComponent(out currentInteractable);
                 hit.collider.TryGetComponent(out anim);
-
                 //Check if the object we are hitting is an interactable and assign the current interactable 
                 if (hit.collider.TryGetComponent(out currentInteractable))
                 {
                     //If the current interactable is in range of the raycast call the OnFocus method 
                     currentInteractable.OnFocus();
-
+                    textUI.text = currentInteractable.GetComponent<UIElement>().GetText();
                     //Assign the camera controller to the rotary disk the raycast hits
                     if (currentInteractable != null && (currentInteractable.CompareTag("RotaryDisk") || currentInteractable.CompareTag("RotaryDiskLeft")))
                     {
@@ -104,6 +106,7 @@ public class InteractionHandler : MonoBehaviour
         else if (currentInteractable != null)
         {
             currentInteractable.OnLoseFocus();
+            textUI.text = " ";
             currentInteractable = null;
         }
     }

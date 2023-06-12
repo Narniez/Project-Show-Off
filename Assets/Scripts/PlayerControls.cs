@@ -1,12 +1,13 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public interface IPlayer {
+public interface IPlayer
+{
     bool CanLook { get; set; }
     bool CanMove { get; set; }
     bool IsLockedOnTower { get; set; }
 
-    InputActionMap PlayerAction { get; set;}
+    InputActionMap PlayerAction { get; set; }
 }
 
 public class PlayerControls : MonoBehaviour, IPlayer
@@ -36,11 +37,12 @@ public class PlayerControls : MonoBehaviour, IPlayer
     [SerializeField] bool canJump = false;
 
     // Start is called before the first frame update
-
+    private Animator anim;
     private void Awake()
     {
         playerInput = this.GetComponent<PlayerInput>();
         player = playerInput.currentActionMap;
+        anim = GetComponent<Animator>();
         //cameraHolder = playerInput.camera;
 
     }
@@ -58,9 +60,19 @@ public class PlayerControls : MonoBehaviour, IPlayer
 
     private void FixedUpdate()
     {
-        if (canMove)
-            Move();
+        if (move.x != 0 || move.y != 0)
+        {
+            anim.SetTrigger("isMoving");
+        }
+        else
+        {
+            anim.SetTrigger("isIdling");
+        }
 
+        if (canMove)
+        {
+            Move();
+        }
         if (canJump && player.FindAction("Jump").triggered)
         {
             Jump();
