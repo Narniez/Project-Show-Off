@@ -8,6 +8,9 @@ public class RotaryDiskHolder : PuzzleAbstract
 
     IPlayer playerA;
 
+    Material normalMat;
+    [SerializeField] Material glowMat;
+
     //Amount by which the piece to be rotated 
     [SerializeField]
     private int rotAmount = 45;
@@ -20,7 +23,6 @@ public class RotaryDiskHolder : PuzzleAbstract
     int pieceNum = 0;
 
     public bool isdone;
-
 
     //Set the cameracontroller and player interface 
     public void SetCameraController(CameraController camController, IPlayer player)
@@ -36,10 +38,13 @@ public class RotaryDiskHolder : PuzzleAbstract
         //inputAsset = playerA.
         RotaryDisk[] puzzlePieceObjects = GetComponentsInChildren<RotaryDisk>(true);
         puzzlePieces.AddRange(puzzlePieceObjects);
+        normalMat = puzzlePieces[0].GetComponent<Renderer>().materials[0];
     }
 
     private void Update()
     {
+
+
         isdone = false;
         ChangeActivePiece();
         for (int i = 0; i < puzzlePieces.Count; i++)
@@ -86,6 +91,25 @@ public class RotaryDiskHolder : PuzzleAbstract
         {
             rotAmount = 45;
             puzzlePieces[pieceNum].RotatePiece(rotAmount);
+        }
+        if (cameraController != null)
+        {
+            puzzlePieces[pieceNum].GetComponent<Renderer>().material = glowMat;
+            if (pieceNum != 0 && pieceNum != 2)
+            {
+                puzzlePieces[pieceNum - 1].GetComponent<Renderer>().material = normalMat;
+                puzzlePieces[pieceNum + 1].GetComponent<Renderer>().material = normalMat;
+            }
+            if (pieceNum == 0)
+            {
+                puzzlePieces[1].GetComponent<Renderer>().material = normalMat;
+                puzzlePieces[2].GetComponent<Renderer>().material = normalMat;
+            }
+            if (pieceNum == 2)
+            {
+                puzzlePieces[0].GetComponent<Renderer>().material = normalMat;
+                puzzlePieces[1].GetComponent<Renderer>().material = normalMat;
+            }
         }
     }
 

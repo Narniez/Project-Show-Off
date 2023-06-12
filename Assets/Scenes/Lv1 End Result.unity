@@ -13706,6 +13706,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.y
       value: -58.087
       objectReference: {fileID: 0}
+    - target: {fileID: 7053739652624192387, guid: 02daeb1cb4b4138419e76e040a364d17, type: 3}
+      propertyPath: glowMat
+      value: 
+      objectReference: {fileID: 2100000, guid: b8562ce8cc6525b41a3e75b3777568be, type: 2}
     - target: {fileID: 8954064713555036853, guid: 02daeb1cb4b4138419e76e040a364d17, type: 3}
       propertyPath: m_LocalRotation.w
       value: 0.92387956
