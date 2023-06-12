@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.24577095, g: 0.6264317, b: 0.5421158, a: 1}
+  m_IndirectSpecularColor: {r: 0.24639928, g: 0.62747216, b: 0.5425534, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -4539,8 +4539,8 @@ MonoBehaviour:
   m_UVScale: {x: 1, y: 1}
   m_UVBias: {x: 0, y: 0}
   m_ScaleMode: 0
-  m_Offset: {x: 3.0748496, y: -0.6500875, z: 1.0898881}
-  m_Size: {x: 13.994596, y: 2.793897, z: 2.1797762}
+  m_Offset: {x: -0.10375404, y: -0.6500875, z: 0.19322193}
+  m_Size: {x: 7.637388, y: 2.793897, z: 0.38644385}
   m_FadeFactor: 1
 --- !u!4 &669221793
 Transform:
@@ -4549,14 +4549,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 669221791}
-  m_LocalRotation: {x: 0.00000001805965, y: -0.88643366, z: 0.000000015131445, w: -0.46285573}
-  m_LocalPosition: {x: 7.07, y: 1.86, z: -6.85}
+  m_LocalRotation: {x: 0.000000019341243, y: -0.8414584, z: 0.000000013454657, w: -0.540322}
+  m_LocalPosition: {x: 8.1, y: 1.86, z: -7.32}
   m_LocalScale: {x: 1, y: 1.0000002, z: 1.0000002}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 16
-  m_LocalEulerAnglesHint: {x: 0, y: -235.143, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -245.41101, z: 0}
 --- !u!1 &687580756
 GameObject:
   m_ObjectHideFlags: 0
@@ -11158,14 +11158,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1755245219}
-  m_LocalRotation: {x: -0, y: 0.98144555, z: -0, w: -0.19174099}
-  m_LocalPosition: {x: -17.75, y: 1.62, z: -16.25}
+  m_LocalRotation: {x: -0, y: 0.98706543, z: -0, w: -0.16031806}
+  m_LocalPosition: {x: -14.62, y: 1.62, z: -17.21}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 6
-  m_LocalEulerAnglesHint: {x: 0, y: 202.109, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 198.451, z: 0}
 --- !u!114 &1755245221
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11186,8 +11186,8 @@ MonoBehaviour:
   m_UVScale: {x: 1, y: 1}
   m_UVBias: {x: 0, y: 0}
   m_ScaleMode: 0
-  m_Offset: {x: -2.0330603, y: -0.3953761, z: -0.34998482}
-  m_Size: {x: 10.66691, y: 2.6728814, z: 0.9194058}
+  m_Offset: {x: 0.10742313, y: -0.3953761, z: 0.05393277}
+  m_Size: {x: 1.9047042, y: 2.6728814, z: 0.111570686}
   m_FadeFactor: 1
 --- !u!1001 &1758397236
 PrefabInstance:
