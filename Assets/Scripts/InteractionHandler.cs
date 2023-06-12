@@ -77,7 +77,7 @@ public class InteractionHandler : MonoBehaviour
                 {
                     //button.IsPressed = false;
                     currentInteractable.OnLoseFocus();
-                    textUI.text = " ";
+
                 }
 
                 hit.collider.TryGetComponent(out currentInteractable);
@@ -87,7 +87,6 @@ public class InteractionHandler : MonoBehaviour
                 {
                     //If the current interactable is in range of the raycast call the OnFocus method 
                     currentInteractable.OnFocus();
-                    textUI.text = currentInteractable.GetComponent<UIElement>().GetText();
                     //Assign the camera controller to the rotary disk the raycast hits
                     if (currentInteractable != null && (currentInteractable.CompareTag("RotaryDisk") || currentInteractable.CompareTag("RotaryDiskLeft")))
                     {
@@ -106,7 +105,6 @@ public class InteractionHandler : MonoBehaviour
         else if (currentInteractable != null)
         {
             currentInteractable.OnLoseFocus();
-            textUI.text = " ";
             currentInteractable = null;
         }
     }
@@ -131,11 +129,11 @@ public class InteractionHandler : MonoBehaviour
     void HandleRaycastPosition()
     {
         //Move raycast to the left when we are locked on the Disk puzzle
-        if (camController.IsLockedOnDisk)
-        {
-            interactionRaypoint = new Vector3(-0.2f, 0.5f, 0f);
-        }
-        else if (camController.IsLockedOnDiskLeft)
+        //if (camController.IsLockedOnDisk)
+        //{
+        //    interactionRaypoint = new Vector3(-0.2f, 0.5f, 0f);
+        //}
+         if (camController.IsLockedOnDiskLeft)
         {
             interactionRaypoint = new Vector3(0.8f, 0.5f, 0f);
         }

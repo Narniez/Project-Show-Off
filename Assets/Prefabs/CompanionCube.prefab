@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 6736299727174910428}
   - component: {fileID: 6736299727174910431}
   - component: {fileID: 6736299727174910430}
-  - component: {fileID: 8366920433293806821}
+  - component: {fileID: 8221104674854367900}
   m_Layer: 0
   m_Name: CompanionCube
   m_TagString: CompanionCube
@@ -117,7 +117,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &8366920433293806821
+--- !u!114 &8221104674854367900
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -126,7 +126,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 6736299727174910425}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e898fc269b82eb44dae3a34449fbb7eb, type: 3}
+  m_Script: {fileID: 11500000, guid: d8196e8a38c99694cb49ffef07f5180f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &5998461950288780295
