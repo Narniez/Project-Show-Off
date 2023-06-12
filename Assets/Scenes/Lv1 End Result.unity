@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.24575102, g: 0.6267992, b: 0.5420766, a: 1}
+  m_IndirectSpecularColor: {r: 0.24640091, g: 0.6254171, b: 0.5419438, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -4841,8 +4841,26 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 16
-  m_LocalEulerAnglesHint: {x: 0, y: -289.424, z: 0}
+  m_RootOrder: 20
+  m_LocalEulerAnglesHint: {x: 0, y: -235.143, z: 0}
+--- !u!1 &676833181 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5352607590628533963, guid: a24c1c6a66b8c9346b192939b63a212c, type: 3}
+  m_PrefabInstance: {fileID: 1643314663}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &676833187
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 676833181}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b7d7ccda1ffe602468c2565980259c09, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textUI: kamyni v bybrecite
 --- !u!1 &687580756
 GameObject:
   m_ObjectHideFlags: 0
@@ -11718,8 +11736,8 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
-  m_LocalEulerAnglesHint: {x: 0, y: 198.451, z: 0}
+  m_RootOrder: 11
+  m_LocalEulerAnglesHint: {x: 0, y: 202.109, z: 0}
 --- !u!114 &1755245221
 MonoBehaviour:
   m_ObjectHideFlags: 0
