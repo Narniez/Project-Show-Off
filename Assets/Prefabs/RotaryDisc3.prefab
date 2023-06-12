@@ -63,6 +63,7 @@ MeshRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 945ffe5ec71514352bf77d4353e44a8c, type: 2}
+  - {fileID: 2100000, guid: fd630ab1a50ea3e4fb6dd58fe30b8aa4, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -96,9 +97,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 117c151fe90e88746ac562162ddaae1d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isHeld: 0
   correctAngle: {x: 0, y: 0, z: 0.70710677, w: 0.70710677}
   rotationDuration: 1
-  targetAngle: {x: 0, y: 0, z: 0, w: 0}
 --- !u!1 &1568317136229838971
 GameObject:
   m_ObjectHideFlags: 0
@@ -160,10 +161,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6481ffe275db35a4b9d1c02dd25a3040, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  puzzlePieces: []
+  isHeld: 0
   rotAmount: 45
   cameraController: {fileID: 0}
   pieceNum: 0
+  isdone: 0
 --- !u!1 &3115478254040977980
 GameObject:
   m_ObjectHideFlags: 0
@@ -227,6 +229,7 @@ MeshRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 945ffe5ec71514352bf77d4353e44a8c, type: 2}
+  - {fileID: 2100000, guid: fd630ab1a50ea3e4fb6dd58fe30b8aa4, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -260,9 +263,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 117c151fe90e88746ac562162ddaae1d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isHeld: 0
   correctAngle: {x: 0, y: 0, z: 0, w: 0}
   rotationDuration: 1
-  targetAngle: {x: 0, y: 0, z: 0, w: 0}
 --- !u!1 &8253223419439731690
 GameObject:
   m_ObjectHideFlags: 0
@@ -326,6 +329,7 @@ MeshRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 945ffe5ec71514352bf77d4353e44a8c, type: 2}
+  - {fileID: 2100000, guid: fd630ab1a50ea3e4fb6dd58fe30b8aa4, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -359,6 +363,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 117c151fe90e88746ac562162ddaae1d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isHeld: 0
   correctAngle: {x: 0, y: 0, z: 0, w: 0}
   rotationDuration: 1
-  targetAngle: {x: 0, y: 0, z: 0, w: 0}
