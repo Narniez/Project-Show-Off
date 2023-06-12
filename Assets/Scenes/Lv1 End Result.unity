@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.24639928, g: 0.62747216, b: 0.5425534, a: 1}
+  m_IndirectSpecularColor: {r: 0.24575102, g: 0.6267992, b: 0.5420766, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -3836,6 +3836,61 @@ Transform:
   m_Father: {fileID: 1227922524}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &546560034
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 546560036}
+  - component: {fileID: 546560035}
+  m_Layer: 0
+  m_Name: 404
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &546560035
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 546560034}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0777d029ed3dffa4692f417d4aba19ca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 2100000, guid: 5f85da312c7468349bcdf12a72048134, type: 2}
+  m_DrawDistance: 1000
+  m_FadeScale: 0.9
+  m_StartAngleFade: 180
+  m_EndAngleFade: 180
+  m_UVScale: {x: 1, y: 1}
+  m_UVBias: {x: 0, y: 0}
+  m_ScaleMode: 0
+  m_Offset: {x: 2.2083564, y: 0, z: 0.28429157}
+  m_Size: {x: 5.416712, y: 1, z: 0.56858313}
+  m_FadeFactor: 1
+--- !u!4 &546560036
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 546560034}
+  m_LocalRotation: {x: 0.00000012781256, y: -0.9040586, z: 0.0000002738497, w: 0.42740864}
+  m_LocalPosition: {x: -21.28, y: 0.91, z: -12.75}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 25
+  m_LocalEulerAnglesHint: {x: 180, y: 50.606003, z: 180}
 --- !u!1 &550265438
 GameObject:
   m_ObjectHideFlags: 0
@@ -4539,8 +4594,8 @@ MonoBehaviour:
   m_UVScale: {x: 1, y: 1}
   m_UVBias: {x: 0, y: 0}
   m_ScaleMode: 0
-  m_Offset: {x: -0.10375404, y: -0.6500875, z: 0.19322193}
-  m_Size: {x: 7.637388, y: 2.793897, z: 0.38644385}
+  m_Offset: {x: -0.39762044, y: -0.6500875, z: 0.19322193}
+  m_Size: {x: 4.8562703, y: 2.793897, z: 0.38644385}
   m_FadeFactor: 1
 --- !u!4 &669221793
 Transform:
@@ -4549,14 +4604,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 669221791}
-  m_LocalRotation: {x: 0.000000019341243, y: -0.8414584, z: 0.000000013454657, w: -0.540322}
-  m_LocalPosition: {x: 8.1, y: 1.86, z: -7.32}
+  m_LocalRotation: {x: 0.000000022973678, y: -0.577687, z: 0.000000005227009, w: -0.81625843}
+  m_LocalPosition: {x: 8.9, y: 1.86, z: 6.19}
   m_LocalScale: {x: 1, y: 1.0000002, z: 1.0000002}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 16
-  m_LocalEulerAnglesHint: {x: 0, y: -245.41101, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -289.424, z: 0}
 --- !u!1 &687580756
 GameObject:
   m_ObjectHideFlags: 0
@@ -9397,15 +9452,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6603704053250426344, guid: c7b701bb0809dd34197cd46570205be8, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.000000078053
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6603704053250426344, guid: c7b701bb0809dd34197cd46570205be8, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.38372
+      value: 0.15
       objectReference: {fileID: 0}
     - target: {fileID: 6603704053250426344, guid: c7b701bb0809dd34197cd46570205be8, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.09645
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 8773330325175451298, guid: c7b701bb0809dd34197cd46570205be8, type: 3}
       propertyPath: m_Materials.Array.data[0]
