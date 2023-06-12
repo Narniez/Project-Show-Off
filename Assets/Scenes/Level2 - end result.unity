@@ -10376,6 +10376,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: RotaryDiskPuzzleHolder
       objectReference: {fileID: 0}
+    - target: {fileID: 7053739651692354639, guid: 02daeb1cb4b4138419e76e040a364d17, type: 3}
+      propertyPath: glowMat
+      value: 
+      objectReference: {fileID: 2100000, guid: 288be5774e0bc5c4e82c7dd6813e56c2, type: 2}
     - target: {fileID: 7053739651832485616, guid: 02daeb1cb4b4138419e76e040a364d17, type: 3}
       propertyPath: m_LocalPosition.x
       value: -9.946
@@ -10432,6 +10436,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.y
       value: 159.59
       objectReference: {fileID: 0}
+    - target: {fileID: 7053739652624192387, guid: 02daeb1cb4b4138419e76e040a364d17, type: 3}
+      propertyPath: glowMat
+      value: 
+      objectReference: {fileID: 2100000, guid: 59fa32cecc30c2545bb29bbc1299c88e, type: 2}
     - target: {fileID: 7053739652663401467, guid: 02daeb1cb4b4138419e76e040a364d17, type: 3}
       propertyPath: m_Icon
       value: 
