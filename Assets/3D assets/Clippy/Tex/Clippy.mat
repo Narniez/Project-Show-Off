@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-6838237531680053001
+--- !u!114 &-1424901648106901346
 MonoBehaviour:
   m_ObjectHideFlags: 11
   m_CorrespondingSourceObject: {fileID: 0}
@@ -20,11 +20,10 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Skybox_ar
-  m_Shader: {fileID: 108, guid: 0000000000000000f000000000000000, type: 0}
+  m_Name: Clippy
+  m_Shader: {fileID: 4800000, guid: 0e9d5a909a1f7e84882a534d0d11e49f, type: 3}
   m_ValidKeywords: []
-  m_InvalidKeywords:
-  - _MAPPING_LATITUDE_LONGITUDE_LAYOUT
+  m_InvalidKeywords: []
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
@@ -35,11 +34,11 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _BaseMap:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: 9641f0b8d90341e41b8d034a86626d69, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _BumpMap:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: 1f1a764c1e087ae4c8d3173d985bbe53, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _DetailAlbedoMap:
@@ -59,11 +58,11 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: d7bcd7c9ca50627489bd49c8242a7131, type: 3}
+        m_Texture: {fileID: 2800000, guid: 9641f0b8d90341e41b8d034a86626d69, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MetallicGlossMap:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: cd4aeb6b916a8a541886ca7657368b55, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _OcclusionMap:
@@ -71,11 +70,11 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _ParallaxMap:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: 1b881b8cb4239744f97ecea941c8949b, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _SpecGlossMap:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: 2dd53c5e3d5695d4caa5775376b14b8b, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - unity_Lightmaps:
@@ -103,25 +102,28 @@ Material:
     - _DetailNormalMapScale: 1
     - _DstBlend: 0
     - _EnvironmentReflections: 1
-    - _Exposure: 1
     - _GlossMapScale: 0
     - _Glossiness: 0
     - _GlossyReflections: 0
-    - _ImageType: 0
-    - _Layout: 0
-    - _Mapping: 1
     - _Metallic: 0
-    - _MirrorOnBack: 0
+    - _Mode: 0
     - _OcclusionStrength: 1
     - _Parallax: 0.005
+    - _QueueControl: 0
     - _QueueOffset: 0
     - _ReceiveShadows: 1
-    - _Rotation: 32.73134
     - _Smoothness: 0.5
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
     - _SrcBlend: 1
     - _Surface: 0
+    - _UVSec: 0
+    - _UseAoMap: 0
+    - _UseColorMap: 1
+    - _UseEmissiveMap: 0
+    - _UseMetallicMap: 1
+    - _UseNormalMap: 1
+    - _UseRoughnessMap: 1
     - _WorkflowMode: 1
     - _ZWrite: 1
     m_Colors:
@@ -129,5 +131,6 @@ Material:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
-    - _Tint: {r: 0.509434, g: 0.21867214, b: 0.38861448, a: 0.5}
+    - _UvOffset: {r: 0, g: 0, b: 0, a: 0}
+    - _UvTiling: {r: 1, g: 1, b: 0, a: 0}
   m_BuildTextureStacks: []
