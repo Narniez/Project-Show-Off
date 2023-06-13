@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.24657044, g: 0.6273428, b: 0.54270077, a: 1}
+  m_IndirectSpecularColor: {r: 0.24597615, g: 0.6261159, b: 0.5425314, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -3160,7 +3160,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 471383730}
-  - component: {fileID: 471383729}
+  - component: {fileID: 471383731}
   m_Layer: 0
   m_Name: CubePlatesHolder
   m_TagString: Untagged
@@ -3168,18 +3168,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &471383729
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 471383728}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6861ebc800f17754dadd213b8bb30877, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &471383730
 Transform:
   m_ObjectHideFlags: 0
@@ -3198,6 +3186,22 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 26
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &471383731
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 471383728}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a66df9b84f35823419c28754bb74d940, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  plates: []
+  doors:
+  - {fileID: 766337349}
+  - {fileID: 1462344130}
 --- !u!1 &479334929
 GameObject:
   m_ObjectHideFlags: 0
@@ -6828,9 +6832,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 1019345610}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 068c283415ac64346b867761b46f29e6, type: 3}
+  m_Script: {fileID: 11500000, guid: 5e22c63c2513afd469669b03290ebae7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  door: {fileID: 1019345610}
+  cubes:
+  - {fileID: 1520115974}
+  - {fileID: 329007099}
+  - {fileID: 464848848}
 --- !u!1 &1059612646
 GameObject:
   m_ObjectHideFlags: 0
