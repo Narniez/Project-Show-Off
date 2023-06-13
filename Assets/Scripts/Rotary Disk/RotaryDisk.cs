@@ -9,6 +9,7 @@ public class RotaryDisk : PuzzleAbstract
 
     [HideInInspector] private Quaternion targetAngle;
 
+   
     public override void OnFocus() { }
 
     public override void OnInteract() { }

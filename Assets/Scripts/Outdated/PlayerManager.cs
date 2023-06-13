@@ -41,7 +41,10 @@ public class PlayerManager : MonoBehaviour
         Debug.Log("Player Joined");
         players.Add(player);
         player.transform.position = startingPoints[players.Count - 1].position;
-        if(playerCount == 2)
-        player.GetComponentInChildren<Camera>().GetComponent<AudioListener>().enabled = false;
+        if (playerCount == 2)
+        {
+            player.GetComponentInChildren<Camera>().GetComponent<AudioListener>().enabled = false;
+            player.GetComponent<InteractionHandler>().uiPosition = new Vector3(0.5f, 0, 0);
+        }
     }
 }

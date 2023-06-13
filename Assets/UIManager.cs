@@ -7,6 +7,8 @@ public class UIManager : MonoBehaviour
 
     public TextMeshProUGUI worldUItext;
 
+    public TextMeshProUGUI pressF;
+
     private void Awake()
     {
         if(Instance == null)

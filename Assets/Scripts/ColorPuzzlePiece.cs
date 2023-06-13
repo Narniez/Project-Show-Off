@@ -20,7 +20,7 @@ public class ColorPuzzlePiece : PuzzleAbstract
     public TextMeshProUGUI textUIelement;
 
     public override void OnFocus() {
-        UIManager.Instance.worldUItext.text = "lelq pena blyskala";
+        //UIManager.Instance.worldUItext.text = "lelq pena blyskala";
     }
 
     //Override the OnInteract method to call RotatePiece
@@ -31,7 +31,7 @@ public class ColorPuzzlePiece : PuzzleAbstract
 
     public override void OnLoseFocus()
     {
-        UIManager.Instance.worldUItext.text = " ";
+        //UIManager.Instance.worldUItext.text = " ";
     }
 
     private void FixedUpdate()
