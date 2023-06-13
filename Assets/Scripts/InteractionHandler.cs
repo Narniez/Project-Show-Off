@@ -66,7 +66,7 @@ public class InteractionHandler : MonoBehaviour
         HandleInteractionCheck();
         HandleRaycastPosition();
 
-        if (currentInteractable != null && currentInteractable.CompareTag("CompanionCube") && currentInteractable.GetComponent<CompanionCube>().isPicked)
+        if (currentInteractable != null && currentInteractable.CompareTag("CompanionCube") && currentInteractable.GetComponent<CompanionCube>().isPicked && !currentInteractable.GetComponent<CompanionCube>().isPlaced)
         {
             pressF.GetComponentInChildren<TextMeshProUGUI>().text = "Drop Cube";
         }
@@ -74,6 +74,7 @@ public class InteractionHandler : MonoBehaviour
         {
             pressF.GetComponentInChildren<TextMeshProUGUI>().text = "Pick Up Cube";
         }
+
 
     }
 
