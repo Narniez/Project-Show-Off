@@ -75,6 +75,7 @@ public class PickUpController : MonoBehaviour
             return;
         }
 
+        pickUpObj.GetComponent<CompanionCube>().isPicked = true;
         pickUpObjRB = pickUpObj.GetComponent<Rigidbody>();
         pickUpObjRB.useGravity = false;
         pickUpObjRB.drag = 5f;
@@ -88,6 +89,7 @@ public class PickUpController : MonoBehaviour
 
     void DropItem()
     {
+        pickUpObjRB.GetComponent<CompanionCube>().isPicked = false;
         pickUpObjRB.useGravity = true;
         pickUpObjRB.drag = 1;
         //pickUpObjRB.constraints = RigidbodyConstraints.None;

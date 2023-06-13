@@ -82,33 +82,22 @@ public class RotaryDiskHolder : PuzzleAbstract
         }
 
         //Make the selected disk to rotate left or right
-        if (playerA.PlayerAction.FindAction("RotateRight").triggered)
+        if (playerA.PlayerAction.FindAction("RotateLeft").triggered)
         {
             rotAmount = -45;
             puzzlePieces[pieceNum].RotatePiece(rotAmount);
         }
-        if (playerA.PlayerAction.FindAction("RotateLeft").triggered)
+        if (playerA.PlayerAction.FindAction("RotateRight").triggered)
         {
             rotAmount = 45;
             puzzlePieces[pieceNum].RotatePiece(rotAmount);
         }
         if (cameraController != null)
         {
-            puzzlePieces[pieceNum].GetComponent<Renderer>().material = glowMat;
-            if (pieceNum != 0 && pieceNum != 2)
+            for (int i = 0; i < puzzlePieces.Count; i++)
             {
-                puzzlePieces[pieceNum - 1].GetComponent<Renderer>().material = normalMat;
-                puzzlePieces[pieceNum + 1].GetComponent<Renderer>().material = normalMat;
-            }
-            if (pieceNum == 0)
-            {
-                puzzlePieces[1].GetComponent<Renderer>().material = normalMat;
-                puzzlePieces[2].GetComponent<Renderer>().material = normalMat;
-            }
-            if (pieceNum == 2)
-            {
-                puzzlePieces[0].GetComponent<Renderer>().material = normalMat;
-                puzzlePieces[1].GetComponent<Renderer>().material = normalMat;
+                Material pieceMaterial = i == pieceNum ? glowMat : normalMat;
+                puzzlePieces[i].GetComponent<Renderer>().material = pieceMaterial;
             }
         }
     }

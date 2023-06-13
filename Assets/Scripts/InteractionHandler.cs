@@ -21,6 +21,11 @@ public class InteractionHandler : MonoBehaviour
 
     public LayerMask layerMask;
 
+    public Vector3 uiPosition = new Vector3(0, 0, 0);
+
+    [SerializeField]private GameObject pressF;
+    [SerializeField] private GameObject towerUI;
+    [SerializeField] private GameObject rotDiscUI;
     //private bool canInteract = true;
     public TextMeshProUGUI textUI;
     UIElement uiElement;
@@ -36,6 +41,8 @@ public class InteractionHandler : MonoBehaviour
     //Get reference's to the camera controller and the player controls
     private void Start()
     {
+        rotDiscUI.gameObject.transform.position += uiPosition;
+        towerUI.gameObject.transform.position += uiPosition;
         camController = this.GetComponentInChildren<CameraController>();
         playerControls = this.GetComponentInParent<IPlayer>();
     }
@@ -59,6 +66,15 @@ public class InteractionHandler : MonoBehaviour
         HandleInteractionCheck();
         HandleRaycastPosition();
 
+        if (currentInteractable != null && currentInteractable.CompareTag("CompanionCube") && currentInteractable.GetComponent<CompanionCube>().isPicked)
+        {
+            pressF.GetComponentInChildren<TextMeshProUGUI>().text = "Drop Cube";
+        }
+        if (currentInteractable != null && currentInteractable.CompareTag("CompanionCube") && !currentInteractable.GetComponent<CompanionCube>().isPicked)
+        {
+            pressF.GetComponentInChildren<TextMeshProUGUI>().text = "Pick Up Cube";
+        }
+
     }
 
     //Check and assign current interactable using raycast
@@ -77,6 +93,7 @@ public class InteractionHandler : MonoBehaviour
                 {
                     //button.IsPressed = false;
                     currentInteractable.OnLoseFocus();
+                    pressF.SetActive(false);
 
                 }
 
@@ -87,6 +104,13 @@ public class InteractionHandler : MonoBehaviour
                 {
                     //If the current interactable is in range of the raycast call the OnFocus method 
                     currentInteractable.OnFocus();
+                    pressF.SetActive(true);
+
+                    if (currentInteractable.CompareTag("CompanionCube"))
+                    {
+                        pressF.GetComponentInChildren<TextMeshProUGUI>().text = "Pick Up Cube";
+                    }
+                    
                     //Assign the camera controller to the rotary disk the raycast hits
                     if (currentInteractable != null && (currentInteractable.CompareTag("RotaryDisk") || currentInteractable.CompareTag("RotaryDiskLeft")))
                     {
@@ -106,6 +130,8 @@ public class InteractionHandler : MonoBehaviour
         {
             currentInteractable.OnLoseFocus();
             currentInteractable = null;
+            pressF.SetActive(false);
+            pressF.GetComponentInChildren<TextMeshProUGUI>().text = "Press ";
         }
     }
 
@@ -137,10 +163,21 @@ public class InteractionHandler : MonoBehaviour
         {
             interactionRaypoint = new Vector3(0.8f, 0.5f, 0f);
         }
+        if (playerControls.IsLockedOnTower)
+        {
+            towerUI.SetActive(true);
+            pressF.SetActive(false);
+        }
+        else if(camController.IsLockedOnDisk || camController.IsLockedOnDiskLeft)
+        {
+            pressF.SetActive(false);
+            rotDiscUI.SetActive(true);
+        }
         //Otherwise keep it in the middle 
         else
         {
-
+            towerUI.SetActive(false);
+            rotDiscUI.SetActive(false);
             interactionRaypoint = new Vector3(0.5f, 0.5f, 0f);
         }
     }
