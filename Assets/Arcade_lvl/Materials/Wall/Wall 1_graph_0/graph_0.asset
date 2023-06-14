@@ -12,18 +12,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eed5864476f84ce4b85454db09ca4eaa, type: 3}
   m_Name: graph_0
   m_EditorClassIdentifier: 
-  AssetPath: Assets/Materials/Arcade_lvl/Materials/Wall/Wall 1.sbsar
-  OutputPath: Assets/Materials/Arcade_lvl/Materials/Wall/Wall 1_graph_0
+  AssetPath: Assets/Arcade_lvl/Materials/Wall/Wall 1.sbsar
+  OutputPath: Assets\Arcade_lvl\Materials\Wall\Wall 1_graph_0
   RawData: {fileID: -244192453324840774, guid: a1624d84774f3f0499e69a818a4c36bd, type: 3}
   Name: graph_0
   IsRoot: 1
   FlagedForDelete: 0
-  GUID: abdce278-f94e-4353-a14e-1b3e86a3e3d3
+  GUID: 882d1221-3383-4faa-97bb-70fd5dbd9ee5
   Index: 0
   Input:
-  - rid: 4691480377593954311
-  - rid: 4691480377593954312
-  - rid: 4691480377593954313
+  - rid: 2377968899134062597
+  - rid: 2377968899134062598
+  - rid: 2377968899134062599
   Output:
   - Index: 0
     VirtualOutputIndex: 6
@@ -139,7 +139,7 @@ MonoBehaviour:
   references:
     version: 2
     RefIds:
-    - rid: 4691480377593954311
+    - rid: 2377968899134062597
       type: {class: SubstanceInputInt2, ns: Adobe.Substance.Input, asm: Adobe.Substance}
       data:
         Index: 0
@@ -158,7 +158,7 @@ MonoBehaviour:
           SliderClamp: 0
           EnumValueCount: 0
           EnumValues: []
-    - rid: 4691480377593954312
+    - rid: 2377968899134062598
       type: {class: SubstanceInputInt, ns: Adobe.Substance.Input, asm: Adobe.Substance}
       data:
         Index: 1
@@ -180,7 +180,7 @@ MonoBehaviour:
           LabelTrue: 
           EnumValueCount: 0
           EnumValues: []
-    - rid: 4691480377593954313
+    - rid: 2377968899134062599
       type: {class: SubstanceInputFloat, ns: Adobe.Substance.Input, asm: Adobe.Substance}
       data:
         Index: 2
