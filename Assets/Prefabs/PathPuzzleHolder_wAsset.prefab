@@ -147,6 +147,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 3033481807878227541}
     m_Modifications:
+    - target: {fileID: 1968566420425831376, guid: b1ba8c9990c833345ac2a4e30141ea36, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: c0b35a81e755c39479397e1b62c48f9d, type: 2}
     - target: {fileID: 2116359270653916605, guid: b1ba8c9990c833345ac2a4e30141ea36, type: 3}
       propertyPath: m_LocalRotation.w
       value: 0
@@ -267,6 +271,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.y
       value: 90
       objectReference: {fileID: 0}
+    - target: {fileID: 7208150247688522353, guid: b1ba8c9990c833345ac2a4e30141ea36, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: c0b35a81e755c39479397e1b62c48f9d, type: 2}
+    - target: {fileID: 8643897880882164377, guid: b1ba8c9990c833345ac2a4e30141ea36, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: c0b35a81e755c39479397e1b62c48f9d, type: 2}
     - target: {fileID: 8996984749802843978, guid: b1ba8c9990c833345ac2a4e30141ea36, type: 3}
       propertyPath: m_TagString
       value: PPiece
@@ -309,6 +321,8 @@ MonoBehaviour:
   correctAngle: {x: 0, y: 0, z: 0, w: 0}
   targetAngle: {x: 0, y: 0, z: 0, w: 0}
   isCorrect: 0
+  uiText: 
+  textUIelement: {fileID: 0}
 --- !u!1 &6006246153292093373 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4967298886270594546, guid: b1ba8c9990c833345ac2a4e30141ea36, type: 3}
@@ -345,6 +359,8 @@ MonoBehaviour:
   correctAngle: {x: 0, y: 0, z: 0, w: 0}
   targetAngle: {x: 0, y: 0, z: 0, w: 0}
   isCorrect: 0
+  uiText: 
+  textUIelement: {fileID: 0}
 --- !u!4 &6916083074485591732 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5210596465769719035, guid: b1ba8c9990c833345ac2a4e30141ea36, type: 3}
@@ -386,6 +402,8 @@ MonoBehaviour:
   correctAngle: {x: 0, y: 0, z: 0, w: 0}
   targetAngle: {x: 0, y: 0, z: 0, w: 0}
   isCorrect: 0
+  uiText: 
+  textUIelement: {fileID: 0}
 --- !u!1001 &2699263380066469050
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -409,6 +427,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.y
       value: 90
       objectReference: {fileID: 0}
+    - target: {fileID: 3635381507959224290, guid: 3c4ffff76a6995241816d59aacfb5107, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: 5c7214c58c540624ab2a89a6e7f9e3ef, type: 2}
     - target: {fileID: 3782013278264160655, guid: 3c4ffff76a6995241816d59aacfb5107, type: 3}
       propertyPath: m_LocalRotation.w
       value: 0.7071068
@@ -425,10 +447,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.y
       value: -90
       objectReference: {fileID: 0}
+    - target: {fileID: 5560475455910235715, guid: 3c4ffff76a6995241816d59aacfb5107, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: 5c7214c58c540624ab2a89a6e7f9e3ef, type: 2}
     - target: {fileID: 6194997558306827128, guid: 3c4ffff76a6995241816d59aacfb5107, type: 3}
       propertyPath: m_TagString
       value: PPiece
       objectReference: {fileID: 0}
+    - target: {fileID: 6834199041122449067, guid: 3c4ffff76a6995241816d59aacfb5107, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: 5c7214c58c540624ab2a89a6e7f9e3ef, type: 2}
     - target: {fileID: 7020400856504508617, guid: 3c4ffff76a6995241816d59aacfb5107, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -544,6 +574,8 @@ MonoBehaviour:
   correctAngle: {x: 0, y: 0, z: 0, w: 0}
   targetAngle: {x: 0, y: 0, z: 0, w: 0}
   isCorrect: 0
+  uiText: 
+  textUIelement: {fileID: 0}
 --- !u!1 &5352607590628533963 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8015841640695210609, guid: 3c4ffff76a6995241816d59aacfb5107, type: 3}
@@ -580,6 +612,8 @@ MonoBehaviour:
   correctAngle: {x: 0, y: 0, z: 0, w: 0}
   targetAngle: {x: 0, y: 0, z: 0, w: 0}
   isCorrect: 0
+  uiText: 
+  textUIelement: {fileID: 0}
 --- !u!1 &8110060209988136898 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6194997558306827128, guid: 3c4ffff76a6995241816d59aacfb5107, type: 3}
@@ -616,6 +650,8 @@ MonoBehaviour:
   correctAngle: {x: 0, y: 0, z: 0, w: 0}
   targetAngle: {x: 0, y: 0, z: 0, w: 0}
   isCorrect: 0
+  uiText: 
+  textUIelement: {fileID: 0}
 --- !u!114 &7436982151487502876
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -634,3 +670,5 @@ MonoBehaviour:
   correctAngle: {x: 0, y: 0, z: 0, w: 0}
   targetAngle: {x: 0, y: 0, z: 0, w: 0}
   isCorrect: 0
+  uiText: 
+  textUIelement: {fileID: 0}
