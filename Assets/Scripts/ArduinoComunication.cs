@@ -1,90 +1,122 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine.UI;
+using System.Threading;
 using System.IO.Ports;
 using UnityEngine;
+using System.Collections.Generic;
 
+
+/// <summary>
+/// Can be attached to every object
+/// </summary>
 public class ArduinoComunication : MonoBehaviour
 {
-    
-    string usedPort=null;
+    public const string inspectorDescription = "anaaaaaa";
+    [SerializeField] string comPort = "COM3";
+    private SerialPort dataStream;
+    private Queue<string> receivedDataQueue;
 
-    [SerializeField] int comNum = 3;
-    
-    SerialPort dataStream; 
-    string recievedData;
+    private float timer = 60f; // Timer variable to track the elapsed time
+    private float _resetLevelTimer = 10f; // Timer variable to track the elapsed time
 
-    bool isPlayer1Connected, isPlayer2Connected;
+    int player1, player2;
 
-    // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
-        PortScan();
-
-
-        string comPort = usedPort; //"COM" + comNum.ToString();
         dataStream = new SerialPort(comPort, 9600);
+        dataStream.ReadTimeout = 200; // Set a higher timeout value in milliseconds
 
-        dataStream.Open();
-        
+        try
+        {
+            dataStream.Open();
+            Debug.Log("Serial port opened successfully.");
+        }
+        catch (System.Exception ex)
+        {
+            Debug.LogError("Failed to open the serial port: " + ex.Message);
+        }
+
+        receivedDataQueue = new Queue<string>();
+
+        // Start a separate thread for reading data from the serial port
+        Thread readThread = new Thread(ReadData);
+        readThread.Start();
     }
 
-    void PortScan() {
-        string[] ports = SerialPort.GetPortNames();
-        Debug.Log("Got "+ports.Length+" ports");
-        foreach( string portName in ports) {
-            Debug.Log("Trying "+portName);
-
-            try {
-                using (SerialPort pt = new SerialPort(portName, 9600)) {
-                    pt.Open();
-
-                    string input = pt.ReadLine();
-
-                    Debug.Log("Input: "+input);
-                    pt.Close();
-
-                    Debug.Log("success??");
-                    usedPort = portName;
+    private void ReadData()
+    {
+        while (dataStream.IsOpen)
+        {
+            try
+            {
+                string data = dataStream.ReadLine();
+                if (!string.IsNullOrEmpty(data))
+                {
+                    receivedDataQueue.Enqueue(data);
                 }
-            } catch (System.Exception error) {
-                Debug.Log("Error on open: "+error.Message);
             }
-
+            catch (System.TimeoutException)
+            {
+                // Handle timeout exception if needed
+            }
+            catch (System.Exception ex)
+            {
+                Debug.LogError("Failed to read data from the serial port: " + ex.Message);
+            }
         }
     }
 
+    private void Update()
+    {
+        if (receivedDataQueue.Count > 0)
+        {
+            while (receivedDataQueue.TryDequeue(out string data))
+            {
+                // Process the received data
+                string[] players = data.Split(',');
+                player1 = int.Parse(players[0]);
+                player2 = int.Parse(players[1]);
+                Debug.Log("Received data: player1 " + player1);
+                Debug.Log("Received data: player2 " + player2);
+            }
+        }
+        ResetLevel();
+        WaitingForThePlayerToComeBack();
 
-    // Update is called once per frame
-    void Update()
-    {   
-        dataStream.DiscardInBuffer();
-        recievedData = dataStream.ReadLine();
-        
-        Debug.Log(recievedData);
-        
-        
-        string[] pressurePlatePlayer = recievedData.Split(',');
 
-        if(pressurePlatePlayer[0] == "1"){
-            isPlayer1Connected = true;
-        } else {
-            isPlayer1Connected = false;
+        // Continue with the rest of your update logic
+    }
+
+    void ResetLevel()
+    {
+        if (player1 != 0 || player2 != 0)
+        {
+            _resetLevelTimer = 10f;
+            return;
         }
 
-        if(pressurePlatePlayer[1] == "1"){
-            isPlayer2Connected = true;
-        } else {
-            isPlayer2Connected = false;
+        if (player1 != 1 && player2 != 1)
+        {
+            _resetLevelTimer -= Time.deltaTime; // Update the timer each frame
+            int seconds = Mathf.FloorToInt(_resetLevelTimer);
+            Debug.Log("Timer: " + seconds + " seconds");
+            if (seconds <= 0)
+            {
+                //Reset the level
+                Debug.Log("reset the level");
+                _resetLevelTimer = 10f;
+            }
         }
+    }
 
-        // if (!(isPlayer1Connected && isPlayer2Connected)){
-        //     //timer
-        // }else if (isPlayer1Connected || isPlayer2Connected){
-        //     //timer
-        // }else{
-        //     //Both players are connected
-        // }
+    void WaitingForThePlayerToComeBack()
+    {
+        if (player1 != 1 && player2 != 1) return;
 
+        if (player1 != 1 || player2 != 1)
+        {
+            timer -= Time.deltaTime;
+            int seconds = Mathf.FloorToInt(timer);
+            Debug.Log("Waiting for the player" + "Timer: " + seconds + " seconds");
+        }
+        else timer = 60;
     }
 }
