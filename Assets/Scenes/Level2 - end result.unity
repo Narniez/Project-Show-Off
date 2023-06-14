@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.072455585, g: 0.010070251, b: 0.027036574, a: 1}
+  m_IndirectSpecularColor: {r: 0.072178215, g: 0.010031134, b: 0.02692041, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -10752,8 +10752,32 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 161113229731943940, guid: 558aad182430eaf44a88773656567785, type: 3}
+      propertyPath: NoiseModule.enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 161113229731943940, guid: 558aad182430eaf44a88773656567785, type: 3}
+      propertyPath: NoiseModule.octaves
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 161113229731943940, guid: 558aad182430eaf44a88773656567785, type: 3}
+      propertyPath: NoiseModule.quality
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 161113229731943940, guid: 558aad182430eaf44a88773656567785, type: 3}
+      propertyPath: NoiseModule.octaveScale
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 161113229731943940, guid: 558aad182430eaf44a88773656567785, type: 3}
+      propertyPath: NoiseModule.sizeAmount.scalar
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 161113229731943940, guid: 558aad182430eaf44a88773656567785, type: 3}
       propertyPath: InitialModule.startSize.scalar
       value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 161113229731943940, guid: 558aad182430eaf44a88773656567785, type: 3}
+      propertyPath: NoiseModule.scrollSpeed.scalar
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 161113229731943940, guid: 558aad182430eaf44a88773656567785, type: 3}
       propertyPath: InitialModule.startSpeed.scalar
@@ -10762,6 +10786,30 @@ PrefabInstance:
     - target: {fileID: 161113229731943940, guid: 558aad182430eaf44a88773656567785, type: 3}
       propertyPath: InitialModule.startSize.minScalar
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 161113229731943940, guid: 558aad182430eaf44a88773656567785, type: 3}
+      propertyPath: NoiseModule.positionAmount.scalar
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 161113229731943940, guid: 558aad182430eaf44a88773656567785, type: 3}
+      propertyPath: NoiseModule.rotationAmount.scalar
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 161113229731943940, guid: 558aad182430eaf44a88773656567785, type: 3}
+      propertyPath: NoiseModule.sizeAmount.minMaxState
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 161113229731943940, guid: 558aad182430eaf44a88773656567785, type: 3}
+      propertyPath: NoiseModule.positionAmount.minScalar
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 161113229731943940, guid: 558aad182430eaf44a88773656567785, type: 3}
+      propertyPath: NoiseModule.positionAmount.minMaxState
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 161113229731943940, guid: 558aad182430eaf44a88773656567785, type: 3}
+      propertyPath: NoiseModule.rotationAmount.minMaxState
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 835150969638400054, guid: 558aad182430eaf44a88773656567785, type: 3}
       propertyPath: ShapeModule.m_Scale.x
