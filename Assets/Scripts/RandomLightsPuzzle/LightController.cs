@@ -1,9 +1,11 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class LightController : MonoBehaviour
 {
+
+
+
     public int[] lightOrder;
     public float lightDuration = 1f;
     public float delayBetweenLights = 0.5f;
@@ -13,12 +15,13 @@ public class LightController : MonoBehaviour
     private int currentIndex = 0;
     private bool isSequenceActive = false;
 
+    public bool startSequence = false;
+
     private void Start()
     {
         lights = GetComponentsInChildren<Light>();
     }
-
-    private void Update()
+    public void StartLightSequence()
     {
         if (!isSequenceActive)
         {
