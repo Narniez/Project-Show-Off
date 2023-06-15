@@ -4,25 +4,18 @@ using UnityEngine.Events;
 
 public class ColorPuzzlePiece : PuzzleAbstract
 {
-
-
-    private IPlayer playerControls;
-
     public UnityAction PieceRotated;
-
-    [SerializeField] private int rotAmount = 90;
-
-    [SerializeField] private float rotationDuration = 1;
     public Quaternion correctAngle;
-
-    [HideInInspector] public Quaternion targetAngle;
-
-    [SerializeField]
     public bool isCorrect;
-
     public string uiText;
     public TextMeshProUGUI textUIelement;
+    [HideInInspector] public Quaternion targetAngle;
 
+    public AudioClip soundEffect;
+
+    [SerializeField] private int rotAmount = 90;
+    [SerializeField] private float rotationDuration = 1;
+    private IPlayer playerControls;
 
     public void AssignControls(IPlayer controls)
     {
@@ -38,6 +31,7 @@ public class ColorPuzzlePiece : PuzzleAbstract
     //Override the OnInteract method to call RotatePiece
     public override void OnInteract()
     {
+        SoundEffects.instance.PlaySoundEffect(soundEffect);
         if(playerControls.IsLockedOnTower)
         RotatePiece();
     }

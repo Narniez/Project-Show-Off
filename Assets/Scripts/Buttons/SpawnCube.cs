@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class SpawnCube : PuzzleAbstract
+public class SpawnCube : PuzzleAbstract, IButton
 {
     [SerializeField] private Transform instantiationPosition;
 
@@ -8,8 +8,15 @@ public class SpawnCube : PuzzleAbstract
 
     public GameObject companionCube;
 
+    public AudioClip audioClip;
+    public AudioClip audioClipSpawnCube;
+
     bool canSpawn;
     bool hasSpawned;
+
+    public AudioClip soundEffect { get => audioClip; set => audioClip = value; }
+    
+    public bool IsPressed { get => throw new System.NotImplementedException(); set => throw new System.NotImplementedException(); }
 
     // Start is called before the first frame update
     void Start()
@@ -42,9 +49,12 @@ public class SpawnCube : PuzzleAbstract
 
     public override void OnInteract()
     {
+        SoundEffects.instance.PlaySoundEffect(soundEffect);
         if (canSpawn && !hasSpawned)
         {
             companionCube.SetActive(true);
+            SoundEffects.instance.PlaySoundEffect(audioClipSpawnCube);
+
             //InstantiateReward(objectToInstantiate, instantiationPosition);
             hasSpawned = true;
         }

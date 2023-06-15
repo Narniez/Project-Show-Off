@@ -3,7 +3,11 @@ guid: ab959fa00f1806d4fa6901541b4ffa47
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - instantiationPosition: {instanceID: 0}
+  - puzzle: {instanceID: 0}
+  - companionCube: {instanceID: 0}
+  - audioClip: {fileID: 8300000, guid: 88c8f68268fd54130a76a380b6b21363, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

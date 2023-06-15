@@ -2,12 +2,12 @@ using UnityEngine;
 
 public class PoolButton : Interactable, IButton
 {
-
     public Transform spawnPosition;
 
-
+    public AudioClip soundEffectClip;
 
     public bool IsPressed { get; set ; }
+    public AudioClip soundEffect { get => soundEffectClip; set => soundEffectClip = value; }
 
     private void Start()
     {

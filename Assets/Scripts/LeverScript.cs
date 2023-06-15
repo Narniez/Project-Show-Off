@@ -7,7 +7,7 @@ public class LeverScript : Interactable
     public bool turnedOn;
 
     public bool matchCorrect;
-
+    public AudioClip audioClip;
     Animator anim;
 
     private void Start()
@@ -23,6 +23,7 @@ public class LeverScript : Interactable
     public override void OnInteract()
     {
         anim.SetTrigger("activated");
+        SoundEffects.instance.PlaySoundEffect(audioClip);
         turnedOn = !turnedOn;
         if (light.thisIsCorrect)
         {
