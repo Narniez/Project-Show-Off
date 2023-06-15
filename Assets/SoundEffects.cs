@@ -3,15 +3,16 @@ using UnityEngine;
 public class SoundEffects : MonoBehaviour
 {
     public static SoundEffects instance;
-
-    public AudioClip buttonClip;
     public AudioSource audioSource;
 
 
     private void Awake()
     {
         if (instance == null)
+        {
             instance = this;
+            DontDestroyOnLoad(this);
+        }
         else
             Destroy(instance);
     }

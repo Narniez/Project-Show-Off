@@ -2,13 +2,20 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ButtonController : Interactable
+public class ButtonController : Interactable, IButton
 {
     [SerializeField] GameObject companionCube;
 
     [SerializeField] Transform cubeSpawnPos;
     public int buttonIndex; // Index of the button in the sequence
     public LightController lightController; // Reference to the LightController script
+
+    public AudioClip clip;
+
+    public AudioClip puzzleDone;
+
+    public AudioClip soundEffect { get => clip; set => clip = value; }
+    public bool IsPressed { get => throw new System.NotImplementedException(); set => throw new System.NotImplementedException(); }
 
     private void Start()
     {
@@ -17,6 +24,7 @@ public class ButtonController : Interactable
 
     public override void OnInteract()
     {
+        SoundEffects.instance.PlaySoundEffect(soundEffect);
         // Check if the button index matches the current index in the light sequence
         if (buttonIndex == lightController.GetCurrentIndex())
         {
@@ -27,6 +35,7 @@ public class ButtonController : Interactable
                 // Puzzle completed, handle puzzle completion here
                 companionCube.transform.position = cubeSpawnPos.position;
                 companionCube.SetActive(true);
+                SoundEffects.instance.PlaySoundEffect(puzzleDone);
                 Debug.Log("Puzzle completed!");
             }
         }
