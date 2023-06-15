@@ -2,14 +2,15 @@ using System.Threading;
 using System.IO.Ports;
 using UnityEngine;
 using System.Collections.Generic;
-
+using TMPro;
 
 /// <summary>
 /// Can be attached to every object
 /// </summary>
 public class ArduinoComunication : MonoBehaviour
 {
-    public const string inspectorDescription = "anaaaaaa";
+    public TextMeshProUGUI timerUI;
+
     [SerializeField] string comPort = "COM3";
     private SerialPort dataStream;
     private Queue<string> receivedDataQueue;
@@ -17,7 +18,8 @@ public class ArduinoComunication : MonoBehaviour
     private float timer = 60f; // Timer variable to track the elapsed time
     private float _resetLevelTimer = 10f; // Timer variable to track the elapsed time
 
-    int player1, player2;
+    private int player1, player2;
+
 
     private void Start()
     {
@@ -81,22 +83,20 @@ public class ArduinoComunication : MonoBehaviour
         ResetLevel();
         WaitingForThePlayerToComeBack();
 
-
+        if (player1 == 1 && player2 == 1) {
+            timerUI.gameObject.SetActive(false);
+        }
         // Continue with the rest of your update logic
     }
 
     void ResetLevel()
     {
-        if (player1 != 0 || player2 != 0)
+        if (player1 == 0 && player2 == 0)
         {
-            _resetLevelTimer = 10f;
-            return;
-        }
-
-        if (player1 != 1 && player2 != 1)
-        {
+            timerUI.gameObject.SetActive(true);
             _resetLevelTimer -= Time.deltaTime; // Update the timer each frame
             int seconds = Mathf.FloorToInt(_resetLevelTimer);
+            timerUI.text = "Reset in " + seconds.ToString("00:00");
             Debug.Log("Timer: " + seconds + " seconds");
             if (seconds <= 0)
             {
@@ -105,17 +105,35 @@ public class ArduinoComunication : MonoBehaviour
                 _resetLevelTimer = 10f;
             }
         }
+        else
+        {
+            _resetLevelTimer = 10f;
+            timerUI.gameObject.SetActive(false);
+        }
     }
 
     void WaitingForThePlayerToComeBack()
     {
-        if (player1 != 1 && player2 != 1) return;
+        if (player1 != 1 && player2 != 1)
+        {
+            //timerUI.gameObject.SetActive(false);
+            return;
+        }
 
         if (player1 != 1 || player2 != 1)
         {
+            timerUI.gameObject.SetActive(true);
+
             timer -= Time.deltaTime;
             int seconds = Mathf.FloorToInt(timer);
+            timerUI.text = "Waiting for a player " + seconds.ToString("00:00");
             Debug.Log("Waiting for the player" + "Timer: " + seconds + " seconds");
+
+            if (seconds <= 0)
+            {
+                //Reset the level
+                Debug.Log("stop waiting maybe!?");
+            }
         }
         else timer = 60;
     }
