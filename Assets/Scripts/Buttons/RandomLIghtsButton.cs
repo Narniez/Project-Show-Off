@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class RandomLIghtsButton : Interactable
 {
-    bool activateSequence = false;
+    //bool activateSequence = false;
 
     [SerializeField]LightController lightController;
     public override void OnFocus()

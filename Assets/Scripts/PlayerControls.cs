@@ -26,7 +26,9 @@ public class PlayerControls : MonoBehaviour, IPlayer
 
     private bool isLockedOnTower = false;
     private bool canLook = true;
-    private bool canMove = true;
+    [SerializeField]private bool canMove = true;
+
+    [SerializeField] public bool canMoveAtStart = false;
 
     public bool CanLook { get => canLook; set => canLook = value; }
     public bool CanMove { get => canMove; set => canMove = value; }
@@ -69,7 +71,7 @@ public class PlayerControls : MonoBehaviour, IPlayer
             anim.SetTrigger("isIdling");
         }
 
-        if (canMove)
+        if (canMove && canMoveAtStart)
         {
             Move();
         }
