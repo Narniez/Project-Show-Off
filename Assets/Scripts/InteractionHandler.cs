@@ -65,10 +65,13 @@ public class InteractionHandler : MonoBehaviour
         IsHeld();
         HandleInteractionCheck();
         HandleRaycastPosition();
-
         if (currentInteractable != null && currentInteractable.CompareTag("CompanionCube") && currentInteractable.GetComponent<CompanionCube>().isPicked && !currentInteractable.GetComponent<CompanionCube>().isPlaced)
         {
             pressF.GetComponentInChildren<TextMeshProUGUI>().text = "Drop Cube";
+        }
+        if(currentInteractable != null && currentInteractable.CompareTag("HoldButton"))
+        {
+            pressF.GetComponentInChildren<TextMeshProUGUI>().text = "Hold ";
         }
         if (currentInteractable != null && currentInteractable.CompareTag("CompanionCube") && !currentInteractable.GetComponent<CompanionCube>().isPicked)
         {
@@ -124,6 +127,11 @@ public class InteractionHandler : MonoBehaviour
                     }
                 }
             }
+        }
+
+        else if (currentInteractable == null)
+        {
+            pressF.GetComponentInChildren<TextMeshProUGUI>().text = "Press ";
         }
 
         //If we are not looking at an interactable nullify the last current interactable 

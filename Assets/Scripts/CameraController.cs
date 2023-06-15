@@ -10,7 +10,7 @@ public class CameraController : MonoBehaviour
 
     public bool IsLockedOnDisk = false;
     public bool IsLockedOnDiskLeft = false;
-    
+
     private InputActionAsset inputAsset;
     private InputActionMap player;
     private PlayerInput playerInput;
@@ -46,7 +46,7 @@ public class CameraController : MonoBehaviour
     }
 
     private void Update()
-    {        
+    {
         CameraMovement();
 
         var ray = mainCamera.ViewportPointToRay(interactionRaypoint);
@@ -86,7 +86,7 @@ public class CameraController : MonoBehaviour
             // Smoothly move the camera to the target position and rotation
             mainCamera.transform.position = Vector3.Lerp(mainCamera.transform.position, targetPosition, transitionSpeed * Time.deltaTime);
             mainCamera.transform.rotation = Quaternion.Lerp(mainCamera.transform.rotation, targetRotation, transitionSpeed * Time.deltaTime);
-            
+
             // If camera is close enough to the target position and rotation, stop transitioning
             if (Vector3.Distance(mainCamera.transform.position, targetPosition) < 0.01f && Quaternion.Angle(mainCamera.transform.rotation, targetRotation) < 0.5f)
             {
@@ -102,7 +102,7 @@ public class CameraController : MonoBehaviour
 
             mainCamera.transform.position = Vector3.Lerp(mainCamera.transform.position, originalPosition, transitionSpeed * Time.deltaTime);
             mainCamera.transform.rotation = Quaternion.Lerp(mainCamera.transform.rotation, originalRotation, transitionSpeed * Time.deltaTime);
-            
+
             if (Vector3.Distance(mainCamera.transform.position, originalPosition) < 0.05f && Quaternion.Angle(mainCamera.transform.rotation, originalRotation) < 0.5f)
             {
                 isTransitioningBack = false;
@@ -175,8 +175,11 @@ public class CameraController : MonoBehaviour
     /// <param name="offset"></param>
     void CameraControls(Vector3 offset)
     {
-        Vector3 newPos = mainCamera.transform.position += offset;
-        newPos.y = Mathf.Clamp(newPos.y, minY, maxY);
-        mainCamera.transform.position = newPos;
+        if (!isTransitioning)
+        {
+            Vector3 newPos = mainCamera.transform.position += offset;
+            newPos.y = Mathf.Clamp(newPos.y, minY, maxY);
+            mainCamera.transform.position = newPos;
+        }
     }
 }

@@ -4,6 +4,8 @@ using UnityEngine.Events;
 
 public class ColorPuzzlePiece : PuzzleAbstract
 {
+
+
     public UnityAction PieceRotated;
 
     [SerializeField] private int rotAmount = 90;
@@ -19,6 +21,7 @@ public class ColorPuzzlePiece : PuzzleAbstract
     public string uiText;
     public TextMeshProUGUI textUIelement;
 
+
     public override void OnFocus() {
         //UIManager.Instance.worldUItext.text = "lelq pena blyskala";
     }
@@ -26,6 +29,7 @@ public class ColorPuzzlePiece : PuzzleAbstract
     //Override the OnInteract method to call RotatePiece
     public override void OnInteract()
     {
+        if(FindObjectOfType<PlayerControls>().IsLockedOnTower)
         RotatePiece();
     }
 
