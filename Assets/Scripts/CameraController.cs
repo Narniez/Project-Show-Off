@@ -54,6 +54,7 @@ public class CameraController : MonoBehaviour
         {
             if (hit.collider.CompareTag("PPiece"))
             {
+                hit.collider.GetComponent<ColorPuzzlePiece>().AssignControls(playerControls);
                 AssignTarget(hit);
                 if (isLocked) playerControls.IsLockedOnTower = true;
             }

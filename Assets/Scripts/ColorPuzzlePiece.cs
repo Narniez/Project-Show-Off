@@ -6,6 +6,8 @@ public class ColorPuzzlePiece : PuzzleAbstract
 {
 
 
+    private IPlayer playerControls;
+
     public UnityAction PieceRotated;
 
     [SerializeField] private int rotAmount = 90;
@@ -22,14 +24,21 @@ public class ColorPuzzlePiece : PuzzleAbstract
     public TextMeshProUGUI textUIelement;
 
 
+    public void AssignControls(IPlayer controls)
+    {
+        playerControls = controls;
+    }
+
     public override void OnFocus() {
+
+
         //UIManager.Instance.worldUItext.text = "lelq pena blyskala";
     }
 
     //Override the OnInteract method to call RotatePiece
     public override void OnInteract()
     {
-        if(FindObjectOfType<PlayerControls>().IsLockedOnTower)
+        if(playerControls.IsLockedOnTower)
         RotatePiece();
     }
 
