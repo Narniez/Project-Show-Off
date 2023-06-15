@@ -2343,6 +2343,8 @@ MonoBehaviour:
   instantiationPosition: {fileID: 9074102646006972501}
   puzzle: {fileID: 3759680812105721204}
   companionCube: {fileID: 2346820359450481744}
+  audioClip: {fileID: 8300000, guid: 88c8f68268fd54130a76a380b6b21363, type: 3}
+  audioClipSpawnCube: {fileID: 8300000, guid: eb0c888c2a62b4d3ea24e3b95906b81d, type: 3}
 --- !u!1 &7113927155202805847
 GameObject:
   m_ObjectHideFlags: 0
@@ -2368,14 +2370,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7113927155202805847}
-  m_LocalRotation: {x: -0, y: -0.00000001117587, z: -0.06607064, w: 0.997815}
+  m_LocalRotation: {x: -0.00614807, y: -0.092849016, z: -0.06578395, w: 0.9934857}
   m_LocalPosition: {x: 0.24, y: 0.3, z: 0}
   m_LocalScale: {x: 0.69064, y: 0.69064, z: 0.69064}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3580525723679554480}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -7.577}
+  m_LocalEulerAnglesHint: {x: -1.4, y: -10.587, z: -7.447}
 --- !u!33 &8350322392235154974
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -2404,7 +2406,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 58721bbbd38b22141a2d3fb381f606a6, type: 2}
+  - {fileID: 2100000, guid: e1ea8596dd038b64f8321bbf480f6ae2, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2451,14 +2453,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7536240490490673959}
-  m_LocalRotation: {x: -0, y: -0.00000001117587, z: -0.06607064, w: 0.997815}
+  m_LocalRotation: {x: -0.00614807, y: -0.092849016, z: -0.06578395, w: 0.9934857}
   m_LocalPosition: {x: 0.24, y: 0.3, z: 0}
   m_LocalScale: {x: 0.69064, y: 0.69064, z: 0.69064}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3580525723679554480}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -7.577}
+  m_LocalEulerAnglesHint: {x: -1.4, y: -10.587, z: -7.447}
 --- !u!33 &736239853062175408
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -2487,7 +2489,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 1928d5ae546a3524c8516c484ad054aa, type: 2}
+  - {fileID: 2100000, guid: e1ea8596dd038b64f8321bbf480f6ae2, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2684,6 +2686,7 @@ MonoBehaviour:
   isHeld: 0
   turnedOn: 0
   matchCorrect: 0
+  audioClip: {fileID: 8300000, guid: d7ee532fa1bd649a59edb9643d26160d, type: 3}
 --- !u!1001 &50235535
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2910,6 +2913,7 @@ MonoBehaviour:
   isHeld: 0
   turnedOn: 0
   matchCorrect: 0
+  audioClip: {fileID: 8300000, guid: d7ee532fa1bd649a59edb9643d26160d, type: 3}
 --- !u!1001 &188503161
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3136,6 +3140,7 @@ MonoBehaviour:
   isHeld: 0
   turnedOn: 0
   matchCorrect: 0
+  audioClip: {fileID: 8300000, guid: d7ee532fa1bd649a59edb9643d26160d, type: 3}
 --- !u!1001 &257509829
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3534,6 +3539,7 @@ MonoBehaviour:
   isHeld: 0
   turnedOn: 0
   matchCorrect: 0
+  audioClip: {fileID: 8300000, guid: d7ee532fa1bd649a59edb9643d26160d, type: 3}
 --- !u!1001 &833447576
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4006,6 +4012,7 @@ MonoBehaviour:
   isHeld: 0
   turnedOn: 0
   matchCorrect: 0
+  audioClip: {fileID: 8300000, guid: d7ee532fa1bd649a59edb9643d26160d, type: 3}
 --- !u!1001 &1650578375
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4232,6 +4239,7 @@ MonoBehaviour:
   isHeld: 0
   turnedOn: 0
   matchCorrect: 0
+  audioClip: {fileID: 8300000, guid: d7ee532fa1bd649a59edb9643d26160d, type: 3}
 --- !u!1001 &2028980124
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4453,6 +4461,7 @@ MonoBehaviour:
   isHeld: 0
   turnedOn: 0
   matchCorrect: 0
+  audioClip: {fileID: 8300000, guid: d7ee532fa1bd649a59edb9643d26160d, type: 3}
 --- !u!4 &3035979251358944907 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: cff4f27593087b74da9ca3d591a0b52b, type: 3}
@@ -4597,6 +4606,7 @@ MonoBehaviour:
   isHeld: 0
   turnedOn: 0
   matchCorrect: 0
+  audioClip: {fileID: 8300000, guid: d7ee532fa1bd649a59edb9643d26160d, type: 3}
 --- !u!4 &2997626944495321377 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: cff4f27593087b74da9ca3d591a0b52b, type: 3}
@@ -4746,6 +4756,7 @@ MonoBehaviour:
   isHeld: 0
   turnedOn: 0
   matchCorrect: 0
+  audioClip: {fileID: 8300000, guid: d7ee532fa1bd649a59edb9643d26160d, type: 3}
 --- !u!1001 &9074102645465093513
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4972,6 +4983,7 @@ MonoBehaviour:
   isHeld: 0
   turnedOn: 0
   matchCorrect: 0
+  audioClip: {fileID: 8300000, guid: d7ee532fa1bd649a59edb9643d26160d, type: 3}
 --- !u!4 &8714191575901410432 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: cff4f27593087b74da9ca3d591a0b52b, type: 3}

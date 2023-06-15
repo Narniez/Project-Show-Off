@@ -3,7 +3,10 @@ using UnityEngine;
 
 public class DelayButton : Interactable, IButton
 {
+    public AudioClip soundEffectClip;
+
     public bool IsPressed { get; set; }
+    public AudioClip soundEffect { get => soundEffectClip; set => soundEffectClip = value; }
 
     public override void OnFocus()
     {

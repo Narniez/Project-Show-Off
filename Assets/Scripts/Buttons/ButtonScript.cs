@@ -2,12 +2,17 @@ using UnityEngine;
 
 public interface IButton
 {
+    AudioClip soundEffect { get; set; }
     bool IsPressed { get; set; }
 }
 
 public class ButtonScript : Interactable, IButton
 {
     public bool IsPressed { get; set; }
+
+    public AudioClip soundEffectClip;
+
+    public AudioClip soundEffect { get => soundEffectClip; set => soundEffectClip = value; }
 
     public LightPuzzle puzzle;
 
@@ -21,7 +26,9 @@ public class ButtonScript : Interactable, IButton
     }
 
     public override void OnInteract()
-    { }
+    {
+        SoundEffects.instance.PlaySoundEffect(soundEffect);
+    }
 
     public override void OnLoseFocus()
     {

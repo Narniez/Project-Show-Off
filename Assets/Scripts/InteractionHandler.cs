@@ -7,7 +7,7 @@ public class InteractionHandler : MonoBehaviour
     public Vector3 interactionRaypoint = default;
     public float interactionDistance = default;
 
-    [SerializeField] private Interactable currentInteractable;
+    public Interactable currentInteractable;
 
     private CameraController camController;
 
@@ -23,7 +23,7 @@ public class InteractionHandler : MonoBehaviour
 
     public Vector3 uiPosition = new Vector3(0, 0, 0);
 
-    [SerializeField]private GameObject pressF;
+    [SerializeField] private GameObject pressF;
     [SerializeField] private GameObject towerUI;
     [SerializeField] private GameObject rotDiscUI;
     //private bool canInteract = true;
@@ -69,7 +69,7 @@ public class InteractionHandler : MonoBehaviour
         {
             pressF.GetComponentInChildren<TextMeshProUGUI>().text = "Drop Cube";
         }
-        if(currentInteractable != null && currentInteractable.CompareTag("HoldButton"))
+        if (currentInteractable != null && currentInteractable.CompareTag("HoldButton"))
         {
             pressF.GetComponentInChildren<TextMeshProUGUI>().text = "Hold ";
         }
@@ -85,7 +85,7 @@ public class InteractionHandler : MonoBehaviour
     void HandleInteractionCheck()
     {
         var ray = mainCamera.ViewportPointToRay(interactionRaypoint);
-        if (Physics.Raycast(ray, out RaycastHit hit, interactionDistance,layerMask))
+        if (Physics.Raycast(ray, out RaycastHit hit, interactionDistance, layerMask))
         {
             Debug.DrawLine(ray.origin, hit.point, Color.red);
 
@@ -114,7 +114,7 @@ public class InteractionHandler : MonoBehaviour
                     {
                         pressF.GetComponentInChildren<TextMeshProUGUI>().text = "Pick Up Cube";
                     }
-                    
+
                     //Assign the camera controller to the rotary disk the raycast hits
                     if (currentInteractable != null && (currentInteractable.CompareTag("RotaryDisk") || currentInteractable.CompareTag("RotaryDiskLeft")))
                     {
@@ -168,7 +168,7 @@ public class InteractionHandler : MonoBehaviour
         //{
         //    interactionRaypoint = new Vector3(-0.2f, 0.5f, 0f);
         //}
-         if (camController.IsLockedOnDiskLeft)
+        if (camController.IsLockedOnDiskLeft)
         {
             interactionRaypoint = new Vector3(0.8f, 0.5f, 0f);
         }
@@ -177,7 +177,7 @@ public class InteractionHandler : MonoBehaviour
             towerUI.SetActive(true);
             pressF.SetActive(false);
         }
-        else if(camController.IsLockedOnDisk || camController.IsLockedOnDiskLeft)
+        else if (camController.IsLockedOnDisk || camController.IsLockedOnDiskLeft)
         {
             pressF.SetActive(false);
             rotDiscUI.SetActive(true);
