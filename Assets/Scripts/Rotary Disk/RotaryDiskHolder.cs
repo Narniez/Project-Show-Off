@@ -13,7 +13,7 @@ public class RotaryDiskHolder : PuzzleAbstract
 
     //Amount by which the piece to be rotated 
     [SerializeField]
-    private int rotAmount = 45;
+    private int rotAmount;
 
     //Camera controller variable to store the camera controller of the player interacting  
     [SerializeField]
@@ -84,12 +84,12 @@ public class RotaryDiskHolder : PuzzleAbstract
         //Make the selected disk to rotate left or right
         if (playerA.PlayerAction.FindAction("RotateLeft").triggered)
         {
-            rotAmount = -45;
+            rotAmount = -Mathf.Abs(rotAmount);
             puzzlePieces[pieceNum].RotatePiece(rotAmount);
         }
         if (playerA.PlayerAction.FindAction("RotateRight").triggered)
         {
-            rotAmount = 45;
+            rotAmount = Mathf.Abs(rotAmount);
             puzzlePieces[pieceNum].RotatePiece(rotAmount);
         }
         if (cameraController != null)
