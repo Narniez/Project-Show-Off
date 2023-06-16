@@ -168,6 +168,8 @@ MonoBehaviour:
   speed: 4
   sensitivity: 4
   maxForce: 1
+  canMove: 1
+  canMoveAtStart: 0
   jumpForce: 6
   canJump: 0
 --- !u!114 &241153307028406447
@@ -259,6 +261,14 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: d714e427-e9df-40e8-82c5-7662c229e244
     m_ActionName: Player/RotateRight[/XInputControllerWindows/rightShoulder,/XInputControllerWindows/rightTrigger,/Keyboard/d]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 6e782800-15e0-474e-b5a2-c90c919fdc6c
+    m_ActionName: Player/GoLeft[/XInputControllerWindows/leftStick/left]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 67dea5a4-20de-4578-84b3-8b3ba13e1093
+    m_ActionName: Player/GoRight[/XInputControllerWindows/leftStick/right]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
