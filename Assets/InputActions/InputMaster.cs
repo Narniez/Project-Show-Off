@@ -134,6 +134,15 @@ public partial class @InputMaster: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""PauseMenu"",
+                    ""type"": ""Button"",
+                    ""id"": ""7b047bce-9ec7-4083-b0eb-32538a36070d"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -653,6 +662,17 @@ public partial class @InputMaster: IInputActionCollection2, IDisposable
                     ""action"": ""GoRight"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""b4c0073b-814b-407e-a28a-1a9c3bc730e8"",
+                    ""path"": ""<Gamepad>/select"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""PauseMenu"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -673,6 +693,7 @@ public partial class @InputMaster: IInputActionCollection2, IDisposable
         m_Player_RotateRight = m_Player.FindAction("RotateRight", throwIfNotFound: true);
         m_Player_GoLeft = m_Player.FindAction("GoLeft", throwIfNotFound: true);
         m_Player_GoRight = m_Player.FindAction("GoRight", throwIfNotFound: true);
+        m_Player_PauseMenu = m_Player.FindAction("PauseMenu", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -746,6 +767,7 @@ public partial class @InputMaster: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_RotateRight;
     private readonly InputAction m_Player_GoLeft;
     private readonly InputAction m_Player_GoRight;
+    private readonly InputAction m_Player_PauseMenu;
     public struct PlayerActions
     {
         private @InputMaster m_Wrapper;
@@ -762,6 +784,7 @@ public partial class @InputMaster: IInputActionCollection2, IDisposable
         public InputAction @RotateRight => m_Wrapper.m_Player_RotateRight;
         public InputAction @GoLeft => m_Wrapper.m_Player_GoLeft;
         public InputAction @GoRight => m_Wrapper.m_Player_GoRight;
+        public InputAction @PauseMenu => m_Wrapper.m_Player_PauseMenu;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -807,6 +830,9 @@ public partial class @InputMaster: IInputActionCollection2, IDisposable
             @GoRight.started += instance.OnGoRight;
             @GoRight.performed += instance.OnGoRight;
             @GoRight.canceled += instance.OnGoRight;
+            @PauseMenu.started += instance.OnPauseMenu;
+            @PauseMenu.performed += instance.OnPauseMenu;
+            @PauseMenu.canceled += instance.OnPauseMenu;
         }
 
         private void UnregisterCallbacks(IPlayerActions instance)
@@ -847,6 +873,9 @@ public partial class @InputMaster: IInputActionCollection2, IDisposable
             @GoRight.started -= instance.OnGoRight;
             @GoRight.performed -= instance.OnGoRight;
             @GoRight.canceled -= instance.OnGoRight;
+            @PauseMenu.started -= instance.OnPauseMenu;
+            @PauseMenu.performed -= instance.OnPauseMenu;
+            @PauseMenu.canceled -= instance.OnPauseMenu;
         }
 
         public void RemoveCallbacks(IPlayerActions instance)
@@ -878,5 +907,6 @@ public partial class @InputMaster: IInputActionCollection2, IDisposable
         void OnRotateRight(InputAction.CallbackContext context);
         void OnGoLeft(InputAction.CallbackContext context);
         void OnGoRight(InputAction.CallbackContext context);
+        void OnPauseMenu(InputAction.CallbackContext context);
     }
 }
