@@ -5,7 +5,6 @@ public class SoundEffects : MonoBehaviour
     public static SoundEffects instance;
     public AudioSource audioSource;
 
-
     private void Awake()
     {
         if (instance == null)
