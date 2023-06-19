@@ -11,10 +11,9 @@ public class LevelSelection : MonoBehaviour
     private PlayerInput playerInput;
 
     [SerializeField] private List<GameObject> scenes;
-
-    public Sprite retroImage;
-    public Sprite vaporImage;
-    public Sprite spiraImage;
+    [SerializeField] private Sprite retroImage;
+    [SerializeField] private Sprite vaporImage;
+    [SerializeField] private Sprite spiraImage;
 
     private Sprite retroNormal;
     private Sprite vaporNormal;
@@ -22,58 +21,74 @@ public class LevelSelection : MonoBehaviour
 
     private void Start()
     {
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
-        playerInput = this.GetComponent<PlayerInput>();
+        playerInput = GetComponent<PlayerInput>();
         player = playerInput.currentActionMap;
+
         retroNormal = scenes[0].GetComponent<Image>().sprite;
         vaporNormal = scenes[1].GetComponent<Image>().sprite;
         spiralNormal = scenes[2].GetComponent<Image>().sprite;
     }
+
     private void Update()
     {
         if (player.FindAction("GoLeft").triggered && index != 1)
         {
             index--;
+            Debug.Log(index);
         }
-        if(player.FindAction("GoRight").triggered && index != 3)
+        if (player.FindAction("GoRight").triggered && index != 3)
         {
             index++;
+            Debug.Log(index);
         }
 
-        if(index == 1)
+        for (int i = 0; i < scenes.Count; i++)
         {
-            scenes[0].GetComponent<Image>().sprite = retroImage;
-            scenes[1].GetComponent<Image>().sprite = vaporNormal;
-            scenes[2].GetComponent<Image>().sprite = spiralNormal;
-            if (player.FindAction("Interaction").triggered)
+            if (index == i + 1)
             {
-                scenes[0].GetComponent<Button>().onClick.Invoke();
-            }
+                Image sceneImage = scenes[i].GetComponent<Image>();
+                sceneImage.sprite = GetSceneSprite(i + 1);
 
-            //  scenes[1].GetComponent<Button>().Select();
+                if (player.FindAction("Interaction").triggered)
+                {
+                    scenes[i].GetComponent<Button>().onClick.Invoke();
+                }
+            }
+            else
+            {
+                Image sceneImage = scenes[i].GetComponent<Image>();
+                sceneImage.sprite = GetNormalSprite(i + 1);
+            }
         }
-        if (index == 2)
-        {
-            scenes[1].GetComponent<Image>().sprite = vaporImage;
-            scenes[0].GetComponent<Image>().sprite = retroNormal;
-            scenes[2].GetComponent<Image>().sprite = spiralNormal;
+    }
 
-            if (player.FindAction("Interaction").triggered)
-            {
-                scenes[1].GetComponent<Button>().onClick.Invoke();
-            }
-            //  scenes[1].GetComponent<Button>().Select();
-        }
-        if (index == 3)
+    private Sprite GetSceneSprite(int sceneIndex)
+    {
+        switch (sceneIndex)
         {
-            scenes[2].GetComponent<Image>().sprite = spiraImage;
-            scenes[0].GetComponent<Image>().sprite = retroNormal;
-            scenes[1].GetComponent<Image>().sprite = vaporNormal;
-            if (player.FindAction("Interaction").triggered)
-            {
-                scenes[2].GetComponent<Button>().onClick.Invoke();
-            }
+            case 1:
+                return retroImage;
+            case 2:
+                return vaporImage;
+            case 3:
+                return spiraImage;
+            default:
+                return null;
+        }
+    }
+
+    private Sprite GetNormalSprite(int sceneIndex)
+    {
+        switch (sceneIndex)
+        {
+            case 1:
+                return retroNormal;
+            case 2:
+                return vaporNormal;
+            case 3:
+                return spiralNormal;
+            default:
+                return null;
         }
     }
 }
