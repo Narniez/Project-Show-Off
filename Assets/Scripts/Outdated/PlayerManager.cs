@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
@@ -36,6 +37,8 @@ public class PlayerManager : MonoBehaviour
     [SerializeField] private float maxTimerTextSize = 900f; // Maximum size for the timer text
     [SerializeField] private float timerTextScaleSpeed = 4f; // Speed at which the timer text scales
 
+    public GameObject panel;
+
     private void Awake()
     {
         playerInputManager = GetComponentInParent<PlayerInputManager>();
@@ -46,6 +49,7 @@ public class PlayerManager : MonoBehaviour
         timerText.gameObject.SetActive(false);
         playerOneReadyText.SetActive(false);
         playerTwoReadyText.SetActive(false);
+        panel.SetActive(false);
     }
 
     private void OnEnable()
@@ -73,14 +77,20 @@ public class PlayerManager : MonoBehaviour
 
             if (seconds <= 0)
             {
-                readyPannel.SetActive(false);
-                uiCamera.gameObject.SetActive(false);
+                StartCoroutine(DeactivateUI());
+                panel.SetActive(true);
                 foreach (PlayerInput player in players)
                 {
                     player.GetComponent<PlayerControls>().canMoveAtStart = true;
                 }
             }
         }
+    }
+
+    public IEnumerator DeactivateUI() {
+        yield return new WaitForSeconds(.8f);
+        readyPannel.SetActive(false);
+        uiCamera.gameObject.SetActive(false);
     }
 
     public void AddPlayer(PlayerInput player)
@@ -99,7 +109,6 @@ public class PlayerManager : MonoBehaviour
             playerTwoReadyText.SetActive(true);
             player.GetComponentInChildren<Camera>().GetComponent<AudioListener>().enabled = false;
             player.GetComponent<PlayerUI>().uiPosition = new Vector3(0.5f, 0, 0);
-
         }
     }
 }
