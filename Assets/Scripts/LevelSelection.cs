@@ -24,8 +24,10 @@ public class LevelSelection : MonoBehaviour
     {
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
+
         playerInput = this.GetComponent<PlayerInput>();
         player = playerInput.currentActionMap;
+
         retroNormal = scenes[0].GetComponent<Image>().sprite;
         vaporNormal = scenes[1].GetComponent<Image>().sprite;
         spiralNormal = scenes[2].GetComponent<Image>().sprite;

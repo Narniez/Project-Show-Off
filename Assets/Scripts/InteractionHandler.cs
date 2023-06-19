@@ -18,8 +18,6 @@ public class InteractionHandler : MonoBehaviour
     private PlayerInput playerInput;
     private IPlayer playerControls;
 
-    public LayerMask layerMask;
-
     [SerializeField] private GameObject pressF;
     //Get reference's to the PlayerInput action map and camera
     private void Awake()
@@ -63,7 +61,7 @@ public class InteractionHandler : MonoBehaviour
     void HandleInteractionCheck()
     {
         var ray = mainCamera.ViewportPointToRay(interactionRaypoint);
-        if (Physics.Raycast(ray, out RaycastHit hit, interactionDistance, layerMask))
+        if (Physics.Raycast(ray, out RaycastHit hit, interactionDistance))
         {
             Debug.DrawLine(ray.origin, hit.point, Color.red);
 
