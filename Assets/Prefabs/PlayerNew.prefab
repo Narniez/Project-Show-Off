@@ -167,7 +167,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rb: {fileID: 241153307028406444}
   speed: 4
-  sensitivity: 1
+  sensitivity: 4
   maxForce: 1
   canMove: 1
   canMoveAtStart: 0
@@ -265,11 +265,11 @@ MonoBehaviour:
   - m_PersistentCalls:
       m_Calls: []
     m_ActionId: 6e782800-15e0-474e-b5a2-c90c919fdc6c
-    m_ActionName: Player/GoLeft
+    m_ActionName: Player/GoLeft[/XInputControllerWindows/leftStick/left]
   - m_PersistentCalls:
       m_Calls: []
     m_ActionId: 67dea5a4-20de-4578-84b3-8b3ba13e1093
-    m_ActionName: Player/GoRight
+    m_ActionName: Player/GoRight[/XInputControllerWindows/leftStick/right]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
