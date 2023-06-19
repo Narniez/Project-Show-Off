@@ -85,6 +85,7 @@ public class PlayerManager : MonoBehaviour
 
     public void AddPlayer(PlayerInput player)
     {
+        Debug.Log("Player Joined");
         playerCount++;
         players.Add(player);
 
@@ -92,13 +93,12 @@ public class PlayerManager : MonoBehaviour
         {
             playerOneReadyText.SetActive(true);
         }
-        Debug.Log("Player Joined");
         player.transform.position = startingPoints[players.Count - 1].position;
         if (playerCount == 2)
         {
             playerTwoReadyText.SetActive(true);
             player.GetComponentInChildren<Camera>().GetComponent<AudioListener>().enabled = false;
-            player.GetComponent<InteractionHandler>().uiPosition = new Vector3(0.5f, 0, 0);
+            player.GetComponent<PlayerUI>().uiPosition = new Vector3(0.5f, 0, 0);
 
         }
     }
