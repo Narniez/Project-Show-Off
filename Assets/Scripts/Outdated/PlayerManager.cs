@@ -29,7 +29,12 @@ public class PlayerManager : MonoBehaviour
 
     [SerializeField] float timeToStart = 3;
     public TextMeshProUGUI timerText;
-    public TextMeshProUGUI playerReadyText;
+    public GameObject playerOneReadyText;
+    public GameObject playerTwoReadyText;
+
+    [SerializeField] private float minTimerTextSize = 300f; // Minimum size for the timer text
+    [SerializeField] private float maxTimerTextSize = 900f; // Maximum size for the timer text
+    [SerializeField] private float timerTextScaleSpeed = 4f; // Speed at which the timer text scales
 
     private void Awake()
     {
@@ -39,6 +44,8 @@ public class PlayerManager : MonoBehaviour
         readyPannel.SetActive(true);
         uiCamera.gameObject.SetActive(true);
         timerText.gameObject.SetActive(false);
+        playerOneReadyText.SetActive(false);
+        playerTwoReadyText.SetActive(false);
     }
 
     private void OnEnable()
@@ -59,20 +66,21 @@ public class PlayerManager : MonoBehaviour
             timeToStart -= Time.deltaTime;
             float seconds = Mathf.FloorToInt(timeToStart);
 
-            timerText.text = seconds.ToString("00:00");
+            timerText.text = seconds.ToString();
+            // Scale the timer text
+            float timerTextSize = Mathf.Lerp(minTimerTextSize, maxTimerTextSize, (Mathf.Sin(Time.time * timerTextScaleSpeed) + 1f) / 2f);
+            timerText.fontSize = (int)timerTextSize;
 
             if (seconds <= 0)
             {
                 readyPannel.SetActive(false);
                 uiCamera.gameObject.SetActive(false);
-                foreach(PlayerInput player in players)
+                foreach (PlayerInput player in players)
                 {
                     player.GetComponent<PlayerControls>().canMoveAtStart = true;
                 }
             }
         }
-
-       
     }
 
     public void AddPlayer(PlayerInput player)
@@ -80,18 +88,18 @@ public class PlayerManager : MonoBehaviour
         playerCount++;
         players.Add(player);
 
-        if(playerCount == 1)
+        if (playerCount == 1)
         {
-            playerReadyText.text = "Player Ready: 1/2";
+            playerOneReadyText.SetActive(true);
         }
         Debug.Log("Player Joined");
         player.transform.position = startingPoints[players.Count - 1].position;
         if (playerCount == 2)
         {
-            playerReadyText.text = "Player Ready: 2/2";
+            playerTwoReadyText.SetActive(true);
             player.GetComponentInChildren<Camera>().GetComponent<AudioListener>().enabled = false;
             player.GetComponent<InteractionHandler>().uiPosition = new Vector3(0.5f, 0, 0);
-            
+
         }
     }
 }
