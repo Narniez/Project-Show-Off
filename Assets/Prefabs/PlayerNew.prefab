@@ -160,9 +160,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 241153307028406444}
-  speed: 4
   sensitivity: 4
   maxForce: 1
+  sprintSpeed: 7
+  normalSpeed: 3
   canMove: 1
   canMoveAtStart: 0
   jumpForce: 6
@@ -268,6 +269,10 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: 7b047bce-9ec7-4083-b0eb-32538a36070d
     m_ActionName: Player/PauseMenu[/XInputControllerWindows/select]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: b8dc2594-29ae-4ca1-b236-9d02fc43093e
+    m_ActionName: Player/Sprint[/XInputControllerWindows/rightTrigger]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player

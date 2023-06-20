@@ -27,9 +27,19 @@ public class CubePlatesHolder : MonoBehaviour
             }
         }
 
-        foreach(GameObject door in doors)
+        foreach (GameObject door in doors)
         {
-            door.SetActive(false);
+            door.TryGetComponent<Animator>(out Animator anim);
+            if (anim != null)
+            {
+                anim.SetTrigger("Open");
+            }
+
+            if (anim == null)
+            {
+
+                door.SetActive(false);
+            }
         }
     }
 

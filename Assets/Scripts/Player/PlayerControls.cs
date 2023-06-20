@@ -13,9 +13,12 @@ public interface IPlayer
 public class PlayerControls : MonoBehaviour, IPlayer
 {
     public Rigidbody rb;
-    public float speed;
+    float speed;
     public float sensitivity;
     public float maxForce;
+
+    public float sprintSpeed;
+    public float normalSpeed;
 
     private Vector2 move;
     private Vector2 look;
@@ -26,7 +29,7 @@ public class PlayerControls : MonoBehaviour, IPlayer
 
     private bool isLockedOnTower = false;
     private bool canLook = true;
-    [SerializeField]private bool canMove = true;
+    [SerializeField] private bool canMove = true;
 
     [SerializeField] public bool canMoveAtStart = false;
 
@@ -78,6 +81,15 @@ public class PlayerControls : MonoBehaviour, IPlayer
         if (canJump && player.FindAction("Jump").triggered)
         {
             Jump();
+        }
+
+        if (player.FindAction("Sprint").IsInProgress())
+        {
+            speed = sprintSpeed;
+        }
+        else
+        {
+            speed = normalSpeed;
         }
     }
     public void OnMove(InputAction.CallbackContext context)

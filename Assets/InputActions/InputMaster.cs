@@ -143,6 +143,15 @@ public partial class @InputMaster: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Sprint"",
+                    ""type"": ""Button"",
+                    ""id"": ""b8dc2594-29ae-4ca1-b236-9d02fc43093e"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -673,6 +682,28 @@ public partial class @InputMaster: IInputActionCollection2, IDisposable
                     ""action"": ""PauseMenu"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""2229e9b6-b27b-4caa-8832-b4d4878c630c"",
+                    ""path"": ""<Gamepad>/rightTrigger"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Sprint"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""cbb96770-1fbe-468f-97fb-71926f640f97"",
+                    ""path"": ""<Keyboard>/shift"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Sprint"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -694,6 +725,7 @@ public partial class @InputMaster: IInputActionCollection2, IDisposable
         m_Player_GoLeft = m_Player.FindAction("GoLeft", throwIfNotFound: true);
         m_Player_GoRight = m_Player.FindAction("GoRight", throwIfNotFound: true);
         m_Player_PauseMenu = m_Player.FindAction("PauseMenu", throwIfNotFound: true);
+        m_Player_Sprint = m_Player.FindAction("Sprint", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -768,6 +800,7 @@ public partial class @InputMaster: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_GoLeft;
     private readonly InputAction m_Player_GoRight;
     private readonly InputAction m_Player_PauseMenu;
+    private readonly InputAction m_Player_Sprint;
     public struct PlayerActions
     {
         private @InputMaster m_Wrapper;
@@ -785,6 +818,7 @@ public partial class @InputMaster: IInputActionCollection2, IDisposable
         public InputAction @GoLeft => m_Wrapper.m_Player_GoLeft;
         public InputAction @GoRight => m_Wrapper.m_Player_GoRight;
         public InputAction @PauseMenu => m_Wrapper.m_Player_PauseMenu;
+        public InputAction @Sprint => m_Wrapper.m_Player_Sprint;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -833,6 +867,9 @@ public partial class @InputMaster: IInputActionCollection2, IDisposable
             @PauseMenu.started += instance.OnPauseMenu;
             @PauseMenu.performed += instance.OnPauseMenu;
             @PauseMenu.canceled += instance.OnPauseMenu;
+            @Sprint.started += instance.OnSprint;
+            @Sprint.performed += instance.OnSprint;
+            @Sprint.canceled += instance.OnSprint;
         }
 
         private void UnregisterCallbacks(IPlayerActions instance)
@@ -876,6 +913,9 @@ public partial class @InputMaster: IInputActionCollection2, IDisposable
             @PauseMenu.started -= instance.OnPauseMenu;
             @PauseMenu.performed -= instance.OnPauseMenu;
             @PauseMenu.canceled -= instance.OnPauseMenu;
+            @Sprint.started -= instance.OnSprint;
+            @Sprint.performed -= instance.OnSprint;
+            @Sprint.canceled -= instance.OnSprint;
         }
 
         public void RemoveCallbacks(IPlayerActions instance)
@@ -908,5 +948,6 @@ public partial class @InputMaster: IInputActionCollection2, IDisposable
         void OnGoLeft(InputAction.CallbackContext context);
         void OnGoRight(InputAction.CallbackContext context);
         void OnPauseMenu(InputAction.CallbackContext context);
+        void OnSprint(InputAction.CallbackContext context);
     }
 }

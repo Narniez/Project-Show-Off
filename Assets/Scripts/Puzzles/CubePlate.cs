@@ -5,7 +5,7 @@ using UnityEngine;
 public class CubePlate : MonoBehaviour
 {
     bool canFreeze;
-    bool hasCube;
+   public bool hasCube;
 
     [SerializeField] float cubeHeightAbovePlatform;
 

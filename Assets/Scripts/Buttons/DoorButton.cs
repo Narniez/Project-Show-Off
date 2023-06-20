@@ -8,6 +8,8 @@ public class DoorButton : Interactable
 
     Animator doorAnim;
 
+    Animator leverAnim;
+
     bool isOpen = false;
     public override void OnFocus()
     {
@@ -19,11 +21,13 @@ public class DoorButton : Interactable
         Debug.Log("Interaction");
         if (!isOpen)
         {
+            leverAnim.SetTrigger("activated");
             door.GetComponent<Animator>().SetTrigger("Open");
             isOpen = true;
         }
         else
         {
+            leverAnim.SetTrigger("activated");
             door.GetComponent<Animator>().SetTrigger("Close");
             isOpen = false;
         }
@@ -36,6 +40,7 @@ public class DoorButton : Interactable
 
     void Start()
     {
+        leverAnim = this.GetComponent<Animator>();
         door.GetComponent<Animator>();
     }
 
