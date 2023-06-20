@@ -2339,6 +2339,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1611223597}
+  - {fileID: 1216422142}
   m_Father: {fileID: 1534462469}
   m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3840,7 +3841,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9198441920921466597, guid: e1d01d1769c32f94287d2b1ded951664, type: 3}
       propertyPath: m_RootOrder
-      value: 12
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 9198441920921466597, guid: e1d01d1769c32f94287d2b1ded951664, type: 3}
       propertyPath: m_LocalPosition.x
@@ -5069,6 +5070,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1274606574}
+  - {fileID: 138980749}
   m_Father: {fileID: 1534462469}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -5436,7 +5438,7 @@ AudioSource:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1462702646}
+  m_GameObject: {fileID: 1502288103}
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
@@ -7701,6 +7703,8 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1441896571}
+  - {fileID: 1203552797}
+  - {fileID: 687580757}
   m_Father: {fileID: 1534462469}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -8101,6 +8105,8 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 791152715}
+  - {fileID: 104308444}
+  - {fileID: 83537867}
   m_Father: {fileID: 1534462469}
   m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -8340,7 +8346,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3477421172289412959, guid: 90d99b353cfb86c449fa601681702b48, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 22.826
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3601530463242475455, guid: 90d99b353cfb86c449fa601681702b48, type: 3}
       propertyPath: m_LocalRotation.w
@@ -8454,6 +8460,8 @@ MonoBehaviour:
   instantiationPosition: {fileID: 9074102647396800163}
   puzzle: {fileID: 513869583}
   companionCube: {fileID: 1520115974}
+  audioClip: {fileID: 0}
+  audioClipSpawnCube: {fileID: 0}
 --- !u!65 &576091953925616843
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -8467,6 +8475,27 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!95 &576091953925616844
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 576091953925616841}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 296e097f0c03d5a4592baa1312013bd2, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1001 &2179111697060812397
 PrefabInstance:
   m_ObjectHideFlags: 0
