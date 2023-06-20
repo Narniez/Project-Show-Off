@@ -33,9 +33,14 @@ public class PlayerManager : MonoBehaviour
     public GameObject playerOneReadyText;
     public GameObject playerTwoReadyText;
 
-    [SerializeField] private float minTimerTextSize = 300f; // Minimum size for the timer text
-    [SerializeField] private float maxTimerTextSize = 900f; // Maximum size for the timer text
-    [SerializeField] private float timerTextScaleSpeed = 4f; // Speed at which the timer text scales
+    private float currentSeconds = 0;
+    [SerializeField] private float initialTimerTextSize = 100f; // Initial size for the timer text
+    [SerializeField] private float targetTimerTextSize = 400f; // Target size for the timer text
+    [SerializeField] private float timerTextScaleDuration = 1f; // Duration in seconds to scale the timer text
+
+    private float scaleTimerStartTime = 0f; // Time when the timer text scaling started
+
+    bool activateTimer = true;
 
     public GameObject panel;
 
@@ -64,26 +69,36 @@ public class PlayerManager : MonoBehaviour
 
     private void Update()
     {
-        if (playerCount == 2)
+        if (playerCount == 2 && activateTimer)
         {
             timerText.gameObject.SetActive(true);
             timeToStart -= Time.deltaTime;
             float seconds = Mathf.FloorToInt(timeToStart);
 
+            if (currentSeconds != seconds)
+            {
+                currentSeconds = seconds;
+                timerText.fontSize = (int)initialTimerTextSize; // Reset the font size for each new number
+                scaleTimerStartTime = Time.time; // Record the start time of the timer text scaling
+            }
+
             timerText.text = seconds.ToString();
-            // Scale the timer text
-            float timerTextSize = Mathf.Lerp(minTimerTextSize, maxTimerTextSize, (Mathf.Sin(Time.time * timerTextScaleSpeed) + 1f) / 2f);
-            timerText.fontSize = (int)timerTextSize;
 
             if (seconds <= 0)
             {
-                StartCoroutine(DeactivateUI());
-                panel.SetActive(true);
+                readyPannel.SetActive(false);
+                uiCamera.gameObject.SetActive(false);
+                activateTimer = false;
                 foreach (PlayerInput player in players)
                 {
                     player.GetComponent<PlayerControls>().canMoveAtStart = true;
                 }
             }
+
+            // Scale the timer text
+            float elapsedTime = Time.time - scaleTimerStartTime;
+            float timerTextSize = Mathf.Lerp(initialTimerTextSize, targetTimerTextSize, elapsedTime / timerTextScaleDuration);
+            timerText.fontSize = (int)timerTextSize;
         }
     }
 
