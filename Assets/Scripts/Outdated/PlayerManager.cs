@@ -95,6 +95,7 @@ public class PlayerManager : MonoBehaviour
                 }
             }
 
+            if (!activateTimer) return;
             // Scale the timer text
             float elapsedTime = Time.time - scaleTimerStartTime;
             float timerTextSize = Mathf.Lerp(initialTimerTextSize, targetTimerTextSize, elapsedTime / timerTextScaleDuration);

@@ -123,12 +123,12 @@ public class InteractionHandler : MonoBehaviour
     void IsHeld()
     {
         if (currentInteractable == null) return;
-        ButtonScript button;
+        IButton button;
         if (currentInteractable.TryGetComponent(out button)) // try to get ButtonScript from currentInteractable object and assign it
         {
             button.IsPressed = player.FindAction("Interaction").IsInProgress(); // if the Interaction action is in progress the button is pressed
+            anim?.SetBool("press", button.IsPressed);
         }
-        anim?.SetBool("press", button.IsPressed);
     }
 
     //Change raycast position based on what we are looking at 

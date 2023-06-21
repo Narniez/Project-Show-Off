@@ -16,7 +16,7 @@ public class SpawnCube : PuzzleAbstract, IButton
 
     public AudioClip soundEffect { get => audioClip; set => audioClip = value; }
     
-    public bool IsPressed { get => throw new System.NotImplementedException(); set => throw new System.NotImplementedException(); }
+    public bool IsPressed { get; set; }
 
     // Start is called before the first frame update
     void Start()
@@ -49,6 +49,7 @@ public class SpawnCube : PuzzleAbstract, IButton
 
     public override void OnInteract()
     {
+        IsPressed = true;
         SoundEffects.instance.PlaySoundEffect(soundEffect);
         if (canSpawn && !hasSpawned)
         {
@@ -66,7 +67,7 @@ public class SpawnCube : PuzzleAbstract, IButton
 
     public override void OnLoseFocus()
     {
-       
+        IsPressed = false;
     }
 
     void ResetPosition()
