@@ -8,12 +8,12 @@ public class VideoPlayerTrigger : MonoBehaviour
     public VideoClip[] clips;
 
     VideoPlayer player;
-    MeshRenderer renderer;
+    MeshRenderer render;
     // Start is called before the first frame update
     void Start()
     {
         player = GetComponent<VideoPlayer>();
-        renderer = GetComponent<MeshRenderer>();
+        render = GetComponent<MeshRenderer>();
     }
 
     // Update is called once per frame
@@ -23,11 +23,11 @@ public class VideoPlayerTrigger : MonoBehaviour
         {
             player.clip = clips[0]; //  Play(clips[0]);
             player.Play(); // fails first time?
-            renderer.enabled = true;
+            render.enabled = true;
         }
         if (!player.isPlaying)
         {
-            renderer.enabled = false;   
+            render.enabled = false;   
         }
     }
 }
