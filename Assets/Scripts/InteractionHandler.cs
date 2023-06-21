@@ -128,6 +128,7 @@ public class InteractionHandler : MonoBehaviour
         {
             button.IsPressed = player.FindAction("Interaction").IsInProgress(); // if the Interaction action is in progress the button is pressed
         }
+        anim?.SetBool("press", button.IsPressed);
     }
 
     //Change raycast position based on what we are looking at 
@@ -149,6 +150,7 @@ public class InteractionHandler : MonoBehaviour
     {
         if (currentInteractable != null)
         {
+            //anim?.SetTrigger("press");
             currentInteractable.OnInteract();
         }
     }
