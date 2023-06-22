@@ -61,7 +61,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: fdc22fa4bda93764da299e28d0d1c622, type: 2}
+  - {fileID: 2100000, guid: 42711c5057d689d4daf9a2c1ab10e103, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -93,7 +93,6 @@ GameObject:
   m_Component:
   - component: {fileID: 2891764022227954463}
   - component: {fileID: 1434696612}
-  - component: {fileID: 456669964010788541}
   - component: {fileID: 3853009136029299994}
   m_Layer: 0
   m_Name: butona
@@ -140,21 +139,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &456669964010788541
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2551936397755199909}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 74e059744af1fa4468ca561910816142, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isHeld: 0
-  soundEffectClip: {fileID: 0}
-  puzzle: {fileID: 0}
 --- !u!65 &3853009136029299994
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -166,8 +150,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 2, y: 1, z: 2}
-  m_Center: {x: 0, y: 0.27, z: 0}
+  m_Size: {x: 2, y: 0.7656785, z: 2}
+  m_Center: {x: 0, y: 0.38716123, z: 0}
 --- !u!1 &6452647407943937479
 GameObject:
   m_ObjectHideFlags: 0
@@ -229,7 +213,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 728596508f8589f419e69d92ac32930f, type: 2}
+  - {fileID: 2100000, guid: 4f98cc5a7a7ccd94187ab7e5583904dd, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

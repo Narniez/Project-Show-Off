@@ -32,7 +32,6 @@ Transform:
   - {fileID: 7053739651832485616}
   - {fileID: 7053739652100938140}
   - {fileID: 7466178860275005591}
-  - {fileID: 3580525723446482367}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -233,84 +232,6 @@ MonoBehaviour:
   m_Offset: {x: -0.012151241, y: 2.1578772, z: 0.9120529}
   m_Size: {x: 1.9288831, y: 7.075804, z: 0.17589414}
   m_FadeFactor: 1
---- !u!1001 &395205116
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 7053739650997464356}
-    m_Modifications:
-    - target: {fileID: 3580525723605224515, guid: c7b701bb0809dd34197cd46570205be8, type: 3}
-      propertyPath: m_RootOrder
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 3580525723605224515, guid: c7b701bb0809dd34197cd46570205be8, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -10.098
-      objectReference: {fileID: 0}
-    - target: {fileID: 3580525723605224515, guid: c7b701bb0809dd34197cd46570205be8, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.03561139
-      objectReference: {fileID: 0}
-    - target: {fileID: 3580525723605224515, guid: c7b701bb0809dd34197cd46570205be8, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -31.01
-      objectReference: {fileID: 0}
-    - target: {fileID: 3580525723605224515, guid: c7b701bb0809dd34197cd46570205be8, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 3580525723605224515, guid: c7b701bb0809dd34197cd46570205be8, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 3580525723605224515, guid: c7b701bb0809dd34197cd46570205be8, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 3580525723605224515, guid: c7b701bb0809dd34197cd46570205be8, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 3580525723605224515, guid: c7b701bb0809dd34197cd46570205be8, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 90
-      objectReference: {fileID: 0}
-    - target: {fileID: 3580525723605224515, guid: c7b701bb0809dd34197cd46570205be8, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3580525723605224515, guid: c7b701bb0809dd34197cd46570205be8, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: -90
-      objectReference: {fileID: 0}
-    - target: {fileID: 4250067090520872697, guid: c7b701bb0809dd34197cd46570205be8, type: 3}
-      propertyPath: m_Name
-      value: PuzzleCubeSpawnButton
-      objectReference: {fileID: 0}
-    - target: {fileID: 9074102645643509020, guid: c7b701bb0809dd34197cd46570205be8, type: 3}
-      propertyPath: puzzle
-      value: 
-      objectReference: {fileID: 7053739650997464358}
-    - target: {fileID: 9074102645947348902, guid: c7b701bb0809dd34197cd46570205be8, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -30.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 9074102645947348902, guid: c7b701bb0809dd34197cd46570205be8, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 151.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 9074102645947348902, guid: c7b701bb0809dd34197cd46570205be8, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -7.7
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: c7b701bb0809dd34197cd46570205be8, type: 3}
---- !u!4 &3580525723446482367 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 3580525723605224515, guid: c7b701bb0809dd34197cd46570205be8, type: 3}
-  m_PrefabInstance: {fileID: 395205116}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &7053739651759215565
 PrefabInstance:
   m_ObjectHideFlags: 0
