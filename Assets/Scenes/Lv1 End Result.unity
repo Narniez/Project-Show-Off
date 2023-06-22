@@ -3711,15 +3711,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df47aade269c3b140880cd11df5914bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  puzzleSovledLines: []
-  levelSolvedLines: []
-  noPuzzleSovedLines: []
+  puzzleSolvedLines:
+  - {fileID: 8300000, guid: 95087003d6e45489ea0e3ece5a5dc5b3, type: 3}
+  - {fileID: 8300000, guid: 59d90bba2da5042d490680b8ed689597, type: 3}
+  - {fileID: 8300000, guid: 410b95debb77947bcb380d5e882210ff, type: 3}
+  levelSolvedLines:
+  - {fileID: 8300000, guid: 086050d78f9574612912f090084f4a19, type: 3}
+  - {fileID: 8300000, guid: 94898bc4b56654f97af28375949824e9, type: 3}
+  - {fileID: 8300000, guid: 6a4a82d3698d943029cd6eaecf9d9fa5, type: 3}
+  noPuzzleSolvedLines:
+  - {fileID: 8300000, guid: 65b1364a19f91412caea10d4725af963, type: 3}
+  - {fileID: 8300000, guid: 2e7672fd76bac47069f98627b66ee1c2, type: 3}
+  - {fileID: 8300000, guid: 8b035a032f57b4228976909bbadd02c4, type: 3}
   audioSource: {fileID: 700216300}
-  colorPuzzle: {fileID: 0}
-  rotDiskPuzzle: {fileID: 0}
-  lightPuzzle: {fileID: 0}
-  notSolvedTimer: 5
-  onPuzzleLockedTimer: 0
+  colorPuzzle: {fileID: 1643314665}
+  rotDiskPuzzle: {fileID: 7053739650738934392}
+  lightPuzzle: {fileID: 693549153}
+  notSolvedTimer: 120
 --- !u!82 &700216300
 AudioSource:
   m_ObjectHideFlags: 0
@@ -3732,7 +3740,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.79
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -3740,7 +3748,7 @@ AudioSource:
   SpatializePostEffects: 0
   Priority: 128
   DopplerLevel: 1
-  MinDistance: 1
+  MinDistance: 26.587433
   MaxDistance: 500
   Pan2D: 0
   rolloffMode: 0
@@ -3824,7 +3832,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 700216298}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -18.438221, y: 53.604454, z: 62.71498}
+  m_LocalPosition: {x: -8.1, y: 2.05, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -8081,6 +8089,17 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 3033481807878227542, guid: a24c1c6a66b8c9346b192939b63a212c, type: 3}
   m_PrefabInstance: {fileID: 1643314663}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1643314665 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2092997360, guid: a24c1c6a66b8c9346b192939b63a212c, type: 3}
+  m_PrefabInstance: {fileID: 1643314663}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1643314664}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bad7f0b97b44c06408697f3b25ed9780, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1662291113
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11041,6 +11060,17 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 7053739650997464358, guid: 02daeb1cb4b4138419e76e040a364d17, type: 3}
   m_PrefabInstance: {fileID: 7053739650738934390}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &7053739650738934392 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7053739650997464357, guid: 02daeb1cb4b4138419e76e040a364d17, type: 3}
+  m_PrefabInstance: {fileID: 7053739650738934390}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7053739650738934391}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b2a274c3fc4eba240b2b9fc699f27eb1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &7424238843146838373
 PrefabInstance:
   m_ObjectHideFlags: 0
