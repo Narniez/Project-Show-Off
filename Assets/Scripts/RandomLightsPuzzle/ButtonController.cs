@@ -15,7 +15,7 @@ public class ButtonController : Interactable, IButton
     public AudioClip puzzleDone;
 
     public AudioClip soundEffect { get => clip; set => clip = value; }
-    public bool IsPressed { get => throw new System.NotImplementedException(); set => throw new System.NotImplementedException(); }
+    public bool IsPressed { get; set; }
 
     private void Start()
     {
