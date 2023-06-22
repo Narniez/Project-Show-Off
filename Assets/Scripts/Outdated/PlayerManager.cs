@@ -6,13 +6,9 @@ using UnityEngine.InputSystem;
 
 public class PlayerManager : MonoBehaviour
 {
-
-    /// <summary>
-    /// NOT IN USE YET
-    /// </summary>
-
-    /// 
     private List<PlayerInput> players = new List<PlayerInput>();
+
+    private List<Gamepad> gamepads = new List<Gamepad>();
 
     private int playerCount = 0;
 
@@ -43,6 +39,12 @@ public class PlayerManager : MonoBehaviour
     bool activateTimer = true;
 
     public GameObject panel;
+
+    private void Start()
+    {
+        gamepads.AddRange(Gamepad.all);
+        InputSystem.EnableDevice(gamepads[1]);
+    }
 
     private void Awake()
     {
