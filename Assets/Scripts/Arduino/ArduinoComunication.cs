@@ -3,6 +3,7 @@ using System.IO.Ports;
 using UnityEngine;
 using System.Collections.Generic;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 /// <summary>
 /// Can be attached to every object
@@ -84,7 +85,8 @@ public class ArduinoComunication : MonoBehaviour
         WaitingForThePlayerToComeBack();
 
         if (player1 == 1 && player2 == 1) {
-            timerUI.gameObject.SetActive(false);
+            Debug.Log("tuka sa");
+            // timerUI.gameObject.SetActive(false);
         }
         // Continue with the rest of your update logic
     }
@@ -93,14 +95,15 @@ public class ArduinoComunication : MonoBehaviour
     {
         if (player1 == 0 && player2 == 0)
         {
-            timerUI.gameObject.SetActive(true);
+            // timerUI.gameObject.SetActive(true);
             _resetLevelTimer -= Time.deltaTime; // Update the timer each frame
             int seconds = Mathf.FloorToInt(_resetLevelTimer);
-            timerUI.text = "Reset in " + seconds.ToString("00:00");
+            // timerUI.text = "Reset in " + seconds.ToString("00:00");
             Debug.Log("Timer: " + seconds + " seconds");
             if (seconds <= 0)
             {
                 //Reset the level
+                SceneManager.LoadScene(0);
                 Debug.Log("reset the level");
                 _resetLevelTimer = 10f;
             }
@@ -108,7 +111,7 @@ public class ArduinoComunication : MonoBehaviour
         else
         {
             _resetLevelTimer = 10f;
-            timerUI.gameObject.SetActive(false);
+            // timerUI.gameObject.SetActive(false);
         }
     }
 
@@ -122,16 +125,18 @@ public class ArduinoComunication : MonoBehaviour
 
         if (player1 != 1 || player2 != 1)
         {
-            timerUI.gameObject.SetActive(true);
+            // timerUI.gameObject.SetActive(true);
 
             timer -= Time.deltaTime;
             int seconds = Mathf.FloorToInt(timer);
-            timerUI.text = "Waiting for a player " + seconds.ToString("00:00");
+            // timerUI.text = "Waiting for a player " + seconds.ToString("00:00");
             Debug.Log("Waiting for the player" + "Timer: " + seconds + " seconds");
 
             if (seconds <= 0)
             {
                 //Reset the level
+                SceneManager.LoadScene(0);
+
                 Debug.Log("stop waiting maybe!?");
             }
         }
