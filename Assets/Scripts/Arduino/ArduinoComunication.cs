@@ -20,7 +20,12 @@ public class ArduinoComunication : MonoBehaviour
     private float _resetLevelTimer = 10f; // Timer variable to track the elapsed time
 
     private int player1, player2;
+    private bool arduinoTurned;
 
+    private void Awake()
+    {
+        DontDestroyOnLoad(this);
+    }
 
     private void Start()
     {
@@ -69,6 +74,9 @@ public class ArduinoComunication : MonoBehaviour
 
     private void Update()
     {
+        if (Input.GetKeyDown(KeyCode.Comma)) arduinoTurned = !arduinoTurned;
+        if (!arduinoTurned) return;
+
         if (receivedDataQueue.Count > 0)
         {
             while (receivedDataQueue.TryDequeue(out string data))
