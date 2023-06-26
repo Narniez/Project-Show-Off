@@ -17,7 +17,7 @@ public class LevelSelection : MonoBehaviour
     [SerializeField] private Sprite vaporImage;
     [SerializeField] private Sprite spiraImage;
 
-   [SerializeField] private List<Gamepad> gamepads = new List<Gamepad>();
+    [SerializeField] private List<Gamepad> gamepads = new List<Gamepad>();
 
     private Sprite retroNormal;
     private Sprite vaporNormal;
@@ -25,9 +25,12 @@ public class LevelSelection : MonoBehaviour
 
     private void Start()
     {
-        gamepads.AddRange(Gamepad.all);
-        Debug.Log(gamepads.Count);
-        InputSystem.DisableDevice(gamepads[1]);
+        if (Gamepad.all.Count > 1)
+        {
+            gamepads.AddRange(Gamepad.all);
+            Debug.Log(gamepads.Count);
+            InputSystem.DisableDevice(gamepads[1]);
+        }
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
 

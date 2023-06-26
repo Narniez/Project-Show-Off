@@ -17,6 +17,8 @@ public class LightController : MonoBehaviour
 
     public bool startSequence = false;
 
+    public bool _isSolved = false;
+
     private void Start()
     {
         lights = GetComponentsInChildren<Light>();
@@ -76,6 +78,10 @@ public class LightController : MonoBehaviour
         currentIndex++;
     }
 
+    public bool IsSolved()
+    {
+        return _isSolved;
+    }
     public void ResetSequence()
     {
         currentIndex = 0;

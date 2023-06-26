@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.072443105, g: 0.01006838, b: 0.0270309, a: 1}
+  m_IndirectSpecularColor: {r: 0.07234901, g: 0.010055346, b: 0.026989752, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -3168,6 +3168,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ArcadeMusic
       objectReference: {fileID: 0}
+    - target: {fileID: 542082880807401752, guid: 241548f6996d046659c1a5cedbb8f880, type: 3}
+      propertyPath: m_Volume
+      value: 0.3
+      objectReference: {fileID: 0}
     - target: {fileID: 542082880807401753, guid: 241548f6996d046659c1a5cedbb8f880, type: 3}
       propertyPath: m_RootOrder
       value: 5
@@ -4668,6 +4672,10 @@ PrefabInstance:
     - target: {fileID: 2578415778717118939, guid: cc4a09b9fe59848449cd5a9bd72c7725, type: 3}
       propertyPath: m_Name
       value: Retro_Lights
+      objectReference: {fileID: 0}
+    - target: {fileID: 2578415778717118939, guid: cc4a09b9fe59848449cd5a9bd72c7725, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2578415778717118940, guid: cc4a09b9fe59848449cd5a9bd72c7725, type: 3}
       propertyPath: m_RootOrder
@@ -6910,6 +6918,79 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1274179900}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1001 &1299645737
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 6318818088026963009, guid: 18526ce6064b0ec4190b8da71d97ad69, type: 3}
+      propertyPath: m_RootOrder
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 6318818088026963009, guid: 18526ce6064b0ec4190b8da71d97ad69, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -8.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6318818088026963009, guid: 18526ce6064b0ec4190b8da71d97ad69, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 6318818088026963009, guid: 18526ce6064b0ec4190b8da71d97ad69, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6318818088026963009, guid: 18526ce6064b0ec4190b8da71d97ad69, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6318818088026963009, guid: 18526ce6064b0ec4190b8da71d97ad69, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6318818088026963009, guid: 18526ce6064b0ec4190b8da71d97ad69, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6318818088026963009, guid: 18526ce6064b0ec4190b8da71d97ad69, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6318818088026963009, guid: 18526ce6064b0ec4190b8da71d97ad69, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6318818088026963009, guid: 18526ce6064b0ec4190b8da71d97ad69, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6318818088026963009, guid: 18526ce6064b0ec4190b8da71d97ad69, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6318818088026963014, guid: 18526ce6064b0ec4190b8da71d97ad69, type: 3}
+      propertyPath: m_Name
+      value: VoiceLines
+      objectReference: {fileID: 0}
+    - target: {fileID: 6318818088026963015, guid: 18526ce6064b0ec4190b8da71d97ad69, type: 3}
+      propertyPath: colorPuzzle
+      value: 
+      objectReference: {fileID: 7466178859599894442}
+    - target: {fileID: 6318818088026963015, guid: 18526ce6064b0ec4190b8da71d97ad69, type: 3}
+      propertyPath: rotDiskPuzzle
+      value: 
+      objectReference: {fileID: 7466178861165814104}
+    - target: {fileID: 6318818088026963015, guid: 18526ce6064b0ec4190b8da71d97ad69, type: 3}
+      propertyPath: notSolvedTimer
+      value: 120
+      objectReference: {fileID: 0}
+    - target: {fileID: 6318818088026963015, guid: 18526ce6064b0ec4190b8da71d97ad69, type: 3}
+      propertyPath: randomLightPuzzle
+      value: 
+      objectReference: {fileID: 5166789057614752618}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 18526ce6064b0ec4190b8da71d97ad69, type: 3}
 --- !u!1 &1355215307
 GameObject:
   m_ObjectHideFlags: 0
@@ -12087,6 +12168,7 @@ MonoBehaviour:
   delayBetweenLights: 0.5
   delayBetweenSequences: 1
   startSequence: 0
+  _isSolved: 0
 --- !u!4 &5166789057614752619
 Transform:
   m_ObjectHideFlags: 0
@@ -12625,6 +12707,17 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 3033481807878227542, guid: 2b0507513883d6b4d8684433775af7ce, type: 3}
   m_PrefabInstance: {fileID: 7466178859599894439}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &7466178859599894442 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2092997360, guid: 2b0507513883d6b4d8684433775af7ce, type: 3}
+  m_PrefabInstance: {fileID: 7466178859599894439}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7466178859599894441}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bad7f0b97b44c06408697f3b25ed9780, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7466178860091027358
 GameObject:
   m_ObjectHideFlags: 0
@@ -13124,6 +13217,17 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 7053739650997464358, guid: 02daeb1cb4b4138419e76e040a364d17, type: 3}
   m_PrefabInstance: {fileID: 7466178861165814101}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &7466178861165814104 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7053739650997464357, guid: 02daeb1cb4b4138419e76e040a364d17, type: 3}
+  m_PrefabInstance: {fileID: 7466178861165814101}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7466178861165814103}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b2a274c3fc4eba240b2b9fc699f27eb1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &7466178861200158584
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13511,6 +13615,10 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: 7b047bce-9ec7-4083-b0eb-32538a36070d
     m_ActionName: Player/PauseMenu
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: b8dc2594-29ae-4ca1-b236-9d02fc43093e
+    m_ActionName: Player/Sprint[/XInputControllerWindows/rightTrigger,/Keyboard/shift]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player

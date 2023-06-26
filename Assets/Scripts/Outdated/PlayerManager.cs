@@ -42,8 +42,11 @@ public class PlayerManager : MonoBehaviour
 
     private void Start()
     {
-        gamepads.AddRange(Gamepad.all);
-        InputSystem.EnableDevice(gamepads[1]);
+        if (Gamepad.all.Count > 1)
+        {
+            gamepads.AddRange(Gamepad.all);
+            InputSystem.EnableDevice(gamepads[1]);
+        }
     }
 
     private void Awake()
@@ -105,7 +108,8 @@ public class PlayerManager : MonoBehaviour
         }
     }
 
-    public IEnumerator DeactivateUI() {
+    public IEnumerator DeactivateUI()
+    {
         yield return new WaitForSeconds(.8f);
         readyPannel.SetActive(false);
         uiCamera.gameObject.SetActive(false);

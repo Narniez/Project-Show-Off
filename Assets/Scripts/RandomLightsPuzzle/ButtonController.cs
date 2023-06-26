@@ -37,6 +37,7 @@ public class ButtonController : Interactable, IButton
                 companionCube.SetActive(true);
                 SoundEffects.instance.PlaySoundEffect(puzzleDone);
                 Debug.Log("Puzzle completed!");
+                lightController._isSolved = true;
             }
         }
         else
