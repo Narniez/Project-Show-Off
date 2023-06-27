@@ -1302,7 +1302,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 185631125}
   m_LocalRotation: {x: 1.988698e-24, y: 1, z: -0.00000017881392, w: 3.5527133e-15}
-  m_LocalPosition: {x: 12.844013, y: 0.7259824, z: 11.89909}
+  m_LocalPosition: {x: -5.619, y: 2.172, z: -17.661}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3139,6 +3139,10 @@ PrefabInstance:
     - target: {fileID: 2700242861384334282, guid: b01d9c7475a1f4f6c85c0db0db6f4089, type: 3}
       propertyPath: m_RootOrder
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3619497018439388072, guid: b01d9c7475a1f4f6c85c0db0db6f4089, type: 3}
+      propertyPath: m_Convex
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3819816795546612316, guid: b01d9c7475a1f4f6c85c0db0db6f4089, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -7562,7 +7566,7 @@ MeshCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 4
-  m_Convex: 1
+  m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 8999911773206952699, guid: 216df56a945ee40fbb395982ef5907cc, type: 3}
 --- !u!1 &1611077764 stripped
@@ -8223,8 +8227,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.38275912, y: 44.079514, z: 43.202194}
-  m_Center: {x: 0.30862045, y: 1.4629345, z: -0.82721806}
+  m_Size: {x: 0.282192, y: 44.079514, z: 43.202194}
+  m_Center: {x: 0.25833684, y: 1.4629345, z: -0.8272171}
 --- !u!4 &1682237435
 Transform:
   m_ObjectHideFlags: 0
@@ -8233,7 +8237,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1682237433}
   m_LocalRotation: {x: -0, y: -0, z: 0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: -7, y: -0.61, z: 0.5}
+  m_LocalPosition: {x: -7, y: -0.92, z: 0.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -11417,6 +11421,15 @@ PrefabInstance:
       propertyPath: rotDiskPuzzle
       value: 
       objectReference: {fileID: 7053739650738934392}
+    - target: {fileID: 6318818088026963015, guid: 18526ce6064b0ec4190b8da71d97ad69, type: 3}
+      propertyPath: levelSolvedSubs.Array.data[0]
+      value: 'Level complete! Onto another one then, heh. Thats not the end of the
+        game, what did you think... '
+      objectReference: {fileID: 0}
+    - target: {fileID: 6318818088026963015, guid: 18526ce6064b0ec4190b8da71d97ad69, type: 3}
+      propertyPath: puzzleSolvedSubs.Array.data[2]
+      value: Good job people, took you long enough. Now grab that cube and MOVE ON!
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 18526ce6064b0ec4190b8da71d97ad69, type: 3}
 --- !u!1 &6335250784330715103
