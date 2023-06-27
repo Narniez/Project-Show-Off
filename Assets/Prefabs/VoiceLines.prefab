@@ -153,8 +153,28 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 65b1364a19f91412caea10d4725af963, type: 3}
   - {fileID: 8300000, guid: 2e7672fd76bac47069f98627b66ee1c2, type: 3}
   - {fileID: 8300000, guid: 8b035a032f57b4228976909bbadd02c4, type: 3}
+  puzzleSolvedSubs:
+  - Congratulations! I was about to lose all my hope and just hand you the answer.
+  - Finally... That almost took longer than my first  marriage. Congrats, I guess...
+  - Good job people, took you long enough. Now grab that cube AND MOVE ON!
+  levelSolvedSubs:
+  - 'Level complete! Onto another on then, heh. Thats not the end of the game, what
+    did you think... '
+  - 'Oh wow! You escaped, that was unexpected. Well not to worry, here is another
+    level. '
+  - YAY! Fiiiiinally, I thought you would never make it. Congraats..
+  noPuzzleSolvedSubs:
+  - Cmooon people, how long do I have to wait for something to happen. This is a
+    puzzle game, you have to solve puzzles. Do THAT!
+  - 'Hey guys, this is a puuuuzle game, how about we solve some puzzles ay. '
+  - So uhm, if you are really stuck both of you can stand up for a little while and
+    the game will reset.
+  subtitles: {fileID: 0}
+  subsPanel: {fileID: 0}
   audioSource: {fileID: 6318818088026963008}
+  platesHolder: {fileID: 0}
   colorPuzzle: {fileID: 0}
   rotDiskPuzzle: {fileID: 0}
   lightPuzzle: {fileID: 0}
-  notSolvedTimer: 10
+  randomLightPuzzle: {fileID: 0}
+  notSolvedTimer: 120

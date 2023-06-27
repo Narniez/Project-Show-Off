@@ -1,15 +1,28 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class VoiceLines : MonoBehaviour
 {
+  
+
     [SerializeField] private List<AudioClip> puzzleSolvedLines;
     [SerializeField] private List<AudioClip> levelSolvedLines;
     [SerializeField] private List<AudioClip> noPuzzleSolvedLines;
+
+
+    [SerializeField] private List<string> puzzleSolvedSubs;
+    [SerializeField] private List<string> levelSolvedSubs;
+    [SerializeField] private List<string> noPuzzleSolvedSubs;
+
+    [SerializeField] private TextMeshProUGUI subtitles;
+    [SerializeField] private GameObject subsPanel;
    
     public AudioSource audioSource;
 
+
+    [SerializeField] private CubePlatesHolder platesHolder;
     [SerializeField] private ColorPuzzle colorPuzzle;
     [SerializeField] private RotationPuzzleHolder rotDiskPuzzle;
     [SerializeField] private LightPuzzle lightPuzzle;
@@ -22,6 +35,9 @@ public class VoiceLines : MonoBehaviour
     private bool rotDiskPuzzleSolved;
     private bool lightPuzzleSolved;
     private bool randomLightsSolved;
+    private bool levelSolved;
+
+    private bool isDisplayingSubtitles = false; // Track if subtitles are currently being displayed
 
     private void Start()
     {
@@ -51,36 +67,36 @@ public class VoiceLines : MonoBehaviour
         {
             
             colorPuzzleSolved = true;
-            ChooseLine(puzzleSolvedLines);
+            ChooseLine(puzzleSolvedLines, puzzleSolvedSubs);
            
         }
         else if (rotDiskPuzzle.isSolved && !rotDiskPuzzleSolved)
         {
             rotDiskPuzzleSolved = true;
-            ChooseLine(puzzleSolvedLines);
+            ChooseLine(puzzleSolvedLines,puzzleSolvedSubs);
         }
         else if (lightPuzzle != null &&  lightPuzzle.isCompleted && !lightPuzzleSolved)
         {
             lightPuzzleSolved = true;
-            ChooseLine(puzzleSolvedLines);
+            ChooseLine(puzzleSolvedLines, puzzleSolvedSubs);
         }
         else if (randomLightPuzzle != null && randomLightPuzzle.IsSolved() && !randomLightsSolved)
         {
             randomLightsSolved = true;
-            ChooseLine(puzzleSolvedLines);
+            ChooseLine(puzzleSolvedLines,puzzleSolvedSubs);
         }
-        else if (colorPuzzleSolved && rotDiskPuzzleSolved && lightPuzzleSolved)
+        else if (platesHolder.levelSolved && !levelSolved)
         {
-            audioSource.clip = levelSolvedLines[Random.Range(0, levelSolvedLines.Count)];
-            audioSource.Play();
+            ChooseLine(levelSolvedLines, levelSolvedSubs);
+            levelSolved = true;
         }
         else if(seconds <= 0)
         {
-            ChooseLine(noPuzzleSolvedLines);
+           ChooseLine(noPuzzleSolvedLines,noPuzzleSolvedSubs);
         }
     }
 
-    void ChooseLine(List<AudioClip> audioClips)
+    void ChooseLine(List<AudioClip> audioClips, List<string> subsList)
     {
         pTimer = notSolvedTimer;
         if (audioClips.Count <= 0) return;
@@ -88,5 +104,33 @@ public class VoiceLines : MonoBehaviour
         audioSource.clip = audioClips[index];
         audioSource.Play();
         audioClips.RemoveAt(index);
+        DisplaySubtitles(subsList[index]);
+        subsList.RemoveAt(index);
+    }
+
+    void DisplaySubtitles(string subtitle)
+    {
+        StartCoroutine(DisplaySubtitlesCoroutine(subtitle));
+    }
+
+    IEnumerator DisplaySubtitlesCoroutine(string subtitle)
+    {
+        isDisplayingSubtitles = true; // Set the flag to indicate that subtitles are being displayed
+
+        subsPanel.SetActive(true);
+        subtitles.text = string.Empty;
+        for (int i = 0; i < subtitle.Length; i++)
+        {
+            subtitles.text += subtitle[i];
+            yield return new WaitForSeconds(0.05f); // Adjust the delay between characters if needed
+        }
+
+        yield return new WaitForSeconds(3f); // Keep the subtitles on the screen for 3 seconds
+
+        subtitles.text = string.Empty; // Clear the subtitles after 3 seconds
+        subsPanel.SetActive(false);
+
+        isDisplayingSubtitles = false; // Reset the flag to indicate that subtitles are no longer being displayed
+
     }
 }

@@ -8,6 +8,8 @@ public class CubePlatesHolder : MonoBehaviour
     [SerializeField] private List<CubePlate> plates = new List<CubePlate>();
 
     [SerializeField] GameObject[] doors;
+
+    public bool levelSolved = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -25,6 +27,7 @@ public class CubePlatesHolder : MonoBehaviour
             {
                 return;
             }
+            levelSolved = true;
         }
 
         foreach (GameObject door in doors)
