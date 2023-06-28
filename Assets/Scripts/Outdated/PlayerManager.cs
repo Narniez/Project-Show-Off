@@ -40,8 +40,13 @@ public class PlayerManager : MonoBehaviour
 
     public GameObject panel;
 
+    [SerializeField] private AudioClip audioAtStart;
+    [SerializeField] private AudioSource backgroundMusic;
+
     private void Start()
     {
+        if(backgroundMusic != null)
+        backgroundMusic.volume = 0.1f;
         if (Gamepad.all.Count > 1)
         {
             gamepads.AddRange(Gamepad.all);
@@ -98,13 +103,25 @@ public class PlayerManager : MonoBehaviour
                 {
                     player.GetComponent<PlayerControls>().canMoveAtStart = true;
                 }
+                SoundEffects.instance.PlaySoundEffect(audioAtStart);
             }
+
+           
 
             if (!activateTimer) return;
             // Scale the timer text
             float elapsedTime = Time.time - scaleTimerStartTime;
             float timerTextSize = Mathf.Lerp(initialTimerTextSize, targetTimerTextSize, elapsedTime / timerTextScaleDuration);
             timerText.fontSize = (int)timerTextSize;
+        }
+
+        if (!SoundEffects.instance.audioSource.isPlaying && backgroundMusic != null)
+        {
+            backgroundMusic.volume = 0.3f;
+        }
+        else
+        {
+            backgroundMusic.volume = 0.1f;
         }
     }
 

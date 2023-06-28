@@ -3097,7 +3097,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4476470789574713750, guid: f5609ff02d7810a46bdf4f1958afbcd7, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4476470789574713750, guid: f5609ff02d7810a46bdf4f1958afbcd7, type: 3}
       propertyPath: m_AnchorMax.x
@@ -8894,6 +8894,14 @@ PrefabInstance:
       propertyPath: timeToStart
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 4292625906859779486, guid: 39ee7232f8d0a7047a8f6b230b859c27, type: 3}
+      propertyPath: audioAtStart
+      value: 
+      objectReference: {fileID: 8300000, guid: 964cabc1c33364478811358e0c396277, type: 3}
+    - target: {fileID: 4292625906859779486, guid: 39ee7232f8d0a7047a8f6b230b859c27, type: 3}
+      propertyPath: backgroundMusic
+      value: 
+      objectReference: {fileID: 9083949}
     - target: {fileID: 4292625906859779486, guid: 39ee7232f8d0a7047a8f6b230b859c27, type: 3}
       propertyPath: playerReadyText
       value: 
