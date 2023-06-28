@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.072399415, g: 0.01006265, b: 0.027012398, a: 1}
+  m_IndirectSpecularColor: {r: 0.07216381, g: 0.010029477, b: 0.026914824, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -230,6 +230,10 @@ PrefabInstance:
     - target: {fileID: 2551936397755199909, guid: ff3dbd55ab985ca418e896c9f0ea97b3, type: 3}
       propertyPath: m_Name
       value: butona
+      objectReference: {fileID: 0}
+    - target: {fileID: 2551936397755199909, guid: ff3dbd55ab985ca418e896c9f0ea97b3, type: 3}
+      propertyPath: m_TagString
+      value: Button
       objectReference: {fileID: 0}
     - target: {fileID: 2891764022227954463, guid: ff3dbd55ab985ca418e896c9f0ea97b3, type: 3}
       propertyPath: m_RootOrder

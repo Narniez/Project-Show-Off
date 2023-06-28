@@ -12,6 +12,9 @@ public class ArduinoComunication : MonoBehaviour
 {
     public TextMeshProUGUI timerUI;
 
+    public AudioClip playersLeftClip;
+    public AudioClip playerLeftClip;
+
     [SerializeField] string comPort = "COM3";
     private SerialPort dataStream;
     private Queue<string> receivedDataQueue;
@@ -21,6 +24,7 @@ public class ArduinoComunication : MonoBehaviour
 
     private int player1, player2;
     private bool arduinoTurned;
+    private bool bothPlayersHere;
 
     private void Awake()
     {
@@ -75,7 +79,7 @@ public class ArduinoComunication : MonoBehaviour
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Comma)) arduinoTurned = !arduinoTurned;
-        if (!arduinoTurned) return;
+        if (!arduinoTurned || Time.timeScale == 0) return;
 
         if (receivedDataQueue.Count > 0)
         {
@@ -94,6 +98,7 @@ public class ArduinoComunication : MonoBehaviour
 
         if (player1 == 1 && player2 == 1) {
             Debug.Log("tuka sa");
+            bothPlayersHere = true;
             // timerUI.gameObject.SetActive(false);
         }
         // Continue with the rest of your update logic
@@ -103,6 +108,7 @@ public class ArduinoComunication : MonoBehaviour
     {
         if (player1 == 0 && player2 == 0)
         {
+            SoundEffects.instance.PlaySoundEffect(playersLeftClip);
             // timerUI.gameObject.SetActive(true);
             _resetLevelTimer -= Time.deltaTime; // Update the timer each frame
             int seconds = Mathf.FloorToInt(_resetLevelTimer);
@@ -134,7 +140,7 @@ public class ArduinoComunication : MonoBehaviour
         if (player1 != 1 || player2 != 1)
         {
             // timerUI.gameObject.SetActive(true);
-
+            SoundEffects.instance.PlaySoundEffect(playerLeftClip);
             timer -= Time.deltaTime;
             int seconds = Mathf.FloorToInt(timer);
             // timerUI.text = "Waiting for a player " + seconds.ToString("00:00");
