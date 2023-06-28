@@ -2907,9 +2907,9 @@ PrefabInstance:
       value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 4292625906859779486, guid: 39ee7232f8d0a7047a8f6b230b859c27, type: 3}
-      propertyPath: backgroundMusic
+      propertyPath: audioAtStart
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 8300000, guid: 964cabc1c33364478811358e0c396277, type: 3}
     - target: {fileID: 4292625906859779486, guid: 39ee7232f8d0a7047a8f6b230b859c27, type: 3}
       propertyPath: playerReadyText
       value: 
@@ -7230,7 +7230,7 @@ AudioSource:
   SpatializePostEffects: 0
   Priority: 128
   DopplerLevel: 1
-  MinDistance: 1
+  MinDistance: 20.762608
   MaxDistance: 500
   Pan2D: 0
   rolloffMode: 0
@@ -7266,7 +7266,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 1
+      value: 0
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -7363,7 +7363,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1502288103}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -7.88, y: 0.92, z: -1.8}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -11353,6 +11353,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 6318818088026963008, guid: 18526ce6064b0ec4190b8da71d97ad69, type: 3}
+      propertyPath: m_Volume
+      value: 0.806
+      objectReference: {fileID: 0}
     - target: {fileID: 6318818088026963009, guid: 18526ce6064b0ec4190b8da71d97ad69, type: 3}
       propertyPath: m_RootOrder
       value: 22

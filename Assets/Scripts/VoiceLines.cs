@@ -5,8 +5,6 @@ using TMPro;
 
 public class VoiceLines : MonoBehaviour
 {
-  
-
     [SerializeField] private List<AudioClip> puzzleSolvedLines;
     [SerializeField] private List<AudioClip> levelSolvedLines;
     [SerializeField] private List<AudioClip> noPuzzleSolvedLines;
@@ -16,9 +14,11 @@ public class VoiceLines : MonoBehaviour
     [SerializeField] private List<string> levelSolvedSubs;
     [SerializeField] private List<string> noPuzzleSolvedSubs;
 
+    [SerializeField] private List<string> startVoiceLineSubs;
+
     [SerializeField] private TextMeshProUGUI subtitles;
     [SerializeField] private GameObject subsPanel;
-   
+
     public AudioSource audioSource;
 
 
@@ -39,9 +39,16 @@ public class VoiceLines : MonoBehaviour
 
     private bool isDisplayingSubtitles = false; // Track if subtitles are currently being displayed
 
+    public static bool startVoiceLineTimer = false;
+
+    bool displayStartSubs = true;
+
+    PlayerManager playerManager;
+
     private void Start()
     {
         pTimer = notSolvedTimer;
+        playerManager = FindObjectOfType<PlayerManager>();
 
         //// Check if puzzles are attached
         //if (colorPuzzle == null || rotDiskPuzzle == null || lightPuzzle == null)
@@ -54,27 +61,34 @@ public class VoiceLines : MonoBehaviour
     {
 
         PlayVoiceLines();
-       
+
+        if (playerManager.PlayersConnected() && displayStartSubs && startVoiceLineTimer)
+        {
+            PlayStartVoiceLines();
+        }
     }
 
     private void PlayVoiceLines()
     {
-        pTimer -= Time.deltaTime;
+        if (startVoiceLineTimer)
+        {
+            pTimer -= Time.deltaTime;
+        }
         float seconds = Mathf.FloorToInt(pTimer);
 
         if (colorPuzzle.isSolved && !colorPuzzleSolved)
         {
-            
+
             colorPuzzleSolved = true;
             ChooseLine(puzzleSolvedLines, puzzleSolvedSubs);
-           
+
         }
         else if (rotDiskPuzzle.isSolved && !rotDiskPuzzleSolved)
         {
             rotDiskPuzzleSolved = true;
-            ChooseLine(puzzleSolvedLines,puzzleSolvedSubs);
+            ChooseLine(puzzleSolvedLines, puzzleSolvedSubs);
         }
-        else if (lightPuzzle != null &&  lightPuzzle.isCompleted && !lightPuzzleSolved)
+        else if (lightPuzzle != null && lightPuzzle.isCompleted && !lightPuzzleSolved)
         {
             lightPuzzleSolved = true;
             ChooseLine(puzzleSolvedLines, puzzleSolvedSubs);
@@ -82,16 +96,16 @@ public class VoiceLines : MonoBehaviour
         else if (randomLightPuzzle != null && randomLightPuzzle.IsSolved() && !randomLightsSolved)
         {
             randomLightsSolved = true;
-            ChooseLine(puzzleSolvedLines,puzzleSolvedSubs);
+            ChooseLine(puzzleSolvedLines, puzzleSolvedSubs);
         }
         else if (platesHolder.levelSolved && !levelSolved)
         {
             ChooseLine(levelSolvedLines, levelSolvedSubs);
             levelSolved = true;
         }
-        else if(seconds <= 0)
+        else if (seconds <= 0)
         {
-           ChooseLine(noPuzzleSolvedLines,noPuzzleSolvedSubs);
+            ChooseLine(noPuzzleSolvedLines, noPuzzleSolvedSubs);
         }
     }
 
@@ -130,6 +144,51 @@ public class VoiceLines : MonoBehaviour
         subsPanel.SetActive(false);
 
         isDisplayingSubtitles = false; // Reset the flag to indicate that subtitles are no longer being displayed
-
     }
+
+    private void PlayStartVoiceLines()
+    {
+        if (isDisplayingSubtitles)
+        {
+            return; // If subtitles are already being displayed, ignore the start voice lines
+        }
+
+        if (startVoiceLineSubs.Count > 0)
+        {
+            string subtitle = startVoiceLineSubs[0];
+            startVoiceLineSubs.RemoveAt(0);
+
+            StartCoroutine(DisplayStartVoiceLineSubtitle(subtitle));
+        }
+        else
+        {
+            displayStartSubs = false;
+        }
+    }
+
+    IEnumerator DisplayStartVoiceLineSubtitle(string subtitle)
+    {
+        isDisplayingSubtitles = true; // Set the flag to indicate that subtitles are being displayed
+
+        subsPanel.SetActive(true);
+        subtitles.text = string.Empty;
+        for (int i = 0; i < subtitle.Length; i++)
+        {
+            subtitles.text += subtitle[i];
+            yield return new WaitForSeconds(0.05f); // Adjust the delay between characters if needed
+        }
+
+        yield return new WaitForSeconds(1.3f); // Keep the subtitles on the screen for 3 seconds
+
+        subtitles.text = string.Empty; // Clear the subtitles after 3 seconds
+        subsPanel.SetActive(false);
+
+        isDisplayingSubtitles = false; // Reset the flag to indicate that subtitles are no longer being displayed
+
+        // Proceed to the next start voice line after a short delay
+        yield return new WaitForSeconds(0.7f);
+        PlayStartVoiceLines();
+    }
+
+
 }

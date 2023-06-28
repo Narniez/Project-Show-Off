@@ -40,6 +40,8 @@ public class PlayerManager : MonoBehaviour
 
     public GameObject panel;
 
+    bool playersConnected;
+
     [SerializeField] private AudioClip audioAtStart;
     [SerializeField] private AudioSource backgroundMusic;
 
@@ -103,6 +105,7 @@ public class PlayerManager : MonoBehaviour
                 {
                     player.GetComponent<PlayerControls>().canMoveAtStart = true;
                 }
+                VoiceLines.startVoiceLineTimer = true;
                 SoundEffects.instance.PlaySoundEffect(audioAtStart);
             }
 
@@ -148,9 +151,15 @@ public class PlayerManager : MonoBehaviour
         player.transform.position = startingPoints[players.Count - 1].position;
         if (playerCount == 2)
         {
+            playersConnected = true;
             playerTwoReadyText.SetActive(true);
             player.GetComponentInChildren<Camera>().GetComponent<AudioListener>().enabled = false;
             player.GetComponent<PlayerUI>().uiPosition = new Vector3(0.5f, 0, 0);
         }
+    }
+
+    public bool PlayersConnected()
+    {
+        return playersConnected;
     }
 }
