@@ -12,8 +12,7 @@ public class SoundEffects : MonoBehaviour
             instance = this;
             DontDestroyOnLoad(this);
         }
-        else
-            Destroy(instance);
+        else Destroy(this.gameObject);
     }
 
     public void PlaySoundEffect(AudioClip clip)
@@ -23,5 +22,9 @@ public class SoundEffects : MonoBehaviour
             audioSource.clip = clip;
             audioSource.Play();
         }
+    }
+
+    public void StopSoundEffect() { 
+        audioSource.Stop();
     }
 }

@@ -61,7 +61,6 @@ public class VoiceLines : MonoBehaviour
     {
         pTimer -= Time.deltaTime;
         float seconds = Mathf.FloorToInt(pTimer);
-        Debug.Log(seconds);
 
         if (colorPuzzle.isSolved && !colorPuzzleSolved)
         {

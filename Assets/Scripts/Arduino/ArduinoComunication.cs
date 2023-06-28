@@ -10,10 +10,11 @@ using UnityEngine.SceneManagement;
 /// </summary>
 public class ArduinoComunication : MonoBehaviour
 {
-    public TextMeshProUGUI timerUI;
-
+    public static ArduinoComunication instance;
     public AudioClip playersLeftClip;
     public AudioClip playerLeftClip;
+    
+    public bool arduinoTurned;
 
     [SerializeField] string comPort = "COM3";
     private SerialPort dataStream;
@@ -23,12 +24,16 @@ public class ArduinoComunication : MonoBehaviour
     private float _resetLevelTimer = 10f; // Timer variable to track the elapsed time
 
     private int player1, player2;
-    private bool arduinoTurned;
     private bool bothPlayersHere;
 
     private void Awake()
     {
-        DontDestroyOnLoad(this);
+        if (instance == null)
+        {
+            instance = this;
+            DontDestroyOnLoad(this);
+        }
+        else Destroy(this.gameObject);
     }
 
     private void Start()
@@ -81,6 +86,9 @@ public class ArduinoComunication : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Comma)) arduinoTurned = !arduinoTurned;
         if (!arduinoTurned || Time.timeScale == 0) return;
 
+        Debug.Log("Player1 " + player1 + " " + "Player2 " + player2);
+        
+
         if (receivedDataQueue.Count > 0)
         {
             while (receivedDataQueue.TryDequeue(out string data))
@@ -93,6 +101,7 @@ public class ArduinoComunication : MonoBehaviour
                 Debug.Log("Received data: player2 " + player2);
             }
         }
+
         ResetLevel();
         WaitingForThePlayerToComeBack();
 
@@ -108,7 +117,7 @@ public class ArduinoComunication : MonoBehaviour
     {
         if (player1 == 0 && player2 == 0)
         {
-            SoundEffects.instance.PlaySoundEffect(playersLeftClip);
+            //SoundEffects.instance.PlaySoundEffect(playersLeftClip);
             // timerUI.gameObject.SetActive(true);
             _resetLevelTimer -= Time.deltaTime; // Update the timer each frame
             int seconds = Mathf.FloorToInt(_resetLevelTimer);
@@ -117,6 +126,7 @@ public class ArduinoComunication : MonoBehaviour
             if (seconds <= 0)
             {
                 //Reset the level
+                SoundEffects.instance.StopSoundEffect();
                 SceneManager.LoadScene(0);
                 Debug.Log("reset the level");
                 _resetLevelTimer = 10f;
@@ -131,24 +141,27 @@ public class ArduinoComunication : MonoBehaviour
 
     void WaitingForThePlayerToComeBack()
     {
-        if (player1 != 1 && player2 != 1)
-        {
-            //timerUI.gameObject.SetActive(false);
-            return;
-        }
+        //if (player1 != 0 || player2 != 0)
+        //{
+        //    //timerUI.gameObject.SetActive(false);
+        //    //return;
+        //}
 
-        if (player1 != 1 || player2 != 1)
+        if (player1 == 0 || player2 == 0)
         {
-            // timerUI.gameObject.SetActive(true);
-            SoundEffects.instance.PlaySoundEffect(playerLeftClip);
+            //SoundEffects.instance.PlaySoundEffect(playerLeftClip);
+            Debug.Log("trqbva da pleiva");
+
             timer -= Time.deltaTime;
             int seconds = Mathf.FloorToInt(timer);
-            // timerUI.text = "Waiting for a player " + seconds.ToString("00:00");
+
             Debug.Log("Waiting for the player" + "Timer: " + seconds + " seconds");
 
             if (seconds <= 0)
             {
                 //Reset the level
+                SoundEffects.instance.StopSoundEffect();
+
                 SceneManager.LoadScene(0);
 
                 Debug.Log("stop waiting maybe!?");

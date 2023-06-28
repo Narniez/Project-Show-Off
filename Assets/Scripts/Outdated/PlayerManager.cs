@@ -115,13 +115,16 @@ public class PlayerManager : MonoBehaviour
             timerText.fontSize = (int)timerTextSize;
         }
 
-        if (!SoundEffects.instance.audioSource.isPlaying && backgroundMusic != null)
+        if (backgroundMusic != null)
         {
-            backgroundMusic.volume = 0.3f;
-        }
-        else
-        {
-            backgroundMusic.volume = 0.1f;
+            if (!SoundEffects.instance.audioSource.isPlaying)
+            {
+                backgroundMusic.volume = 0.3f;
+            }
+            else
+            {
+                backgroundMusic.volume = 0.1f;
+            }
         }
     }
 
