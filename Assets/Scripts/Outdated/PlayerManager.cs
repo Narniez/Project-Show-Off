@@ -47,8 +47,8 @@ public class PlayerManager : MonoBehaviour
 
     private void Start()
     {
-        if(backgroundMusic != null)
-        backgroundMusic.volume = 0.1f;
+        if (backgroundMusic != null)
+            backgroundMusic.volume = 0.1f;
         if (Gamepad.all.Count > 1)
         {
             gamepads.AddRange(Gamepad.all);
@@ -109,7 +109,7 @@ public class PlayerManager : MonoBehaviour
                 SoundEffects.instance.PlaySoundEffect(audioAtStart);
             }
 
-           
+
 
             if (!activateTimer) return;
             // Scale the timer text
@@ -123,6 +123,10 @@ public class PlayerManager : MonoBehaviour
             if (!SoundEffects.instance.audioSource.isPlaying)
             {
                 backgroundMusic.volume = 0.3f;
+            }
+            if (!SoundEffects.instance.audioSource.isPlaying && backgroundMusic.gameObject.CompareTag("VaporwaveMusic"))
+            {
+                backgroundMusic.volume = 1f;
             }
             else
             {

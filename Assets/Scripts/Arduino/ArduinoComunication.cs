@@ -13,10 +13,10 @@ public class ArduinoComunication : MonoBehaviour
     public static ArduinoComunication instance;
     public AudioClip playersLeftClip;
     public AudioClip playerLeftClip;
-    
+
     public bool arduinoTurned;
 
-    [SerializeField] string comPort = "COM3";
+    [SerializeField] string comPort = "COM5";
     private SerialPort dataStream;
     private Queue<string> receivedDataQueue;
 
@@ -84,7 +84,7 @@ public class ArduinoComunication : MonoBehaviour
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Comma)) arduinoTurned = !arduinoTurned;
-        if (!arduinoTurned || Time.timeScale == 0) return;
+        if (!arduinoTurned || Time.timeScale == 0 || SceneManager.GetActiveScene().buildIndex == 0) return;
 
         Debug.Log("Player1 " + player1 + " " + "Player2 " + player2);
         

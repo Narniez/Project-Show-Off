@@ -178,7 +178,7 @@ public class VoiceLines : MonoBehaviour
             yield return new WaitForSeconds(0.05f); // Adjust the delay between characters if needed
         }
 
-        yield return new WaitForSeconds(1.3f); // Keep the subtitles on the screen for 3 seconds
+        yield return new WaitForSeconds(1.5f); // Keep the subtitles on the screen for 3 seconds
 
         subtitles.text = string.Empty; // Clear the subtitles after 3 seconds
         subsPanel.SetActive(false);
