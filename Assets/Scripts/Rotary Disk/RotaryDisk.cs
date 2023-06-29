@@ -9,7 +9,7 @@ public class RotaryDisk : PuzzleAbstract
 
     [HideInInspector] private Quaternion targetAngle;
 
-   
+    public AudioClip soundEffect;
     public override void OnFocus() { }
 
     public override void OnInteract() { }
@@ -26,6 +26,7 @@ public class RotaryDisk : PuzzleAbstract
     {
         if (!IsRotating())
         {
+            SoundEffects.instance.PlaySoundEffect(soundEffect);
             targetAngle = transform.rotation * Quaternion.Euler(0, 0, rotAmount);
             StartCoroutine(RotateTowardsTarget(targetAngle,rotationDuration));
         }

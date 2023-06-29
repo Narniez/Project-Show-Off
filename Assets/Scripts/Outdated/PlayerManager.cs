@@ -107,6 +107,7 @@ public class PlayerManager : MonoBehaviour
                 }
                 VoiceLines.startVoiceLineTimer = true;
                 SoundEffects.instance.PlaySoundEffect(audioAtStart);
+                playersConnected = true;
             }
 
 
@@ -155,7 +156,6 @@ public class PlayerManager : MonoBehaviour
         player.transform.position = startingPoints[players.Count - 1].position;
         if (playerCount == 2)
         {
-            playersConnected = true;
             playerTwoReadyText.SetActive(true);
             player.GetComponentInChildren<Camera>().GetComponent<AudioListener>().enabled = false;
             player.GetComponent<PlayerUI>().uiPosition = new Vector3(0.5f, 0, 0);

@@ -17,7 +17,7 @@ public class SoundEffects : MonoBehaviour
 
     public void PlaySoundEffect(AudioClip clip)
     {
-        if (clip != null)
+        if (clip != null && !audioSource.isPlaying)
         {
             audioSource.clip = clip;
             audioSource.Play();
