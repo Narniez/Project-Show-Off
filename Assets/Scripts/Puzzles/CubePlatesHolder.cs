@@ -27,9 +27,9 @@ public class CubePlatesHolder : MonoBehaviour
             {
                 return;
             }
-            levelSolved = true;
         }
 
+        levelSolved = true;
         foreach (GameObject door in doors)
         {
             door.TryGetComponent<Animator>(out Animator anim);

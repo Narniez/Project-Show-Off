@@ -50,7 +50,6 @@ public class SpawnCube : PuzzleAbstract, IButton
     public override void OnInteract()
     {
         IsPressed = true;
-        SoundEffects.instance.PlaySoundEffect(soundEffect);
         if (canSpawn && !hasSpawned)
         {
             companionCube.SetActive(true);
@@ -62,7 +61,9 @@ public class SpawnCube : PuzzleAbstract, IButton
         if (hasSpawned && !companionCube.GetComponent<CompanionCube>().isPlaced)
         {
             ResetPosition();
+            SoundEffects.instance.PlaySoundEffect(audioClipSpawnCube);
         }
+        SoundEffects.instance.PlaySoundEffect(soundEffect);
     }
 
     public override void OnLoseFocus()
