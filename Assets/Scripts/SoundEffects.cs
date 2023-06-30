@@ -10,7 +10,7 @@ public class SoundEffects : MonoBehaviour
         if (instance == null)
         {
             instance = this;
-            DontDestroyOnLoad(this);
+           // DontDestroyOnLoad(this);
         }
         else Destroy(this.gameObject);
     }

@@ -57,7 +57,7 @@ public class VoiceLines : MonoBehaviour
         //}
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
 
         PlayVoiceLines();
