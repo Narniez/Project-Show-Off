@@ -10,13 +10,14 @@ public class SoundEffects : MonoBehaviour
         if (instance == null)
         {
             instance = this;
-           // DontDestroyOnLoad(this);
+           //DontDestroyOnLoad(this);
         }
         else Destroy(this.gameObject);
     }
 
     public void PlaySoundEffect(AudioClip clip)
     {
+        audioSource.volume = 1;
         if (clip != null && !audioSource.isPlaying)
         {
             audioSource.clip = clip;
@@ -25,6 +26,7 @@ public class SoundEffects : MonoBehaviour
     }
 
     public void StopSoundEffect() { 
-        audioSource.Stop();
+        audioSource.clip = null;
+        //audioSource.Stop();
     }
 }

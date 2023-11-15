@@ -5,6 +5,7 @@ using TMPro;
 
 public class VoiceLines : MonoBehaviour
 {
+
     [SerializeField] private List<AudioClip> puzzleSolvedLines;
     [SerializeField] private List<AudioClip> levelSolvedLines;
     [SerializeField] private List<AudioClip> noPuzzleSolvedLines;
@@ -18,6 +19,7 @@ public class VoiceLines : MonoBehaviour
 
     [SerializeField] private TextMeshProUGUI subtitles;
     [SerializeField] private GameObject subsPanel;
+    [SerializeField] private GameObject skipText;
 
     public AudioSource audioSource;
 
@@ -45,6 +47,8 @@ public class VoiceLines : MonoBehaviour
 
     PlayerManager playerManager;
 
+    bool skipStartVoiceLines = false;
+
     private void Start()
     {
         pTimer = notSolvedTimer;
@@ -61,10 +65,20 @@ public class VoiceLines : MonoBehaviour
     {
 
         PlayVoiceLines();
+        foreach (var player in playerManager.players)
+        {
+            if (player.actions.FindAction("Skip").IsPressed() && playerManager.PlayersConnected())
+            {
+                skipStartVoiceLines = true;
+                skipText.SetActive(false);
+            }
+        }
+        
 
         if (playerManager.PlayersConnected() && displayStartSubs && startVoiceLineTimer)
         {
             PlayStartVoiceLines();
+
         }
     }
 
@@ -148,6 +162,7 @@ public class VoiceLines : MonoBehaviour
 
     private void PlayStartVoiceLines()
     {
+
         if (isDisplayingSubtitles)
         {
             return; // If subtitles are already being displayed, ignore the start voice lines
@@ -155,14 +170,22 @@ public class VoiceLines : MonoBehaviour
 
         if (startVoiceLineSubs.Count > 0)
         {
+            skipText.SetActive(true);
             string subtitle = startVoiceLineSubs[0];
             startVoiceLineSubs.RemoveAt(0);
 
             StartCoroutine(DisplayStartVoiceLineSubtitle(subtitle));
+            if (skipStartVoiceLines)
+            {
+                StopCoroutine(DisplayStartVoiceLineSubtitle(subtitle));
+                startVoiceLineSubs.Clear();
+                skipText.SetActive(false);
+            }
         }
         else
         {
             displayStartSubs = false;
+            skipText.SetActive(false);
         }
     }
 
@@ -174,21 +197,35 @@ public class VoiceLines : MonoBehaviour
         subtitles.text = string.Empty;
         for (int i = 0; i < subtitle.Length; i++)
         {
+            if (skipStartVoiceLines)
+            {
+                break;
+            }
             subtitles.text += subtitle[i];
             yield return new WaitForSeconds(0.05f); // Adjust the delay between characters if needed
         }
 
-        yield return new WaitForSeconds(1.5f); // Keep the subtitles on the screen for 3 seconds
+        if (!skipStartVoiceLines)
+        {
+            yield return new WaitForSeconds(1.5f); // Keep the subtitles on the screen for 1.5 seconds
 
-        subtitles.text = string.Empty; // Clear the subtitles after 3 seconds
-        subsPanel.SetActive(false);
+            subtitles.text = string.Empty; // Clear the subtitles after 1.5 seconds
+            subsPanel.SetActive(false);
 
-        isDisplayingSubtitles = false; // Reset the flag to indicate that subtitles are no longer being displayed
+            isDisplayingSubtitles = false; // Reset the flag to indicate that subtitles are no longer being displayed
 
-        // Proceed to the next start voice line after a short delay
-        yield return new WaitForSeconds(0.7f);
-        PlayStartVoiceLines();
+            // Check the flag before proceeding to the next start voice line
+            if (!skipStartVoiceLines)
+            {
+                // Proceed to the next start voice line after a short delay
+                yield return new WaitForSeconds(0.7f);
+                PlayStartVoiceLines();
+            }
+        }
+        else
+        {
+            // If the subtitles were skipped, immediately hide the panel
+            subsPanel.SetActive(false);
+        }
     }
-
-
 }

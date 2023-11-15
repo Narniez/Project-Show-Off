@@ -45,7 +45,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 0.79
+  m_Volume: 0.806
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -156,9 +156,9 @@ MonoBehaviour:
   puzzleSolvedSubs:
   - Congratulations! I was about to lose all my hope and just hand you the answer.
   - Finally... That almost took longer than my first  marriage. Congrats, I guess...
-  - Good job people, took you long enough. Now grab that cube AND MOVE ON!
+  - Good job people, took you long enough. Now grab that cube and MOVE ON!
   levelSolvedSubs:
-  - 'Level complete! Onto another on then, heh. Thats not the end of the game, what
+  - 'Level complete! Onto another one then, heh. Thats not the end of the game, what
     did you think... '
   - 'Oh wow! You escaped, that was unexpected. Well not to worry, here is another
     level. '
@@ -183,6 +183,7 @@ MonoBehaviour:
   - "Ok\u2026 Off you go!"
   subtitles: {fileID: 0}
   subsPanel: {fileID: 0}
+  skipText: {fileID: 0}
   audioSource: {fileID: 6318818088026963008}
   platesHolder: {fileID: 0}
   colorPuzzle: {fileID: 0}

@@ -6178,6 +6178,11 @@ MonoBehaviour:
   lightController: {fileID: 5166789057614752618}
   clip: {fileID: 8300000, guid: 88c8f68268fd54130a76a380b6b21363, type: 3}
   puzzleDone: {fileID: 8300000, guid: eb0c888c2a62b4d3ea24e3b95906b81d, type: 3}
+--- !u!1 &1030181110 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 325915626, guid: f5609ff02d7810a46bdf4f1958afbcd7, type: 3}
+  m_PrefabInstance: {fileID: 988648277}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1043080399 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2574112476463947895, guid: 797351682f225104da87ba82f4457359, type: 3}
@@ -7389,6 +7394,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: VoiceLines
       objectReference: {fileID: 0}
+    - target: {fileID: 6318818088026963015, guid: 18526ce6064b0ec4190b8da71d97ad69, type: 3}
+      propertyPath: skipText
+      value: 
+      objectReference: {fileID: 1030181110}
     - target: {fileID: 6318818088026963015, guid: 18526ce6064b0ec4190b8da71d97ad69, type: 3}
       propertyPath: subsPanel
       value: 

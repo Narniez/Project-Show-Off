@@ -1848,6 +1848,11 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!1 &325915626 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 325915626, guid: f5609ff02d7810a46bdf4f1958afbcd7, type: 3}
+  m_PrefabInstance: {fileID: 4476470789051487517}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &329007098
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2751,7 +2756,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3232352530158840380, guid: d9c476e6a0871b64eb5fa47edd9d0d21, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d9c476e6a0871b64eb5fa47edd9d0d21, type: 3}
@@ -11548,10 +11553,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 6318818088026963008, guid: 18526ce6064b0ec4190b8da71d97ad69, type: 3}
-      propertyPath: m_Volume
-      value: 0.806
-      objectReference: {fileID: 0}
     - target: {fileID: 6318818088026963009, guid: 18526ce6064b0ec4190b8da71d97ad69, type: 3}
       propertyPath: m_RootOrder
       value: 22
@@ -11601,6 +11602,10 @@ PrefabInstance:
       value: VoiceLines
       objectReference: {fileID: 0}
     - target: {fileID: 6318818088026963015, guid: 18526ce6064b0ec4190b8da71d97ad69, type: 3}
+      propertyPath: skipText
+      value: 
+      objectReference: {fileID: 325915626}
+    - target: {fileID: 6318818088026963015, guid: 18526ce6064b0ec4190b8da71d97ad69, type: 3}
       propertyPath: subsPanel
       value: 
       objectReference: {fileID: 1716157207}
@@ -11624,15 +11629,6 @@ PrefabInstance:
       propertyPath: rotDiskPuzzle
       value: 
       objectReference: {fileID: 7053739650738934392}
-    - target: {fileID: 6318818088026963015, guid: 18526ce6064b0ec4190b8da71d97ad69, type: 3}
-      propertyPath: levelSolvedSubs.Array.data[0]
-      value: 'Level complete! Onto another one then, heh. Thats not the end of the
-        game, what did you think... '
-      objectReference: {fileID: 0}
-    - target: {fileID: 6318818088026963015, guid: 18526ce6064b0ec4190b8da71d97ad69, type: 3}
-      propertyPath: puzzleSolvedSubs.Array.data[2]
-      value: Good job people, took you long enough. Now grab that cube and MOVE ON!
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 18526ce6064b0ec4190b8da71d97ad69, type: 3}
 --- !u!1 &6335250784330715103

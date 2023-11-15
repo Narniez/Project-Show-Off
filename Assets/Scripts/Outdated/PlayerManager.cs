@@ -6,7 +6,7 @@ using UnityEngine.InputSystem;
 
 public class PlayerManager : MonoBehaviour
 {
-    private List<PlayerInput> players = new List<PlayerInput>();
+    public List<PlayerInput> players = new List<PlayerInput>();
 
     private List<Gamepad> gamepads = new List<Gamepad>();
 
@@ -117,6 +117,13 @@ public class PlayerManager : MonoBehaviour
             float elapsedTime = Time.time - scaleTimerStartTime;
             float timerTextSize = Mathf.Lerp(initialTimerTextSize, targetTimerTextSize, elapsedTime / timerTextScaleDuration);
             timerText.fontSize = (int)timerTextSize;
+        }
+        foreach (var player in players)
+        {
+            if (player.actions.FindAction("Skip").IsPressed())
+            {
+                SoundEffects.instance.StopSoundEffect();
+            }
         }
 
         if (backgroundMusic != null)

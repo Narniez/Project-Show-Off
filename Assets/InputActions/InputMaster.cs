@@ -152,6 +152,15 @@ public partial class @InputMaster: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Skip"",
+                    ""type"": ""Button"",
+                    ""id"": ""8d1901bc-0194-430f-b12b-9edb65acd9aa"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -704,6 +713,17 @@ public partial class @InputMaster: IInputActionCollection2, IDisposable
                     ""action"": ""Sprint"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""25eae251-c047-4c65-a53a-6613979b975e"",
+                    ""path"": ""<Gamepad>/start"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Skip"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -726,6 +746,7 @@ public partial class @InputMaster: IInputActionCollection2, IDisposable
         m_Player_GoRight = m_Player.FindAction("GoRight", throwIfNotFound: true);
         m_Player_PauseMenu = m_Player.FindAction("PauseMenu", throwIfNotFound: true);
         m_Player_Sprint = m_Player.FindAction("Sprint", throwIfNotFound: true);
+        m_Player_Skip = m_Player.FindAction("Skip", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -801,6 +822,7 @@ public partial class @InputMaster: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_GoRight;
     private readonly InputAction m_Player_PauseMenu;
     private readonly InputAction m_Player_Sprint;
+    private readonly InputAction m_Player_Skip;
     public struct PlayerActions
     {
         private @InputMaster m_Wrapper;
@@ -819,6 +841,7 @@ public partial class @InputMaster: IInputActionCollection2, IDisposable
         public InputAction @GoRight => m_Wrapper.m_Player_GoRight;
         public InputAction @PauseMenu => m_Wrapper.m_Player_PauseMenu;
         public InputAction @Sprint => m_Wrapper.m_Player_Sprint;
+        public InputAction @Skip => m_Wrapper.m_Player_Skip;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -870,6 +893,9 @@ public partial class @InputMaster: IInputActionCollection2, IDisposable
             @Sprint.started += instance.OnSprint;
             @Sprint.performed += instance.OnSprint;
             @Sprint.canceled += instance.OnSprint;
+            @Skip.started += instance.OnSkip;
+            @Skip.performed += instance.OnSkip;
+            @Skip.canceled += instance.OnSkip;
         }
 
         private void UnregisterCallbacks(IPlayerActions instance)
@@ -916,6 +942,9 @@ public partial class @InputMaster: IInputActionCollection2, IDisposable
             @Sprint.started -= instance.OnSprint;
             @Sprint.performed -= instance.OnSprint;
             @Sprint.canceled -= instance.OnSprint;
+            @Skip.started -= instance.OnSkip;
+            @Skip.performed -= instance.OnSkip;
+            @Skip.canceled -= instance.OnSkip;
         }
 
         public void RemoveCallbacks(IPlayerActions instance)
@@ -949,5 +978,6 @@ public partial class @InputMaster: IInputActionCollection2, IDisposable
         void OnGoRight(InputAction.CallbackContext context);
         void OnPauseMenu(InputAction.CallbackContext context);
         void OnSprint(InputAction.CallbackContext context);
+        void OnSkip(InputAction.CallbackContext context);
     }
 }

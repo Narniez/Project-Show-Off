@@ -3269,6 +3269,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &576632782 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 325915626, guid: f5609ff02d7810a46bdf4f1958afbcd7, type: 3}
+  m_PrefabInstance: {fileID: 576632779}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &592008375
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8272,6 +8277,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: VoiceLines
       objectReference: {fileID: 0}
+    - target: {fileID: 6318818088026963015, guid: 18526ce6064b0ec4190b8da71d97ad69, type: 3}
+      propertyPath: skipText
+      value: 
+      objectReference: {fileID: 576632782}
     - target: {fileID: 6318818088026963015, guid: 18526ce6064b0ec4190b8da71d97ad69, type: 3}
       propertyPath: subsPanel
       value: 
